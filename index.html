@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QHSE Trainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0A0A;
+  --dark: #111111;
+  --card: #1A1A1A;
+  --border: #2A2A2A;
+  --yellow: #FFD600;
+  --yellow-dim: rgba(255,214,0,0.08);
+  --white: #F5F5F5;
+  --gray: #777777;
+  --success: #00E676;
+  --error: #FF3D00;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'IBM Plex Sans',sans-serif; background:var(--black); color:var(--white); min-height:100vh; }
+header { padding:1.25rem 2rem; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; background:var(--black); z-index:100; }
+.logo { font-family:'Rajdhani',sans-serif; font-weight:700; font-size:1.4rem; letter-spacing:0.12em; color:var(--yellow); }
+.logo span { color:var(--white); }
+.header-stats { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--gray); }
+.home { max-width:920px; margin:0 auto; padding:3rem 1.5rem; }
+.home-hero { margin-bottom:3rem; }
+.home-hero h1 { font-family:'Rajdhani',sans-serif; font-weight:700; font-size:clamp(2.5rem,6vw,4rem); line-height:0.95; letter-spacing:-0.02em; margin-bottom:1rem; }
+.home-hero h1 span { color:var(--yellow); }
+.home-hero p { color:var(--gray); font-weight:300; font-size:0.95rem; max-width:380px; line-height:1.6; }
+.modules-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
+.module-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:1.5rem; cursor:pointer; transition:all 0.2s ease; position:relative; overflow:hidden; }
+.module-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:var(--yellow); transform:scaleX(0); transform-origin:left; transition:transform 0.3s ease; }
+.module-card:hover { border-color:rgba(255,214,0,0.4); transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,0.5); }
+.module-card:hover::before { transform:scaleX(1); }
+.module-icon { font-size:1.75rem; margin-bottom:0.875rem; }
+.module-title { font-family:'Rajdhani',sans-serif; font-weight:600; font-size:1.15rem; letter-spacing:0.04em; margin-bottom:0.4rem; }
+.module-meta { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:var(--gray); margin-bottom:1rem; }
+.module-progress { height:3px; background:var(--border); border-radius:2px; overflow:hidden; }
+.module-progress-bar { height:100%; background:var(--yellow); border-radius:2px; transition:width 0.6s ease; }
+.module-score { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--gray); margin-top:0.5rem; }
+.module-view { max-width:700px; margin:0 auto; padding:2rem 1.5rem; }
+.back-btn { background:none; border:1px solid var(--border); color:var(--gray); padding:0.5rem 1rem; border-radius:6px; cursor:pointer; font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.08em; margin-bottom:2rem; transition:all 0.2s; }
+.back-btn:hover { border-color:var(--yellow); color:var(--yellow); }
+.module-header { margin-bottom:2rem; }
+.module-header h2 { font-family:'Rajdhani',sans-serif; font-weight:700; font-size:2rem; letter-spacing:0.05em; }
+.mode-selector { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.mode-btn { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:2rem; cursor:pointer; transition:all 0.2s; text-align:left; color:var(--white); }
+.mode-btn:hover { border-color:var(--yellow); background:var(--yellow-dim); transform:translateY(-2px); }
+.mode-btn h3 { font-family:'Rajdhani',sans-serif; font-weight:600; font-size:1.15rem; margin-bottom:0.4rem; }
+.mode-btn p { font-size:0.82rem; color:var(--gray); font-weight:300; line-height:1.5; }
+.mode-icon { font-size:1.5rem; margin-bottom:0.75rem; }
+.flashcard-container { perspective:1000px; margin-bottom:1.5rem; }
+.flashcard { width:100%; min-height:280px; position:relative; transform-style:preserve-3d; transition:transform 0.55s cubic-bezier(0.4,0,0.2,1); cursor:pointer; }
+.flashcard.flipped { transform:rotateY(180deg); }
+.flashcard-front, .flashcard-back { position:absolute; width:100%; min-height:280px; backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:16px; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:2.5rem; text-align:center; }
+.flashcard-front { background:var(--card); border:1px solid var(--border); }
+.flashcard-back { background:#131100; border:1px solid var(--yellow); transform:rotateY(180deg); }
+.card-label { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; color:var(--gray); margin-bottom:1.25rem; text-transform:uppercase; }
+.flashcard-back .card-label { color:var(--yellow); }
+.card-question { font-family:'Rajdhani',sans-serif; font-weight:600; font-size:1.35rem; line-height:1.35; color:var(--white); }
+.card-answer { font-size:0.9rem; line-height:1.75; color:var(--white); white-space:pre-line; text-align:left; }
+.card-hint { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:var(--border); margin-top:1.25rem; letter-spacing:0.05em; }
+.flashcard-nav { display:flex; align-items:center; justify-content:space-between; }
+.nav-btn { background:var(--card); border:1px solid var(--border); color:var(--white); padding:0.7rem 1.25rem; border-radius:8px; cursor:pointer; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; letter-spacing:0.05em; transition:all 0.2s; }
+.nav-btn:hover:not(:disabled) { border-color:var(--yellow); color:var(--yellow); }
+.nav-btn:disabled { opacity:0.25; cursor:not-allowed; }
+.card-counter { font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:var(--gray); }
+.quiz-progress-bar { height:4px; background:var(--border); border-radius:2px; margin-bottom:2rem; overflow:hidden; }
+.quiz-progress-fill { height:100%; background:var(--yellow); border-radius:2px; transition:width 0.4s ease; }
+.quiz-question-text { font-family:'Rajdhani',sans-serif; font-weight:600; font-size:1.4rem; line-height:1.35; margin-bottom:1.5rem; padding:1.75rem; background:var(--card); border-radius:12px; border:1px solid var(--border); }
+.quiz-choices { display:grid; gap:0.65rem; margin-bottom:1.5rem; }
+.choice-btn { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:1.1rem 1.25rem; cursor:pointer; text-align:left; color:var(--white); font-size:0.9rem; transition:all 0.2s; display:flex; align-items:center; gap:0.875rem; font-family:'IBM Plex Sans',sans-serif; }
+.choice-btn:hover:not(:disabled) { border-color:var(--yellow); background:var(--yellow-dim); }
+.choice-btn:disabled { cursor:default; }
+.choice-btn.correct { border-color:var(--success); background:rgba(0,230,118,0.08); color:var(--success); }
+.choice-btn.wrong { border-color:var(--error); background:rgba(255,61,0,0.08); color:var(--error); }
+.choice-letter { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; width:22px; height:22px; border:1px solid var(--border); border-radius:4px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.choice-btn.correct .choice-letter { border-color:var(--success); }
+.choice-btn.wrong .choice-letter { border-color:var(--error); }
+.quiz-result { text-align:center; padding:2.5rem 1rem; }
+.result-score { font-family:'Rajdhani',sans-serif; font-weight:700; font-size:5.5rem; color:var(--yellow); line-height:1; margin-bottom:0.25rem; }
+.result-total { font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:var(--gray); margin-bottom:1.5rem; }
+.result-message { font-size:1rem; color:var(--white); margin-bottom:2.5rem; font-weight:300; }
+.result-btns { display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
+.btn-primary { background:var(--yellow); color:var(--black); border:none; padding:0.875rem 2rem; border-radius:8px; cursor:pointer; font-family:'Rajdhani',sans-serif; font-weight:700; font-size:1rem; letter-spacing:0.06em; transition:opacity 0.2s; }
+.btn-primary:hover { opacity:0.88; }
+.btn-secondary { background:none; color:var(--white); border:1px solid var(--border); padding:0.875rem 2rem; border-radius:8px; cursor:pointer; font-family:'Rajdhani',sans-serif; font-weight:600; font-size:1rem; letter-spacing:0.06em; transition:all 0.2s; }
+.btn-secondary:hover { border-color:var(--gray); }
+@keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+.fade-in { animation:fadeUp 0.3s ease forwards; }
+.view { display:none; }
+.view.active { display:block; }
+@media(max-width:600px){
+  header{padding:1rem}
+  .home{padding:1.75rem 1rem}
+  .module-view{padding:1.25rem 1rem}
+  .mode-selector{grid-template-columns:1fr}
+  .flashcard-front,.flashcard-back{padding:1.75rem;min-height:240px}
+  .card-question{font-size:1.2rem}
+  .quiz-question-text{font-size:1.15rem;padding:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">QHSE<span>TRAINER</span></div>
+  <div class="header-stats" id="headerStats">—</div>
+</header>
+
+<div id="homeView" class="view active">
+  <div class="home">
+    <div class="home-hero">
+      <h1>Prépare<br>ton <span>Bachelor</span><br>QHSE</h1>
+      <p>Flashcards & QCM pour maîtriser les fondamentaux avant ta formation CESI.</p>
+    </div>
+    <div class="modules-grid" id="modulesGrid"></div>
+  </div>
+</div>
+
+<div id="moduleView" class="view">
+  <div class="module-view">
+    <button class="back-btn" onclick="goHome()">← ACCUEIL</button>
+    <div class="module-header">
+      <div class="module-icon" id="moduleIcon"></div>
+      <h2 id="moduleTitle"></h2>
+    </div>
+    <div class="mode-selector">
+      <button class="mode-btn" onclick="startMode('flashcard')">
+        <div class="mode-icon">🃏</div>
+        <h3>Flashcards</h3>
+        <p>Révise les concepts clés. Clique pour révéler la réponse.</p>
+      </button>
+      <button class="mode-btn" onclick="startMode('quiz')">
+        <div class="mode-icon">✅</div>
+        <h3>Quiz QCM</h3>
+        <p>Teste tes connaissances avec 4 choix possibles.</p>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="flashcardView" class="view">
+  <div class="module-view">
+    <button class="back-btn" onclick="goModule()">← MODULE</button>
+    <div class="flashcard-container">
+      <div class="flashcard" id="flashcard" onclick="flipCard()">
+        <div class="flashcard-front">
+          <div class="card-label">Question</div>
+          <div class="card-question" id="cardQuestion"></div>
+          <div class="card-hint">· cliquer pour révéler ·</div>
+        </div>
+        <div class="flashcard-back">
+          <div class="card-label">Réponse</div>
+          <div class="card-answer" id="cardAnswer"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flashcard-nav">
+      <button class="nav-btn" id="prevBtn" onclick="prevCard()">← PRÉC.</button>
+      <span class="card-counter" id="cardCounter"></span>
+      <button class="nav-btn" id="nextBtn" onclick="nextCard()">SUIV. →</button>
+    </div>
+  </div>
+</div>
+
+<div id="quizView" class="view">
+  <div class="module-view">
+    <button class="back-btn" onclick="goModule()">← MODULE</button>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+    <div id="quizContent"></div>
+  </div>
+</div>
+
+<script>
+const modules = [
+  {
+    id:'iso', title:'Normes ISO', icon:'📋',
+    flashcards:[
+      {q:"Qu'est-ce que la norme ISO 9001 ?",a:"Norme internationale de management de la qualité. Elle définit les exigences pour un SMQ basé sur l'amélioration continue et la satisfaction client."},
+      {q:"Quels sont les 7 principes du management de la qualité ?",a:"1. Orientation client\n2. Leadership\n3. Implication du personnel\n4. Approche processus\n5. Amélioration\n6. Prise de décision fondée sur des preuves\n7. Management des relations avec les parties intéressées"},
+      {q:"Qu'est-ce que la roue de Deming (PDCA) ?",a:"Plan-Do-Check-Act : outil d'amélioration continue.\n• Plan : planifier les actions\n• Do : réaliser\n• Check : vérifier les résultats\n• Act : ajuster et standardiser"},
+      {q:"Qu'est-ce que l'ISO 14001 ?",a:"Norme de management environnemental. Aide les organismes à améliorer leurs performances environnementales via un SME (Système de Management Environnemental)."},
+      {q:"Qu'est-ce que l'ISO 45001 ?",a:"Norme de management de la santé et sécurité au travail. Remplace l'OHSAS 18001 depuis 2018. Vise à prévenir les accidents et maladies professionnelles."},
+      {q:"Différence entre audit interne et externe ?",a:"• Audit interne (1ère partie) : réalisé par l'organisme lui-même\n• Audit externe 2ème partie : réalisé par des clients\n• Audit externe 3ème partie : organisme de certification indépendant"},
+      {q:"Qu'est-ce qu'une non-conformité ?",a:"Non-satisfaction d'une exigence. Peut être majeure (absence totale) ou mineure (écart ponctuel ne remettant pas en cause le système)."},
+      {q:"Qu'est-ce que l'approche processus (ISO 9001) ?",a:"Voir l'organisme comme un ensemble de processus interconnectés. Chaque processus a des entrées, activités, sorties et indicateurs de performance."},
+    ],
+    quiz:[
+      {q:"Combien de principes de management de la qualité définit l'ISO 9001 ?",choices:["5","6","7","8"],answer:2},
+      {q:"Que signifie PDCA ?",choices:["Plan-Do-Check-Act","Process-Design-Control-Audit","Plan-Deploy-Control-Assess","Process-Do-Check-Adjust"],answer:0},
+      {q:"L'ISO 45001 concerne :",choices:["La qualité","L'environnement","La santé et sécurité au travail","La logistique"],answer:2},
+      {q:"Un audit de certification est réalisé par :",choices:["L'entreprise elle-même","Un client","Un organisme tiers indépendant","L'inspection du travail"],answer:2},
+      {q:"L'ISO 45001 remplace quelle norme ?",choices:["ISO 9001","OHSAS 18001","ISO 14001","ISO 26000"],answer:1},
+    ]
+  },
+  {
+    id:'duerp', title:'DUERP', icon:'⚠️',
+    flashcards:[
+      {q:"Que signifie DUERP ?",a:"Document Unique d'Évaluation des Risques Professionnels. Obligatoire depuis le décret du 5 novembre 2001 pour toute entreprise ayant au moins 1 salarié."},
+      {q:"Qui est responsable du DUERP ?",a:"L'employeur est responsable de son élaboration et de sa mise à jour. Il peut déléguer sa réalisation mais reste responsable juridiquement."},
+      {q:"Quelle est la fréquence de mise à jour du DUERP ?",a:"• Au minimum une fois par an\n• Lors de toute décision d'aménagement important\n• Lors d'un accident du travail\n• Lors de l'apparition d'un nouveau risque"},
+      {q:"Quelles sont les étapes d'élaboration du DUERP ?",a:"1. Identifier les unités de travail\n2. Identifier les dangers\n3. Analyser les risques (fréquence × gravité)\n4. Hiérarchiser les risques\n5. Définir un plan d'actions\n6. Mettre à jour et suivre"},
+      {q:"Quels sont les 9 principes généraux de prévention ?",a:"1. Éviter les risques\n2. Évaluer les risques\n3. Combattre à la source\n4. Adapter le travail à l'homme\n5. Tenir compte de l'évolution technique\n6. Remplacer le dangereux\n7. Planifier la prévention\n8. Protection collective avant individuelle\n9. Donner les instructions appropriées"},
+      {q:"Quelle est la sanction en cas d'absence de DUERP ?",a:"Amende de 1 500 € (3 000 € en récidive). L'absence du DUERP peut être retenue comme faute inexcusable de l'employeur en cas d'accident du travail."},
+      {q:"Comment se calcule la cotation d'un risque ?",a:"Cotation = Fréquence × Gravité\nCertaines méthodes ajoutent la Détectabilité (F × G × D).\nCela permet de hiérarchiser les risques et prioriser les actions de prévention."},
+    ],
+    quiz:[
+      {q:"Le DUERP est obligatoire pour les entreprises ayant :",choices:["Au moins 10 salariés","Au moins 1 salarié","Au moins 50 salariés","Au moins 5 salariés"],answer:1},
+      {q:"Quelle est la fréquence minimale de mise à jour du DUERP ?",choices:["Tous les 3 ans","Tous les 2 ans","Une fois par an","Tous les 6 mois"],answer:2},
+      {q:"Parmi les 9 principes de prévention, quelle mesure est prioritaire ?",choices:["EPI","Protection individuelle","Protection collective","Formation"],answer:2},
+      {q:"Qui est juridiquement responsable du DUERP ?",choices:["Le responsable HSE","Le CSE","L'employeur","Le médecin du travail"],answer:2},
+      {q:"L'amende pour absence de DUERP est de :",choices:["500 €","1 000 €","1 500 €","3 000 €"],answer:2},
+    ]
+  },
+  {
+    id:'tms', title:'TMS', icon:'🦴',
+    flashcards:[
+      {q:"Que signifie TMS ?",a:"Troubles Musculo-Squelettiques. Affections touchant les muscles, tendons, nerfs et articulations, principalement liées aux conditions de travail."},
+      {q:"Quelles zones du corps sont les plus touchées par les TMS ?",a:"• Membres supérieurs (épaules, coudes, poignets, mains) : ~80% des TMS\n• Membres inférieurs (genoux, hanches, pieds)\n• Rachis (lombalgies)"},
+      {q:"Quels sont les facteurs de risque des TMS ?",a:"• Biomécaniques : postures contraignantes, efforts répétitifs, port de charges\n• Organisationnels : cadence élevée, manque de pauses\n• Psychosociaux : stress, manque d'autonomie\n• Environnementaux : froid, vibrations"},
+      {q:"Quelle est la place des TMS parmi les maladies professionnelles ?",a:"1ère cause de maladie professionnelle en France. Représentent environ 87% des maladies professionnelles indemnisées."},
+      {q:"Qu'est-ce que l'outil RULA ?",a:"Rapid Upper Limb Assessment : outil d'évaluation ergonomique des membres supérieurs. Évalue les postures de travail et identifie les risques de TMS par un score."},
+      {q:"Quelles sont les mesures de prévention des TMS ?",a:"• Technique : améliorer les postes, outillage adapté, réduire les charges\n• Organisationnelle : rotation des postes, pauses, variation des tâches\n• Humaine : formation aux gestes et postures\n• Médicale : surveillance, déclaration précoce"},
+      {q:"Seuil de manutention manuelle de charges",a:"Au-delà de 25 kg, une aide mécanique est recommandée pour un homme (15 kg pour une femme). La charge max réglementaire est de 55 kg pour les hommes."},
+    ],
+    quiz:[
+      {q:"Les TMS représentent quelle proportion des MP en France ?",choices:["Environ 50%","Environ 65%","Environ 87%","Environ 95%"],answer:2},
+      {q:"Quelle zone du corps est la plus touchée par les TMS ?",choices:["Membres inférieurs","Membres supérieurs","Rachis cervical","Tête"],answer:1},
+      {q:"RULA est un outil qui permet d'évaluer :",choices:["Les risques chimiques","Les postures de travail","Le niveau de bruit","Le risque incendie"],answer:1},
+      {q:"Seuil recommandé pour aide mécanique (homme) :",choices:["15 kg","20 kg","25 kg","30 kg"],answer:2},
+      {q:"Lequel est un facteur psychosocial de TMS ?",choices:["Port de charges lourdes","Vibrations","Stress au travail","Températures basses"],answer:2},
+    ]
+  },
+  {
+    id:'routier', title:'Risque Routier', icon:'🚗',
+    flashcards:[
+      {q:"Qu'est-ce que le risque routier professionnel ?",a:"Risque d'accident de la circulation lors de déplacements effectués dans le cadre du travail : trajets domicile-travail et déplacements de mission."},
+      {q:"Différence entre accident de mission et accident de trajet ?",a:"• Mission : lors d'un déplacement professionnel (salarié à disposition de l'employeur). Considéré comme AT.\n• Trajet : sur le parcours domicile-travail habituel. Régime intermédiaire entre AT et droit commun."},
+      {q:"Le risque routier en chiffres",a:"1ère cause de mortalité au travail en France. Représente environ 40% des accidents mortels du travail. Plus de 400 décès par an en contexte professionnel."},
+      {q:"Principales causes d'accidents de la route professionnels",a:"• Vitesse excessive\n• Alcool et stupéfiants\n• Fatigue et somnolence\n• Téléphone au volant\n• Mauvais entretien du véhicule\n• Non-respect du code de la route"},
+      {q:"Qu'est-ce qu'un Plan de Déplacement Entreprise (PDE) ?",a:"Document définissant la politique de déplacements de l'entreprise. Vise à réduire les déplacements solo, favoriser les modes alternatifs, et sécuriser les déplacements professionnels."},
+      {q:"Obligations de l'employeur face au risque routier",a:"• Intégrer le risque routier dans le DUERP\n• Vérifier la validité des permis\n• S'assurer de l'entretien des véhicules\n• Former et sensibiliser les conducteurs\n• Mettre en place une politique de déplacements"},
+      {q:"Qu'est-ce que l'éco-conduite ?",a:"Style de conduite réduisant consommation et émissions tout en améliorant la sécurité : anticipation, vitesse modérée, entretien régulier du véhicule, gonflement correct des pneus."},
+    ],
+    quiz:[
+      {q:"Le risque routier représente quelle proportion des accidents mortels du travail ?",choices:["Environ 20%","Environ 30%","Environ 40%","Environ 50%"],answer:2},
+      {q:"Un accident lors d'un déplacement professionnel est :",choices:["Un accident de trajet","Un accident de mission (AT)","Un accident bénin","Pas un accident du travail"],answer:1},
+      {q:"Quelle est la 1ère cause de mortalité au travail en France ?",choices:["Les chutes de hauteur","Les risques chimiques","Le risque routier","Les TMS"],answer:2},
+      {q:"PDE signifie :",choices:["Plan de Déplacement Entreprise","Plan de Développement Environnemental","Programme de Déplacement Écologique","Plan de Déchets Entreprise"],answer:0},
+      {q:"Le risque routier doit être intégré dans :",choices:["Le règlement intérieur uniquement","Le DUERP","Seulement la charte conducteur","Le bilan social"],answer:1},
+    ]
+  },
+  {
+    id:'acronymes', title:'Acronymes & Définitions', icon:'📚',
+    flashcards:[
+      {q:"QHSE",a:"Qualité, Hygiène, Sécurité, Environnement"},
+      {q:"SMQ / SME / SMSST",a:"• SMQ : Système de Management de la Qualité\n• SME : Système de Management de l'Environnement\n• SMSST : Système de Management de la Santé et Sécurité au Travail"},
+      {q:"AT / MP",a:"• AT : Accident du Travail\n• MP : Maladie Professionnelle"},
+      {q:"EPI / EPC",a:"• EPI : Équipements de Protection Individuelle (casque, gants, lunettes...)\n• EPC : Équipements de Protection Collective (garde-corps, filets, aspiration...)"},
+      {q:"CSE / CHSCT",a:"• CHSCT : Comité d'Hygiène, de Sécurité et des Conditions de Travail (ancien)\n• CSE : Comité Social et Économique (remplace CHSCT, CE et DP depuis 2018)"},
+      {q:"CARSAT / INRS / DREAL",a:"• CARSAT : Caisse d'Assurance Retraite et de la Santé au Travail\n• INRS : Institut National de Recherche et de Sécurité\n• DREAL : Direction Régionale de l'Environnement, de l'Aménagement et du Logement"},
+      {q:"TFf / TGf",a:"• TFf (Taux de Fréquence) = AT avec arrêt × 10⁶ / heures travaillées\n• TGf (Taux de Gravité) = Journées perdues × 10³ / heures travaillées"},
+      {q:"ICPE / ATEX",a:"• ICPE : Installation Classée pour la Protection de l'Environnement\n• ATEX : ATmosphère EXplosible — zone à risque d'explosion"},
+      {q:"5S",a:"Méthode japonaise d'organisation :\n• Seiri = Trier\n• Seiton = Ranger\n• Seiso = Nettoyer\n• Seiketsu = Standardiser\n• Shitsuke = Maintenir"},
+      {q:"PDCA / KPI",a:"• PDCA : Plan-Do-Check-Act (roue de Deming, amélioration continue)\n• KPI : Key Performance Indicator (indicateur clé de performance)"},
+    ],
+    quiz:[
+      {q:"Que signifie EPI ?",choices:["Équipements Prioritaires Industriels","Équipements de Protection Individuelle","Évaluation des Performances Internes","Équipements de Prévention des Incidents"],answer:1},
+      {q:"Le CSE a remplacé quel organisme en 2018 ?",choices:["La CARSAT","L'INRS","Le CHSCT","La DREAL"],answer:2},
+      {q:"Le Taux de Fréquence se calcule avec quel multiplicateur ?",choices:["10²","10³","10⁶","10⁹"],answer:2},
+      {q:"ICPE signifie :",choices:["Installation Classée pour la Protection de l'Environnement","Indicateur de Conformité des Processus Environnementaux","Inspection des Conditions de Protection des Employés","Instance de Contrôle des Procédures Environnementales"],answer:0},
+      {q:"La méthode 5S vient de :",choices:["France","États-Unis","Allemagne","Japon"],answer:3},
+    ]
+  }
+];
+
+let state = {
+  moduleId:null, cardIndex:0, isFlipped:false,
+  quizIndex:0, quizScore:0, quizAnswered:false,
+  progress: JSON.parse(localStorage.getItem('qhse_progress')||'{}')
+};
+
+const getModule = () => modules.find(m=>m.id===state.moduleId);
+
+function saveProgress(id,mode,score,total){
+  if(!state.progress[id]) state.progress[id]={};
+  state.progress[id][mode]={score,total,date:new Date().toISOString()};
+  localStorage.setItem('qhse_progress',JSON.stringify(state.progress));
+  updateHeader();
+}
+
+function updateHeader(){
+  let total=modules.length*2, done=0;
+  modules.forEach(m=>{
+    if(state.progress[m.id]?.quiz) done++;
+    if(state.progress[m.id]?.flashcard) done++;
+  });
+  document.getElementById('headerStats').textContent=`${done} / ${total} modules complétés`;
+}
+
+function getScore(id){
+  const p=state.progress[id];
+  if(!p?.quiz) return null;
+  return Math.round((p.quiz.score/p.quiz.total)*100);
+}
+
+function showView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function renderHome(){
+  document.getElementById('modulesGrid').innerHTML=modules.map(m=>{
+    const sc=getScore(m.id);
+    const hasF=!!state.progress[m.id]?.flashcard;
+    return `<div class="module-card fade-in" onclick="openModule('${m.id}')">
+      <div class="module-icon">${m.icon}</div>
+      <div class="module-title">${m.title}</div>
+      <div class="module-meta">${m.flashcards.length} flashcards · ${m.quiz.length} questions</div>
+      <div class="module-progress"><div class="module-progress-bar" style="width:${sc??0}%"></div></div>
+      <div class="module-score">${sc!==null?`Quiz : ${sc}% · Flashcards : ${hasF?'✓ vues':'non vues'}`:'Non commencé'}</div>
+    </div>`;
+  }).join('');
+  updateHeader();
+  showView('homeView');
+}
+
+function openModule(id){
+  state.moduleId=id;
+  const m=getModule();
+  document.getElementById('moduleIcon').textContent=m.icon;
+  document.getElementById('moduleTitle').textContent=m.title;
+  showView('moduleView');
+}
+
+function goHome(){ renderHome(); }
+function goModule(){ openModule(state.moduleId); }
+
+function startMode(mode){
+  const m=getModule();
+  if(mode==='flashcard'){
+    state.cardIndex=0; state.isFlipped=false;
+    renderFlashcard();
+    showView('flashcardView');
+    saveProgress(m.id,'flashcard',1,1);
+  } else {
+    state.quizIndex=0; state.quizScore=0; state.quizAnswered=false;
+    renderQuizQuestion();
+    showView('quizView');
+  }
+}
+
+function renderFlashcard(){
+  const m=getModule();
+  const card=m.flashcards[state.cardIndex];
+  document.getElementById('flashcard').classList.remove('flipped');
+  state.isFlipped=false;
+  document.getElementById('cardQuestion').textContent=card.q;
+  document.getElementById('cardAnswer').textContent=card.a;
+  document.getElementById('cardCounter').textContent=`${state.cardIndex+1} / ${m.flashcards.length}`;
+  document.getElementById('prevBtn').disabled=state.cardIndex===0;
+  document.getElementById('nextBtn').disabled=state.cardIndex===m.flashcards.length-1;
+}
+
+function flipCard(){
+  state.isFlipped=!state.isFlipped;
+  document.getElementById('flashcard').classList.toggle('flipped');
+}
+
+function prevCard(){ if(state.cardIndex>0){state.cardIndex--;renderFlashcard();} }
+function nextCard(){ const m=getModule(); if(state.cardIndex<m.flashcards.length-1){state.cardIndex++;renderFlashcard();} }
+
+function renderQuizQuestion(){
+  const m=getModule(); const total=m.quiz.length;
+  if(state.quizIndex>=total){ renderQuizResult(); return; }
+  const q=m.quiz[state.quizIndex];
+  document.getElementById('quizProgressFill').style.width=(state.quizIndex/total*100)+'%';
+  document.getElementById('quizContent').innerHTML=`
+    <div class="quiz-question-text fade-in">
+      <div class="card-label" style="text-align:left;margin-bottom:0.75rem">Question ${state.quizIndex+1}/${total}</div>
+      ${q.q}
+    </div>
+    <div class="quiz-choices">
+      ${q.choices.map((c,i)=>`<button class="choice-btn" onclick="answerQuiz(${i})">
+        <span class="choice-letter">${['A','B','C','D'][i]}</span>${c}
+      </button>`).join('')}
+    </div>`;
+  state.quizAnswered=false;
+}
+
+function answerQuiz(chosen){
+  if(state.quizAnswered) return;
+  state.quizAnswered=true;
+  const q=getModule().quiz[state.quizIndex];
+  document.querySelectorAll('.choice-btn').forEach((btn,i)=>{
+    btn.disabled=true;
+    if(i===q.answer) btn.classList.add('correct');
+    else if(i===chosen&&chosen!==q.answer) btn.classList.add('wrong');
+  });
+  if(chosen===q.answer) state.quizScore++;
+  setTimeout(()=>{ state.quizIndex++; renderQuizQuestion(); },1300);
+}
+
+function renderQuizResult(){
+  const m=getModule(); const total=m.quiz.length;
+  const pct=Math.round(state.quizScore/total*100);
+  document.getElementById('quizProgressFill').style.width='100%';
+  const msg=pct>=80?'🎯 Excellent ! Tu maîtrises ce module.':pct>=60?'👍 Bien ! Quelques points à revoir encore.':'📖 Continue à réviser, tu vas y arriver !';
+  saveProgress(m.id,'quiz',state.quizScore,total);
+  document.getElementById('quizContent').innerHTML=`
+    <div class="quiz-result fade-in">
+      <div class="result-score">${pct}%</div>
+      <div class="result-total">${state.quizScore} / ${total} bonnes réponses</div>
+      <div class="result-message">${msg}</div>
+      <div class="result-btns">
+        <button class="btn-primary" onclick="startMode('quiz')">Recommencer</button>
+        <button class="btn-secondary" onclick="goModule()">Retour au module</button>
+      </div>
+    </div>`;
+}
+
+renderHome();
+</script>
+</body>
+</html>
