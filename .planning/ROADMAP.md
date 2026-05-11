@@ -26,7 +26,8 @@
   3. The owner navigates the site keyboard-only — Tab reveals a visible "Skip to main content" link first, every section is reachable, focus rings are clearly visible on the dark background.
   4. The owner prints the page (or Ctrl+P preview) and the sticky nav is gone, every link URL appears as a footnote after its anchor text.
   5. Lighthouse Performance + Accessibility and axe DevTools run clean on the empty shell with no critical issues; the existing QHSE Trainer at the repo root still loads unchanged.
-**Plans:** TBD
+**Plans:** 1 plan
+  - [ ] 01-PLAN.md — Author, deploy, and owner-verify the walking-skeleton chassis at /qhse-cesi/
 **UI hint:** yes
 
 ### Phase 2: Découverte content
@@ -59,7 +60,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Skeleton chassis + visual identity | 0 / TBD | Not started | — |
+| 1. Skeleton chassis + visual identity | 0 / 1 | Planned | — |
 | 2. Découverte content | 0 / TBD | Not started | — |
 | 3. Biblio data + render + 5 categories populated | 0 / TBD | Not started | — |
 
