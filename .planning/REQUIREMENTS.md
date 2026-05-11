@@ -110,51 +110,56 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | TBD | Pending |
-| INFRA-02 | TBD | Pending |
-| INFRA-03 | TBD | Pending |
-| IDENT-01 | TBD | Pending |
-| IDENT-02 | TBD | Pending |
-| IDENT-03 | TBD | Pending |
-| IDENT-04 | TBD | Pending |
-| IDENT-05 | TBD | Pending |
-| CHASSIS-01 | TBD | Pending |
-| CHASSIS-02 | TBD | Pending |
-| CHASSIS-03 | TBD | Pending |
-| CHASSIS-04 | TBD | Pending |
-| CHASSIS-05 | TBD | Pending |
-| CHASSIS-06 | TBD | Pending |
-| CHASSIS-07 | TBD | Pending |
-| CHASSIS-08 | TBD | Pending |
-| CHASSIS-09 | TBD | Pending |
-| CHASSIS-10 | TBD | Pending |
-| DECOUV-01 | TBD | Pending |
-| DECOUV-02 | TBD | Pending |
-| DECOUV-03 | TBD | Pending |
-| DECOUV-04 | TBD | Pending |
-| DECOUV-05 | TBD | Pending |
-| DECOUV-06 | TBD | Pending |
-| DECOUV-07 | TBD | Pending |
-| DECOUV-08 | TBD | Pending |
-| BIBLIO-01 | TBD | Pending |
-| BIBLIO-02 | TBD | Pending |
-| BIBLIO-03 | TBD | Pending |
-| BIBLIO-04 | TBD | Pending |
-| BIBLIO-05 | TBD | Pending |
-| BIBLIO-06 | TBD | Pending |
-| BIBLIO-07 | TBD | Pending |
-| BIBLIO-08 | TBD | Pending |
-| BIBLIO-09 | TBD | Pending |
-| POLICY-01 | TBD | Pending |
-| POLICY-02 | TBD | Pending |
-| POLICY-03 | TBD | Pending |
-| POLICY-04 | TBD | Pending |
+| INFRA-01 | Phase 1 | Mapped |
+| INFRA-02 | Phase 1 | Mapped |
+| INFRA-03 | Phase 1 | Mapped |
+| IDENT-01 | Phase 1 | Mapped |
+| IDENT-02 | Phase 1 | Mapped |
+| IDENT-03 | Phase 1 | Mapped |
+| IDENT-04 | Phase 1 | Mapped |
+| IDENT-05 | Phase 1 | Mapped |
+| CHASSIS-01 | Phase 1 | Mapped |
+| CHASSIS-02 | Phase 1 | Mapped |
+| CHASSIS-03 | Phase 1 | Mapped |
+| CHASSIS-04 | Phase 1 | Mapped |
+| CHASSIS-05 | Phase 1 | Mapped |
+| CHASSIS-06 | Phase 1 | Mapped |
+| CHASSIS-07 | Phase 1 | Mapped |
+| CHASSIS-08 | Phase 1 | Mapped |
+| CHASSIS-09 | Phase 1 | Mapped |
+| CHASSIS-10 | Phase 1 | Mapped |
+| DECOUV-01 | Phase 2 | Mapped |
+| DECOUV-02 | Phase 2 | Mapped |
+| DECOUV-03 | Phase 2 | Mapped |
+| DECOUV-04 | Phase 2 | Mapped |
+| DECOUV-05 | Phase 2 | Mapped |
+| DECOUV-06 | Phase 2 | Mapped |
+| DECOUV-07 | Phase 2 | Mapped |
+| DECOUV-08 | Phase 2 | Mapped |
+| BIBLIO-01 | Phase 3 | Mapped |
+| BIBLIO-02 | Phase 3 | Mapped |
+| BIBLIO-03 | Phase 3 | Mapped |
+| BIBLIO-04 | Phase 3 | Mapped |
+| BIBLIO-05 | Phase 3 | Mapped |
+| BIBLIO-06 | Phase 3 | Mapped |
+| BIBLIO-07 | Phase 3 | Mapped |
+| BIBLIO-08 | Phase 3 | Mapped |
+| BIBLIO-09 | Phase 3 | Mapped |
+| POLICY-01 | Phase 3 | Mapped |
+| POLICY-02 | Phase 3 | Mapped |
+| POLICY-03 | Phase 3 | Mapped |
+| POLICY-04 | Phase 3 | Mapped |
 
 **Coverage:**
 - v1 requirements: 39 total
-- Mapped to phases: 0 (roadmap pending)
-- Unmapped: 39 ⚠️ (resolved during roadmap creation)
+- Mapped to phases: 39 / 39 ✓
+- Unmapped: 0
+
+**Per-phase distribution:**
+- Phase 1 (Skeleton chassis + visual identity): 18 requirements (INFRA × 3, IDENT × 5, CHASSIS × 10)
+- Phase 2 (Découverte content): 8 requirements (DECOUV × 8)
+- Phase 3 (Biblio data + render + 5 categories populated): 13 requirements (BIBLIO × 9, POLICY × 4)
 
 ---
 *Requirements defined: 2026-05-11*
-*Last updated: 2026-05-11 after initial definition*
+*Last updated: 2026-05-11 — traceability filled after roadmap creation*
