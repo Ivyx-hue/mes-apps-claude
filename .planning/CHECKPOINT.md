@@ -1,48 +1,43 @@
 # Session Checkpoint — QHSE CESI Hub
 
-**Saved**: 2026-05-11 (Europe/Paris)
-**Reason**: Mid-session save before potential token reset
-**Branch**: main
-**Workflow**: `/gsd-new-project` (interactive, YOLO mode)
+**Saved**: 2026-05-11 03:20 (Europe/Paris)
+**Reason**: Post-UI-SPEC save before next workflow step
+**Branch**: main (pushed through `0feb90c`)
+**Workflow**: `/gsd-new-project` complete; `/gsd-ui-phase 1` complete; next is plan-phase or discuss-phase
 
 ---
 
 ## Where We Are in the GSD Workflow
 
-| Step | Status | Notes |
-|------|--------|-------|
-| 1. Setup | ✓ Done | greenfield, agents installed, git ready |
-| 2. Brownfield offer | ✓ Skipped | `needs_codebase_map: false` |
-| 3. Deep questioning | ✓ Done | Context from brainstorming was sufficient |
-| 4. PROJECT.md | ✓ Committed (`6bf70e6`) | `.planning/PROJECT.md` |
-| 5. Workflow preferences | ✓ Committed (`3f84ebf`) | `.planning/config.json` |
-| 5.1 Sub-repo detection | ✓ Skipped | no sub-repos |
-| 5.5 Resolve model profile | ✓ Done | sonnet (balanced) |
-| 6. Research decision | ✓ Done | 4 researchers spawned and **completed** |
-| 6a. Synthesize SUMMARY.md | ⏸ **Pending** | spawn `gsd-research-synthesizer` next |
-| 7. Define REQUIREMENTS.md | ⏸ Pending | depends on synthesis |
-| 7.5 Project structure mode | ⏸ Pending | likely Vertical MVP |
-| 8. Create ROADMAP.md | ⏸ Pending | spawn `gsd-roadmapper` |
-| 9. Done | ⏸ Pending | hand off to `/gsd-discuss-phase 1` |
+`/gsd-new-project` — **DONE** ✓ (commits `6bf70e6`, `3f84ebf`, `db04d6e`, `0de8876`, `686de33`, `3fb0e05`)
+`/gsd-ui-phase 1` — **DONE** ✓ (commits `5523c5d`, `44fbd99`, `0feb90c`)
+
+Next workflow step: `/gsd-plan-phase 1` (or optionally `/gsd-discuss-phase 1` first).
 
 ---
 
-## Files Created So Far
+## Files Now on Disk (all committed and pushed)
 
 ```
 .planning/
-├── PROJECT.md         (committed 6bf70e6)
-├── config.json        (committed 3f84ebf)
-├── CHECKPOINT.md      (this file — uncommitted at write time)
-└── research/
-    ├── STACK.md        (uncommitted)
-    ├── FEATURES.md     (uncommitted)
-    ├── ARCHITECTURE.md (uncommitted)
-    └── PITFALLS.md     (uncommitted)
+├── PROJECT.md                    (6bf70e6)
+├── config.json                   (3f84ebf)
+├── REQUIREMENTS.md               (686de33 → traceability filled in 3fb0e05)
+├── ROADMAP.md                    (3fb0e05)
+├── STATE.md                      (3fb0e05 → updated 0feb90c)
+├── CHECKPOINT.md                 (this file)
+├── research/
+│   ├── STACK.md                  (db04d6e)
+│   ├── FEATURES.md               (db04d6e)
+│   ├── ARCHITECTURE.md           (db04d6e)
+│   ├── PITFALLS.md               (db04d6e)
+│   └── SUMMARY.md                (0de8876)
+└── phases/
+    └── 01-skeleton-chassis-visual-identity/
+        └── 01-UI-SPEC.md         (5523c5d → owner sign-off in 44fbd99)
 ```
 
-Plus an unrelated change still pending:
-- `CLAUDE.md` modified (Toulouse → Bordeaux) — uncommitted
+CLAUDE.md also regenerated with GSD project / stack / workflow sections (commit `3fb0e05`).
 
 ---
 
@@ -78,33 +73,32 @@ Plus an unrelated change still pending:
 
 ---
 
+## Owner Decisions Locked (Phase 1)
+
+| Gate | Choice |
+|------|--------|
+| Mood | Editorial library / reading-room |
+| Palette | Warm-dark editorial — `#1a1814` bg / `#e8e2d4` ink / `#c9a96e` accent |
+| Typography | Fraunces (display) + Inter (body/UI) + JetBrains Mono (technical strings) via Google Fonts CSS2 |
+| Accent usage | Link + active nav + h2 underline + Phase 3 category badges |
+
+## UI Checker Recommendations for Planner (non-blocking)
+
+1. Active-state scrollspy: confirm IntersectionObserver stays under ~15 LOC and shares the burger's listener footprint.
+2. Burger `aria-label` mirroring: lock one path (JS effect vs CSS-only `sr-only` swap) during plan-phase rather than leaving it to the executor.
+3. `@starting-style` entrance animation: ship **zero** commented entrance-animation CSS in Phase 1 (commented code rots). Reserved CSS for `.toc` is fine (Phase 2 consumer).
+
+---
+
 ## How to Resume (in a fresh session)
 
 ```bash
 # 1. Pull latest
 git pull origin main
 
-# 2. Restart the workflow at the synthesizer step:
-#    Spawn gsd-research-synthesizer to read the 4 research files
-#    and write .planning/research/SUMMARY.md, then commit.
-
-# 3. Then continue Steps 7 → 8 → 9 of /gsd-new-project:
-#    - Define REQUIREMENTS.md (interactive, scoped by category)
-#    - Pick project mode (Vertical MVP recommended)
-#    - Spawn gsd-roadmapper to write ROADMAP.md + STATE.md
-#    - Approve roadmap, commit, then run /gsd-discuss-phase 1
+# 2. Continue with phase planning. Two options:
+#    a) /gsd-plan-phase 1 — generate PLAN.md directly (UI-SPEC.md provides full design context)
+#    b) /gsd-discuss-phase 1 — gather extra implementation context first (optional, mostly redundant given the rich research + UI-SPEC already on disk)
 ```
 
-The exact synthesizer prompt to use (from `workflows/new-project.md` Step 6):
-- Reads: `.planning/research/STACK.md`, `FEATURES.md`, `ARCHITECTURE.md`, `PITFALLS.md`
-- Writes: `.planning/research/SUMMARY.md` (using template at `~/.claude/get-shit-done/templates/research-project/SUMMARY.md`)
-- Commits after writing
-- subagent_type: `gsd-research-synthesizer`, model: `sonnet`
-
----
-
-## Things to Re-confirm With User on Resume
-
-1. Visual identity direction — features research recommends warm dark `#1a1814` + paper `#e8e2d4` + warm accent `#c9a96e`, humanist sans + quiet serif. Architecture research suggests Fraunces + Inter + JetBrains Mono. Owner should sign off before any HTML is written.
-2. Project mode in Step 7.5 — likely **Vertical MVP** (single V1 phase that ships end-to-end).
-3. GitHub token for push (90-day token, may need refresh).
+The PLAN.md will cover 18 Phase 1 requirements: INFRA-01..03, IDENT-01..05, CHASSIS-01..10.
