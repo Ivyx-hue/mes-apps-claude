@@ -12,7 +12,7 @@ Apps built with Claude, deployed automatically to Vercel. The goal is: Claude ge
 
 - GitHub username: `Ivyx-hue`
 - Location: Lot-et-Garonne, France
-- Background: QHSE Bachelor student at CESI Toulouse (alternance), former electrician on nuclear sites (habilitations B1V, BR, H1V, SCN1, CSQ, RP1), accounting background (BTS CGO)
+- Background: QHSE Bachelor student at CESI Bordeaux (alternance), former electrician on nuclear sites (habilitations B1V, BR, H1V, SCN1, CSQ, RP1), accounting background (BTS CGO)
 
 ---
 
