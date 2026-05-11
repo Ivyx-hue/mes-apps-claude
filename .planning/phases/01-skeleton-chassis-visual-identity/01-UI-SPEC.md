@@ -1,10 +1,16 @@
 ---
 phase: 1
 slug: skeleton-chassis-visual-identity
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-05-11
+owner_signoff: 2026-05-11
+owner_decisions:
+  mood: editorial-library
+  palette: warm-dark-editorial
+  typography: fraunces-inter-jetbrains-mono
+  accent_usage: link-nav-h2underline-badges
 ---
 
 # Phase 1 — UI Design Contract
