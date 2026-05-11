@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="QHSE CESI Hub — point d'entrée personnel pour le Bachelor QHSE de CESI Bordeaux : formation et ressources externes regroupées.">
+  <title>QHSE CESI Hub — Bachelor QHSE CESI Bordeaux</title>
+
+  <!-- Google Fonts: dual preconnect + single CSS2 stylesheet request (Fraunces + Inter + JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS layer order — declared once. Reset always loses to component styles. */
+    @layer reset, tokens, base, components, utilities;
+
+    /* ============ 1. RESET (@layer reset) ============ */
+    @layer reset {
+      *, *::before, *::after { box-sizing: border-box; }
+      * { margin: 0; }
+      html, body { height: 100%; }
+      body {
+        min-height: 100dvh;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+      img, picture, video, canvas, svg { display: block; max-width: 100%; }
+      input, button, textarea, select { font: inherit; }
+      h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.15; }
+      p { text-wrap: pretty; }
+      a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+      ul, ol { padding: 0; list-style: none; }
+
+      /* Reduced-motion override — baked into reset layer from commit #1 (CHASSIS-09). */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    }
+
+    /* ============ 2. TOKENS (@layer tokens) ============ */
+    @layer tokens {
+      :root {
+        color-scheme: dark light;
+
+        /* Font families */
+        --font-serif: 'Fraunces', Georgia, 'Times New Roman', ui-serif, serif;
+        --font-sans:  'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        --font-mono:  'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+        /* Color tokens — OKLCH-native via light-dark(). Dark wins by default. */
+        --bg-1: light-dark(oklch(98% 0.008 70), oklch(15% 0.012 65));
+        --bg-2: light-dark(oklch(95% 0.012 70), oklch(19% 0.014 65));
+        --ink-1: light-dark(oklch(22% 0.015 70), oklch(94% 0.012 75));
+        --ink-2: light-dark(oklch(40% 0.012 70), oklch(72% 0.014 70));
+        --ink-3: light-dark(oklch(55% 0.010 70), oklch(54% 0.011 70));
+        --accent: oklch(74% 0.10 78);
+        --accent-soft: oklch(74% 0.10 78 / 0.12);
+        --link: oklch(74% 0.10 78);
+        --link-hover: oklch(82% 0.11 78);
+        --focus-ring: oklch(82% 0.18 250);
+        --border-subtle: light-dark(oklch(90% 0.008 70), oklch(26% 0.014 65));
+
+        /* Reserved for Phase 3 — declared now so the token surface is locked. */
+        --success: oklch(70% 0.13 145);
+        --warning: oklch(74% 0.13 70);
+        --alert:   oklch(64% 0.18 30);
+
+        /* Spacing scale — all multiples of 4. */
+        --space-xs: 0.25rem;
+        --space-sm: 0.5rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --space-2xl: 3rem;
+        --space-3xl: 4rem;
+
+        /* Radius scale. */
+        --radius-sm: 0.25rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 1rem;
+
+        /* Layout tokens — header height is the single source for scroll offsets. */
+        --header-h: 4rem;
+        --container-max: 72rem;
+        --measure: 68ch;
+
+        /* Type scale — fluid via clamp(). No font-size lives outside this table. */
+        --step-5:  clamp(2.25rem, 4vw + 1rem, 4rem);
+        --step-4:  clamp(1.75rem, 2vw + 1rem, 2.5rem);
+        --step-3:  clamp(1.25rem, 1vw + 0.9rem, 1.5rem);
+        --step-2:  clamp(1.0625rem, 0.4vw + 1rem, 1.125rem);
+        --step-1:  1rem;
+        --step-0:  0.875rem;
+        --step--1: 0.75rem;
+      }
+    }
+
+    /* ============ 3. BASE (@layer base) ============ */
+    @layer base {
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: var(--header-h);
+      }
+      body {
+        font-family: var(--font-sans);
+        background: var(--bg-1);
+        color: var(--ink-1);
+        font-size: var(--step-1);
+        line-height: 1.6;
+      }
+      h1 {
+        font-family: var(--font-serif);
+        font-weight: 600;
+        font-size: var(--step-5);
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+      }
+      h2 {
+        font-family: var(--font-serif);
+        font-weight: 600;
+        font-size: var(--step-4);
+        letter-spacing: -0.01em;
+        line-height: 1.15;
+      }
+      h3 {
+        font-family: var(--font-serif);
+        font-weight: 600;
+        font-size: var(--step-3);
+        line-height: 1.2;
+      }
+      p, li, blockquote, dd {
+        max-width: var(--measure);
+        color: var(--ink-1);
+      }
+      code, kbd, samp, time[datetime] {
+        font-family: var(--font-mono);
+        font-size: 0.9em;
+      }
+      a {
+        color: var(--link);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+        transition: text-decoration-thickness 80ms ease-out;
+      }
+      a:hover {
+        color: var(--link-hover);
+        text-decoration-thickness: 2px;
+      }
+      :focus-visible {
+        outline: 3px solid var(--focus-ring);
+        outline-offset: 2px;
+        border-radius: var(--radius-sm);
+      }
+      section {
+        scroll-margin-top: var(--header-h);
+        padding-block: var(--space-2xl) var(--space-xl);
+        padding-inline: clamp(1rem, 4vw, 2rem);
+        max-width: var(--container-max);
+        margin-inline: auto;
+      }
+      /* Belt-and-suspenders for iOS Safari quirks per UI-SPEC §Layout Grid. */
+      section > h2 { scroll-margin-top: var(--header-h); }
+      section > h1 { scroll-margin-top: var(--header-h); }
+    }
+
+    /* ============ 4. COMPONENTS (@layer components) ============ */
+    @layer components {
+
+      /* -- Skip-link -- */
+      .skip-link {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+        background: transparent;
+        color: var(--ink-1);
+        text-decoration: none;
+      }
+      .skip-link:focus-visible {
+        position: fixed;
+        top: var(--space-sm);
+        left: var(--space-sm);
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: var(--space-sm) var(--space-md);
+        clip-path: none;
+        background: var(--bg-2);
+        color: var(--ink-1);
+        border: 2px solid var(--accent);
+        border-radius: var(--radius-sm);
+        z-index: 1000;
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: var(--step-0);
+        text-decoration: none;
+      }
+
+      /* -- Sticky header / nav -- */
+      header[role="banner"] {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        height: var(--header-h);
+        background: color-mix(in oklch, var(--bg-2) 88%, transparent);
+        backdrop-filter: blur(12px) saturate(120%);
+        -webkit-backdrop-filter: blur(12px) saturate(120%);
+        border-bottom: 1px solid var(--border-subtle);
+        display: flex;
+        align-items: center;
+        transition: box-shadow 200ms ease-out;
+      }
+      @supports not (backdrop-filter: blur(1px)) {
+        header[role="banner"] { background: var(--bg-2); }
+      }
+      header[role="banner"].is-scrolled {
+        box-shadow: 0 1px 0 0 var(--border-subtle), 0 12px 24px -16px oklch(0% 0 0 / 0.45);
+      }
+      header[role="banner"] > .header__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-md);
+        width: 100%;
+        max-width: var(--container-max);
+        margin-inline: auto;
+        padding-inline: clamp(1rem, 4vw, 2rem);
+        position: relative;
+      }
+
+      /* Brand */
+      .brand {
+        font-family: var(--font-serif);
+        font-weight: 600;
+        font-size: var(--step-1);
+        letter-spacing: -0.01em;
+        color: var(--ink-1);
+        text-decoration: none;
+      }
+      .brand em {
+        color: var(--accent);
+        font-style: normal;
+      }
+      .brand:hover { text-decoration: none; }
+
+      /* -- Top nav (desktop default; mobile override via responsive layer) -- */
+      .nav__list {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+      .nav__list a {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: var(--step-0);
+        color: var(--ink-2);
+        text-decoration: none;
+        padding: var(--space-sm) var(--space-md);
+        border-radius: var(--radius-sm);
+        transition: background-color 120ms ease-out, color 120ms ease-out;
+        position: relative;
+        letter-spacing: 0.01em;
+      }
+      .nav__list a:hover {
+        color: var(--ink-1);
+        background: var(--accent-soft);
+      }
+      /* Active state — scrollspy match (aria-current) OR :target (no-JS fallback). */
+      .nav__list a[aria-current="location"],
+      .nav__list li:target a {
+        color: var(--accent);
+      }
+      .nav__list a[aria-current="location"]::after,
+      .nav__list li:target a::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: var(--space-md);
+        right: var(--space-md);
+        height: 2px;
+        background: var(--accent);
+      }
+
+      /* -- Burger menu (mobile) -- */
+      .nav-toggle {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+      }
+      .burger {
+        display: none;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        color: var(--ink-1);
+        position: relative;
+        border-radius: var(--radius-sm);
+      }
+      .burger svg { display: none; color: var(--ink-1); }
+      .burger .icon-menu { display: block; }
+      .nav-toggle:checked ~ .burger .icon-menu { display: none; }
+      .nav-toggle:checked ~ .burger .icon-close { display: block; }
+      /* Focus ring tracks the label, not the (visually-hidden) checkbox. */
+      .nav-toggle:focus-visible ~ .burger {
+        outline: 3px solid var(--focus-ring);
+        outline-offset: 2px;
+      }
+      /* CSS-only sr-only aria-label alternation — no JS mutates aria-label. */
+      .burger [data-state="open"] { display: none; }
+      .nav-toggle:checked ~ .burger [data-state="closed"] { display: none; }
+      .nav-toggle:checked ~ .burger [data-state="open"] { display: inline; }
+
+      /* -- Section heading pattern -- */
+      .eyebrow {
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: var(--step--1);
+        color: var(--ink-2);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: var(--space-sm);
+      }
+      section h1,
+      section h2 {
+        position: relative;
+        margin-bottom: var(--space-lg);
+      }
+      /* Accent underline indicator — h2 only, per gate decision 4. */
+      section h2::after {
+        content: "";
+        display: block;
+        width: 2.5em;
+        height: 2px;
+        background: var(--accent);
+        margin-top: var(--space-sm);
+      }
+      .lead {
+        font-size: var(--step-2);
+        line-height: 1.65;
+        color: var(--ink-1);
+      }
+      .placeholder {
+        color: var(--ink-2);
+        font-style: italic;
+      }
+
+      /* -- Section shells -- */
+      main { display: block; }
+      #biblio-grid {
+        margin-top: var(--space-lg);
+        /* Phase 3 renders cards into this mount point. */
+      }
+
+      /* -- Footer -- */
+      footer[role="contentinfo"] {
+        background: var(--bg-2);
+        border-top: 1px solid var(--border-subtle);
+        margin-top: var(--space-3xl);
+        padding-block: var(--space-2xl);
+        padding-inline: clamp(1rem, 4vw, 2rem);
+      }
+      footer[role="contentinfo"] > .footer__inner {
+        max-width: var(--container-max);
+        margin-inline: auto;
+        color: var(--ink-2);
+        font-size: var(--step-0);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+      footer[role="contentinfo"] p { color: var(--ink-2); max-width: none; }
+      footer[role="contentinfo"] a {
+        color: var(--link);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.2em;
+      }
+      footer[role="contentinfo"] a:hover {
+        color: var(--link-hover);
+        text-decoration-thickness: 2px;
+      }
+
+      /* -- Mini-TOC reserved CSS (Phase 2 will hand-write the element) -- */
+      .toc {
+        background: var(--bg-2);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: var(--space-md) var(--space-lg);
+      }
+      .toc ol {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        list-style: none;
+        padding: 0;
+      }
+      .toc a {
+        font-size: var(--step-0);
+        color: var(--ink-2);
+        text-decoration: none;
+        padding-inline-start: var(--space-md);
+        border-inline-start: 2px solid transparent;
+        display: block;
+      }
+      .toc a:hover,
+      .toc a[aria-current="true"] {
+        color: var(--ink-1);
+        border-inline-start-color: var(--accent);
+      }
+    }
+
+    /* ============ 5. UTILITIES (@layer utilities) ============ */
+    @layer utilities {
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        white-space: nowrap;
+        border: 0;
+      }
+    }
+
+    /* ============ 6. RESPONSIVE — one breakpoint at 48rem (CHASSIS-07) ============ */
+    @media (min-width: 48rem) {
+      section {
+        padding-block: var(--space-3xl) var(--space-2xl);
+      }
+    }
+    @media (max-width: 47.99rem) {
+      .burger { display: grid; }
+      header[role="banner"] nav .nav__list { display: none; }
+      header[role="banner"] nav:has(#nav-toggle:checked) .nav__list {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+        position: fixed;
+        inset: var(--header-h) 0 0 0;
+        background: var(--bg-1);
+        padding: var(--space-xl);
+        z-index: 90;
+        overflow-y: auto;
+      }
+      header[role="banner"] nav:has(#nav-toggle:checked) .nav__list a {
+        font-size: var(--step-2);
+        padding: var(--space-md);
+      }
+      /* Active-state underline indicator behaves differently in the mobile drawer. */
+      header[role="banner"] nav:has(#nav-toggle:checked) .nav__list a[aria-current="location"]::after,
+      header[role="banner"] nav:has(#nav-toggle:checked) .nav__list li:target a::after {
+        display: none;
+      }
+    }
+
+    /* ============ 7. PRINT (@media print) ============ */
+    @media print {
+      /* Hide chrome */
+      header, .skip-link, .nav-toggle, .burger { display: none !important; }
+      /* Force light, max-contrast surface */
+      :root { color-scheme: light; }
+      body {
+        background: #fff;
+        color: oklch(10% 0 0);
+        font-family: var(--font-sans);
+      }
+      h1, h2, h3 {
+        font-family: var(--font-serif);
+        color: oklch(10% 0 0);
+        page-break-after: avoid;
+      }
+      /* Expand external (http/https) link URLs as footnotes — NOT internal anchors. */
+      a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        color: #444;
+        word-break: break-all;
+      }
+      /* Hide the accent underline on h2 — irrelevant in print. */
+      h2::after { display: none; }
+      /* Restore measure for prose readability on A4. */
+      p, li { max-width: none; }
+      section { break-inside: avoid-page; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip-link: must be the very first focusable element in <body>. -->
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+  <header role="banner">
+    <div class="header__inner">
+      <a class="brand" href="#accueil">QHSE&nbsp;<em>CESI</em></a>
+
+      <!-- CSS-only burger: hidden checkbox + label. JS only flips checked=false on link tap. -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Ouvrir le menu">
+      <label for="nav-toggle" class="burger">
+        <!-- Lucide 'menu' (visible when unchecked) -->
+        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4" y1="6" x2="20" y2="6"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
+        <!-- Lucide 'x' (visible when checked) -->
+        <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+        <!-- Visually-hidden state spans (CSS-only aria-label alternation; NO JS mutation). -->
+        <span class="sr-only" data-state="closed">Ouvrir le menu</span>
+        <span class="sr-only" data-state="open">Fermer le menu</span>
+      </label>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li id="nav-accueil"><a href="#accueil" data-target="accueil">Accueil</a></li>
+          <li id="nav-decouverte"><a href="#decouverte" data-target="decouverte">Découverte</a></li>
+          <li id="nav-biblio"><a href="#biblio" data-target="biblio">Biblio</a></li>
+          <li hidden><a href="#outils" data-target="outils">Outils</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sentinel sits between header and main. IntersectionObserver toggles header.is-scrolled. -->
+  <div id="header-sentinel" aria-hidden="true" style="height:1px;margin-top:-1px;"></div>
+
+  <main id="main">
+    <section id="accueil" aria-labelledby="h-accueil">
+      <p class="eyebrow">01 / ACCUEIL</p>
+      <h1 id="h-accueil">Une formation, mes ressources, un seul onglet.</h1>
+      <p class="lead">Un point d'entrée personnel pour le Bachelor QHSE de CESI Bordeaux : la formation en un survol, et les meilleures ressources externes regroupées au même endroit.</p>
+    </section>
+
+    <section id="decouverte" aria-labelledby="h-decouverte">
+      <p class="eyebrow">02 / DÉCOUVERTE</p>
+      <h2 id="h-decouverte">La formation, en un survol</h2>
+      <p class="placeholder">En cours de constitution — première publication prévue Phase 2.</p>
+    </section>
+
+    <section id="biblio" aria-labelledby="h-biblio">
+      <p class="eyebrow">03 / BIBLIO</p>
+      <h2 id="h-biblio">Les meilleures ressources, classées et datées</h2>
+      <p class="placeholder">En cours de constitution — première publication prévue Phase 3.</p>
+      <div id="biblio-grid"><!-- Phase 3 renders cards into this mount point. --></div>
+    </section>
+
+    <section id="outils" aria-labelledby="h-outils" hidden>
+      <p class="eyebrow">04 / OUTILS</p>
+      <h2 id="h-outils">Outils — réservé V2</h2>
+      <p class="placeholder">Réservé V2 — flipping the two hidden attributes unlocks this surface.</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer__inner">
+      <p>QHSE CESI Hub — dernière mise à jour <time datetime="2026-05-11">11 mai 2026</time></p>
+      <p><a href="https://github.com/Ivyx-hue/mes-apps-claude" target="_blank" rel="noopener noreferrer">Code source sur GitHub</a></p>
+    </div>
+  </footer>
+
+  <script>
+    /* ============ IIFE: sticky-shadow + scrollspy + burger-close-on-tap ============ */
+    /* No globals, no inline handlers, no scroll-event listeners. */
+    (() => {
+      'use strict';
+
+      // (A) Sticky-header shadow on scroll past 16px. IntersectionObserver on sentinel.
+      const sentinel = document.getElementById('header-sentinel');
+      const header = document.querySelector('header[role="banner"]');
+      if (sentinel && header) {
+        new IntersectionObserver(
+          ([entry]) => header.classList.toggle('is-scrolled', !entry.isIntersecting),
+          { rootMargin: '-16px 0px 0px 0px', threshold: 0 }
+        ).observe(sentinel);
+      }
+
+      // (B) Scrollspy — active-nav highlight via aria-current. ≤ 15 LOC inner block.
+      const navLinks = document.querySelectorAll('.nav__list a[data-target]');
+      const sections = document.querySelectorAll('main > section[id]:not([hidden])');
+      if (navLinks.length && sections.length) {
+        const setActive = (id) => navLinks.forEach(a =>
+          a.dataset.target === id
+            ? a.setAttribute('aria-current', 'location')
+            : a.removeAttribute('aria-current')
+        );
+        const spy = new IntersectionObserver(
+          (entries) => entries.forEach(e => e.isIntersecting && setActive(e.target.id)),
+          { rootMargin: '-64px 0px -60% 0px', threshold: 0 }
+        );
+        sections.forEach(s => spy.observe(s));
+      }
+
+      // (C) Burger close-on-link-tap. Delegated listener; closes synchronously BEFORE
+      // the native anchor scroll fires (no preventDefault).
+      const navList = document.querySelector('.nav__list');
+      const toggle = document.getElementById('nav-toggle');
+      if (navList && toggle) {
+        navList.addEventListener('click', (e) => {
+          if (e.target.closest('a[data-target]')) toggle.checked = false;
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
