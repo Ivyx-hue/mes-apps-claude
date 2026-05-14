@@ -2,19 +2,19 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
-status: Roadmap created, awaiting `/gsd-plan-phase 1`
-last_updated: "2026-05-14T13:16:12.526Z"
+status: phase-2-awaiting-owner-verify
+last_updated: "2026-05-14T18:29:00.000Z"
 progress:
   total_phases: 3
   completed_phases: 1
-  total_plans: 1
+  total_plans: 2
   completed_plans: 1
-  percent: 100
+  percent: 50
 ---
 
 # Project State: QHSE CESI Hub
 
-**Last updated:** 2026-05-11
+**Last updated:** 2026-05-14
 **Session start:** 2026-05-11
 
 ## Project Reference
@@ -28,14 +28,14 @@ progress:
 
 ## Current Position
 
-**Phase:** 1 — Skeleton chassis + visual identity
-**Plan:** None (phase not yet planned)
-**Status:** Roadmap created, awaiting `/gsd-plan-phase 1`
-**Progress:** ░░░░░░░░░░ 0 % (0 / 3 phases complete)
+**Phase:** 2 — Découverte content
+**Plan:** 02-PLAN.md (1 of 1)
+**Status:** ⏸ PAUSED at Task 8 owner-verify checkpoint (Tasks 1-7 shipped & deployed live)
+**Progress:** ███░░░░░░░ 33 % (1 / 3 phases complete; Phase 2 awaiting owner sign-off)
 
 ```
-[ ] Phase 1: Skeleton chassis + visual identity     ← NEXT
-[ ] Phase 2: Découverte content
+[x] Phase 1: Skeleton chassis + visual identity     ✓ owner-verified 2026-05-11
+[~] Phase 2: Découverte content                     ← AWAITING owner-verify (27-pt checklist)
 [ ] Phase 3: Biblio data + render + 5 categories populated
 ```
 
@@ -46,8 +46,8 @@ progress:
 | v1 requirements | 39 |
 | Requirements mapped | 39 / 39 (100 %) |
 | Phases | 3 |
-| Phases complete | 0 |
-| Plans complete | 0 |
+| Phases complete | 1 |
+| Plans complete | 1 (Phase 1) + 1 partial (Phase 2 awaiting verify) |
 
 ## Accumulated Context
 
@@ -59,9 +59,14 @@ progress:
 - Each app has its own visual identity (no shared design system)
 - Mono-page with anchored sections (Approach A) over multi-page or sidebar-wiki
 
+### Phase 2 decisions (locked during execution)
+
+- **Calendrier alternance: Mode B** (generic rythme only, no personal contract dates) — owner pre-resolved Task 5 checkpoint
+- **F1204 fallback → H1502** (executor in-flight deviation): used distinct ROMEs H1502 + H1302 across the two Tier A métiers articles instead of duplicating H1302; first Tier A article heading renamed to "Animateur QSE / Coordinateur QSE" to honestly reflect H1502 source
+
 ### Open Owner Gates
 
-- **Phase 1 kickoff:** Visual identity sign-off. Research recommends warm-dark editorial palette (`#1a1814` / `#e8e2d4` / `#c9a96e` or OKLCH equivalent) + Fraunces + Inter + JetBrains Mono. Owner has final say before any chassis CSS is written.
+- **Phase 2 Task 8 owner-verify** — 27-point checklist on phone + desktop. Live URL: https://mes-apps-claude.vercel.app/qhse-cesi/. Reply `approuvé` to close phase, `bug: <desc>` / `fix: <desc>` to reopen for follow-up commit. Full checklist in `.planning/CHECKPOINT.md`.
 
 ### Constraints in Effect
 
@@ -71,22 +76,31 @@ progress:
 - Dark mode is the default; no light toggle in V1
 - Deploys exclusively via the existing GitHub Actions pipeline
 
+### Pre-existing issue flagged (NOT Phase 2 scope)
+
+- `oklch(0% 0 0 / 0.45)` translucent shadow at `qhse-cesi/index.html:230` — Phase 1 chassis artefact. Trips Phase 2 black-floor invariant despite being a translucent shadow (not surface color). Address as Phase 1 maintenance commit, or relax the invariant to surface-colors-only scope.
+
 ### Todos / Blockers
 
-- None blocking. Next action: `/gsd-plan-phase 1`.
+- **BLOCKER:** Phase 2 cannot close until owner-verify reply. No other work blocked.
 
 ## Session Continuity
 
-### Last Session Summary
+### Last Session Summary (2026-05-14 evening)
 
-- Initialized `.planning/` with PROJECT.md, REQUIREMENTS.md, research (STACK / FEATURES / ARCHITECTURE / PITFALLS / SUMMARY), config.json.
-- Created ROADMAP.md with 3-phase Vertical MVP structure (Skeleton → Découverte → Biblio).
-- Validated 39 / 39 requirement coverage.
-- Filled REQUIREMENTS.md traceability table with concrete phase numbers.
+- Spawned gsd-executor for Phase 2 single plan (8 tasks).
+- Executor shipped Tasks 1-7 across 6 commits (`69d15cf` → `c5f8a7c` + partial SUMMARY `280d233`); auto-pushed to origin/main.
+- Live deploy verified HTTP 200 with all new content tokens present.
+- Calendrier rendered in Mode B (no personal dates) per pre-resolved decision.
+- Métiers section ships 4 articles in 2 tiers (DÉBUTANT × France Travail / AVEC EXPÉRIENCE × Apec); citations are clickable to satisfy ≥5 external links phase invariant.
+- Executor paused at Task 8 human-verify checkpoint and returned the 27-point checklist.
+- Owner deferred verification to next session.
 
 ### Next Session Resume Point
 
-Run `/gsd-plan-phase 1` to decompose Phase 1 (Skeleton chassis + visual identity) into executable plans. Expect the owner-gate question on visual identity to surface as the first plan or pre-plan decision.
+1. Owner runs the 27-point checklist in `.planning/CHECKPOINT.md` on phone + desktop against https://mes-apps-claude.vercel.app/qhse-cesi/
+2. Replies `approuvé` → orchestrator finalises Phase 2 SUMMARY.md + STATE/ROADMAP updates + closing commit, then `/gsd-plan-phase 3` (Biblio + 25 cards).
+3. Replies `bug: <desc>` / `fix: <desc>` → reopen for targeted follow-up commit, then re-run owner-verify.
 
 ---
-*State initialized: 2026-05-11 at roadmap creation*
+*State updated: 2026-05-14 — Phase 2 paused at owner-verify*
