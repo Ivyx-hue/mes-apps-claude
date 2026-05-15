@@ -8,8 +8,8 @@
 
 ## Phases
 
-- [ ] **Phase 1: Skeleton chassis + visual identity** — Owner-approved warm-dark editorial identity, deployed empty shell at `/qhse-cesi/` that already feels like the final product visually.
-- [ ] **Phase 2: Découverte content** — Hand-written semantic prose explaining the Bachelor QHSE: pitch, programme, RNCP blocs, alternance calendar, métiers/salaires, every fact sourced + dated.
+- [x] **Phase 1: Skeleton chassis + visual identity** — Owner-approved warm-dark editorial identity, deployed empty shell at `/qhse-cesi/` that already feels like the final product visually. *(owner-verified 2026-05-11)*
+- [x] **Phase 2: Découverte content** — Hand-written semantic prose explaining the Bachelor QHSE: pitch, programme, RNCP blocs, alternance calendar, métiers/salaires, every fact sourced + dated. *(owner-verified 2026-05-15)*
 - [ ] **Phase 3: Biblio data + render + 5 categories populated** — Data-driven 25+ link cards across 5 categories with provenance + freshness signals, legal policy + V2 backlog discipline locked in.
 
 ## Phase Details
@@ -60,8 +60,8 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Skeleton chassis + visual identity | 0 / 1 | Planned | — |
-| 2. Découverte content | 0 / TBD | Not started | — |
+| 1. Skeleton chassis + visual identity | 1 / 1 | Complete | 2026-05-11 |
+| 2. Découverte content | 1 / 1 | Complete | 2026-05-15 |
 | 3. Biblio data + render + 5 categories populated | 0 / TBD | Not started | — |
 
 ## Coverage Audit
@@ -94,4 +94,4 @@
 
 ---
 *Roadmap created: 2026-05-11*
-*Last updated: 2026-05-11 after initial creation*
+*Last updated: 2026-05-15 — Phase 2 closed (owner-verified)*

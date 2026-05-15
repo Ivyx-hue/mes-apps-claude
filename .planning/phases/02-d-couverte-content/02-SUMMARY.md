@@ -44,15 +44,15 @@ patterns-established:
 requirements-completed: [DECOUV-01, DECOUV-02, DECOUV-03, DECOUV-04, DECOUV-05, DECOUV-06, DECOUV-07, DECOUV-08]
 
 # Metrics
-duration: ~35 min (Tasks 6-7 only — Tasks 1-4 pre-committed in prior session)
-completed: 2026-05-14
+duration: ~35 min execution (Tasks 6-7); ~1 day calendar (owner-verify across sessions)
+completed: 2026-05-15 (owner-verified)
 ---
 
 # Phase 2 Plan 01: Découverte content Summary
 
 **Découverte section filled with hand-written French semantic prose — accueil lead (147 mots), 1-minute pitch (143 mots), programme `<dl>` of 4 BC blocs (RNCP41446), flat `<ol>` of RNCP blocs, calendrier alternance (Mode B), 4 métiers in 2 experience tiers, and a clickable `#dec-sources` footer — every factual claim citée inline (Source : ..., vérifié le 2026-05-14)**
 
-> **Status: AWAITING OWNER VERIFICATION (Task 8 pending).** Tasks 1-7 are shipped to live; the owner-verify gate (27 binary checks on phone + desktop, plus Lighthouse ≥ 95 and axe zero-critical) has not yet been executed by the owner. Phase 2 is **not** closed yet — this SUMMARY documents what shipped pending owner sign-off.
+> **Status: ✅ COMPLETE — owner-verified 2026-05-15.** All 8 DECOUV requirements satisfied. Owner ran the 27-point checklist against the live URL and replied `approuvé`. Phase 2 closes; Phase 3 (Biblio) is unlocked for planning.
 
 ## Performance
 
@@ -91,9 +91,9 @@ Inherited from prior session (Tasks 1-4):
 Tasks not committed:
 - **Task 1** (drafting in working memory) — no commit by design.
 - **Task 5** (owner-action gate) — skipped via pre-resolved orchestrator decision (Mode B path).
-- **Task 8** (owner-verify gate) — pending; will produce closing commit `✅ Phase 2 complete: owner-verified, 8/8 DECOUV requirements satisfied` after sign-off.
 
-**Plan metadata commit:** to be added after Task 8 close (will batch SUMMARY.md + STATE.md + ROADMAP.md).
+Phase close:
+- **Task 8** (owner-verify gate) — owner replied `approuvé` 2026-05-15 after walking the 27-point checklist on phone + desktop. Closing commit batches SUMMARY.md (this file, final), STATE.md (status → phase-2-complete, phase 3 ready-to-plan), ROADMAP.md (Phase 2 row → Complete).
 
 ## Files Modified
 
@@ -144,11 +144,9 @@ None. Every claim in `#accueil` and `#decouverte` is hand-written prose with an 
 
 None — pure content + HTML in a single file. No external service configuration, no env var changes.
 
-## Awaiting
+## Owner Verification — CLOSED
 
-**Task 8 — Owner-verification gate.** The orchestrator must surface the 27-check owner-verify checklist (categories A-I) and the live URL to the owner. The owner runs the checks on phone + desktop and replies:
-- `approuvé` / `approved` / `ok` → orchestrator runs `state.advance-plan`, flips ROADMAP Phase 2 row to `Complete`, adds a closing commit `✅ Phase 2 complete: owner-verified, 8/8 DECOUV requirements satisfied`.
-- `bug: <description>` / `fix: <description>` → orchestrator opens follow-up commit + re-runs relevant gates from Tasks 2-7.
+**Task 8 — Owner-verification gate: PASSED 2026-05-15.** Owner walked the 27-check checklist (categories A through I) on phone + desktop against `https://mes-apps-claude.vercel.app/qhse-cesi/` and replied `approuvé`. No bug or fix tickets raised; Phase 2 closes clean.
 
 ## Next Phase Readiness
 
@@ -164,8 +162,8 @@ None — pure content + HTML in a single file. No external service configuration
 - [x] All 8 DECOUV-* requirements have a corresponding markup gate passing (P2 phase-level verification).
 - [x] No forbidden RNCP fiches, no forbidden source aggregators, no ECTS hallucination, no marketing verbs in `#decouverte`.
 
-## Self-Check: PASSED (Tasks 1-7 shipped; Task 8 pending owner verification)
+## Self-Check: PASSED — Phase 2 closed 2026-05-15 (owner-verified)
 
 ---
 *Phase: 02-d-couverte-content*
-*Tasks 1-7 completed: 2026-05-14 — Task 8 owner-verify pending*
+*Tasks 1-7 completed: 2026-05-14 — Task 8 owner-verified: 2026-05-15*
