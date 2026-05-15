@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
-status: phase-2-complete-ready-for-phase-3-planning
-last_updated: "2026-05-15T11:20:00.000Z"
+status: phase-3-context-gathered-ready-for-plan-phase
+last_updated: "2026-05-15T11:45:00.000Z"
 progress:
   total_phases: 3
   completed_phases: 2
@@ -92,17 +92,17 @@ None — Phase 2 closed clean on `approuvé` (2026-05-15).
 
 ### Last Session Summary (2026-05-15)
 
-- Owner walked the 27-point checklist on phone + desktop against the live URL and replied `approuvé`.
-- Phase 2 SUMMARY.md finalised (status → COMPLETE, owner-verified 2026-05-15).
-- STATE.md updated: `completed_phases` 1 → 2, status → `phase-2-complete-ready-for-phase-3-planning`.
-- ROADMAP.md Phase 2 row → `Complete`.
-- Closing commit batched all three state-management updates with message `✅ Phase 2 complete: owner-verified, 8/8 DECOUV requirements satisfied`.
+- Phase 2 closed (`approuvé` from owner, commit `70ff842`).
+- Owner bumped Biblio card target 25 → 35 (commit `9065c82`).
+- `/gsd-discuss-phase 3` ran end-to-end. 5 locked decisions captured in `.planning/phases/03-biblio-data-render-5-categories-populated/03-CONTEXT.md` + 9 Claude's-discretion items codified. Discussion log at `03-DISCUSSION-LOG.md`. Commit `ba4e774`.
+- Phase 3 hard gate established: researcher writes `03-SEED-CANDIDATES.md` during plan-phase; owner replies "seed approuvé" before `/gsd-execute-phase 3` runs.
 
 ### Next Session Resume Point
 
-1. Run `/gsd-plan-phase 3` to start Phase 3 (Biblio data + render + 5 categories populated) planning.
-2. Expected outputs: `03-CONTEXT.md` (discuss-phase), `03-RESEARCH.md`, `03-PLAN.md`.
-3. Phase 3 scope reminder: ≥ 35 link cards (owner-bumped from 25 on 2026-05-15), 5 categories (officiel · communauté · pedago · annales · pro), each with provenance + freshness badges, `BIBLIO[]` array + `renderCard()` function, `LEGAL.md`, `.planning/V2_BACKLOG.md`. POLICY-* requirements complete the v1 set.
+1. Run `/gsd-plan-phase 3` to spawn the researcher + planner pipeline. Expected outputs: `03-RESEARCH.md`, `03-SEED-CANDIDATES.md` (NEW — owner-approve gate), `03-PLAN.md`.
+2. Owner picks/cuts seed candidates to 35 inside `03-SEED-CANDIDATES.md`, replies "seed approuvé".
+3. Run `/gsd-execute-phase 3` to ship the Biblio render + governance scaffolding.
+4. Phase 3 scope reminder (LOCKED from D-01..D-05): 35 cards (7/7/7/7/7), full-width editorial list 1-col, sort by `lastChecked` desc, single shared `--accent` for badges, `LEGAL.md` + `V2_BACKLOG.md` + `derniere_maj` footer refresh. POLICY-* requirements close v1.
 
 ---
-*State updated: 2026-05-15 — Phase 2 closed, Phase 3 ready to plan*
+*State updated: 2026-05-15 — Phase 3 context gathered, ready for /gsd-plan-phase 3*
