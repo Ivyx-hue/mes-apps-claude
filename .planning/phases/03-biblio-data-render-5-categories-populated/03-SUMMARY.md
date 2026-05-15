@@ -80,11 +80,20 @@ completed: 2026-05-15 (Tasks 1-7 shipped, T-03-08 owner-verify pending)
 
 ## Deviations from Plan
 
-None. All 7 implementation tasks (T-03-02..07) shipped as specified in PLAN.md. T-03-01 (owner-approval gate) pre-resolved via owner's "j'approuve tout" reply + orchestrator's priority-then-relevance auto-pick. T-03-08 (owner-verify gate) is the awaiting gate.
+**1. [Owner feedback — post-ship fix] 13 of 35 Biblio URLs replaced (commit `c9ba98c`)**
+- **Found during:** owner first-pass review of the live deploy ("pas mal de liens ne fonctionne… gateway 404… je voudrais des liens plus précis").
+- **Issue:** the orchestrator's auto-picked 35 from `03-SEED-CANDIDATES.md` were never live-probed before shipping (the researcher had flagged ~40 of 50 as un-probed). Audit found 6 hard 404s (Diplomeo, Studyrama search, YouTube `@CESIOfficiel`, FUN-MOOC search, INRS SST page, ICSI publications) + 7 generic search-pages forcing the reader to re-navigate (Reddit ×2 search, Studocu ×2 search, Annabac search, AFNOR root, plus Légifrance article-codes that 403 bots and render as dense legal text).
+- **Fix:** all 13 replaced with direct, verified-200 URLs. Légifrance → Ministère du Travail articles (travail-emploi.gouv.fr — direct + pedagogical). Search-pages → specific landing pages (ANACT QVT/Thèmes, FonCSI Cahiers, AIDA INERIS Code env, INRS publications catalogue + ED 6294, CESI Bordeaux actualités, LinkedIn groupe QHSE, real YouTube CESI channel-ID).
+- **Verification:** full 35-URL curl audit with browser UA — **35/35 HTTP 200, 0 failures**. Card count unchanged (7/7/7/7/7). File still 944 lines.
+- **Process lesson:** the D-02 seed-approve gate was meant to catch exactly this — it was short-circuited by the "j'approuve tout" auto-pick. The post-ship fix restores the verification the gate would have provided.
+
+**2.** All 7 implementation tasks (T-03-02..07) shipped as specified in PLAN.md. T-03-01 pre-resolved via owner's "j'approuve tout" + orchestrator auto-pick. T-03-08 (owner-verify gate) is the awaiting gate.
 
 ## Issues Encountered
 
+- **13/35 seed URLs were broken or imprecise on first ship** — see Deviation 1. Resolved in `c9ba98c`; full 35/35 now HTTP 200. Root cause: seed list shipped without live-probing because the owner-approve gate was auto-resolved.
 - **RNCP41446 has no Wayback snapshot** — known limitation from research, mitigated via wildcard pattern. Action documented in `03-SEED-CANDIDATES.md` and in this SUMMARY.
+- **Légifrance 403s bots + dense legal text** — replaced both Légifrance article cards with Ministère du Travail (travail-emploi.gouv.fr) articles, which are more pedagogical and bot-accessible. The two replaced officiel cards lost their `archive_url` (Ministère articles change slugs less predictably than Wayback would track; acceptable trade-off for direct readability).
 - **`qhse-cesi/LEGAL.md` is not served by Vercel by default** — files outside the served HTML routing. Owner reads it on GitHub. This is by design (it's a source-code policy file, not a rendered page). If a public LEGAL page is wanted later, refactor to an HTML anchor `#legal` inside `index.html` (v1.1 candidate).
 
 ## Known Stubs
