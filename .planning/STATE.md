@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
-status: phase-3-awaiting-owner-verify
-last_updated: "2026-05-15T19:55:00.000Z"
+status: phase-3-awaiting-owner-verify-paused
+last_updated: "2026-05-15T23:35:52.423Z"
 progress:
   total_phases: 3
   completed_phases: 2
@@ -97,16 +97,17 @@ None — Phase 2 closed clean on `approuvé` (2026-05-15).
 - `/gsd-discuss-phase 3` ran end-to-end. 5 locked decisions captured in `.planning/phases/03-biblio-data-render-5-categories-populated/03-CONTEXT.md` + 9 Claude's-discretion items codified. Discussion log at `03-DISCUSSION-LOG.md`. Commit `ba4e774`.
 - Phase 3 hard gate established: researcher writes `03-SEED-CANDIDATES.md` during plan-phase; owner replies "seed approuvé" before `/gsd-execute-phase 3` runs.
 
-### Next Session Resume Point
+### Next Session Resume Point — PAUSED 2026-05-15 ("je finirai demain")
 
-1. Owner runs the 16-point T-03-08 owner-verify checklist (in `03-PLAN.md`) on phone + desktop against `https://mes-apps-claude.vercel.app/qhse-cesi/`.
-2. Reply `approuvé` → finalise `03-SUMMARY.md` (status COMPLETE), STATE.md → `v1-milestone-complete`, ROADMAP.md Phase 3 row → Complete, then `/gsd-complete-milestone` archives v1.1 milestone.
-3. Reply `bug: <desc>` / `fix: <desc>` → follow-up commit cycle, re-run owner-verify.
+**Read `.planning/phases/03-biblio-data-render-5-categories-populated/.continue-here.md` first** (has a BLOCKING constraint on content-level link verification) and `.planning/HANDOFF.json`.
 
-**Implementation shipped via 6 commits** (`ac8db00` → `af43aa8`):
-- LEGAL.md (POLICY-01), V2_BACKLOG.md (POLICY-02), CSS scaffolding, BIBLIO[] 35 cards + renderCards (BIBLIO-01..09), footer date (POLICY-04), partial SUMMARY.
+1. Owner re-tests `https://mes-apps-claude.vercel.app/qhse-cesi/` (phone+desktop): the 13 round-2 fixes + the 3 un-verifiable SPA cards (RNCP francecompetences, Apec HSE, Apec Qualité) + random sample.
+2. Reply `approuvé` → finalise `03-SUMMARY.md` COMPLETE, STATE → `v1-milestone-complete`, ROADMAP Phase 3 → Complete, `/gsd-complete-milestone`, then `/gsd-new-milestone` ingesting `.planning/V2-ETUDE-SPEC.md`.
+3. Paste still-broken URLs → ONE more **content-verified** fix round (read memory `feedback_verify_links_before_ship.md` first — HTTP-status audits are banned).
 
-**RNCP41446 Wayback note:** archive_url uses `/web/*/` wildcard pending manual save. Owner-action item: visit `https://web.archive.org/save/https://www.francecompetences.fr/recherche/rncp/41446/` at some point to trigger a snapshot.
+**Phase 3 status:** code fully shipped & live. Two URL-fix rounds done (`c9ba98c` HTTP-only/insufficient → `3ace8b3` content-verified). 32/35 cards content-provable; 3 SPA cards flagged honestly. All pushed through `3ace8b3`.
+
+**V2 "Étude" milestone:** fully designed, PARKED in `.planning/V2-ETUDE-SPEC.md` (`540cd66`). Do NOT start until V1 closes.
 
 ---
 *State updated: 2026-05-15 — Phase 3 implementation shipped, awaiting owner-verify*
