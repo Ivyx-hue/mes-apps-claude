@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: milestone
-status: phase-3-context-gathered-ready-for-plan-phase
-last_updated: "2026-05-15T11:45:00.000Z"
+status: phase-3-awaiting-owner-verify
+last_updated: "2026-05-15T19:55:00.000Z"
 progress:
   total_phases: 3
   completed_phases: 2
@@ -28,15 +28,15 @@ progress:
 
 ## Current Position
 
-**Phase:** 3 — Biblio data + render + 5 categories populated (ready to plan)
-**Plan:** TBD (Phase 3 planning not yet started)
-**Status:** Phase 2 closed; awaiting `/gsd-plan-phase 3`
-**Progress:** ███████░░░ 67 % (2 / 3 phases complete)
+**Phase:** 3 — Biblio data + render + 5 categories populated
+**Plan:** 03-PLAN.md (1 of 1)
+**Status:** ⏸ AWAITING owner-verify (T-03-08, 16-point checklist). Tasks 1-7 shipped & deployed live.
+**Progress:** █████████░ 89 % (2 of 3 phases owner-verified; Phase 3 awaits sign-off)
 
 ```
 [x] Phase 1: Skeleton chassis + visual identity     ✓ owner-verified 2026-05-11
 [x] Phase 2: Découverte content                     ✓ owner-verified 2026-05-15
-[ ] Phase 3: Biblio data + render + 5 categories populated   ← NEXT (plan needed)
+[~] Phase 3: Biblio data + render + 5 categories populated   ← AWAITING owner-verify (16-pt checklist)
 ```
 
 ## Performance Metrics
@@ -99,10 +99,14 @@ None — Phase 2 closed clean on `approuvé` (2026-05-15).
 
 ### Next Session Resume Point
 
-1. Run `/gsd-plan-phase 3` to spawn the researcher + planner pipeline. Expected outputs: `03-RESEARCH.md`, `03-SEED-CANDIDATES.md` (NEW — owner-approve gate), `03-PLAN.md`.
-2. Owner picks/cuts seed candidates to 35 inside `03-SEED-CANDIDATES.md`, replies "seed approuvé".
-3. Run `/gsd-execute-phase 3` to ship the Biblio render + governance scaffolding.
-4. Phase 3 scope reminder (LOCKED from D-01..D-05): 35 cards (7/7/7/7/7), full-width editorial list 1-col, sort by `lastChecked` desc, single shared `--accent` for badges, `LEGAL.md` + `V2_BACKLOG.md` + `derniere_maj` footer refresh. POLICY-* requirements close v1.
+1. Owner runs the 16-point T-03-08 owner-verify checklist (in `03-PLAN.md`) on phone + desktop against `https://mes-apps-claude.vercel.app/qhse-cesi/`.
+2. Reply `approuvé` → finalise `03-SUMMARY.md` (status COMPLETE), STATE.md → `v1-milestone-complete`, ROADMAP.md Phase 3 row → Complete, then `/gsd-complete-milestone` archives v1.1 milestone.
+3. Reply `bug: <desc>` / `fix: <desc>` → follow-up commit cycle, re-run owner-verify.
+
+**Implementation shipped via 6 commits** (`ac8db00` → `af43aa8`):
+- LEGAL.md (POLICY-01), V2_BACKLOG.md (POLICY-02), CSS scaffolding, BIBLIO[] 35 cards + renderCards (BIBLIO-01..09), footer date (POLICY-04), partial SUMMARY.
+
+**RNCP41446 Wayback note:** archive_url uses `/web/*/` wildcard pending manual save. Owner-action item: visit `https://web.archive.org/save/https://www.francecompetences.fr/recherche/rncp/41446/` at some point to trigger a snapshot.
 
 ---
-*State updated: 2026-05-15 — Phase 3 context gathered, ready for /gsd-plan-phase 3*
+*State updated: 2026-05-15 — Phase 3 implementation shipped, awaiting owner-verify*
