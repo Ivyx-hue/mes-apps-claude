@@ -19,13 +19,16 @@ Features that become obvious once V1 is lived in. Each is ≤ 1 day of work and 
 - **Sticky mini-TOC on desktop scroll** (deferred from Phase 2). On viewport ≥ 768 px the Découverte mini-TOC becomes a sticky aside on the right. Phase 2 explicitly left this as v1.1 if the static inline TOC proves insufficient.
 - **Visual salary bars** (deferred from Phase 2). Mini histogram or range indicator on métiers cards (min / médiane / max). Today shipped as inline JetBrains Mono text only.
 
-## v2 — Study tools
+## v2 — Study tools — DESIGNED 2026-05-16, see `.planning/V2-ETUDE-SPEC.md`
 
 PROJECT.md hard constraint: **V2 only after V1 lived in.** The reading hub must prove its value as a reading hub before tooling is added.
 
-- **TOOL-01 — Flashcards trainer.** Cover Découverte + Biblio key facts. Pure vanilla JS, localStorage, no backend.
-- **TOOL-02 — QCM mode (multiple-choice quiz).** Per-module quizzes (ISO, DUERP, TMS, Risque Routier, Acronymes — mirror the existing QHSE Trainer's structure).
-- **TOOL-03 — Spaced-repetition scheduling.** localStorage progress tracking, intervals à la Anki light.
+> **Concrete design exists:** `.planning/V2-ETUDE-SPEC.md` (owner-approved 2026-05-16 via brainstorming). 5-phase V2 "Étude" milestone — dedicated `outils.html`, exhaustive sourced bank (200+ items), 4 modes, SM-2 spaced repetition. PARKED until V1 closes. Feed it to `/gsd-new-milestone` after `/gsd-complete-milestone`.
+
+- **TOOL-01 — Flashcards trainer.** → V2-P3 in the spec. Pure vanilla JS, localStorage, no backend.
+- **TOOL-02 — QCM mode + tests blancs.** → V2-P4 in the spec. Thematic/global quizzes + timed mock exams.
+- **TOOL-03 — Spaced-repetition scheduling.** → V2-P3 in the spec. SM-2 / Anki-like, localStorage.
+- **TOOL-04 — Fiches de révision (new).** → V2-P5. Structured printable sourced summary sheets per theme.
 
 ## v2 — Reading & navigation enhancements
 
