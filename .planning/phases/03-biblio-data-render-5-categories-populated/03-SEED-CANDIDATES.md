@@ -1,8 +1,90 @@
 # 03-SEED-CANDIDATES.md — Phase 3 Biblio Seed List
 
 **Researched:** 2026-05-15
-**Target:** 7 cards per category (35 total). ~10 candidates per category proposed below — owner picks/cuts to 7.
-**Owner approval gate:** Edit this file in place (keep / cut / re-categorize) and reply **"seed approuvé"** to unlock `/gsd-execute-phase 3`.
+**Target:** 7 cards per category (35 total). ~10 candidates per category proposed below.
+**Owner approval gate:** ✅ **APPROVED 2026-05-15** — owner replied "j'approuve tout donc on execute le plan". Orchestrator selected 35 of 50 via priority-then-relevance rule (see `## Owner-approved 35` below). Detailed per-row checkboxes below are PRESERVED FOR AUDIT but not the source of truth — the approved 35 list is.
+
+---
+
+## Owner-approved 35 (executor uses this list)
+
+**Selection rule:** priority 1 first (descending), then priority 2, then priority 3 by topical relevance to Bachelor QHSE. Tie-breaks favor: French content, local relevance (Aquitaine / Bordeaux), and category coverage breadth (avoid 3 INRS dossiers when 2 + 1 distinct source is available).
+
+### officiel (7 keeps)
+
+| # | id | title | source candidate |
+|---|----|----|------|
+| 1 | `officiel-rncp-41446` | Fiche RNCP 41446 — Bachelor QHSE | officiel C1 (p1) |
+| 2 | `officiel-cesi-bordeaux-qse` | CESI Bordeaux — formations QSE en alternance | officiel C2 (p1) |
+| 3 | `officiel-legifrance-r4121-1` | Code du Travail R4121-1 — DUERP obligatoire | officiel C3 (p1) |
+| 4 | `officiel-legifrance-l4121-1` | Code du Travail L4121-1 — principes généraux de prévention | officiel C4 (p1) |
+| 5 | `officiel-inrs-ed6322-duerp` | INRS ED 6322 — Le DUERP en pratique | officiel C5 (p1) |
+| 6 | `officiel-inrs-tms` | INRS — Troubles musculo-squelettiques (TMS) | officiel C6 (p2) |
+| 7 | `officiel-inrs-risque-routier` | INRS — Risque routier professionnel | officiel C7 (p2) |
+
+**Cut:** C8 (AIDA INERIS — re-evaluate for V1.1 outil-pro section), C9 (ISO 45001 landing — paywalled-standard), C10 (ISO 14001 landing — same), bonus ISO 9001.
+
+### communaute (7 keeps)
+
+| # | id | title | source candidate |
+|---|----|----|------|
+| 1 | `communaute-reddit-cesi` | r/cesi — communauté étudiants CESI | communaute C1 (p2) |
+| 2 | `communaute-reddit-cesi-qhse` | r/cesi — fil de recherche "QHSE" | communaute C2 (p3) |
+| 3 | `communaute-reddit-cesi-bachelor` | r/cesi — fil de recherche "Bachelor" | communaute C3 (p3) |
+| 4 | `communaute-linkedin-cesi-bordeaux` | LinkedIn — CESI Campus Bordeaux | communaute C5 (p2) |
+| 5 | `communaute-diplomeo-cesi` | Diplomeo — avis sur CESI École d'Ingénieurs | communaute C8 (p3) |
+| 6 | `communaute-studyrama-bachelor-qhse` | Studyrama — forum "Bachelor QHSE" | communaute C9 (p3) |
+| 7 | `communaute-youtube-cesi-officiel` | YouTube — CESI Officiel | communaute C10 (p3) |
+
+**Cut:** C4 (r/AskFrance alternance — generic), C6 (LinkedIn search keywords — non-permanent URL), C7 (LinkedIn hashtag — discovery feed, not curated content).
+
+### pedago (7 keeps)
+
+| # | id | title | source candidate |
+|---|----|----|------|
+| 1 | `pedago-inrs-youtube` | YouTube — INRS officiel | pedago C1 (p1) |
+| 2 | `pedago-fun-mooc-qhse` | FUN-MOOC — recherche "QHSE" / "sécurité au travail" | pedago C2 (p1) |
+| 3 | `pedago-inrs-ed6098-espaces-confines` | INRS ED 6098 — Travailler en espace confiné | pedago C3 (p2) |
+| 4 | `pedago-inrs-rps` | INRS — Risques psychosociaux (RPS) | pedago C4 (p1) |
+| 5 | `pedago-inrs-risque-chimique` | INRS — Risque chimique | pedago C5 (p2) |
+| 6 | `pedago-oppbtp` | OPPBTP — Prévention dans le BTP | pedago C6 (p2) |
+| 7 | `pedago-eu-osha-fr` | EU-OSHA — Agence européenne SST (FR) | pedago C7 (p2) |
+
+**Cut:** C8 (ADEME — slightly tangent to QHSE core), C9 (AFNOR pédagogie — overlaps with outil-pro AFNOR Boutique), C10 (Préventica YouTube — overlaps with outil-pro Préventica).
+
+### annales (7 keeps)
+
+| # | id | title | source candidate |
+|---|----|----|------|
+| 1 | `annales-barpi-aria` | BARPI — Base ARIA des accidents industriels | annales C10 (p1) |
+| 2 | `annales-mase-referentiel` | MASE — référentiel et auto-évaluations | annales C4 (p2) |
+| 3 | `annales-inrs-sst` | INRS — Sauveteur Secouriste du Travail (SST) | annales C6 (p2) |
+| 4 | `annales-icsi-cahiers` | ICSI — Cahiers de la sécurité industrielle | annales C7 (p2) |
+| 5 | `annales-studocu-cesi-qhse` | Studocu — recherche "CESI QHSE" | annales C1 (p3) |
+| 6 | `annales-studocu-bachelor-qhse` | Studocu — Bachelor QHSE (toutes écoles) | annales C2 (p3) |
+| 7 | `annales-annabac-duerp` | Annabac — recherche "DUERP" / "santé sécurité" | annales C3 (p3) |
+
+**Cut:** C5 (CCI Pau — not really annales), C8 (Public Sénat ICPE — adjacency but not annales), C9 (Doc-études — overlaps with Studocu).
+
+### pro (7 keeps)
+
+| # | id | title | source candidate |
+|---|----|----|------|
+| 1 | `pro-afnor-boutique` | AFNOR — Boutique normes | pro C1 (p1) |
+| 2 | `pro-preventica` | Préventica — Salon de la prévention | pro C2 (p1) |
+| 3 | `pro-apec-responsable-hse` | Apec — fiche métier Responsable HSE | pro C3 (p1) |
+| 4 | `pro-apec-responsable-qualite` | Apec — fiche métier Responsable Qualité | pro C4 (p1) |
+| 5 | `pro-france-travail-h1502` | France Travail — fiche ROME H1502 Coordinateur QSE | pro C5 (p1) |
+| 6 | `pro-france-travail-h1302` | France Travail — fiche ROME H1302 Préventeur HSE | pro C6 (p1) |
+| 7 | `pro-carsat-aquitaine` | CARSAT Aquitaine — prévention risques professionnels | pro C10 (p2) |
+
+**Cut:** C7 (Préventeurs.com — community-flavored, fits communauté better but already at 7), C8 (INRS veille — duplicates with officiel INRS dossiers), C9 (DREAL Nouvelle-Aquitaine — useful but local-niche; reconsider V1.1).
+
+**Total approved: 7 × 5 = 35 ✓**
+
+**`source_type` mapping** (for executor): officiel cards → `source_type: "officiel"` ; communaute cards → `source_type: "communauté"` (with mandatory `note`) ; pedago cards → `source_type: "pédagogique"` ; annales cards → `source_type: "annales"` ; pro cards → `source_type: "outil-pro"`.
+
+**`archive_url` mandatory** on these 5 officiel high-value cards (executor fetches Wayback snapshot): `officiel-rncp-41446`, `officiel-cesi-bordeaux-qse`, `officiel-legifrance-r4121-1`, `officiel-legifrance-l4121-1`, `officiel-inrs-ed6322-duerp`.
 
 ---
 
