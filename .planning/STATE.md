@@ -102,7 +102,7 @@ None — Phase 2 closed clean on `approuvé` (2026-05-15).
 
 1. Run `/gsd-plan-phase 3` to start Phase 3 (Biblio data + render + 5 categories populated) planning.
 2. Expected outputs: `03-CONTEXT.md` (discuss-phase), `03-RESEARCH.md`, `03-PLAN.md`.
-3. Phase 3 scope reminder: 25+ link cards, 5 categories (officiel · communauté · pedago · annales · pro), each with provenance + freshness badges, `BIBLIO[]` array + `renderCard()` function, `LEGAL.md`, `.planning/V2_BACKLOG.md`. POLICY-* requirements complete the v1 set.
+3. Phase 3 scope reminder: ≥ 35 link cards (owner-bumped from 25 on 2026-05-15), 5 categories (officiel · communauté · pedago · annales · pro), each with provenance + freshness badges, `BIBLIO[]` array + `renderCard()` function, `LEGAL.md`, `.planning/V2_BACKLOG.md`. POLICY-* requirements complete the v1 set.
 
 ---
 *State updated: 2026-05-15 — Phase 2 closed, Phase 3 ready to plan*

@@ -49,7 +49,7 @@ Requirements for initial release. Each maps to a roadmap phase.
 
 - [ ] **BIBLIO-01**: 5 link categories are rendered with semantic `<section>` + `<h2>` headings and stable `id` anchors: `officiel`, `communaute`, `pedago`, `annales`, `pro`
 - [ ] **BIBLIO-02**: Content is data-driven — `BIBLIO_CATEGORIES[]` and `BIBLIO[]` arrays in JS, a pure `renderCard(item)` function, single `innerHTML` mount; no inline `onclick=""`, no hand-duplicated card HTML
-- [ ] **BIBLIO-03**: Each category has at least 5 verified link cards (≥ 25 cards total at launch)
+- [ ] **BIBLIO-03**: Each category has at least 5 verified link cards, with ≥ 35 cards total at launch (owner-bumped from 25 → 35 on 2026-05-15 for richer biblio coverage)
 - [ ] **BIBLIO-04**: Every card carries the canonical schema: `id`, `title`, `url`, `description`, `category`, `source_type`, `tags`, `priority`, `lastChecked`, optional `archive_url`, optional `note`
 - [ ] **BIBLIO-05**: Each card visibly shows its `source_type` as a provenance badge: `officiel` (verified), `pédagogique`, `communauté` (with "lire avec recul" caveat), `outil-pro`, `annales`
 - [ ] **BIBLIO-06**: Each card visibly shows its `lastChecked` date with age-based color (neutral ≤ 90 d, warning 90–180 d, alert > 180 d)

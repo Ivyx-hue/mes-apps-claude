@@ -10,7 +10,7 @@
 
 **Phase 2 is COMPLETE and live.** Owner walked the 27-point checklist on phone + desktop against https://mes-apps-claude.vercel.app/qhse-cesi/ and replied `approuvé` (2026-05-15). No bug/fix tickets raised. SUMMARY.md, STATE.md, ROADMAP.md all flipped to Phase-2-complete.
 
-**Next action:** `/gsd-plan-phase 3` to start the Biblio phase (25+ link cards, 5 categories, provenance + freshness badges, `LEGAL.md`, `V2_BACKLOG.md`).
+**Next action:** `/gsd-plan-phase 3` to start the Biblio phase (≥ 35 link cards, 5 categories, provenance + freshness badges, `LEGAL.md`, `V2_BACKLOG.md`).
 
 ---
 
@@ -28,7 +28,7 @@
 
 ## Phase 3 Scope Reminder
 
-**Goal:** One trustworthy entry point answering "where do I find the best resources" — 5 categorical sections (officiel · communauté · pedago · annales · pro), ≥ 25 cards rendered from a single `BIBLIO[]` array via `renderCard()`.
+**Goal:** One trustworthy entry point answering "where do I find the best resources" — 5 categorical sections (officiel · communauté · pedago · annales · pro), ≥ 35 cards (owner-bumped from 25 on 2026-05-15) rendered from a single `BIBLIO[]` array via `renderCard()`.
 
 **Requirements:** BIBLIO-01..09 + POLICY-01..04 (13 of the 39 v1 requirements).
 

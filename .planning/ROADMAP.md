@@ -10,7 +10,7 @@
 
 - [x] **Phase 1: Skeleton chassis + visual identity** — Owner-approved warm-dark editorial identity, deployed empty shell at `/qhse-cesi/` that already feels like the final product visually. *(owner-verified 2026-05-11)*
 - [x] **Phase 2: Découverte content** — Hand-written semantic prose explaining the Bachelor QHSE: pitch, programme, RNCP blocs, alternance calendar, métiers/salaires, every fact sourced + dated. *(owner-verified 2026-05-15)*
-- [ ] **Phase 3: Biblio data + render + 5 categories populated** — Data-driven 25+ link cards across 5 categories with provenance + freshness signals, legal policy + V2 backlog discipline locked in.
+- [ ] **Phase 3: Biblio data + render + 5 categories populated** — Data-driven ≥ 35 link cards across 5 categories with provenance + freshness signals, legal policy + V2 backlog discipline locked in.
 
 ## Phase Details
 
@@ -44,7 +44,7 @@
 **Plans:** TBD
 
 ### Phase 3: Biblio data + render + 5 categories populated
-**Goal:** The owner has one trustworthy entry point that answers "where do I find the best resources" — 5 categorical sections (officiel, communauté, pedago, annales, pro), at least 25 curated link cards rendered from a single data array, each card showing what kind of source it is and how stale it is, with the link-curation policy and V2 backlog discipline documented so the hub stays a reading hub.
+**Goal:** The owner has one trustworthy entry point that answers "where do I find the best resources" — 5 categorical sections (officiel, communauté, pedago, annales, pro), at least 35 curated link cards rendered from a single data array (≥ 5 per category, owner-bumped from 25 → 35 on 2026-05-15), each card showing what kind of source it is and how stale it is, with the link-curation policy and V2 backlog discipline documented so the hub stays a reading hub.
 **Mode:** mvp
 **Depends on:** Phase 2 (chassis + identity + Découverte must ship first; Biblio is the closing half of the V1 reading hub)
 **Requirements:** BIBLIO-01, BIBLIO-02, BIBLIO-03, BIBLIO-04, BIBLIO-05, BIBLIO-06, BIBLIO-07, BIBLIO-08, BIBLIO-09, POLICY-01, POLICY-02, POLICY-03, POLICY-04
