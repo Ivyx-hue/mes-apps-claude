@@ -71,5 +71,12 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 `/gsd-plan-phase 1` — plan Phase 1 (Shell & Gateway): extract `chassis.css`, scaffold `outils.html` 4-tab shell, un-hide Hub `#outils` gateway.
 
+## Session Continuity
+
+Last session: 2026-05-16 (paused at discuss→plan boundary, resumed)
+Stopped at: Phase 1 discuss-phase complete & committed (10549f9, 9677f1f); HANDOFF consumed on resume
+Resume file: `.planning/phases/01-shell-gateway/.continue-here.md` (still valid until Phase 1 planned)
+Proceeding to: `/gsd-plan-phase 1`
+
 ---
-*State updated: 2026-05-16 — v2.0 "Étude" roadmap created; 5 phases, 26/26 requirements mapped*
+*State updated: 2026-05-16 — v2.0 "Étude" roadmap created; 5 phases, 26/26 requirements mapped; Phase 1 context locked, ready to plan*
