@@ -81,42 +81,43 @@ Explicitly excluded for v2.0. Documented to prevent scope creep.
 
 ## Traceability
 
-Filled by the roadmapper. Each requirement maps to exactly one phase.
+Coverage audit: 26/26 v2.0 requirements mapped. 0 unmapped. 0 duplicates.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SHELL-01 | TBD | Pending |
-| SHELL-02 | TBD | Pending |
-| SHELL-03 | TBD | Pending |
-| SHELL-04 | TBD | Pending |
-| SHELL-05 | TBD | Pending |
-| BANK-01 | TBD | Pending |
-| BANK-02 | TBD | Pending |
-| BANK-03 | TBD | Pending |
-| BANK-04 | TBD | Pending |
-| BANK-05 | TBD | Pending |
-| FLASH-01 | TBD | Pending |
-| FLASH-02 | TBD | Pending |
-| SRS-01 | TBD | Pending |
-| SRS-02 | TBD | Pending |
-| SRS-03 | TBD | Pending |
-| SRS-04 | TBD | Pending |
-| QUIZ-01 | TBD | Pending |
-| QUIZ-02 | TBD | Pending |
-| QUIZ-03 | TBD | Pending |
-| TEST-01 | TBD | Pending |
-| TEST-02 | TBD | Pending |
-| TEST-03 | TBD | Pending |
-| FICHE-01 | TBD | Pending |
-| FICHE-02 | TBD | Pending |
-| PERSIST-01 | TBD | Pending |
-| PERSIST-02 | TBD | Pending |
+| SHELL-01 | Phase 1 | Pending |
+| SHELL-02 | Phase 1 | Pending |
+| SHELL-03 | Phase 1 | Pending |
+| SHELL-04 | Phase 1 | Pending |
+| SHELL-05 | Phase 1 | Pending |
+| PERSIST-02 | Phase 1 | Pending |
+| BANK-01 | Phase 2 | Pending |
+| BANK-02 | Phase 2 | Pending |
+| BANK-03 | Phase 2 | Pending |
+| BANK-04 | Phase 2 | Pending |
+| BANK-05 | Phase 2 | Pending |
+| FLASH-01 | Phase 3 | Pending |
+| FLASH-02 | Phase 3 | Pending |
+| SRS-01 | Phase 3 | Pending |
+| SRS-02 | Phase 3 | Pending |
+| SRS-03 | Phase 3 | Pending |
+| SRS-04 | Phase 3 | Pending |
+| PERSIST-01 | Phase 3 | Pending |
+| QUIZ-01 | Phase 4 | Pending |
+| QUIZ-02 | Phase 4 | Pending |
+| QUIZ-03 | Phase 4 | Pending |
+| TEST-01 | Phase 4 | Pending |
+| TEST-02 | Phase 4 | Pending |
+| TEST-03 | Phase 4 | Pending |
+| FICHE-01 | Phase 5 | Pending |
+| FICHE-02 | Phase 5 | Pending |
 
 **Coverage:**
 - v2.0 requirements: 26 total
-- Mapped to phases: 0 (roadmapper to fill)
-- Unmapped: 26 ⚠️ (expected — pre-roadmap)
+- Mapped to phases: 26 ✓
+- Unmapped: 0 ✓
+- Duplicates: 0 ✓
 
 ---
 *Requirements defined: 2026-05-16 from V2-ETUDE-SPEC.md*
-*Last updated: 2026-05-16 — milestone v2.0 "Étude" requirements defined*
+*Last updated: 2026-05-16 — traceability filled by roadmapper (26/26 mapped)*
