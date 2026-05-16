@@ -21,11 +21,22 @@ Have one trustworthy place that answers "what is this formation, what will I stu
 | Link quality | 35/35 cards content-verified (3 SPA cards owner-eyeballed); HTTP-only audits banned |
 | Next milestone | **v2.0 "Étude"** — study tools, designed & parked in `.planning/V2-ETUDE-SPEC.md` |
 
-## Next Milestone Goals
+## Current Milestone: v2.0 Étude
 
-**v2.0 "Étude"** (study tools) — fully designed, parked in `.planning/V2-ETUDE-SPEC.md`, 5-phase decomposition. Adds quiz / fiches / tests with spaced repetition on top of the V1 reading hub by un-hiding the reserved `<section id="outils" hidden>` placeholder. Start via `/gsd-new-milestone` ingesting that spec.
+**Goal:** Add a study surface inside the CESI Hub — four revision modes driven by a sourced content bank, with spaced repetition — without touching the frozen root QHSE Trainer.
 
-Alternative path: v1.1 reading-hub quick wins (scrollspy, filter chips, mark-as-read, Ctrl+K search, light toggle, GitHub-Action link-checker) tracked in `.planning/V2_BACKLOG.md` § v1.1.
+**Target features (locked decisions D-V2-01..06, see `.planning/V2-ETUDE-SPEC.md`):**
+- Four study modes: Flashcards · Fiches de révision · QCM/Quiz · Tests blancs chronométrés
+- Exhaustive sourced content bank: 200+ items, full Bachelor QHSE coverage (RNCP41446, Code du Travail, ISO, ICPE/Seveso…)
+- SM-2 spaced repetition (Anki-like), `localStorage` persistence
+- Architecture: extract `chassis.css`, new `qhse-cesi/outils.html` + `outils-data.js` via `<script src>`, zero build; un-hide the reserved `#outils` Hub gateway
+- 5-phase decomposition (chassis → content bank → flashcards+SM-2 → QCM+tests → fiches+print)
+
+**Non-negotiable:** exam-prep regulatory content — every bank item carries a `source` object (authority + ref + HTTP-200 direct URL + verified date). Phase 2 citation discipline + Phase 3 content-verified URL discipline apply. No unsourced regulatory claim ships.
+
+**Design status:** fully locked in `.planning/V2-ETUDE-SPEC.md` (owner-approved brainstorming output) — not re-brainstormed.
+
+Deferred alternative (not this milestone): v1.1 reading-hub quick wins in `.planning/V2_BACKLOG.md` § v1.1.
 
 ## Requirements
 
@@ -41,7 +52,7 @@ Alternative path: v1.1 reading-hub quick wins (scrollspy, filter chips, mark-as-
 
 ### Active
 
-- [ ] v2.0 "Étude" study tools — see `.planning/V2-ETUDE-SPEC.md` (quiz, fiches, tests, spaced repetition)
+- [ ] v2.0 "Étude" study tools (Current Milestone) — 4 modes + 200+ sourced content bank + SM-2; scoped into REQUIREMENTS.md from `.planning/V2-ETUDE-SPEC.md`
 
 ### Out of Scope
 
@@ -93,4 +104,4 @@ This document evolves at phase transitions and milestone boundaries.
 **After each milestone:** full review of all sections, Core Value check, Out of Scope audit, Context refresh.
 
 ---
-*Last updated: 2026-05-16 after v1.0 "Reading Hub" milestone*
+*Last updated: 2026-05-16 — v2.0 "Étude" milestone started*

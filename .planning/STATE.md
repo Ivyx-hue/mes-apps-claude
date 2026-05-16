@@ -1,16 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: Reading Hub
-status: milestone-v1.0-shipped-awaiting-next
-last_updated: "2026-05-16T10:45:00.000Z"
-last_activity: 2026-05-16 — v1.0 "Reading Hub" milestone completed, archived & tagged
+milestone: v2.0
+milestone_name: Étude
+status: planning
+last_updated: "2026-05-16T11:14:55.501Z"
+last_activity: 2026-05-16
 progress:
-  total_phases: 3
-  completed_phases: 3
-  total_plans: 3
-  completed_plans: 3
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State: QHSE CESI Hub
@@ -32,15 +32,10 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-**Milestone v1.0 "Reading Hub" — ✅ SHIPPED & ARCHIVED 2026-05-16.**
-
-```
-[x] Phase 1: Skeleton chassis + visual identity   ✓ owner-verified 2026-05-11
-[x] Phase 2: Découverte content                   ✓ owner-verified 2026-05-15
-[x] Phase 3: Biblio data + render + 5 categories   ✓ owner-verified 2026-05-16
-```
-
-39 / 39 v1 requirements ✓ Complete. Archived: `milestones/v1.0-ROADMAP.md`, `milestones/v1.0-REQUIREMENTS.md`. Git tag `v1.0`.
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-05-16 — Milestone v2.0 started
 
 ## Accumulated Context
 
