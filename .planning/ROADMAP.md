@@ -42,7 +42,10 @@ Full phase details, goals, success criteria, and coverage audit: `.planning/mile
   3. Owner opens `index.html` (Hub) and verifies all existing sections (Accueil, Découverte, Biblio) render identically to v1.0 — zero visual or functional regression.
   4. Owner opens the root QHSE Trainer (`https://mes-apps-claude.vercel.app/`) and confirms it still renders unchanged.
   5. Owner inspects the repo and confirms `chassis.css` exists, is loaded by both `index.html` and `outils.html` via `<link>`, and no inline `<style>` block duplicates the extracted tokens.
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 01-01-PLAN.md — Extract chassis.css verbatim from index.html; swap inline <style> for <link>
+- [ ] 01-02-PLAN.md — Scaffold outils.html 4-tab ARIA shell; un-hide & rewrite the Hub #outils gateway
 **UI hint**: yes
 
 ### Phase 2: Content Bank
