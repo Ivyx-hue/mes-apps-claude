@@ -109,5 +109,15 @@ None — Phase 2 closed clean on `approuvé` (2026-05-15).
 
 **V2 "Étude" milestone:** fully designed, PARKED in `.planning/V2-ETUDE-SPEC.md` (`540cd66`). Do NOT start until V1 closes.
 
+### Session Resumed — 2026-05-16
+
+Context restored via `/gsd-resume-work`. Owner browser-tested → found 1 broken card: `pro-carsat-aquitaine` (soft-404, `/media/404.html`).
+
+**URL fix round 3 (content-verified):** `pro-carsat-aquitaine` deep-link replaced with `https://www.carsat-aquitaine.fr/home/entreprise.html` (200, real title "Espace entreprises - Carsat Aquitaine", body covers prévention/subventions/tarification AT-MP, stays regional). Commit `e8ea7ac`, pushed, live-verified on Vercel. Owner confirmed CARSAT was the **only** broken link.
+
+**Remaining:** owner does a final re-test → replies `approuvé` to close V1. 3 SPA cards (RNCP francecompetences, Apec HSE, Apec Qualité) still curl-unverifiable by design — owner eyeballs in browser.
+
+On `approuvé`: finalise `03-SUMMARY.md` COMPLETE, STATE → `v1-milestone-complete`, ROADMAP Phase 3 → Complete, `/gsd-complete-milestone`, then `/gsd-new-milestone` ingesting `.planning/V2-ETUDE-SPEC.md`.
+
 ---
-*State updated: 2026-05-15 — Phase 3 implementation shipped, awaiting owner-verify*
+*State updated: 2026-05-16 — fix round 3 (CARSAT) shipped & live, awaiting final owner `approuvé` (T-03-08)*
