@@ -3,12 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: roadmapped
-last_updated: "2026-05-16T15:08:35.555Z"
+stopped_at: Phase 1 discuss-phase complete & committed (10549f9, 9677f1f); HANDOFF consumed on resume
+last_updated: "2026-05-16T21:26:38.415Z"
 progress:
   total_phases: 5
   completed_phases: 0
-  total_plans: 0
+  total_plans: 2
   completed_plans: 0
+  percent: 0
 ---
 
 # Project State: QHSE CESI Hub

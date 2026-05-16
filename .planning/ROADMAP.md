@@ -44,7 +44,10 @@ Full phase details, goals, success criteria, and coverage audit: `.planning/mile
   5. Owner inspects the repo and confirms `chassis.css` exists, is loaded by both `index.html` and `outils.html` via `<link>`, and no inline `<style>` block duplicates the extracted tokens.
 **Plans**: 2 plans
 Plans:
+**Wave 1**
 - [ ] 01-01-PLAN.md — Extract chassis.css verbatim from index.html; swap inline <style> for <link>
+
+**Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 01-02-PLAN.md — Scaffold outils.html 4-tab ARIA shell; un-hide & rewrite the Hub #outils gateway
 **UI hint**: yes
 
