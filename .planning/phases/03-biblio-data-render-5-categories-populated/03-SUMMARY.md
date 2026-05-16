@@ -23,14 +23,14 @@ affects: [V1 milestone closure — 13 remaining requirements satisfied; 39/39 v1
 
 # Metrics
 duration: ~25 min (orchestrator-inline execution, no executor subagent spawn)
-completed: 2026-05-15 (Tasks 1-7 shipped, T-03-08 owner-verify pending)
+completed: 2026-05-16 (Tasks 1-8 complete; owner-verified, V1 closed)
 ---
 
 # Phase 3 Plan 01 — Biblio data + render + governance — Summary
 
 **The Biblio section shipped: 35 curated link cards across 5 categories (officiel · communauté · pédagogique · annales · outil-pro), rendered data-driven via `BIBLIO[]` + `renderCards()` into `#biblio-grid`, with provenance badges + age-coloured freshness signals + Wayback fallback on officiel high-value cards. Governance scaffolding shipped: `qhse-cesi/LEGAL.md` (POLICY-01) and `.planning/V2_BACKLOG.md` (POLICY-02). Footer date refreshed (POLICY-04). No PDFs under `/qhse-cesi/` (POLICY-03).**
 
-> **Status: ⏸ AWAITING OWNER VERIFICATION (T-03-08).** Tasks 1-7 shipped to live; the 16-point owner-verify checklist (in `03-PLAN.md`) has not yet been executed by the owner. Phase 3 — and V1 milestone — close when the owner replies `approuvé`.
+> **Status: ✅ COMPLETE — OWNER-VERIFIED 2026-05-16.** Tasks 1-8 done. Owner ran the 16-point checklist in-browser across 3 link-fix rounds; final round (CARSAT soft-404, `e8ea7ac`) closed the last defect, owner confirmed it was the only remaining broken card. Phase 3 closed; V1 milestone closed.
 
 ## Performance
 
@@ -87,7 +87,20 @@ completed: 2026-05-15 (Tasks 1-7 shipped, T-03-08 owner-verify pending)
 - **Verification:** full 35-URL curl audit with browser UA — **35/35 HTTP 200, 0 failures**. Card count unchanged (7/7/7/7/7). File still 944 lines.
 - **Process lesson:** the D-02 seed-approve gate was meant to catch exactly this — it was short-circuited by the "j'approuve tout" auto-pick. The post-ship fix restores the verification the gate would have provided.
 
-**2.** All 7 implementation tasks (T-03-02..07) shipped as specified in PLAN.md. T-03-01 pre-resolved via owner's "j'approuve tout" + orchestrator auto-pick. T-03-08 (owner-verify gate) is the awaiting gate.
+**2.** All 7 implementation tasks (T-03-02..07) shipped as specified in PLAN.md. T-03-01 pre-resolved via owner's "j'approuve tout" + orchestrator auto-pick.
+
+**3. [Owner feedback — round 2, content-verified] 13 more URLs replaced (commit `3ace8b3`)**
+- **Found during:** owner second-pass in-browser review after round 1.
+- **Issue:** round 1 audited URLs by HTTP status only. ~13 cards returned HTTP 200 but were broken in-browser: JS-SPA empty-title soft-404s (`travail-emploi.gouv.fr`, `francecompetences.fr`, `apec.fr`), INRS `media.html?refINRS=` serving the WRONG document, Cloudflare bot-walls ("Just a moment", `reddit.com`/`legifrance.gouv.fr`), LinkedIn login-walls.
+- **Fix:** 13 replaced with CONTENT-verified URLs (fetch body → real `<title>` non-empty AND topic-matching → grep soft-404 markers). Regulatory → `service-public.fr` (static); INRS → `/risques/.../ce-qu-il-faut-retenir.html` + `/demarche/...`; `communaute` category pivoted from dead forums to verified veille/practitioner sources.
+- **Process lesson:** HTTP-status link audits are invalid — banned. Codified in memory `feedback_verify_links_before_ship.md`. 32/35 cards content-provable; 3 SPA cards (RNCP francecompetences, Apec HSE, Apec Qualité) flagged honestly as un-curl-verifiable (rendered fine in Phase 2 owner-verify; owner eyeballs in browser).
+
+**4. [Owner-verify, round 3] CARSAT Aquitaine soft-404 replaced (commit `e8ea7ac`)**
+- **Found during:** owner final in-browser owner-verify (resumed 2026-05-16).
+- **Issue:** `pro-carsat-aquitaine` deep-link `/home/entreprise/prevenir-vos-risques-professionnels.html` returned HTTP 200 but soft-404'd (title "Caisse régionale", redirect to `/media/404.html`); the whole `/prevenir-les-risques-professionnels` subtree was gone.
+- **Fix:** replaced with `https://www.carsat-aquitaine.fr/home/entreprise.html` — content-verified (200, real title "Espace entreprises - Carsat Aquitaine", body covers prévention/subventions/tarification AT-MP, regional preserved). Owner confirmed it was the **only** remaining broken card → V1 owner-verify PASSED.
+
+T-03-08 (owner-verify gate): **PASSED 2026-05-16**.
 
 ## Issues Encountered
 
@@ -104,15 +117,13 @@ None. Every BIBLIO-* and POLICY-* requirement maps to shipped code.
 
 None — pure HTML/CSS/JS + 2 markdown files. No env vars, no service config, no Vercel changes.
 
-## Awaiting
+## Owner Verification — PASSED
 
-**T-03-08 — Owner-verification gate.** 16 binary checks across categories (biblio render, badges, freshness, communauté notes, archive_url, outbound link safety, sort by date, footer, LEGAL.md, V2_BACKLOG.md, no PDFs, Lighthouse ≥ 95, axe zero-critical, Trainer intact). Owner runs the checklist on phone + desktop against `https://mes-apps-claude.vercel.app/qhse-cesi/` and replies:
-- `approuvé` → V1 milestone closes (39/39 v1 requirements complete) + closing commit + `/gsd-complete-milestone`
-- `bug: <desc>` / `fix: <desc>` → follow-up commit cycle, re-run owner-verify
+**T-03-08 — Owner-verification gate: ✅ PASSED 2026-05-16.** Owner ran the 16-point checklist on phone + desktop against `https://mes-apps-claude.vercel.app/qhse-cesi/` across 3 link-fix rounds (HTTP-only round 1 → content-verified round 2 → CARSAT round 3). Final state: 35/35 cards live, content-verified (3 SPA cards eyeballed OK in browser). Owner triggered `/gsd-complete-milestone` → V1 closed (39/39 v1 requirements complete).
 
 ## Next Phase Readiness
 
-V1 closes when owner approves. After closure: `/gsd-complete-milestone` archives the v1.1 milestone and opens space for v1.1 (quick wins from `V2_BACKLOG.md` § v1.1) or v2 study tools.
+V1 (v1.0 "Reading Hub") closed 2026-05-16. Next milestone: **v2.0 "Étude"** — study tools, fully designed and parked in `.planning/V2-ETUDE-SPEC.md`. Start via `/gsd-new-milestone` ingesting that spec. (v1.1 quick wins in `V2_BACKLOG.md` § v1.1 remain available as an alternative path.)
 
 ## Self-Check
 
@@ -127,8 +138,8 @@ V1 closes when owner approves. After closure: `/gsd-complete-milestone` archives
 - [x] File size 944 lines (≤ 1100 cap).
 - [x] Live URL https://mes-apps-claude.vercel.app/qhse-cesi/ returns HTTP 200 and serves Phase 3 markup (26 biblio-* matches in HTML response).
 
-## Self-Check: PASSED (Tasks 1-7 shipped + deployed live; T-03-08 owner-verify pending)
+## Self-Check: PASSED (Tasks 1-8 complete; owner-verified 2026-05-16; V1 closed)
 
 ---
 *Phase: 03-biblio-data-render-5-categories-populated*
-*Tasks 1-7 completed: 2026-05-15 — Task 8 owner-verify pending*
+*Tasks 1-8 completed: 2026-05-16 — owner-verified, V1 milestone closed*
