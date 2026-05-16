@@ -3,14 +3,12 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: roadmapped
-last_updated: "2026-05-16T13:33:00.000Z"
-last_activity: 2026-05-16
+last_updated: "2026-05-16T15:08:35.555Z"
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
-  percent: 0
 ---
 
 # Project State: QHSE CESI Hub
