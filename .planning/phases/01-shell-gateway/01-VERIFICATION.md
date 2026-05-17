@@ -1,8 +1,9 @@
 ---
 phase: 01-shell-gateway
 verified: 2026-05-17T15:20:00Z
-status: human_needed
-score: 14/14 automated truths verified
+status: passed
+human_uat: owner-approved 2026-05-17 (01-HUMAN-UAT.md — 4/4 passed)
+score: 14/14 automated truths verified + 4/4 owner-visual UAT passed
 ---
 
 # Phase 1: Shell & Gateway Verification Report

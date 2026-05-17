@@ -36,6 +36,8 @@ Have one trustworthy place that answers "what is this formation, what will I stu
 
 **Design status:** fully locked in `.planning/V2-ETUDE-SPEC.md` (owner-approved brainstorming output) — not re-brainstormed.
 
+**Phase progress:** ✅ **Phase 1 Shell & Gateway complete** (2026-05-17, owner-verified) — `chassis.css` extracted verbatim, `outils.html` 4-tab ARIA shell scaffolded, `#outils` Hub gateway un-hidden; deployed live. SHELL-01/02/03/04, PERSIST-02 validated; SHELL-05 partial (shell done, `outils-data.js` content-bank clause → Phase 2). Next: Phase 2 Content Bank.
+
 Deferred alternative (not this milestone): v1.1 reading-hub quick wins in `.planning/V2_BACKLOG.md` § v1.1.
 
 ## Requirements
@@ -104,4 +106,4 @@ This document evolves at phase transitions and milestone boundaries.
 **After each milestone:** full review of all sections, Core Value check, Out of Scope audit, Context refresh.
 
 ---
-*Last updated: 2026-05-16 — v2.0 "Étude" milestone started*
+*Last updated: 2026-05-17 — Phase 1 Shell & Gateway complete (owner-verified)*

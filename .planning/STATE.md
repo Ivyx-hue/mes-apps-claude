@@ -2,9 +2,9 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
-status: roadmapped
-stopped_at: Phase 1 discuss-phase complete & committed (10549f9, 9677f1f); HANDOFF consumed on resume
-last_updated: "2026-05-17T08:31:48.407Z"
+status: ready_to_plan
+stopped_at: Phase 01 complete (2/2) — ready to discuss Phase 2
+last_updated: 2026-05-17T15:24:16.605Z
 progress:
   total_phases: 5
   completed_phases: 1
@@ -24,7 +24,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 **Core value:** Have one trustworthy place that answers "what is this formation, what will I study, and where do I find the best resources" — without digging through scattered sources every time. *(v2.0 extends this with: actively revise that content and track mastery.)*
 
-**Current focus:** Phase 01 — shell-gateway
+**Current focus:** Phase 2 — content bank
 
 **Mode:** mvp · **Granularity:** coarse
 **Deploy target:** `https://mes-apps-claude.vercel.app/qhse-cesi/` (live, HTTP 200)
@@ -32,8 +32,8 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-Phase: 01 (shell-gateway) — COMPLETE
-Plan: 2 of 2 (all plans executed)
+Phase: 2
+Plan: Not started
 
 ```
 Milestone : v2.0 Étude
