@@ -4,7 +4,7 @@ milestone: v2.0
 milestone_name: Étude
 status: roadmapped
 stopped_at: Phase 1 discuss-phase complete & committed (10549f9, 9677f1f); HANDOFF consumed on resume
-last_updated: "2026-05-16T21:26:38.415Z"
+last_updated: "2026-05-17T08:04:32.484Z"
 progress:
   total_phases: 5
   completed_phases: 0
@@ -24,13 +24,16 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 **Core value:** Have one trustworthy place that answers "what is this formation, what will I study, and where do I find the best resources" — without digging through scattered sources every time. *(v2.0 extends this with: actively revise that content and track mastery.)*
 
-**Current focus:** v2.0 "Étude" — roadmap created, 5 phases defined, ready for Phase 1 planning.
+**Current focus:** Phase 01 — shell-gateway
 
 **Mode:** mvp · **Granularity:** coarse
 **Deploy target:** `https://mes-apps-claude.vercel.app/qhse-cesi/` (live, HTTP 200)
 **Source:** `qhse-cesi/index.html` (944 lines) + `qhse-cesi/LEGAL.md`
 
 ## Current Position
+
+Phase: 01 (shell-gateway) — EXECUTING
+Plan: 1 of 2
 
 ```
 Milestone : v2.0 Étude
