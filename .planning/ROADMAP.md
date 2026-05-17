@@ -45,7 +45,7 @@ Full phase details, goals, success criteria, and coverage audit: `.planning/mile
 **Plans**: 2 plans
 Plans:
 **Wave 1**
-- [ ] 01-01-PLAN.md — Extract chassis.css verbatim from index.html; swap inline <style> for <link>
+- [x] 01-01-PLAN.md — Extract chassis.css verbatim from index.html; swap inline <style> for <link>
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 01-02-PLAN.md — Scaffold outils.html 4-tab ARIA shell; un-hide & rewrite the Hub #outils gateway
@@ -101,7 +101,7 @@ Plans:
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 1. Skeleton chassis + visual identity | v1.0 | 1/1 | Complete | 2026-05-11 |
+| 1. Skeleton chassis + visual identity | v1.0 | 1/2 | In Progress|  |
 | 2. Découverte content | v1.0 | 1/1 | Complete | 2026-05-15 |
 | 3. Biblio data + render + 5 categories populated | v1.0 | 1/1 | Complete | 2026-05-16 |
 | 1. Shell & Gateway | v2.0 | 0/? | Not started | - |
