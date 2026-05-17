@@ -24,7 +24,7 @@ Full phase details, goals, success criteria, and coverage audit: `.planning/mile
 
 ### v2.0 Étude
 
-- [ ] **Phase 1: Shell & Gateway** — Extract `chassis.css`, scaffold `outils.html` 4-tab shell, un-hide Hub `#outils` gateway. Deployable walking skeleton.
+- [x] **Phase 1: Shell & Gateway** — Extract `chassis.css`, scaffold `outils.html` 4-tab shell, un-hide Hub `#outils` gateway. Deployable walking skeleton. (completed 2026-05-17)
 - [ ] **Phase 2: Content Bank** — `outils-data.js` with 200+ source-verified study items covering all Bachelor QHSE themes.
 - [ ] **Phase 3: Flashcards + SRS** — Flashcard mode with SM-2 spaced repetition scheduler and `localStorage` persistence.
 - [ ] **Phase 4: QCM + Tests blancs** — Quiz mode, timed mock exams, score history, SRS error feed.
@@ -48,7 +48,7 @@ Plans:
 - [x] 01-01-PLAN.md — Extract chassis.css verbatim from index.html; swap inline <style> for <link>
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 01-02-PLAN.md — Scaffold outils.html 4-tab ARIA shell; un-hide & rewrite the Hub #outils gateway
+- [x] 01-02-PLAN.md — Scaffold outils.html 4-tab ARIA shell; un-hide & rewrite the Hub #outils gateway
 **UI hint**: yes
 
 ### Phase 2: Content Bank
@@ -101,7 +101,7 @@ Plans:
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 1. Skeleton chassis + visual identity | v1.0 | 1/2 | In Progress|  |
+| 1. Skeleton chassis + visual identity | v1.0 | 2/2 | Complete   | 2026-05-17 |
 | 2. Découverte content | v1.0 | 1/1 | Complete | 2026-05-15 |
 | 3. Biblio data + render + 5 categories populated | v1.0 | 1/1 | Complete | 2026-05-16 |
 | 1. Shell & Gateway | v2.0 | 0/? | Not started | - |

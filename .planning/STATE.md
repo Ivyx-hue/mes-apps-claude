@@ -4,13 +4,13 @@ milestone: v2.0
 milestone_name: Étude
 status: roadmapped
 stopped_at: Phase 1 discuss-phase complete & committed (10549f9, 9677f1f); HANDOFF consumed on resume
-last_updated: "2026-05-17T08:04:32.484Z"
+last_updated: "2026-05-17T08:31:48.407Z"
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 0
-  percent: 0
+  completed_plans: 2
+  percent: 20
 ---
 
 # Project State: QHSE CESI Hub
@@ -32,16 +32,16 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-Phase: 01 (shell-gateway) — EXECUTING
-Plan: 1 of 2
+Phase: 01 (shell-gateway) — COMPLETE
+Plan: 2 of 2 (all plans executed)
 
 ```
 Milestone : v2.0 Étude
-Phase     : 1 — Shell & Gateway (NOT STARTED)
-Plan      : —
-Status    : Roadmapped — awaiting /gsd-plan-phase 1
+Phase     : 1 — Shell & Gateway (COMPLETE)
+Plan      : 2/2
+Status    : Phase 1 complete — awaiting /gsd-execute-phase 2
 
-[░░░░░░░░░░] 0% — 0/5 phases complete
+[██░░░░░░░░] 20% — 1/5 phases complete
 ```
 
 ## Accumulated Context
@@ -71,6 +71,10 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 | PERSIST-02 mapped to Phase 1 | It is a standing architectural invariant established when the file architecture is created |
 | PERSIST-01 mapped to Phase 3 | First fully realized when SM-2 scheduler + all three localStorage keys are live |
 | Granularity: coarse | 5 phases = natural delivery boundaries from spec; no compression needed |
+| D-04: 4-tab ARIA tablist locked order | Flashcards · Fiches de révision · QCM · Tests blancs — source-order asserted |
+| D-05: ARIA tab pattern (JS, not CSS-only) | role=tablist/tab/tabpanel, aria-selected, roving tabindex, hash sync — scoped to outils.html only |
+| D-06: Dated placeholders per panel | Flashcards=Phase 3, Fiches=Phase 5, QCM=Phase 4, Tests=Phase 4 |
+| D-07/D-08/D-09: Hub gateway un-hidden | #outils nav item + section visible; editorial copy + same-tab link to outils.html |
 
 ## Next Step
 
@@ -78,9 +82,9 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Session Continuity
 
-Last session: 2026-05-16 (paused at discuss→plan boundary, resumed)
+Last session: 2026-05-17T08:31:48.398Z
 Stopped at: Phase 1 discuss-phase complete & committed (10549f9, 9677f1f); HANDOFF consumed on resume
-Resume file: `.planning/phases/01-shell-gateway/.continue-here.md` (still valid until Phase 1 planned)
+Resume file: None
 Proceeding to: `/gsd-plan-phase 1`
 
 ---

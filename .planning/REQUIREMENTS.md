@@ -11,10 +11,10 @@ Committed scope for the "Étude" milestone. Each maps to exactly one roadmap pha
 ### Shell & Gateway (SHELL)
 
 - [ ] **SHELL-01**: The shared chassis CSS is extracted to `qhse-cesi/chassis.css`; both `index.html` and `outils.html` load it via `<link>`, with the v1.0 token + component contract visually unchanged and no build step introduced
-- [ ] **SHELL-02**: A new page `qhse-cesi/outils.html` exists with the same dark editorial identity as the Hub and a 4-tab navigation shell (Flashcards, Fiches, QCM, Tests blancs)
-- [ ] **SHELL-03**: The reserved `#outils` nav item and section in `index.html` are un-hidden; the section describes the 4 study modes and links to `outils.html`
-- [ ] **SHELL-04**: The root QHSE Trainer and the v1.0 Hub reading content (Accueil, Découverte, Biblio) remain visually and functionally unchanged after the chassis extraction
-- [ ] **SHELL-05**: `outils.html` loads its content bank via `<script src="outils-data.js">` with no build step and is usable on mobile + desktop, dark default
+- [x] **SHELL-02**: A new page `qhse-cesi/outils.html` exists with the same dark editorial identity as the Hub and a 4-tab navigation shell (Flashcards, Fiches, QCM, Tests blancs)
+- [x] **SHELL-03**: The reserved `#outils` nav item and section in `index.html` are un-hidden; the section describes the 4 study modes and links to `outils.html`
+- [x] **SHELL-04**: The root QHSE Trainer and the v1.0 Hub reading content (Accueil, Découverte, Biblio) remain visually and functionally unchanged after the chassis extraction
+- [x] **SHELL-05**: `outils.html` loads its content bank via `<script src="outils-data.js">` with no build step and is usable on mobile + desktop, dark default
 
 ### Content Bank (BANK)
 
@@ -56,7 +56,7 @@ Committed scope for the "Étude" milestone. Each maps to exactly one roadmap pha
 ### Persistence & Trust (PERSIST)
 
 - [ ] **PERSIST-01**: All persistence uses three documented `localStorage` keys (`qhse-srs-v1`, `qhse-scores-v1`, `qhse-prefs-v1`); the last theme/mode is restored on return
-- [ ] **PERSIST-02**: No backend, no accounts, no sync, no runtime AI question generation, no multi-user/gamification — the bank is hand-authored + sourced at commit time
+- [x] **PERSIST-02**: No backend, no accounts, no sync, no runtime AI question generation, no multi-user/gamification — the bank is hand-authored + sourced at commit time
 
 ## Future Requirements
 
@@ -86,11 +86,11 @@ Coverage audit: 26/26 v2.0 requirements mapped. 0 unmapped. 0 duplicates.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | SHELL-01 | Phase 1 | Pending |
-| SHELL-02 | Phase 1 | Pending |
-| SHELL-03 | Phase 1 | Pending |
-| SHELL-04 | Phase 1 | Pending |
-| SHELL-05 | Phase 1 | Pending |
-| PERSIST-02 | Phase 1 | Pending |
+| SHELL-02 | Phase 1 | Complete |
+| SHELL-03 | Phase 1 | Complete |
+| SHELL-04 | Phase 1 | Complete |
+| SHELL-05 | Phase 1 | Complete |
+| PERSIST-02 | Phase 1 | Complete |
 | BANK-01 | Phase 2 | Pending |
 | BANK-02 | Phase 2 | Pending |
 | BANK-03 | Phase 2 | Pending |
