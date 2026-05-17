@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git pull *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git config *)",
+      "Bash(git push *)",
+      "WebSearch",
+      "WebFetch(domain:www.cesi.fr)",
+      "WebFetch(domain:www.pole-formation-lda.fr)",
+      "WebFetch(domain:www.univ-usto.dz)",
+      "Bash(npm install *)",
+      "Bash(bash *)",
+      "Bash(npx get-shit-done-cc@latest --help)",
+      "Bash(npx get-shit-done-cc@latest *)",
+      "mcp__claude_ai_Vercel__list_teams",
+      "mcp__claude_ai_Vercel__list_projects",
+      "PowerShell([System.Environment]::SetEnvironmentVariable\\(\"CLAUDE_CODE_MAX_OUTPUT_TOKENS\", \"100000\", \"User\"\\); [System.Environment]::GetEnvironmentVariable\\(\"CLAUDE_CODE_MAX_OUTPUT_TOKENS\", \"User\"\\))",
+      "Skill(gsd-new-project)",
+      "WebFetch(domain:lucide.dev)",
+      "WebFetch(domain:kristianfreeman.com)",
+      "Bash(gsd-sdk query *)",
+      "Skill(gsd-execute-phase)",
+      "Bash(cp \"/c/Users/Lasmoles/.claude/settings.json\" \"/c/Users/Lasmoles/.claude/settings.json.bak-2026-05-14\")",
+      "Bash(node -e ' *)",
+      "Read(//c/Users/Lasmoles/.claude/**)",
+      "Skill(gsd-progress)",
+      "Skill(gsd-plan-phase)",
+      "Bash(grep -n \"biblio-\\\\${cat.slug}\" qhse-cesi/index.html)",
+      "Bash(curl *)",
+      "Skill(superpowers:brainstorming)"
+    ]
+  },
+  "enabledPlugins": {}
+}
