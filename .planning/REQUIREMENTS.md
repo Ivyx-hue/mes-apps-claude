@@ -10,11 +10,11 @@ Committed scope for the "Étude" milestone. Each maps to exactly one roadmap pha
 
 ### Shell & Gateway (SHELL)
 
-- [ ] **SHELL-01**: The shared chassis CSS is extracted to `qhse-cesi/chassis.css`; both `index.html` and `outils.html` load it via `<link>`, with the v1.0 token + component contract visually unchanged and no build step introduced
+- [x] **SHELL-01**: The shared chassis CSS is extracted to `qhse-cesi/chassis.css`; both `index.html` and `outils.html` load it via `<link>`, with the v1.0 token + component contract visually unchanged and no build step introduced <!-- verified Phase 1: verbatim IDENTICAL extraction (13,598 chars), both pages link it, no build step -->
 - [x] **SHELL-02**: A new page `qhse-cesi/outils.html` exists with the same dark editorial identity as the Hub and a 4-tab navigation shell (Flashcards, Fiches, QCM, Tests blancs)
 - [x] **SHELL-03**: The reserved `#outils` nav item and section in `index.html` are un-hidden; the section describes the 4 study modes and links to `outils.html`
 - [x] **SHELL-04**: The root QHSE Trainer and the v1.0 Hub reading content (Accueil, Découverte, Biblio) remain visually and functionally unchanged after the chassis extraction
-- [x] **SHELL-05**: `outils.html` loads its content bank via `<script src="outils-data.js">` with no build step and is usable on mobile + desktop, dark default
+- [ ] **SHELL-05**: `outils.html` loads its content bank via `<script src="outils-data.js">` with no build step and is usable on mobile + desktop, dark default <!-- PARTIAL: Phase-1 shell portion done (no build, mobile/desktop, dark default); the <script src="outils-data.js"> content-bank clause is a Phase 2 deliverable — see 01-VERIFICATION.md Gaps. Owner to confirm re-map vs split. -->
 
 ### Content Bank (BANK)
 
@@ -85,11 +85,11 @@ Coverage audit: 26/26 v2.0 requirements mapped. 0 unmapped. 0 duplicates.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SHELL-01 | Phase 1 | Pending |
+| SHELL-01 | Phase 1 | Complete |
 | SHELL-02 | Phase 1 | Complete |
 | SHELL-03 | Phase 1 | Complete |
 | SHELL-04 | Phase 1 | Complete |
-| SHELL-05 | Phase 1 | Complete |
+| SHELL-05 | Phase 1→2 | Partial |
 | PERSIST-02 | Phase 1 | Complete |
 | BANK-01 | Phase 2 | Pending |
 | BANK-02 | Phase 2 | Pending |
