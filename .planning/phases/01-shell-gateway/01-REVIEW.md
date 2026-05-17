@@ -12,12 +12,21 @@ findings:
   warning: 3
   info: 4
   total: 7
-status: issues_found
+status: resolved
+resolution_commit: bd87647
 ---
 
 # Phase 01: Code Review Report
 
 **Reviewed:** 2026-05-17T14:59:21Z
+
+> **Resolution (2026-05-17, commit `bd87647`):** All 3 Warnings (WR-01 focus-steal on
+> load, WR-02 hash/history pollution on load, WR-03 unreachable tabpanels) and IN-01
+> (`type="button"`) were fixed in `qhse-cesi/outils.html`. Scope was outils.html only —
+> `index.html` and `chassis.css` were not touched (SHELL-04 preserved); the tab IIFE was
+> re-verified parseable. IN-02/IN-03/IN-04 left as recorded (IN-04 `.mono` is a
+> pre-existing, explicitly out-of-phase context note; IN-02/03 are non-functional polish
+> deferred to the owner's end-of-phase visual review).
 **Depth:** standard
 **Files Reviewed:** 3
 **Status:** issues_found
