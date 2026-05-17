@@ -34,43 +34,43 @@
     <div class="tab-shell">
       <ul role="tablist" aria-label="Modes d'étude" class="tab-list">
         <li role="presentation">
-          <button role="tab" id="tab-flashcards" aria-selected="true" aria-controls="panel-flashcards">
+          <button type="button" role="tab" id="tab-flashcards" aria-selected="true" aria-controls="panel-flashcards">
             Flashcards
           </button>
         </li>
         <li role="presentation">
-          <button role="tab" id="tab-fiches" aria-selected="false" aria-controls="panel-fiches" tabindex="-1">
+          <button type="button" role="tab" id="tab-fiches" aria-selected="false" aria-controls="panel-fiches" tabindex="-1">
             Fiches de révision
           </button>
         </li>
         <li role="presentation">
-          <button role="tab" id="tab-qcm" aria-selected="false" aria-controls="panel-qcm" tabindex="-1">
+          <button type="button" role="tab" id="tab-qcm" aria-selected="false" aria-controls="panel-qcm" tabindex="-1">
             QCM
           </button>
         </li>
         <li role="presentation">
-          <button role="tab" id="tab-tests" aria-selected="false" aria-controls="panel-tests" tabindex="-1">
+          <button type="button" role="tab" id="tab-tests" aria-selected="false" aria-controls="panel-tests" tabindex="-1">
             Tests blancs
           </button>
         </li>
       </ul>
 
-      <div role="tabpanel" id="panel-flashcards" aria-labelledby="tab-flashcards">
+      <div role="tabpanel" id="panel-flashcards" aria-labelledby="tab-flashcards" tabindex="0">
         <!-- Phase 3 mount point: Flashcards + SM-2 spaced repetition -->
         <p class="placeholder">Ce mode arrive en Phase 3 — révision par cartes avec répétition espacée (algorithme SM-2). La banque de contenus couvre l'ensemble des blocs RNCP41446 : Code du Travail, normes ISO, ICPE/Seveso et plus.</p>
       </div>
 
-      <div role="tabpanel" id="panel-fiches" aria-labelledby="tab-fiches" hidden>
+      <div role="tabpanel" id="panel-fiches" aria-labelledby="tab-fiches" tabindex="0" hidden>
         <!-- Phase 5 mount point: Fiches de révision imprimables -->
         <p class="placeholder">Ce mode arrive en Phase 5 — fiches de révision synthétiques, optimisées pour l'impression (feuille A4 recto-verso par bloc RNCP). La feuille de style dédiée est déjà incluse dans <code>chassis.css</code>.</p>
       </div>
 
-      <div role="tabpanel" id="panel-qcm" aria-labelledby="tab-qcm" hidden>
+      <div role="tabpanel" id="panel-qcm" aria-labelledby="tab-qcm" tabindex="0" hidden>
         <!-- Phase 4 mount point: QCM entraînement -->
         <p class="placeholder">Ce mode arrive en Phase 4 — questions à choix multiples avec correction immédiate et score de session. Couvre l'ensemble des blocs de compétences du Bachelor QHSE CESI.</p>
       </div>
 
-      <div role="tabpanel" id="panel-tests" aria-labelledby="tab-tests" hidden>
+      <div role="tabpanel" id="panel-tests" aria-labelledby="tab-tests" tabindex="0" hidden>
         <!-- Phase 4 mount point: Tests blancs chronométrés -->
         <p class="placeholder">Ce mode arrive en Phase 4 — tests blancs chronométrés reproduisant les conditions d'examen. Durée configurable, résultats enregistrés dans <code>localStorage</code>.</p>
       </div>
@@ -93,7 +93,12 @@
       const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
       const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
 
-      function activate(tab) {
+      // opts.setFocus / opts.syncHash default to false so the initial
+      // load is side-effect-free: visiting the page must not steal focus,
+      // scroll, or push a history entry (code review WR-01 / WR-02).
+      function activate(tab, opts) {
+        const setFocus = !!(opts && opts.setFocus);
+        const syncHash = !!(opts && opts.syncHash);
         tabs.forEach(t => {
           const active = t === tab;
           t.setAttribute('aria-selected', String(active));
@@ -102,22 +107,31 @@
         panels.forEach(p => {
           p.hidden = p.id !== tab.getAttribute('aria-controls');
         });
-        location.hash = tab.id;
-        tab.focus();
+        if (syncHash) {
+          // replaceState (not `location.hash =`) avoids polluting history
+          // and avoids the browser scroll-jump to the matching id.
+          history.replaceState(null, '', '#' + tab.id);
+        }
+        if (setFocus) {
+          tab.focus();
+        }
       }
 
+      const userOpts = { setFocus: true, syncHash: true };
+
       tabs.forEach(tab => {
-        tab.addEventListener('click', () => activate(tab));
+        tab.addEventListener('click', () => activate(tab, userOpts));
         tab.addEventListener('keydown', e => {
           const idx = tabs.indexOf(e.currentTarget);
-          if (e.key === 'ArrowRight') { e.preventDefault(); activate(tabs[(idx + 1) % tabs.length]); }
-          if (e.key === 'ArrowLeft')  { e.preventDefault(); activate(tabs[(idx - 1 + tabs.length) % tabs.length]); }
-          if (e.key === 'Home')       { e.preventDefault(); activate(tabs[0]); }
-          if (e.key === 'End')        { e.preventDefault(); activate(tabs[tabs.length - 1]); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); activate(tabs[(idx + 1) % tabs.length], userOpts); }
+          if (e.key === 'ArrowLeft')  { e.preventDefault(); activate(tabs[(idx - 1 + tabs.length) % tabs.length], userOpts); }
+          if (e.key === 'Home')       { e.preventDefault(); activate(tabs[0], userOpts); }
+          if (e.key === 'End')        { e.preventDefault(); activate(tabs[tabs.length - 1], userOpts); }
         });
       });
 
       // Restore active tab from hash on load (or fall back to first tab).
+      // No focus, no hash write on initial load (WR-01 / WR-02).
       const hash = location.hash.slice(1);
       const initial = tabs.find(t => t.id === hash) || tabs[0];
       activate(initial);
