@@ -60,7 +60,28 @@ Plans:
   2. Owner samples 10 random items and confirms each has all required fields: `id`, `type`, `theme`, `question`, `answer`, `explanation`, `source` (with `authority`, `ref`, `url`, `verified`), `difficulty` — and QCM items also carry `choices` and `correct`.
   3. Every `source.url` is content-verified: real `<title>` + topic match + soft-404 grep; no search/index pages; no HTTP-status-only checks — zero broken source links at ship time.
   4. Owner filters `BANK.filter(i => i.theme === 'duerp')` and gets a non-empty array; same for at least 5 other themes — confirming `theme` is a usable filter key across the whole bank.
-**Plans**: TBD
+**Plans**: 7 plans
+Plans:
+**Wave 1**
+- [ ] 02-01-PLAN.md — Scaffold outils-data.js + window.BANK contract, wire <script src> into outils.html (closes SHELL-05), author Batch A duerp+principes-generaux (36 items)
+
+**Wave 2** *(blocked on Wave 1 — shared outils-data.js)*
+- [ ] 02-02-PLAN.md — Batch B: iso-45001/iso-9001/iso-14001 (46 items) — blocking human-verify of ISO free-source URLs
+
+**Wave 3** *(blocked on Wave 2)*
+- [ ] 02-03-PLAN.md — Batch C: tms/risque-routier/rps (40 items) — INRS/ameli backbone
+
+**Wave 4** *(blocked on Wave 3)*
+- [ ] 02-04-PLAN.md — Batch D: risque-chimique/espaces-confines (30 items) — CLP/SGH/VLEP/O2 accuracy
+
+**Wave 5** *(blocked on Wave 4)*
+- [ ] 02-05-PLAN.md — Batch E: icpe-seveso/calendrier/acronymes (43 items) — calendrier % live-refetch; SPA acronyms deferred
+
+**Wave 6** *(blocked on Wave 5)*
+- [ ] 02-06-PLAN.md — Batch F: metiers/rncp + deferred SPA acronymes (25+ items) — blocking human-verify of MétierScope/France compétences SPAs
+
+**Wave 7** *(blocked on Wave 6)*
+- [ ] 02-07-PLAN.md — Final integration: --final gate asserting ROADMAP SC1-4 + SHELL-05 closure + D-01..D-13 (BANK >= 200, target >= 210)
 
 ### Phase 3: Flashcards + SRS
 **Goal**: The owner can study flashcards with spaced repetition — reviewing due cards, self-grading, and returning the next day to find the scheduler has advanced their queue.
@@ -105,7 +126,7 @@ Plans:
 | 2. Découverte content | v1.0 | 1/1 | Complete | 2026-05-15 |
 | 3. Biblio data + render + 5 categories populated | v1.0 | 1/1 | Complete | 2026-05-16 |
 | 1. Shell & Gateway | v2.0 | 0/? | Not started | - |
-| 2. Content Bank | v2.0 | 0/? | Not started | - |
+| 2. Content Bank | v2.0 | 0/7 | Planned | - |
 | 3. Flashcards + SRS | v2.0 | 0/? | Not started | - |
 | 4. QCM + Tests blancs | v2.0 | 0/? | Not started | - |
 | 5. Fiches de révision | v2.0 | 0/? | Not started | - |
