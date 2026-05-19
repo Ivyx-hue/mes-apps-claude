@@ -1,0 +1,50 @@
+ISO Source URL Scouting — Phase 02 Batch B
+Scouted: 2026-05-19
+Protocol: curl -sS -L --max-time 14 -A "Mozilla/5.0..." + <title> extract + soft-404 grep
+
+=== iso-9001 ===
+CANDIDATE: https://fr.wikipedia.org/wiki/ISO_9001
+TITLE: ISO 9001 — Wikipédia
+BODY SIZE: 151616 bytes
+SOFT-404 CHECK: OK (no soft-404 markers)
+CONTENT VERIFIED: YES — page lists "Les sept principes de management" (Orientation client, Leadership, Implication du personnel, Approche processus, Amélioration, Prise de décision fondée sur des preuves, Management des relations avec les parties intéressées). Covers §4–§10 HLS structure. Mentions 7 vs former 8 principles (ISO 9001:2000 had 8). Contains PDCA, clause references, §8 "mesure analyse et amélioration continue".
+REJECTED CANDIDATES:
+  - qualiteperformance.org ISO 9001 URL → soft-404 ("Page non trouvée")
+  - normalisation.afnor.org ISO 9001:2015 → passes curl but is a press announcement (no clause coverage) — REJECT (too thin)
+  - iso.org → HTTP 403 [BANNED per task spec]
+  - boutique.afnor.org → paywall [BANNED per D-06]
+STATUS: PASS — chosen URL for iso-9001 items
+
+=== iso-14001 ===
+CANDIDATE: https://fr.wikipedia.org/wiki/ISO_14001
+TITLE: ISO 14001 — Wikipédia
+BODY SIZE: 118419 bytes
+SOFT-404 CHECK: OK (no soft-404 markers)
+CONTENT VERIFIED: YES — covers Système de Management Environnemental (SME), aspects environnementaux, impacts environnementaux, PDCA (Planifier-Développer-Contrôler-Agir), HLS §4–§10, politique environnementale, mise en conformité réglementaire, parties intéressées.
+REJECTED CANDIDATES:
+  - qualiteperformance.org ISO 14001 URL → returns "Accès refusé / Connexion utilisateur" — REJECT (requires account login)
+  - iso.org/standard/60857.html → HTTP 403 [BANNED]
+STATUS: PASS — chosen URL for iso-14001 items
+
+=== iso-45001 ===
+CANDIDATE: https://learnandconnect.pollutec.com/iso-45001-sante-securite-travail/
+TITLE: ISO 45001 : la norme santé et sécurité au travail expliquée
+BODY SIZE: 105531 bytes
+SOFT-404 CHECK: OK (no soft-404 markers)
+CONTENT VERIFIED: YES — published mars 2018 (confirmed in body), covers: chapitres 1–10, §5 "Leadership et participation des travailleurs" (maps to §5.4), §6.1.2 "identification des dangers et évaluation des risques professionnels" (named explicitly), HLS, PDCA, "identifier les dangers", "mesures de prévention et de protection".
+NOTE: Does not explicitly name OHSAS 18001 in the curl body, but oo2.fr and preventionbtp.fr both confirm OHSAS 18001 replacement. The learnandconnect page is the cleanest free static source passing all checks.
+REJECTED CANDIDATES:
+  - inrs.fr media.html?refINRS=NO+28 → [BANNED — media.html redirect pattern]
+  - preventionbtp.fr ISO 45001 → passes curl with correct title and 361KB body, but soft-404 grep triggered on embedded JSON metadata ("metaTitle":"Page non trouvée" for other pages in site bundle) — false positive in the grep. Page IS real and substantive (ISO 45001 x111, OHSAS x8, mars 2018 x8, participation x8 in body). FLAGGED for human eyeball — if learnandconnect is confirmed, preventionbtp is a strong backup.
+  - All INRS /demarche/ and /risques/ ISO 45001 static pages → all return "Page introuvable" (404)
+  - iso.org → HTTP 403 [BANNED]
+STATUS: PASS — chosen URL for iso-45001 items (learnandconnect confirmed; preventionbtp as backup)
+
+=== SUMMARY ===
+iso-9001 | https://fr.wikipedia.org/wiki/ISO_9001 | TITLE: ISO 9001 — Wikipédia | 151616 bytes | PASS
+iso-14001 | https://fr.wikipedia.org/wiki/ISO_14001 | TITLE: ISO 14001 — Wikipédia | 118419 bytes | PASS
+iso-45001 | https://learnandconnect.pollutec.com/iso-45001-sante-securite-travail/ | TITLE: ISO 45001 : la norme santé et sécurité au travail expliquée | 105531 bytes | PASS
+
+Zero GAP themes. All three ISO themes have a chosen free authoritative URL passing curl.
+No iso.org/standard, boutique.afnor.org, shop.bsigroup.com, or media.html?refINRS= URLs selected.
+Ready for human-verify checkpoint (browser eyeball each URL).
