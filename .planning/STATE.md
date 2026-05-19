@@ -4,7 +4,7 @@ milestone: v2.0
 milestone_name: Étude
 status: ready_to_plan
 stopped_at: Phase 2 context gathered
-last_updated: "2026-05-19T15:52:13.059Z"
+last_updated: "2026-05-19T15:56:48.908Z"
 progress:
   total_phases: 5
   completed_phases: 1
@@ -24,7 +24,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 **Core value:** Have one trustworthy place that answers "what is this formation, what will I study, and where do I find the best resources" — without digging through scattered sources every time. *(v2.0 extends this with: actively revise that content and track mastery.)*
 
-**Current focus:** Phase 2 — content bank
+**Current focus:** Phase 02 — content-bank
 
 **Mode:** mvp · **Granularity:** coarse
 **Deploy target:** `https://mes-apps-claude.vercel.app/qhse-cesi/` (live, HTTP 200)
@@ -32,8 +32,8 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
+Phase: 02 (content-bank) — EXECUTING
+Plan: 1 of 7
 
 ```
 Milestone : v2.0 Étude
