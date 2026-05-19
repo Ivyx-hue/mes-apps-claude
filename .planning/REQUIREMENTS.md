@@ -18,11 +18,11 @@ Committed scope for the "Étude" milestone. Each maps to exactly one roadmap pha
 
 ### Content Bank (BANK)
 
-- [ ] **BANK-01**: `qhse-cesi/outils-data.js` provides 200+ study items covering the full Bachelor QHSE scope (RNCP41446/BC01–BC04, DUERP R4121-1, 9 principes L4121-2, ISO 9001/14001/45001, TMS, risque routier, risque chimique, RPS, espaces confinés, acronymes, métiers/ROME, calendrier alternance, ICPE/Seveso)
-- [ ] **BANK-02**: Every item follows the canonical schema (`id`, `type`, `theme`, `question`, `answer`, `choices?`, `correct?`, `explanation`, `source`, `difficulty`)
-- [ ] **BANK-03**: Every item carries a `source` object (`authority`, `ref`, `url`, `verified` date); no regulatory claim ships unsourced
-- [ ] **BANK-04**: Every `source.url` is HTTP-200 and lands directly on the cited content (content-verified — real `<title>` + topic match + soft-404 grep; no search/index pages), per the v1.0 link discipline
-- [ ] **BANK-05**: Items carry a `theme` so any mode can filter or compose a session by theme
+- [x] **BANK-01**: `qhse-cesi/outils-data.js` provides 200+ study items covering the full Bachelor QHSE scope (RNCP41446/BC01–BC04, DUERP R4121-1, 9 principes L4121-2, ISO 9001/14001/45001, TMS, risque routier, risque chimique, RPS, espaces confinés, acronymes, métiers/ROME, calendrier alternance, ICPE/Seveso)
+- [x] **BANK-02**: Every item follows the canonical schema (`id`, `type`, `theme`, `question`, `answer`, `choices?`, `correct?`, `explanation`, `source`, `difficulty`)
+- [x] **BANK-03**: Every item carries a `source` object (`authority`, `ref`, `url`, `verified` date); no regulatory claim ships unsourced
+- [x] **BANK-04**: Every `source.url` is HTTP-200 and lands directly on the cited content (content-verified — real `<title>` + topic match + soft-404 grep; no search/index pages), per the v1.0 link discipline
+- [x] **BANK-05**: Items carry a `theme` so any mode can filter or compose a session by theme
 
 ### Flashcards (FLASH)
 
@@ -91,11 +91,11 @@ Coverage audit: 26/26 v2.0 requirements mapped. 0 unmapped. 0 duplicates.
 | SHELL-04 | Phase 1 | Complete |
 | SHELL-05 | Phase 1→2 | Partial |
 | PERSIST-02 | Phase 1 | Complete |
-| BANK-01 | Phase 2 | Pending |
-| BANK-02 | Phase 2 | Pending |
-| BANK-03 | Phase 2 | Pending |
-| BANK-04 | Phase 2 | Pending |
-| BANK-05 | Phase 2 | Pending |
+| BANK-01 | Phase 2 | Complete |
+| BANK-02 | Phase 2 | Complete |
+| BANK-03 | Phase 2 | Complete |
+| BANK-04 | Phase 2 | Complete |
+| BANK-05 | Phase 2 | Complete |
 | FLASH-01 | Phase 3 | Pending |
 | FLASH-02 | Phase 3 | Pending |
 | SRS-01 | Phase 3 | Pending |

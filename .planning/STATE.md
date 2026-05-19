@@ -4,12 +4,12 @@ milestone: v2.0
 milestone_name: Étude
 status: ready_to_plan
 stopped_at: Phase 2 context gathered
-last_updated: "2026-05-19T15:56:48.908Z"
+last_updated: "2026-05-19T16:06:22.465Z"
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 9
-  completed_plans: 2
+  completed_plans: 3
   percent: 20
 ---
 
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 02 (content-bank) — EXECUTING
-Plan: 1 of 7
+Plan: 2 of 7
 
 ```
 Milestone : v2.0 Étude
@@ -82,9 +82,9 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Session Continuity
 
-Last session: 2026-05-17T19:50:14.702Z
+Last session: 2026-05-19T16:06:22.459Z
 Stopped at: Phase 2 context gathered
-Resume file: .planning/phases/02-content-bank/02-CONTEXT.md
+Resume file: None
 Proceeding to: `/gsd-plan-phase 1`
 
 ---
