@@ -4,11 +4,11 @@ milestone: v2.0
 milestone_name: Étude
 status: ready_to_plan
 stopped_at: Phase 2 context gathered
-last_updated: "2026-05-17T19:50:14.707Z"
+last_updated: "2026-05-19T15:52:13.059Z"
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 2
+  total_plans: 9
   completed_plans: 2
   percent: 20
 ---
