@@ -4,12 +4,12 @@ milestone: v2.0
 milestone_name: Étude
 status: ready_to_plan
 stopped_at: Phase 2 context gathered
-last_updated: "2026-05-19T16:06:22.465Z"
+last_updated: "2026-05-19T23:50:46.383Z"
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 9
-  completed_plans: 3
+  completed_plans: 4
   percent: 20
 ---
 
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 02 (content-bank) — EXECUTING
-Plan: 2 of 7
+Plan: 3 of 7
 
 ```
 Milestone : v2.0 Étude
@@ -75,17 +75,19 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 | D-05: ARIA tab pattern (JS, not CSS-only) | role=tablist/tab/tabpanel, aria-selected, roving tabindex, hash sync — scoped to outils.html only |
 | D-06: Dated placeholders per panel | Flashcards=Phase 3, Fiches=Phase 5, QCM=Phase 4, Tests=Phase 4 |
 | D-07/D-08/D-09: Hub gateway un-hidden | #outils nav item + section visible; editorial copy + same-tab link to outils.html |
+| ISO source.url: Wikipedia FR for all three ISO themes | Human-approved at checkpoint 2026-05-19; iso-45001 swapped from Pollutec to Wikipedia FR for OHSAS 18001 coverage |
+| No norm sub-field in ISO items | Theme slug (iso-9001, iso-14001, iso-45001) carries the norm identity per D-02 |
 
 ## Next Step
 
-`/gsd-plan-phase 1` — plan Phase 1 (Shell & Gateway): extract `chassis.css`, scaffold `outils.html` 4-tab shell, un-hide Hub `#outils` gateway.
+`/gsd-execute-phase 2` — continue Phase 2, plan 03-PLAN.md (Batch C: tms/risque-routier/rps, 40 items).
 
 ## Session Continuity
 
-Last session: 2026-05-19T16:06:22.459Z
-Stopped at: Phase 2 context gathered
+Last session: 2026-05-20T00:00:00.000Z
+Stopped at: Completed 02-02-PLAN.md — Batch B ISO (46 items, BANK=82)
 Resume file: None
-Proceeding to: `/gsd-plan-phase 1`
+Proceeding to: `/gsd-execute-phase 2` (plan 03 of 7)
 
 ---
 *State updated: 2026-05-16 — v2.0 "Étude" roadmap created; 5 phases, 26/26 requirements mapped; Phase 1 context locked, ready to plan*

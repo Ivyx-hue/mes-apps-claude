@@ -66,7 +66,7 @@ Plans:
 - [x] 02-01-PLAN.md — Scaffold outils-data.js + window.BANK contract, wire <script src> into outils.html (closes SHELL-05), author Batch A duerp+principes-generaux (36 items)
 
 **Wave 2** *(blocked on Wave 1 — shared outils-data.js)*
-- [ ] 02-02-PLAN.md — Batch B: iso-45001/iso-9001/iso-14001 (46 items) — blocking human-verify of ISO free-source URLs
+- [x] 02-02-PLAN.md — Batch B: iso-45001/iso-9001/iso-14001 (46 items) — blocking human-verify of ISO free-source URLs
 
 **Wave 3** *(blocked on Wave 2)*
 - [ ] 02-03-PLAN.md — Batch C: tms/risque-routier/rps (40 items) — INRS/ameli backbone
@@ -123,7 +123,7 @@ Plans:
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 1. Skeleton chassis + visual identity | v1.0 | 2/2 | Complete   | 2026-05-17 |
-| 2. Découverte content | v1.0 | 1/7 | In Progress|  |
+| 2. Découverte content | v1.0 | 2/7 | In Progress|  |
 | 3. Biblio data + render + 5 categories populated | v1.0 | 1/1 | Complete | 2026-05-16 |
 | 1. Shell & Gateway | v2.0 | 0/? | Not started | - |
 | 2. Content Bank | v2.0 | 0/7 | Planned | - |
