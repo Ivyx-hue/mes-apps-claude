@@ -1603,7 +1603,784 @@ window.BANK = [
       verified: '2026-05-20'
     },
     difficulty: 1
+  },
+
+  /* =========================================================
+   * THEME: tms (14 items — 8 flashcards + 6 QCM)
+   * Authority: INRS risques/tms + ameli risques-pro
+   * Ref: statistiques INRS/ameli — 1ère maladie professionnelle
+   * ========================================================= */
+
+  {
+    id: 'tms-flashcard-001',
+    type: 'flashcard',
+    theme: 'tms',
+    question: "Quelle place occupent les TMS parmi les maladies professionnelles reconnues en France ?",
+    answer: "Les TMS représentent environ 88 % des maladies professionnelles reconnues (source ameli 2024) et plus de 80 % selon l'INRS. Ils constituent la 1ère cause de maladie professionnelle indemnisée.",
+    explanation: "Ce chiffre varie légèrement selon la source (88 % ameli / >80 % INRS) mais le message exam est le même : les TMS dominent très largement les maladies professionnelles, devant les maladies liées aux agents chimiques (~10 %). Retenir : 1ère maladie professionnelle reconnue = TMS.",
+    source: {
+      authority: 'Assurance Maladie - ameli',
+      ref: 'INRS - statistiques TMS',
+      url: 'https://www.ameli.fr/entreprise/sante-travail/risques/troubles-musculosquelettiques-tms/pourquoi-comment-agir',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'tms-flashcard-002',
+    type: 'flashcard',
+    theme: 'tms',
+    question: "Quelles sont les 3 catégories de facteurs de risque de TMS ?",
+    answer: "Les 3 catégories de facteurs de risque TMS sont : (1) biomécaniques (gestes répétitifs, postures contraignantes, efforts excessifs), (2) psychosociaux (stress, manque d'autonomie, pression temporelle), (3) environnementaux (froid, vibrations, mauvais éclairage).",
+    explanation: "Cette trilogie est la grille de lecture standard INRS. Les facteurs biomécaniques sont les plus visibles (les mouvements) mais les facteurs psychosociaux sont tout aussi importants — un salarié stressé contracte davantage ses muscles. Les facteurs environnementaux potentialisent les deux autres. Piège : confondre 'facteurs psychosociaux' du risque TMS avec les RPS (deux choses distinctes).",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - facteurs de risque TMS',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'tms-flashcard-003',
+    type: 'flashcard',
+    theme: 'tms',
+    question: "Que signifie l'acronyme PRAP et quel est son objet ?",
+    answer: "PRAP = Prévention des Risques liés à l'Activité Physique. C'est un programme de formation qui vise à réduire les risques de TMS et d'accidents liés aux manutentions manuelles en formant les salariés à analyser et améliorer leurs gestes et postures.",
+    explanation: "PRAP est une formation certifiante INRS (opérateurs PRAP, formateurs PRAP). Elle ne se limite pas à la manutention lourde : elle couvre tous les gestes contraignants, y compris les petits mouvements répétitifs. À distinguer de PRAP IBC (Industries, services et commerce de Proximité et Bureau) et PRAP 2S (Sanitaire et Social) — deux déclinaisons sectorielles.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - programme PRAP',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'tms-flashcard-004',
+    type: 'flashcard',
+    theme: 'tms',
+    question: "Quelles régions anatomiques sont principalement touchées par les TMS ?",
+    answer: "Les membres supérieurs sont principalement touchés : épaule (coiffe des rotateurs), coude (épicondylite), poignet/main (syndrome du canal carpien). Le rachis (lombalgies) et les membres inférieurs sont également concernés.",
+    explanation: "Le syndrome du canal carpien (compression du nerf médian au poignet) est la TMS la plus fréquemment reconnue en maladie professionnelle. L'épaule (tendinites de la coiffe des rotateurs) est la TMS la plus grave en termes d'arrêts de travail. Le rachis (lombalgies) donne davantage lieu à AT qu'à MP car la lombalgie est difficile à rattacher à un seul employeur.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - statistiques TMS',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'tms-flashcard-005',
+    type: 'flashcard',
+    theme: 'tms',
+    question: "Quelles sont les 4 étapes du programme TMS-Pros de l'Assurance Maladie ?",
+    answer: "TMS-Pros = programme Assurance Maladie en 4 étapes : (1) Mobiliser, (2) Investiguer, (3) Maîtriser, (4) Évaluer.",
+    explanation: "TMS-Pros accompagne les entreprises ayant une sinistralité TMS élevée. Étape 1 : constitution d'un groupe de travail pluridisciplinaire (mobiliser). Étape 2 : analyse des situations de travail via observations et questionnaires (investiguer). Étape 3 : mise en œuvre des actions correctives techniques et organisationnelles (maîtriser). Étape 4 : mesure de l'efficacité des actions (évaluer). C'est un PDCA appliqué aux TMS.",
+    source: {
+      authority: 'Assurance Maladie - ameli',
+      ref: 'Programme TMS-Pros — Assurance Maladie',
+      url: 'https://www.ameli.fr/entreprise/sante-travail/risques/troubles-musculosquelettiques-tms/pourquoi-comment-agir',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'tms-flashcard-006',
+    type: 'flashcard',
+    theme: 'tms',
+    question: "Quelle est la différence entre AT (accident du travail) et MP (maladie professionnelle) dans le contexte TMS ?",
+    answer: "Un AT est un événement soudain survenu par le fait ou à l'occasion du travail (ex. : chute, effort brutal). Une MP est une affection contractée progressivement et listée dans les tableaux de MP (ex. : tableau 57 pour les TMS des membres supérieurs). Les TMS sont quasi exclusivement des MP, pas des AT.",
+    explanation: "Le tableau 57 des maladies professionnelles (régime général) liste les affections périarticulaires provoquées par certains gestes et postures. C'est le tableau le plus sollicité en France. La reconnaissance en MP ouvre droit à une indemnisation majorée (IPP, rente) par rapport à l'AT. Enjeu employeur : contribuer à la sinistralité MP augmente le taux de cotisation AT/MP.",
+    source: {
+      authority: 'INRS',
+      ref: 'Tableaux MP — tableau 57',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'tms-flashcard-007',
+    type: 'flashcard',
+    theme: 'tms',
+    question: "Quels sont les principes de la démarche de prévention TMS préconisée par l'INRS ?",
+    answer: "La prévention TMS repose sur une démarche collective centrée sur le travail réel : analyser les situations de travail (observations, questionnaires), identifier les facteurs de risque, concevoir des solutions techniques et organisationnelles, mettre en œuvre et évaluer. La prévention individuelle (gestes et postures) ne suffit pas seule.",
+    explanation: "Point clé exam : la prévention TMS efficace est collective et organisationnelle — elle n'est pas réduite à la 'formation gestes et postures' individuelle. L'INRS insiste sur la conception des postes (ergonomie) et l'organisation du travail (rotation, pauses, cadences). La démarche s'intègre dans le DUERP et s'appuie sur les résultats de l'évaluation des risques.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - démarche de prévention TMS',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/prevention.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  {
+    id: 'tms-flashcard-008',
+    type: 'flashcard',
+    theme: 'tms',
+    question: "Dans quels secteurs professionnels les TMS sont-ils les plus fréquents ?",
+    answer: "Les TMS sont particulièrement fréquents dans les secteurs suivants : agroalimentaire, bâtiment/travaux publics, commerce/grande distribution, santé/action sociale (aide à domicile, EHPAD), et industrie manufacturière.",
+    explanation: "Ces secteurs cumulent les facteurs biomécaniques (gestes répétitifs à cadence élevée dans l'agroalimentaire, port de charges dans le BTP et le soin) et les facteurs psychosociaux (pression de temps, faible autonomie). Le taux de TMS dans l'agroalimentaire est parmi les plus élevés de tous les secteurs. À retenir pour les QCM : le secteur agricole et le travail sur écran sont également touchés.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - statistiques TMS par secteur',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'tms-qcm-001',
+    type: 'qcm',
+    theme: 'tms',
+    question: "Selon l'Assurance Maladie (ameli 2024), quelle proportion des maladies professionnelles reconnues en France sont des TMS ?",
+    answer: "Environ 88 %.",
+    choices: [
+      "Environ 50 %",
+      "Environ 70 %",
+      "Environ 88 %",
+      "Environ 95 %"
+    ],
+    correct: 2,
+    explanation: "La réponse exacte est environ 88 % (ameli 2024). L'INRS cite >80 %, les deux sources convergent pour faire des TMS la 1ère maladie professionnelle de très loin. Option A (50 %) et D (95 %) sont écartées par le bon sens. Option B (70 %) est le piège le plus fréquent — certains retiennent 'plus des deux tiers' et atterrissent sur 70 %. Memoriser 88 % (ameli) ou >80 % (INRS) selon la source citée en cours.",
+    source: {
+      authority: 'Assurance Maladie - ameli',
+      ref: 'INRS - statistiques TMS',
+      url: 'https://www.ameli.fr/entreprise/sante-travail/risques/troubles-musculosquelettiques-tms/pourquoi-comment-agir',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'tms-qcm-002',
+    type: 'qcm',
+    theme: 'tms',
+    question: "Parmi les propositions suivantes, laquelle décrit correctement le programme TMS-Pros de l'Assurance Maladie ?",
+    answer: "Un programme en 4 étapes (Mobiliser, Investiguer, Maîtriser, Évaluer) accompagnant les entreprises à forte sinistralité TMS.",
+    choices: [
+      "Une formation gestes et postures certifiante dispensée par l'INRS (PRAP)",
+      "Un programme en 4 étapes (Mobiliser, Investiguer, Maîtriser, Évaluer) accompagnant les entreprises à forte sinistralité TMS",
+      "Un tableau de maladies professionnelles (tableau 57) couvrant les affections périarticulaires",
+      "Un questionnaire d'évaluation des risques psychosociaux utilisé dans le DUERP"
+    ],
+    correct: 1,
+    explanation: "TMS-Pros est un programme Assurance Maladie (option B). Option A décrit PRAP (formation INRS — distincte). Option C décrit le tableau 57 MP (instrument de reconnaissance, pas un programme de prévention). Option D décrit le questionnaire RPS-DU (INRS — thème RPS, pas TMS). Confusion fréquente : TMS-Pros (AM) vs PRAP (INRS) — deux outils complémentaires mais distincts.",
+    source: {
+      authority: 'Assurance Maladie - ameli',
+      ref: 'Programme TMS-Pros — Assurance Maladie',
+      url: 'https://www.ameli.fr/entreprise/sante-travail/risques/troubles-musculosquelettiques-tms/pourquoi-comment-agir',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'tms-qcm-003',
+    type: 'qcm',
+    theme: 'tms',
+    question: "Quelles sont les 3 catégories de facteurs de risque TMS selon l'INRS ?",
+    answer: "Biomécaniques, psychosociaux et environnementaux.",
+    choices: [
+      "Physiques, chimiques et biologiques",
+      "Organisationnels, relationnels et techniques",
+      "Biomécaniques, psychosociaux et environnementaux",
+      "Ergonomiques, médicaux et comportementaux"
+    ],
+    correct: 2,
+    explanation: "La trilogie INRS est biomécaniques / psychosociaux / environnementaux (option C). Option A regroupe les 3 grandes familles de risques professionnels en général (pas spécifiques aux TMS). Option B est une formulation plausible mais non standardisée — 'organisationnel' est un sous-ensemble du facteur psychosocial TMS. Option D 'médicaux' n'est pas une catégorie INRS.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - facteurs de risque TMS',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'tms-qcm-004',
+    type: 'qcm',
+    theme: 'tms',
+    question: "Que signifie PRAP dans le domaine de la prévention des TMS ?",
+    answer: "Prévention des Risques liés à l'Activité Physique.",
+    choices: [
+      "Programme de Réduction des Accidents Professionnels",
+      "Plan de Réhabilitation des Agents Publics",
+      "Prévention des Risques liés à l'Activité Physique",
+      "Protocole de Reclassement des Agents à Pathologies"
+    ],
+    correct: 2,
+    explanation: "PRAP = Prévention des Risques liés à l'Activité Physique (option C). Les options A, B et D sont des acronymes inventés — ils n'existent pas dans le référentiel QHSE. PRAP est une formation certifiante INRS qui forme les salariés à analyser leurs propres gestes et postures pour réduire les TMS. À distinguer de TMS-Pros (programme AM) et de SST (Sauveteur Secouriste du Travail).",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - programme PRAP',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'tms-qcm-005',
+    type: 'qcm',
+    theme: 'tms',
+    question: "Quelle TMS est la plus fréquemment reconnue en maladie professionnelle en France ?",
+    answer: "Le syndrome du canal carpien (compression du nerf médian au poignet).",
+    choices: [
+      "L'épicondylite latérale (tennis elbow)",
+      "Les tendinites de la coiffe des rotateurs (épaule)",
+      "Le syndrome du canal carpien (poignet)",
+      "La hernie discale lombaire (rachis)"
+    ],
+    correct: 2,
+    explanation: "Le syndrome du canal carpien (option C) est la TMS la plus fréquemment reconnue en MP (tableau 57 B du régime général). L'épicondylite (option A, tableau 57 C) est fréquente mais moins que le canal carpien. Les tendinites de la coiffe des rotateurs (option B) génèrent davantage d'arrêts de travail mais sont moins souvent reconnues en MP. La hernie discale lombaire (option D) relève plus de l'AT que de la MP dans la classification.",
+    source: {
+      authority: 'INRS',
+      ref: 'Tableau MP 57 — affections périarticulaires',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  {
+    id: 'tms-qcm-006',
+    type: 'qcm',
+    theme: 'tms',
+    question: "Quelle affirmation sur la prévention des TMS est correcte selon l'INRS ?",
+    answer: "La prévention des TMS est avant tout collective et organisationnelle ; la formation aux gestes et postures ne suffit pas seule.",
+    choices: [
+      "La formation aux gestes et postures individuels est la mesure la plus efficace pour prévenir les TMS",
+      "Les TMS ne pouvant pas être évités dans certains secteurs, la prévention se limite à la surveillance médicale",
+      "La prévention des TMS est avant tout collective et organisationnelle ; la formation aux gestes et postures ne suffit pas seule",
+      "La prévention des TMS repose uniquement sur l'amélioration du matériel (outillage, port de charges)"
+    ],
+    correct: 2,
+    explanation: "L'option C reflète la position INRS : prévention collective et organisationnelle en priorité (conception des postes, organisation du travail, rotation des tâches), complétée par la formation individuelle. Option A est le piège classique : la 'formation gestes et postures' seule est insuffisante et peut même donner une fausse impression de maîtrise du risque. Option B est fausse — l'INRS ne préconise pas la fatalité. Option D est réductrice : le matériel est important mais pas suffisant sans action organisationnelle.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - démarche de prévention TMS',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/prevention.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  /* =========================================================
+   * THEME: risque-routier (12 items — 7 flashcards + 5 QCM)
+   * Authority: INRS risques/routiers
+   * Ref: statistiques ONISR — ~30 % des AT mortels
+   * ========================================================= */
+
+  {
+    id: 'risque-routier-flashcard-001',
+    type: 'flashcard',
+    theme: 'risque-routier',
+    question: "Quelle proportion des accidents du travail mortels le risque routier professionnel représente-t-il en France ?",
+    answer: "Le risque routier professionnel (mission + trajet) représente environ 30 % des accidents du travail mortels. C'est la 1ère cause de mortalité au travail.",
+    explanation: "~30 % des AT mortels = stat exam incontournable. Ce chiffre additionne les accidents de mission (conduite dans le cadre d'une mission pro) et les accidents de trajet (domicile ↔ travail). Les accidents de trajet ne sont techniquement pas des 'accidents du travail' au sens strict, mais sont couverts par la législation AT/MP. Piège : ne retenir que les accidents de mission en oubliant le trajet.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - statistiques accidents routiers du travail',
+      url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'risque-routier-flashcard-002',
+    type: 'flashcard',
+    theme: 'risque-routier',
+    question: "Quelle est la distinction entre risque routier de mission et risque routier de trajet ?",
+    answer: "Risque routier de mission : conduite d'un véhicule dans le cadre d'une mission professionnelle (visites clients, déplacements inter-sites). Risque routier de trajet : déplacement entre le domicile et le lieu de travail (aller-retour quotidien).",
+    explanation: "Cette distinction est fondamentale pour la couverture AT/MP : accident de mission = accident du travail (couverture totale, présomption d'imputabilité). Accident de trajet = couverture AT/MP spécifique, légèrement différente (pas d'indemnisation journalière à 100% dès J1 de la même façon). Les deux types doivent figurer dans le DUERP. Piège exam : confondre les régimes d'indemnisation ou inclure le trajet dans 'accident du travail stricto sensu'.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L411-1 et L411-2 Code de la Sécurité Sociale',
+      url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-routier-flashcard-003',
+    type: 'flashcard',
+    theme: 'risque-routier',
+    question: "Quels sont les 3 axes de prévention du risque routier professionnel selon l'INRS ?",
+    answer: "Les 3 axes de prévention du risque routier sont : (1) organisation du travail et des déplacements, (2) ressources (véhicules, télécommunications, équipements), (3) compétences (recrutement, formation, sensibilisation).",
+    explanation: "Axe 1 — Organisation : planifier les déplacements pour éviter la conduite en état de fatigue ou sous pression temporelle, favoriser les alternatives (visioconférence, covoiturage, transport en commun). Axe 2 — Ressources : état et choix des véhicules, politique téléphone au volant, GPS, EPI. Axe 3 — Compétences : formation à la conduite préventive (éco-conduite, conduite en conditions difficiles), bilan de conduite. Ces 3 axes s'intègrent dans la politique de prévention et le DUERP.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - prévention risque routier',
+      url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-routier-flashcard-004',
+    type: 'flashcard',
+    theme: 'risque-routier',
+    question: "Pourquoi le risque routier professionnel doit-il obligatoirement figurer dans le DUERP ?",
+    answer: "Parce que l'employeur a une obligation générale d'évaluation de tous les risques professionnels (Art. R4121-1). Les déplacements professionnels (mission et, pour la politique de prévention, le trajet) sont des activités de travail exposant les salariés — ils doivent être évalués et des mesures de prévention planifiées.",
+    explanation: "L'intégration du risque routier dans le DUERP est une application directe de l'obligation d'évaluation des risques. En pratique, cela signifie identifier les postes exposés (représentants, techniciens itinérants, livreurs), analyser les déplacements, et prévoir des actions (axe organisation/ressources/compétences). L'absence du risque routier dans un DUERP d'une entreprise avec des déplacements fréquents est une non-conformité réglementaire.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. R4121-1 Code du travail — DUERP',
+      url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-routier-flashcard-005',
+    type: 'flashcard',
+    theme: 'risque-routier',
+    question: "Quels sont les principaux facteurs de risque d'accident routier professionnel ?",
+    answer: "Les principaux facteurs de risque sont : la vitesse excessive, la fatigue (conducteur), l'usage du téléphone au volant, l'alcool/drogues, les conditions météo/route, et les facteurs organisationnels (pression du temps, horaires décalés, kilométrage annuel élevé).",
+    explanation: "Les facteurs organisationnels sont spécifiques au risque routier professionnel : un salarié qui conduit parce que l'employeur impose une réunion lointaine à 8h sans tenir compte du trajet, ou qui conduit fatigué après une longue journée de travail. L'employeur ne peut pas contrôler tous les comportements individuels, mais peut agir sur les facteurs organisationnels (planification, alternatives).",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - facteurs de risque routier professionnel',
+      url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-routier-flashcard-006',
+    type: 'flashcard',
+    theme: 'risque-routier',
+    question: "Quelle est la démarche de prévention du risque routier recommandée par l'INRS pour une entreprise ?",
+    answer: "La démarche comprend : (1) obtenir l'engagement de la direction, (2) constituer un groupe de travail (conducteurs, encadrement, préventeur), (3) établir un diagnostic (kilométrage, sinistralité, enquêtes conducteurs), (4) définir un plan d'action sur les 3 axes (organisation/ressources/compétences), (5) évaluer les résultats.",
+    explanation: "Cette démarche suit la logique PDCA (Plan-Do-Check-Act) appliquée au risque routier. La spécificité par rapport à d'autres risques : le risque se produit hors de l'entreprise et implique des véhicules qui sont souvent la propriété du salarié (véhicules personnels en mission). L'INRS propose des outils : Bilan de Conduite, analyse des sinistres, simulateurs.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - démarche prévention risque routier',
+      url: 'https://www.inrs.fr/risques/routiers/demarche-prevention.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  {
+    id: 'risque-routier-flashcard-007',
+    type: 'flashcard',
+    theme: 'risque-routier',
+    question: "Quel outil de prévention l'INRS recommande-t-il pour identifier les marges d'amélioration de la conduite d'un salarié ?",
+    answer: "Le Bilan de Conduite (ou formation à la conduite préventive) permet d'identifier les comportements à risque d'un conducteur et de définir des actions correctives personnalisées.",
+    explanation: "Le Bilan de Conduite est différent du permis de conduire ou d'un stage de récupération de points : c'est un outil préventif utilisé en entreprise pour former les conducteurs professionnels (commerciaux itinérants, chauffeurs). Il analyse les comportements en situation réelle de conduite. L'éco-conduite est un bénéfice connexe (réduction de consommation). L'INRS propose également des simulateurs de conduite pour certains secteurs.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - formation conduite préventive',
+      url: 'https://www.inrs.fr/risques/routiers/demarche-prevention.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  {
+    id: 'risque-routier-qcm-001',
+    type: 'qcm',
+    theme: 'risque-routier',
+    question: "Quelle proportion des accidents du travail mortels le risque routier professionnel (mission + trajet) représente-t-il en France ?",
+    answer: "Environ 30 %.",
+    choices: [
+      "Environ 10 %",
+      "Environ 20 %",
+      "Environ 30 %",
+      "Environ 50 %"
+    ],
+    correct: 2,
+    explanation: "~30 % (option C) est la statistique INRS/ONISR de référence pour l'examen. Option A (10 %) est trop basse — elle sous-estime l'ampleur du risque routier. Option B (20 %) est un piège plausible. Option D (50 %) est trop haute. Le risque routier est la 1ère cause de mortalité au travail en France, devant les chutes de hauteur. Retenir : '1 mort au travail sur 3 est lié à la route'.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - statistiques accidents routiers du travail',
+      url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'risque-routier-qcm-002',
+    type: 'qcm',
+    theme: 'risque-routier',
+    question: "Un salarié se blesse dans un accident de voiture pendant un trajet domicile-travail. De quelle catégorie relève cet accident ?",
+    answer: "Accident de trajet, couvert par la législation AT/MP mais distinct de l'accident du travail stricto sensu.",
+    choices: [
+      "Accident du travail (AT) stricto sensu, couvert exactement comme un accident survenu sur le lieu de travail",
+      "Accident de mission, car le salarié se déplace pour rejoindre son employeur",
+      "Accident de trajet, couvert par la législation AT/MP mais distinct de l'accident du travail stricto sensu",
+      "Accident privé, non couvert par la législation professionnelle"
+    ],
+    correct: 2,
+    explanation: "Option C est correcte : le trajet domicile-travail relève de l'accident de trajet (Art. L411-2 CSS), qui bénéficie d'une couverture AT/MP spécifique mais avec des nuances (notamment sur l'indemnisation journalière et la faute inexcusable). Option A est fausse : l'AT stricto sensu (Art. L411-1 CSS) concerne les événements sur le lieu ou lors de l'exécution du travail — la présomption d'imputabilité est plus forte. Option B est fausse : la mission implique un déplacement commandé par l'employeur, pas le simple aller-retour quotidien. Option D est fausse : le trajet est bien couvert.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L411-1 et L411-2 Code de la Sécurité Sociale',
+      url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-routier-qcm-003',
+    type: 'qcm',
+    theme: 'risque-routier',
+    question: "Quels sont les 3 axes de la démarche de prévention du risque routier professionnel selon l'INRS ?",
+    answer: "Organisation des déplacements, ressources (véhicules et équipements), compétences (formation et sensibilisation).",
+    choices: [
+      "Technique, organisationnelle, humaine",
+      "Prévention primaire, secondaire, tertiaire",
+      "Organisation des déplacements, ressources, compétences",
+      "Identification, évaluation, contrôle"
+    ],
+    correct: 2,
+    explanation: "Les 3 axes INRS sont Organisation / Ressources / Compétences (option C). Option A (Technique/Organisationnelle/Humaine) est la trilogie générale de prévention (valide pour d'autres risques) mais ne correspond pas à la terminologie spécifique risque routier. Option B (Primaire/Secondaire/Tertiaire) est le modèle de prévention en santé publique. Option D (Identifier/Évaluer/Contrôler) est la logique EvRP — pas la nomenclature prévention routière.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - prévention risque routier',
+      url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-routier-qcm-004',
+    type: 'qcm',
+    theme: 'risque-routier',
+    question: "Un représentant commercial se blesse dans un accident de voiture alors qu'il se rend chez un client dans le cadre de ses fonctions. De quelle catégorie relève cet accident ?",
+    answer: "Accident de mission, qualifié d'accident du travail.",
+    choices: [
+      "Accident de trajet, car il se déplace hors des locaux de l'entreprise",
+      "Accident de mission, qualifié d'accident du travail",
+      "Accident privé, car il conduit son véhicule personnel",
+      "Accident de travail seulement si le véhicule appartient à l'employeur"
+    ],
+    correct: 1,
+    explanation: "Accident de mission = accident survenu pendant un déplacement commandé par l'employeur dans le cadre de l'activité professionnelle. Ici le représentant se rend chez un client — c'est bien une mission. L'accident de mission est qualifié d'accident du travail (Art. L411-1 CSS). Option A est le piège : trajet s'applique uniquement au domicile-travail, pas aux déplacements professionnels hors locaux. Option C est fausse : la propriété du véhicule n'entre pas en compte. Option D est fausse : même avec un véhicule personnel utilisé en mission, l'AT est caractérisé.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L411-1 Code de la Sécurité Sociale — accident de mission',
+      url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-routier-qcm-005',
+    type: 'qcm',
+    theme: 'risque-routier',
+    question: "Parmi les mesures suivantes, laquelle relève de l'axe 'organisation des déplacements' dans la prévention du risque routier professionnel ?",
+    answer: "Limiter les réunions tardives imposant une conduite de nuit ou en état de fatigue.",
+    choices: [
+      "Former les conducteurs à la conduite préventive (Bilan de Conduite)",
+      "Équiper les véhicules de systèmes d'aide à la conduite (ABS, ESP)",
+      "Limiter les réunions tardives imposant une conduite de nuit ou en état de fatigue",
+      "Contrôler régulièrement les permis de conduire et les visites médicales des conducteurs"
+    ],
+    correct: 2,
+    explanation: "Option C est de l'organisation (planification, gestion du temps de travail pour éviter la conduite en état de fatigue). Option A (formation) relève de l'axe Compétences. Option B (équipements véhicules) relève de l'axe Ressources. Option D (contrôle permis/médical) relève des Compétences (aptitude à conduire). La distinction organisation/ressources/compétences est fréquemment testée — chaque mesure concrète doit être rattachée à son axe.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - prévention risque routier — axe organisation',
+      url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  /* =========================================================
+   * THEME: rps (14 items — 8 flashcards + 6 QCM)
+   * Authority: INRS risques/psychosociaux
+   * Ref: Code du travail L4121-1, L1152-1
+   * ========================================================= */
+
+  {
+    id: 'rps-flashcard-001',
+    type: 'flashcard',
+    theme: 'rps',
+    question: "Que sont les risques psychosociaux (RPS) ? Donner la définition et les 3 composantes.",
+    answer: "Les RPS sont des risques pour la santé physique et mentale des travailleurs, résultant de l'exposition à des facteurs liés à l'organisation, aux conditions de travail et aux relations sociales. Ils comprennent 3 composantes : (1) le stress, (2) les violences internes (harcèlement moral, harcèlement sexuel), (3) les violences externes (incivilités, agressions).",
+    explanation: "RPS ≠ une maladie : ce sont des risques pouvant conduire à des troubles (cardiovasculaires, TMS, anxio-dépression, burnout). La définition 'psychosocial' combine le caractère psychologique (vécu subjectif du salarié) et social (contexte relationnel et organisationnel). Le stress est souvent le mécanisme central qui potentialise violences internes et externes.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - définition RPS',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rps-flashcard-002',
+    type: 'flashcard',
+    theme: 'rps',
+    question: "Quelle est la définition du harcèlement moral au sens de l'article L1152-1 du Code du travail ?",
+    answer: "Selon l'Art. L1152-1, le harcèlement moral consiste en des agissements répétés ayant pour objet ou pour effet une dégradation des conditions de travail susceptible de porter atteinte aux droits et à la dignité du salarié, d'altérer sa santé physique ou mentale ou de compromettre son avenir professionnel.",
+    explanation: "L1152-1 (harcèlement moral) ≠ L1153-1 (harcèlement sexuel) — confusion d'article très courante en examen. Les éléments constitutifs du harcèlement moral : agissements RÉPÉTÉS (un seul acte ne suffit pas) + dégradation des conditions de travail. L'intention de nuire n'est pas requise (contrairement à l'idée reçue) — l'effet suffit. (Légifrance : https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006900818)",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L1152-1 Code du travail',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rps-flashcard-003',
+    type: 'flashcard',
+    theme: 'rps',
+    question: "Qu'est-ce que le burnout (épuisement professionnel) et comment se distingue-t-il du stress aigu ?",
+    answer: "Le burnout (ou épuisement professionnel) est un ensemble de réactions consécutives à des situations de stress chronique au travail. Il se manifeste par un épuisement émotionnel, une dépersonnalisation (détachement cynique) et une réduction du sentiment d'accomplissement. Il se distingue du stress aigu par sa dimension chronique et ses 3 dimensions spécifiques.",
+    explanation: "Le modèle de référence (Maslach) définit 3 dimensions : épuisement émotionnel (sentiment d'être vidé de ses ressources), dépersonnalisation (détachement, perte d'empathie), réduction du sentiment d'accomplissement. Le burnout n'est pas un état passager — il s'installe progressivement sur des mois. Il peut conduire à un arrêt de travail prolongé et, dans les cas graves, à des idées suicidaires. À la différence des TMS, le burnout n'est pas encore reconnu comme maladie professionnelle dans le tableau MP en France (situation 2026).",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - burnout / épuisement professionnel',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rps-flashcard-004',
+    type: 'flashcard',
+    theme: 'rps',
+    question: "Quelle est l'obligation de l'employeur en matière de prévention des RPS ?",
+    answer: "L'employeur a une obligation générale de santé et de sécurité (Art. L4121-1 Code du travail) qui inclut explicitement les RPS. Il doit évaluer les risques (les inscrire dans le DUERP), prendre des mesures de prévention, et agir sur l'organisation du travail — pas seulement gérer les cas individuels.",
+    explanation: "L4121-1 pose l'obligation de résultat en matière de sécurité : l'employeur doit prendre toutes les mesures nécessaires pour assurer la sécurité et protéger la santé physique ET MENTALE. Inclure 'mentale' depuis la loi de 2002 couvre explicitement les RPS. La prévention des RPS intègre obligatoirement le DUERP. Un employeur qui ne prend pas de mesures collectives face à une situation de RPS identifiée peut voir sa responsabilité engagée (faute inexcusable si AT/MP consécutif). (Légifrance : https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006902892)",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L4121-1 Code du travail',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rps-flashcard-005',
+    type: 'flashcard',
+    theme: 'rps',
+    question: "Quels sont les deux principaux questionnaires INRS utilisés pour évaluer les RPS en entreprise ?",
+    answer: "L'INRS propose deux questionnaires principaux : (1) RPS-DU, conçu pour alimenter le DUERP — aide à identifier et évaluer les facteurs de risque RPS dans les unités de travail ; (2) Sumer, une enquête nationale sur les expositions aux risques professionnels (dont RPS) réalisée par les médecins du travail.",
+    explanation: "RPS-DU est l'outil de l'entreprise (démarche interne, confidentiel). Sumer est une enquête épidémiologique nationale (Surveillance Médicale des Expositions aux Risques professionnels) — elle donne des données de référence sectorielles pour comparer l'entreprise à son secteur. Les deux se complètent : RPS-DU pour agir, Sumer pour se situer. Il existe aussi le questionnaire KARASEK (modèle demande-autonomie-soutien) utilisé dans certaines démarches RPS.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - outils RPS-DU et Sumer',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rps-flashcard-006',
+    type: 'flashcard',
+    theme: 'rps',
+    question: "Quelle est l'approche correcte de la prévention des RPS selon l'INRS ?",
+    answer: "La prévention des RPS repose sur une démarche collective centrée sur le travail et son organisation (prévention primaire). Elle ne se réduit pas à l'accompagnement psychologique individuel des salariés en souffrance (qui relève de la prévention tertiaire).",
+    explanation: "La distinction prévention primaire / secondaire / tertiaire est exam-critique en RPS : primaire = agir sur les causes organisationnelles (charge, autonomie, relations) ; secondaire = renforcer les ressources individuelles (formation, gestion du stress) ; tertiaire = traiter les cas (accompagnement, cellule de crise). L'INRS insiste que la primaire (collective, organisationnelle) doit primer. Piège : réduire la 'prévention RPS' à l'organisation d'ateliers de gestion du stress individuel.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - démarche prévention RPS',
+      url: 'https://www.inrs.fr/risques/psychosociaux/prevention.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  {
+    id: 'rps-flashcard-007',
+    type: 'flashcard',
+    theme: 'rps',
+    question: "Quelles sont les conséquences des RPS sur la santé des travailleurs ?",
+    answer: "Les RPS peuvent conduire à : troubles anxio-dépressifs (anxiété, dépression), burnout (épuisement professionnel), troubles du sommeil, pathologies cardiovasculaires (hypertension, infarctus), TMS (via augmentation des tensions musculaires), conduites addictives (alcool, médicaments).",
+    explanation: "RPS et TMS sont liés : le stress chronique augmente la tension musculaire et potentialise les facteurs biomécaniques. Ainsi un salarié sous pression psychosociale développe plus facilement des TMS. Les pathologies cardiovasculaires liées au stress (modèle de Karasek : forte demande + faible latitude de décision + faible soutien social = risque cardiovasculaire accru) sont documentées scientifiquement. Le burnout n'est pas une maladie au sens MP mais un syndrome reconnu cliniquement.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - conséquences RPS sur la santé',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rps-flashcard-008',
+    type: 'flashcard',
+    theme: 'rps',
+    question: "Quels sont les principaux facteurs organisationnels de risque RPS identifiés par l'INRS ?",
+    answer: "Les principaux facteurs organisationnels RPS sont : intensité et complexité du travail (surcharge, délais), faible autonomie et marges de manœuvre, mauvaises relations de travail (conflits, isolement), insécurité de l'emploi, conflits de valeurs (travail prescrit vs travail réel), et exigences émotionnelles (contact avec le public en souffrance).",
+    explanation: "Le modèle de Karasek (job strain) identifie 3 axes : demande psychologique (charge), latitude décisionnelle (autonomie), soutien social. Le déséquilibre effort/récompense (modèle de Siegrist) est un autre cadre : si l'effort fourni n'est pas récompensé (salaire, reconnaissance, sécurité), le risque RPS augmente. Ces deux modèles sont les références scientifiques des questionnaires RPS utilisés en entreprise (Sumer, Karasek).",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - facteurs de risque RPS',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  {
+    id: 'rps-qcm-001',
+    type: 'qcm',
+    theme: 'rps',
+    question: "Quel article du Code du travail pose l'obligation de l'employeur en matière de prévention des RPS (protection de la santé mentale) ?",
+    answer: "L'article L4121-1 du Code du travail.",
+    choices: [
+      "L'article L1152-1 (harcèlement moral)",
+      "L'article L4121-2 (9 principes généraux de prévention)",
+      "L'article L4121-1 (obligation générale de santé et sécurité, incluant santé mentale)",
+      "L'article R4121-1 (DUERP)"
+    ],
+    correct: 2,
+    explanation: "L4121-1 (option C) pose l'obligation générale de l'employeur de prendre toutes les mesures nécessaires pour assurer la sécurité et protéger la santé physique ET MENTALE — c'est le fondement de la prévention des RPS. Option A (L1152-1) définit le harcèlement moral — c'est une composante RPS, pas le fondement général. Option B (L4121-2) énonce les 9 principes généraux de prévention — cadre méthodologique mais pas l'obligation spécifique RPS. Option D (R4121-1) concerne le DUERP (obligation de transcription).",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L4121-1 Code du travail',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rps-qcm-002',
+    type: 'qcm',
+    theme: 'rps',
+    question: "Quel article du Code du travail définit le harcèlement moral ?",
+    answer: "L'article L1152-1.",
+    choices: [
+      "L'article L1153-1 (harcèlement sexuel)",
+      "L'article L1152-1 (harcèlement moral)",
+      "L'article L4121-1 (obligation générale de sécurité)",
+      "L'article R4121-1 (DUERP)"
+    ],
+    correct: 1,
+    explanation: "L1152-1 = harcèlement moral (option B). L1153-1 = harcèlement sexuel (option A) — c'est LE piège classique d'examen : L1152 et L1153 se suivent, les confondre est très fréquent. Moyen mnémotechnique : 1152 → 'moral' (m = 2e lettre de l'alphabet avant s) ; 1153 → 'sexuel'. Options C et D ne concernent pas le harcèlement.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L1152-1 Code du travail',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rps-qcm-003',
+    type: 'qcm',
+    theme: 'rps',
+    question: "Quelles sont les 3 composantes des risques psychosociaux selon l'INRS ?",
+    answer: "Stress, violences internes (harcèlement moral/sexuel) et violences externes (incivilités, agressions de la clientèle).",
+    choices: [
+      "Burnout, dépression et anxiété",
+      "Stress, conflits interpersonnels et surcharge de travail",
+      "Stress, violences internes et violences externes",
+      "Harcèlement moral, harcèlement sexuel et discrimination"
+    ],
+    correct: 2,
+    explanation: "Les 3 composantes RPS selon l'INRS sont Stress / Violences internes / Violences externes (option C). Option A liste des conséquences sur la santé (pas les composantes du risque). Option B est une formulation approximative qui mélange une composante (stress) et des facteurs (conflits, surcharge). Option D liste des formes de violences internes uniquement — c'est une sous-partie d'une seule des 3 composantes.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - définition RPS',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rps-qcm-004',
+    type: 'qcm',
+    theme: 'rps',
+    question: "Quelle approche de prévention des RPS est préconisée en priorité par l'INRS ?",
+    answer: "La prévention primaire : agir collectivement sur les facteurs organisationnels (charge de travail, autonomie, organisation).",
+    choices: [
+      "La prévention tertiaire : accompagnement psychologique des salariés en souffrance par un psychologue du travail",
+      "La prévention secondaire : ateliers de gestion du stress et de la résilience individuelle",
+      "La prévention primaire : agir collectivement sur les facteurs organisationnels (charge, autonomie, organisation)",
+      "La prévention par la surveillance médicale : visites médicales renforcées pour les salariés à risque"
+    ],
+    correct: 2,
+    explanation: "L'INRS préconise en priorité la prévention primaire (option C) : intervenir sur les causes (organisation, management, conditions de travail) avant que la souffrance ne s'installe. Option A (tertiaire) soigne après coup — nécessaire mais insuffisant seul. Option B (secondaire) renforce les individus mais ne supprime pas les causes. Option D (surveillance médicale) est une mesure de santé au travail mais pas de prévention des causes. Le piège exam : confondre 'prévention RPS' avec 'aide psychologique'.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - démarche prévention RPS',
+      url: 'https://www.inrs.fr/risques/psychosociaux/prevention.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  {
+    id: 'rps-qcm-005',
+    type: 'qcm',
+    theme: 'rps',
+    question: "Parmi les situations suivantes, laquelle relève des 'violences internes' au sens des RPS ?",
+    answer: "Un responsable isole systématiquement un salarié lors des réunions d'équipe et lui retire ses responsabilités sans justification.",
+    choices: [
+      "Un client insulte une caissière de supermarché à la caisse",
+      "Un salarié est agressé verbalement par un patient dans un service d'urgence",
+      "Un responsable isole systématiquement un salarié lors des réunions d'équipe et lui retire ses responsabilités sans justification",
+      "Un prestataire externe tient des propos méprisants envers un agent d'accueil"
+    ],
+    correct: 2,
+    explanation: "Option C décrit du harcèlement moral (agissements répétés par un supérieur hiérarchique) = violence interne (au sein de l'organisation, entre membres de l'entreprise). Options A, B et D décrivent des violences exercées par des personnes extérieures à l'entreprise (client, patient, prestataire) = violences externes. La distinction interne/externe est fondée sur l'origine de la violence (intra vs extra-organisationnelle), pas sur sa gravité.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - violences internes vs violences externes',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rps-qcm-006',
+    type: 'qcm',
+    theme: 'rps',
+    question: "Qu'est-ce que le burnout selon l'INRS ?",
+    answer: "Un syndrome d'épuisement professionnel consécutif à un stress chronique au travail, caractérisé par épuisement émotionnel, dépersonnalisation et réduction du sentiment d'accomplissement.",
+    choices: [
+      "Une maladie professionnelle reconnue figurant dans les tableaux MP",
+      "Un syndrome d'épuisement professionnel consécutif à un stress chronique au travail, caractérisé par épuisement émotionnel, dépersonnalisation et réduction du sentiment d'accomplissement",
+      "Une forme sévère de dépression clinique diagnostiquée par un psychiatre",
+      "Un trouble uniquement observable chez les managers soumis à forte pression hiérarchique"
+    ],
+    correct: 1,
+    explanation: "Option B reflète la définition INRS du burnout (modèle Maslach). Option A est fausse : en 2026, le burnout n'est PAS encore reconnu comme maladie professionnelle dans un tableau MP spécifique en France — il peut être reconnu via le système complémentaire (CRRMP) mais pas via un tableau. Option C est trop restrictive : le burnout est un syndrome professionnel, pas nécessairement une dépression clinique. Option D est fausse : le burnout touche tous les secteurs et tous les niveaux hiérarchiques — les soignants, les enseignants et les salariés en contact avec le public y sont particulièrement exposés.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS - burnout / épuisement professionnel',
+      url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
   }
 
 ]; // end window.BANK
-// Total items: 82 — verified 2026-05-20
+// Total items: 122 — verified 2026-05-20
