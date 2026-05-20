@@ -3777,7 +3777,580 @@ window.BANK = [
       verified: '2026-05-20'
     },
     difficulty: 2
-  }
+  },
+
+
+  // ── BATCH F : metiers (12 items) ─────────────────────────────────────────
+
+  {
+    id: 'metiers-flashcard-001',
+    type: 'flashcard',
+    theme: 'metiers',
+    question: "Quel est le code ROME et l'intitulé du métier de responsable HSE dans l'industrie (niveau Bac+5) ?",
+    answer: "ROME H1302 — Management et ingénierie Hygiène Sécurité Environnement (HSE) industriels. Niveau typiquement Bac+5 (Master/Ingénieur).",
+    explanation: "H1302 est l'un des trois codes ROME officiellement associés à la certification RNCP41446 par France compétences. Il couvre la conception et le pilotage du SME/SMS en milieu industriel, la mise en conformité réglementaire, la gestion des risques industriels et des relations avec les autorités (DREAL, inspection du travail). À distinguer de H1523 (Bac+3, niveau du Bachelor QHSE) et H1303 (Bac+2, technicien).",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'code ROME H1302',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'metiers-flashcard-002',
+    type: 'flashcard',
+    theme: 'metiers',
+    question: "Quel code ROME correspond au métier de responsable qualité en industrie, officiellement associé à RNCP41446 ?",
+    answer: "ROME H1502 — Management et ingénierie qualité industrielle.",
+    explanation: "H1502 est le deuxième code ROME officiellement mappé à RNCP41446 par France compétences. Le responsable qualité industriel pilote le SMQ (ISO 9001), gère la certification produit/process, les audits fournisseurs et la métrologie. Distinct de H1302 (HSE) et H1523 (QSE intégré Bac+3). La conjonction H1302 + H1502 + M1402 constitue la triade ROME de la fiche RNCP41446.",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'code ROME H1502',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'metiers-flashcard-003',
+    type: 'flashcard',
+    theme: 'metiers',
+    question: "Quel code ROME correspond exactement au niveau Bachelor (Bac+3) pour le métier de responsable QSE ?",
+    answer: "ROME M1402 — Conseil en organisation et management d'entreprise, troisième code officiellement associé à RNCP41446 par France compétences.",
+    explanation: "Correction importante : H1523 (Responsable QSE) est le code ROME le plus souvent cité dans les offres d'emploi pour un Bac+3 QSE, MAIS France compétences liste officiellement H1302, H1502 et M1402 comme codes associés à RNCP41446 — pas H1523. M1402 couvre le conseil en organisation, management des processus et systèmes intégrés. H1523 reste un code ROME valide dans la nomenclature France Travail pour les fonctions QSE de niveau Bachelor mais n'apparaît pas dans la fiche RNCP41446 officielle.",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'code ROME M1402 / RNCP41446',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'metiers-flashcard-004',
+    type: 'flashcard',
+    theme: 'metiers',
+    question: "Quel code ROME correspond au technicien HSE (niveau Bac+2) dans la nomenclature France Travail ?",
+    answer: "ROME H1303 — Intervention technique en Hygiène Sécurité Environnement. Niveau typiquement Bac+2.",
+    explanation: "H1303 couvre les fonctions terrain : réalisation de rondes de sécurité, vérification des EPI/EPC, animation des quarts d'heure sécurité, tenue du registre des accidents. C'est le niveau d'entrée avant H1302 (Bac+5) et H1523 (Bac+3). La distinction H1302/H1303/H1523 est un distractor classique en QCM de formation QHSE.",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'code ROME H1303',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'metiers-flashcard-005',
+    type: 'flashcard',
+    theme: 'metiers',
+    question: "Quelle est la structure du code ROME dans la nomenclature France Travail ?",
+    answer: "Un code ROME comprend 5 caractères : 1 lettre (domaine professionnel) + 4 chiffres (sous-famille). Exemple : H1302 — lettre H (Industrie), 1302 (Management et ingénierie HSE industriels).",
+    explanation: "Le ROME (Répertoire Opérationnel des Métiers et des Emplois) est le référentiel conçu par France Travail et actualisé régulièrement. La lettre indique le grand domaine : H = Industrie, M = Support à l'entreprise, K = Services à la personne et à la collectivité, A = Agriculture… Les 4 chiffres identifient la famille métier puis la fiche. À ne pas confondre avec les NSF (Nomenclature des Spécialités de Formation) ou les codes CPF.",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'Référentiel ROME — structure code',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'metiers-flashcard-006',
+    type: 'flashcard',
+    theme: 'metiers',
+    question: "Quels sont les trois codes ROME officiellement associés à la certification RNCP41446 (Bachelor QHSE CESI) selon France compétences ?",
+    answer: "H1302 (Management et ingénierie HSE industriels), H1502 (Management et ingénierie qualité industrielle), M1402 (Conseil en organisation et management d'entreprise).",
+    explanation: "Ces trois codes sont ceux listés dans la fiche RNCP41446 officielle publiée par France compétences. H1523 (Responsable QSE) est souvent mentionné dans les offres d'emploi pour le niveau Bac+3 QSE, mais il n'apparaît pas dans la fiche RNCP41446 — c'est un piège fréquent. M1402 souligne la dimension 'conseil en management' du Bachelor, au-delà de la seule dimension HSE.",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'RNCP41446 — codes ROME associés H1302 / H1502 / M1402',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'metiers-flashcard-007',
+    type: 'flashcard',
+    theme: 'metiers',
+    question: "Quel code ROME couvre les fonctions de conseil en organisation et management d'entreprise, troisième code officiel de RNCP41446 ?",
+    answer: "ROME M1402 — Conseil en organisation et management d'entreprise. Lettre M = domaine Support à l'entreprise.",
+    explanation: "M1402 est moins intuitif que H1302/H1502 pour un profil QHSE, mais sa présence dans la fiche RNCP41446 reflète la composante systémique et transversale du Bachelor : un responsable QSE conseille la direction sur l'organisation des processus, la stratégie RSE et la structuration du SMI (Système de Management Intégré). La lettre M (Support à l'entreprise) rappelle que le QHSE est aussi une fonction siège/direction et pas seulement terrain.",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'code ROME M1402',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'metiers-qcm-001',
+    type: 'qcm',
+    theme: 'metiers',
+    question: "Quel code ROME est officiellement associé à RNCP41446 et couvre le management et l'ingénierie HSE industriels ?",
+    answer: "H1302 — Management et ingénierie Hygiène Sécurité Environnement industriels.",
+    choices: [
+      "H1303 — Intervention technique en Hygiène Sécurité Environnement",
+      "H1302 — Management et ingénierie Hygiène Sécurité Environnement industriels",
+      "H1523 — Responsable QSE en industrie",
+      "H1502 — Management et ingénierie qualité industrielle"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : H1302 est le code ROME management/ingénierie HSE, officiellement dans la fiche RNCP41446. Option A (H1303) est le niveau technicien Bac+2 — niveau inférieur. Option C (H1523) couvre les fonctions QSE Bac+3 dans les offres d'emploi mais ne figure pas dans la liste officielle des ROME associés à RNCP41446 selon France compétences. Option D (H1502) est aussi un code officiel RNCP41446 mais couvre la qualité industrielle, pas l'HSE.",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'code ROME H1302 / RNCP41446',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'metiers-qcm-002',
+    type: 'qcm',
+    theme: 'metiers',
+    question: "Un technicien HSE (niveau Bac+2) correspond à quel code ROME dans la nomenclature France Travail ?",
+    answer: "H1303 — Intervention technique en Hygiène Sécurité Environnement.",
+    choices: [
+      "H1302 — Management et ingénierie HSE industriels",
+      "H1303 — Intervention technique en Hygiène Sécurité Environnement",
+      "M1402 — Conseil en organisation et management",
+      "H1502 — Management et ingénierie qualité industrielle"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : H1303 est le code du technicien HSE, niveau d'entrée dans la filière (Bac+2). Option A (H1302) est le responsable/ingénieur HSE Bac+5 — le niveau supérieur. Option C (M1402) est le conseil en organisation, domaine transverse. Option D (H1502) est la qualité industrielle. La progression de carrière type est H1303 → H1523 (Bachelor) → H1302 (Master/Ingénieur).",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'code ROME H1303',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'metiers-qcm-003',
+    type: 'qcm',
+    theme: 'metiers',
+    question: "Quels sont les trois codes ROME officiellement inscrits dans la fiche RNCP41446 de France compétences pour le Bachelor QHSE CESI ?",
+    answer: "H1302, H1502, M1402.",
+    choices: [
+      "H1302, H1502, H1523",
+      "H1302, H1303, H1502",
+      "H1302, H1502, M1402",
+      "H1523, H1502, M1402"
+    ],
+    correct: 2,
+    explanation: "Option C correcte : France compétences liste H1302 (HSE industriels), H1502 (qualité industrielle) et M1402 (conseil en organisation) pour RNCP41446. Option A substitue H1523 à M1402 — H1523 est pertinent en pratique mais absent de la fiche officielle. Option B substitue H1303 (technicien Bac+2) à M1402. Option D substitue H1523 à H1302. Le piège principal est H1523 : très présent dans les offres d'emploi pour ce niveau mais pas dans la fiche RNCP officielle.",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'RNCP41446 — codes ROME H1302 / H1502 / M1402',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  {
+    id: 'metiers-qcm-004',
+    type: 'qcm',
+    theme: 'metiers',
+    question: "Dans la nomenclature ROME, que signifie la lettre initiale du code ROME d'un poste QHSE industriel comme H1302 ?",
+    answer: "La lettre H désigne le domaine professionnel 'Industrie' dans la nomenclature ROME de France Travail.",
+    choices: [
+      "La lettre H signifie 'Hygiène' — initiale du domaine HSE",
+      "La lettre H désigne le domaine professionnel 'Industrie' dans la nomenclature ROME",
+      "La lettre H identifie le niveau de qualification (H = Bac+3 à Bac+5)",
+      "La lettre H désigne le domaine 'Santé et action sociale' dans la nomenclature ROME"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : dans le ROME, la lettre indique le grand domaine professionnel, pas une initiale de spécialité. H = Industrie. Autres exemples : M = Support à l'entreprise (d'où M1402), K = Services à la collectivité, A = Agriculture, B = Arts, D = Commerce. Option A est un faux ami intuitif (H pour Hygiène) mais inexact. Option C est fausse : le code ROME n'encode pas le niveau. Option D (Santé) est inexact — la lettre K couvre services à la personne et à la collectivité.",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'Référentiel ROME — domaines professionnels',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'metiers-qcm-005',
+    type: 'qcm',
+    theme: 'metiers',
+    question: "Quel code ROME couvre les fonctions de responsable qualité industrielle (hors HSE), officiellement associé à RNCP41446 ?",
+    answer: "H1502 — Management et ingénierie qualité industrielle.",
+    choices: [
+      "M1402 — Conseil en organisation et management d'entreprise",
+      "H1302 — Management et ingénierie HSE industriels",
+      "H1502 — Management et ingénierie qualité industrielle",
+      "H1303 — Intervention technique en HSE"
+    ],
+    correct: 2,
+    explanation: "Option C correcte : H1502 est le code ROME dédié à la qualité industrielle — pilotage du SMQ ISO 9001, audits qualité, métrologie, certification produit. Option A (M1402) est le conseil en organisation — transverse mais moins centré qualité produit/process. Option B (H1302) est l'HSE, pas la qualité au sens strict. Option D (H1303) est le technicien HSE terrain. H1502 + H1302 + M1402 forment la triade ROME officielle de RNCP41446.",
+    source: {
+      authority: 'France Travail — nomenclature ROME',
+      ref: 'code ROME H1502 / RNCP41446',
+      url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  // ── BATCH F : rncp (13 items) ─────────────────────────────────────────────
+
+  {
+    id: 'rncp-flashcard-001',
+    type: 'flashcard',
+    theme: 'rncp',
+    question: "Quel est le numéro de fiche RNCP du Bachelor QHSE de CESI et quel est son intitulé officiel ?",
+    answer: "RNCP41446 — Responsable qualité sécurité environnement. Certificateur : CESI Ecole d'Ingénieurs.",
+    explanation: "RNCP41446 est la fiche officielle publiée par France compétences pour la certification CESI Bac+3 QHSE. L'intitulé exact est 'Responsable qualité sécurité environnement' (pas 'Bachelor QHSE' qui est le nom commercial CESI). Le SIRET du certificateur est 77572257201109. La fiche est valable jusqu'au 27-10-2030.",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rncp-flashcard-002',
+    type: 'flashcard',
+    theme: 'rncp',
+    question: "À quel niveau du cadre européen des certifications (EQF) correspond RNCP41446 et à quel niveau français cela correspond-il ?",
+    answer: "Niveau 6 du Cadre National des Certifications (CNC), équivalent Bac+3 — niveau Bachelor / Licence.",
+    explanation: "Niveau 6 = Bac+3 dans la nomenclature française issue du décret 2019-14. À distinguer du Niveau 7 (Bac+5 Master/Ingénieur) et du Niveau 5 (Bac+2 BTS/DUT). Piège fréquent : confondre Niveau 6 avec le niveau 6 ECTS (crédits) ou avec l'ancienne nomenclature Niveau I/II. RNCP41446 est explicitement 'Niveau 6' dans la fiche France compétences — pas 'Niveau III' (ancienne classification).",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 — Niveau 6',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rncp-flashcard-003',
+    type: 'flashcard',
+    theme: 'rncp',
+    question: "Quelle est la date d'échéance de l'enregistrement de RNCP41446 au Répertoire National des Certifications Professionnelles ?",
+    answer: "27 octobre 2030 (27-10-2030).",
+    explanation: "L'enregistrement au RNCP a une durée limitée. Passée cette date, la certification n'est plus reconnue par l'État comme RNCP si elle n'est pas renouvelée. Pour RNCP41446, l'échéance est le 27-10-2030. Cela signifie que les promotions CESI entrant en formation avant cette date et la terminant dans les délais normaux verront leur diplôme reconnu. Le renouvellement est à l'initiative du certificateur (CESI).",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 — date d\'échéance 27-10-2030',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rncp-flashcard-004',
+    type: 'flashcard',
+    theme: 'rncp',
+    question: "Quel est l'intitulé exact du Bloc de Compétences 01 (BC01) de RNCP41446 ?",
+    answer: "BC01 — Construire le système de management QSE.",
+    explanation: "BC01 couvre la conception et la mise en place du SMI QSE (Système de Management Intégré) : diagnostic initial, politique QSE, cartographie des processus, planification des actions, structuration documentaire. C'est la phase 'Construire' du cycle de vie d'un SMQSE. Piège classique : intervertir BC01 (Construire) et BC02 (Améliorer). 'Construire' précède 'Améliorer' dans la logique PDCA (Plan avant Do/Check/Act).",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 BC01',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rncp-flashcard-005',
+    type: 'flashcard',
+    theme: 'rncp',
+    question: "Quel est l'intitulé exact du Bloc de Compétences 02 (BC02) de RNCP41446 ?",
+    answer: "BC02 — Améliorer le système de management QSE.",
+    explanation: "BC02 couvre la phase d'amélioration continue du SMQSE existant : audits internes, revues de direction, traitement des non-conformités, actions correctives et préventives, indicateurs de performance QSE. C'est la phase 'Check–Act' du PDCA sur un système déjà déployé. Distinct de BC01 (construction initiale) et BC03 (management des risques spécifiques).",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 BC02',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rncp-flashcard-006',
+    type: 'flashcard',
+    theme: 'rncp',
+    question: "Quel est l'intitulé exact du Bloc de Compétences 03 (BC03) de RNCP41446 ?",
+    answer: "BC03 — Manager les risques QSE.",
+    explanation: "BC03 couvre la démarche d'évaluation et de traitement des risques professionnels, environnementaux et qualité : DUERP, analyse des risques chimiques/physiques/RPS, plan de prévention, PPRE (plan de prévention des risques environnementaux), gestion des situations d'urgence. C'est la compétence 'risque opérationnel' au sens large. Piège : attribuer 'Manager les risques' à BC04 (qui couvre RSE/DD, pas les risques opérationnels).",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 BC03',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rncp-flashcard-007',
+    type: 'flashcard',
+    theme: 'rncp',
+    question: "Quel est l'intitulé exact du Bloc de Compétences 04 (BC04) de RNCP41446 ?",
+    answer: "BC04 — Accompagner l'organisme dans ses démarches RSE et de développement durable.",
+    explanation: "BC04 est le seul bloc qui dépasse la conformité réglementaire pour aller vers la stratégie d'entreprise responsable : reporting extra-financier (CSRD), bilan carbone, achats responsables, parties prenantes, label RSE. L'intitulé combine explicitement RSE ET développement durable (ne pas tronquer en 'développement durable' seul). C'est aussi le bloc le plus évolutif : la réglementation RSE (directive CSRD, taxonomie verte) évolue rapidement.",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 BC04',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'rncp-flashcard-008',
+    type: 'flashcard',
+    theme: 'rncp',
+    question: "Quel organisme est le certificateur officiel de RNCP41446 (Bachelor Responsable QSE) ?",
+    answer: "CESI Ecole d'Ingénieurs (SIRET 77572257201109).",
+    explanation: "CESI est à la fois organisme de formation et certificateur de la certification RNCP41446. La double casquette (formation + certification) est courante pour les grandes écoles privées. Le SIRET figure dans la fiche France compétences pour permettre la vérification administrative de l'organisme certificateur. À ne pas confondre avec les certificateurs institutionnels (Ministères) pour les diplômes nationaux.",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 — certificateur CESI SIRET 77572257201109',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rncp-qcm-001',
+    type: 'qcm',
+    theme: 'rncp',
+    question: "Quel est l'intitulé du Bloc de Compétences 01 (BC01) dans la fiche RNCP41446 ?",
+    answer: "Construire le système de management QSE.",
+    choices: [
+      "Améliorer le système de management QSE",
+      "Construire le système de management QSE",
+      "Manager les risques QSE",
+      "Accompagner l'organisme dans ses démarches RSE et de développement durable"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : BC01 = 'Construire le système de management QSE'. Option A est BC02 (Améliorer). Option C est BC03 (Manager les risques). Option D est BC04 (RSE et DD). L'ordre BC01→BC04 suit une progression logique : construire le système → l'améliorer → gérer les risques → intégrer la dimension stratégique RSE. La confusion BC01/BC02 est le piège le plus fréquent (mêmes thèmes, ordre inversé).",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 BC01–BC04',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rncp-qcm-002',
+    type: 'qcm',
+    theme: 'rncp',
+    question: "Quel bloc de RNCP41446 couvre spécifiquement les démarches RSE et de développement durable ?",
+    answer: "BC04 — Accompagner l'organisme dans ses démarches RSE et de développement durable.",
+    choices: [
+      "BC01 — Construire le système de management QSE",
+      "BC02 — Améliorer le système de management QSE",
+      "BC03 — Manager les risques QSE",
+      "BC04 — Accompagner l'organisme dans ses démarches RSE et de développement durable"
+    ],
+    correct: 3,
+    explanation: "Option D correcte : BC04 est explicitement dédié à la RSE et au développement durable — reporting extra-financier CSRD, bilan carbone, achats responsables, labellisation RSE. Les trois premiers blocs (BC01–BC03) couvrent le système QSE interne (construction, amélioration, risques). BC04 est la dimension stratégique externe et sociétale. Piège : attribuer RSE à BC03 (qui couvre les risques opérationnels QSE, pas la stratégie RSE).",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 BC04',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rncp-qcm-003',
+    type: 'qcm',
+    theme: 'rncp',
+    question: "Quel est le niveau officiel de RNCP41446 dans le Cadre National des Certifications ?",
+    answer: "Niveau 6 (Bac+3, équivalent Bachelor / Licence).",
+    choices: [
+      "Niveau 5 (Bac+2, BTS/BUT)",
+      "Niveau 6 (Bac+3, Bachelor/Licence)",
+      "Niveau 7 (Bac+5, Master/Ingénieur)",
+      "Niveau III (ancienne classification RNCP)"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : RNCP41446 est enregistré Niveau 6 = Bac+3. Option A (Niveau 5) est Bac+2 (BTS, BUT, DEUST). Option C (Niveau 7) est Bac+5 (Master, diplôme d'ingénieur). Option D utilise l'ancienne nomenclature (Niveau I/II/III) abandonnée en 2019 — Niveau III correspondait à Bac+2, pas Bac+3. Depuis le décret 2019-14, la nomenclature est 1 à 8 (alignée sur le cadre européen EQF).",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 — Niveau 6',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rncp-qcm-004',
+    type: 'qcm',
+    theme: 'rncp',
+    question: "Jusqu'à quelle date l'enregistrement de RNCP41446 est-il valide selon France compétences ?",
+    answer: "27 octobre 2030.",
+    choices: [
+      "27 octobre 2025",
+      "27 octobre 2028",
+      "27 octobre 2030",
+      "31 décembre 2030"
+    ],
+    correct: 2,
+    explanation: "Option C correcte : la date d'échéance de RNCP41446 est le 27-10-2030, telle qu'indiquée dans la fiche France compétences. Option A (2025) est dépassée — la certification est active. Option B (2028) est une date inventée. Option D (31 décembre 2030) reprend l'année correcte mais avec une date de fin d'année erronée. La date exacte (jour/mois/année) est un fait mémorisable car elle figure telle quelle dans la fiche officielle.",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 — date d\'échéance',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'rncp-qcm-005',
+    type: 'qcm',
+    theme: 'rncp',
+    question: "Quel bloc de RNCP41446 couvre spécifiquement le management des risques QSE ?",
+    answer: "BC03 — Manager les risques QSE.",
+    choices: [
+      "BC01 — Construire le système de management QSE",
+      "BC02 — Améliorer le système de management QSE",
+      "BC03 — Manager les risques QSE",
+      "BC04 — Accompagner l'organisme dans ses démarches RSE et de développement durable"
+    ],
+    correct: 2,
+    explanation: "Option C correcte : BC03 = 'Manager les risques QSE' — DUERP, risques chimiques, RPS, plans de prévention, gestion des urgences. Option A (BC01) construit le système mais n'est pas centré sur les risques. Option B (BC02) améliore le système via audits et non-conformités. Option D (BC04) couvre la RSE/DD, pas les risques opérationnels. Piège : certains confondent BC03 (risques QSE opérationnels) et BC04 (risques stratégiques/sociétaux de la RSE).",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 BC03',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  // ── BATCH F : 6 acronymes déférés de Batch E ─────────────────────────────
+
+  {
+    id: 'acronymes-flashcard-015',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie RNCP ?",
+    answer: "Répertoire National des Certifications Professionnelles.",
+    explanation: "Le RNCP est géré par France compétences (ex-CNCP). Il recense toutes les certifications professionnelles reconnues par l'État : titres professionnels, BTS, licences professionnelles, Bachelor/Master certifiants. Une certification inscrite au RNCP est reconnue officiellement et peut être financée via le CPF. RNCP41446 est le numéro de fiche de la certification Bachelor QHSE de CESI.",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 — définition RNCP',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-016',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie CFA dans le contexte de la formation professionnelle ?",
+    answer: "Centre de Formation d'Apprentis.",
+    explanation: "Le CFA est l'organisme de formation habilité à accueillir les apprentis dans le cadre d'un contrat d'apprentissage. CESI dispose de son propre CFA. Le CFA assure la formation théorique (au moins 25 % de la durée totale du contrat d'apprentissage) pendant que l'entreprise d'accueil assure la formation pratique sous la supervision d'un maître d'apprentissage. À distinguer du CIF (Congé Individuel de Formation, supprimé en 2019) et du CPF (Compte Personnel de Formation).",
+    source: {
+      authority: 'Service Public — Contrat d\'apprentissage',
+      ref: 'F2918 — définition CFA / contrat apprentissage',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-017',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie VAE ?",
+    answer: "Validation des Acquis de l'Expérience.",
+    explanation: "La VAE permet d'obtenir tout ou partie d'une certification professionnelle (diplôme, titre, certificat) inscrite au RNCP en faisant reconnaître son expérience professionnelle ou bénévole, sans repasser par une formation complète. Ouverte à toute personne justifiant d'au moins 1 an d'expérience en rapport avec la certification visée. Pertinent pour accéder à RNCP41446 via une expérience QHSE terrain. Régie par les articles L6411-1 et suivants du Code du travail.",
+    source: {
+      authority: 'Service Public — Validation des acquis de l\'expérience',
+      ref: 'F2401 — VAE définition et conditions',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2401',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-018',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie BC01 dans la fiche RNCP41446 ?",
+    answer: "BC01 — Bloc de Compétences 01 : Construire le système de management QSE.",
+    explanation: "Dans la nomenclature RNCP, les Blocs de Compétences (BC) découpent la certification en unités capitalisables indépendantes. BC01 est le premier bloc de RNCP41446 : il couvre la conception et la mise en place du Système de Management Intégré QSE (diagnostic, politique, cartographie processus, planification). La certification peut être obtenue bloc par bloc via la VAE ou la formation modulaire.",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 BC01',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-019',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie BC02 dans la fiche RNCP41446 ?",
+    answer: "BC02 — Bloc de Compétences 02 : Améliorer le système de management QSE.",
+    explanation: "BC02 couvre l'amélioration continue du SMQSE existant : audits internes, revues de direction, traitement des non-conformités, actions correctives et préventives, mesure de la performance par indicateurs QSE. C'est la dimension 'Check–Act' du PDCA sur un système déjà déployé. À distinguer de BC01 (Construire) qui est la mise en place initiale.",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 BC02',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-020',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie BC03 dans la fiche RNCP41446 ?",
+    answer: "BC03 — Bloc de Compétences 03 : Manager les risques QSE.",
+    explanation: "BC03 couvre l'identification, l'évaluation et le traitement des risques professionnels, environnementaux et qualité : DUERP, analyse des risques chimiques/biologiques/physiques et RPS, plans de prévention, gestion des situations d'urgence et des accidents. C'est le bloc le plus directement lié à l'expérience terrain HSE. À distinguer de BC04 (RSE et développement durable, dimension stratégique).",
+    source: {
+      authority: 'France compétences — fiche RNCP41446',
+      ref: 'RNCP41446 BC03',
+      url: 'https://www.francecompetences.fr/recherche/rncp/41446/',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
 
 ]; // end window.BANK
-// Total items: 195 — verified 2026-05-20
+// Total items: 226 — verified 2026-05-20
