@@ -4,12 +4,12 @@ milestone: v2.0
 milestone_name: Étude
 status: ready_to_plan
 stopped_at: Completed 02-03-PLAN.md — Batch C tms/risque-routier/rps (40 items, BANK=122)
-last_updated: "2026-05-20T00:02:18.172Z"
+last_updated: "2026-05-20T00:15:03.752Z"
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 9
-  completed_plans: 5
+  completed_plans: 6
   percent: 20
 ---
 
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 02 (content-bank) — EXECUTING
-Plan: 4 of 7
+Plan: 5 of 7
 
 ```
 Milestone : v2.0 Étude
@@ -87,7 +87,7 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Session Continuity
 
-Last session: 2026-05-20T02:05:00.000Z
+Last session: 2026-05-20T00:15:03.747Z
 Stopped at: Completed 02-03-PLAN.md — Batch C tms/risque-routier/rps (40 items, BANK=122)
 Resume file: None
 Proceeding to: `/gsd-execute-phase 2` (plan 04 of 7)
