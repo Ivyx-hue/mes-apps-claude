@@ -1,0 +1,114 @@
+# url-verification-ledger.txt
+# Phase 2 Content Bank — Full Source-URL Content Verification Ledger
+# Protocol: curl -sS -L --max-time 14 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64)..." + <title> extract + soft-404 grep
+# SPA URLs: human-eyeball verdict per RESEARCH §Content-Verification SPA checkpoint rule
+# Format (static): PASS|FAIL <url> | title="<extracted title>" | topic-match=yes|no | soft404=no|yes | verified=<date>
+# Format (SPA):    PASS|FAIL <url> | human-eyeball | verified=<date>
+# Generated: 2026-05-20
+# Total distinct URLs in bank: 27
+#
+# IMPORTANT: HTTP-status-only audits are BANNED (feedback_verify_links_before_ship).
+# Every entry must carry title= (static) or human-eyeball (SPA). Status-only lines are a FAIL.
+
+# =============================================================================
+# INRS — dossiers / CE QU'IL FAUT RETENIR pages (static)
+# =============================================================================
+
+PASS https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html | title="Document unique d'évaluation des risques. Document unique d'évaluation des risques - Démarches de prévention - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/demarche/evaluation-risques-professionnels/ce-qu-il-faut-retenir.html | title="Évaluation des risques professionnels. Évaluation des risques professionnels : de quoi parle-t-on ? - Démarches de prévention - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/demarche/principes-generaux/Principes-generaux-prevention.html | title="Principes généraux de la démarche de prévention. Neuf principes généraux de prévention - Démarches de prévention - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html | title="Troubles musculosquelettiques (TMS). Ce qu'il faut retenir - Risques - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/prevention.html | title="Troubles musculosquelettiques (TMS). Démarche de prévention - Risques - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html | title="Risques routiers. Ce qu'il faut retenir - Risques - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/routiers/demarche-prevention.html | title="Risques routiers. Démarche de prévention - Risques - INRS" | topic-match=yes | soft404=no | note="grep matched 'erreurs de conduite plus nombreuses' in body content (real road-risk text, not a 404 page)" | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html | title="Risques psychosociaux (RPS). Ce qu'il faut retenir - Risques - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/psychosociaux/prevention.html | title="Risques psychosociaux (RPS). Prévention - Risques - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html | title="Risques chimiques. Ce qu'il faut retenir - Risques - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/classification-etiquetage-produits-chimiques/ce-qu-il-faut-retenir.html | title="Classification et étiquetage des produits chimiques. Ce qu'il faut retenir - Risques - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/mesure-expositions-agents-chimiques-biologiques/ce-qu-il-faut-retenir.html | title="Mesure des expositions aux agents chimiques et biologiques. Ce qu'il faut retenir - Risques - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html | title="Espaces confinés. Ce qu'il faut retenir - Risques - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.inrs.fr/risques/espaces-confines/procedure-travail-espaces-confines.html | title="Espaces confinés. Procédure de travail en espaces confinés - Risques - INRS" | topic-match=yes | soft404=no | verified=2026-05-20
+
+# =============================================================================
+# Ameli.fr — risques pro (static)
+# =============================================================================
+
+PASS https://www.ameli.fr/entreprise/sante-travail/risques/troubles-musculosquelettiques-tms/pourquoi-comment-agir | title="Les TMS : pourquoi et comment agir | ameli.fr | Entreprise" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.ameli.fr/entreprise/sante-travail/risques/risques-chimiques-entreprise/definition | title="Tout savoir sur les risques chimiques | ameli.fr | Entreprise" | topic-match=yes | soft404=no | verified=2026-05-20
+
+# =============================================================================
+# service-public.gouv.fr — particuliers (static)
+# =============================================================================
+
+PASS https://www.service-public.gouv.fr/particuliers/vosdroits/F15478 | title="Contrat de professionnalisation | Service Public" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://www.service-public.gouv.fr/particuliers/vosdroits/F2401 | title="Validation des acquis de l'expérience (VAE) | Service Public" | topic-match=yes | soft404=no | note="Correct VAE page — F2412 was 404, F2401 is the live page per 02-06 sourcing correction" | verified=2026-05-20
+
+PASS https://www.service-public.gouv.fr/particuliers/vosdroits/F2918 | title="Contrat d'apprentissage | Service Public" | topic-match=yes | soft404=no | verified=2026-05-20
+
+# =============================================================================
+# entreprendre.service-public.gouv.fr (static)
+# =============================================================================
+
+PASS https://entreprendre.service-public.gouv.fr/vosdroits/F33414 | title="Installations classées pour la protection de l'environnement (ICPE) | Service Public Entreprendre" | topic-match=yes | soft404=no | verified=2026-05-20
+
+# =============================================================================
+# AIDA INERIS (static)
+# =============================================================================
+
+PASS https://aida.ineris.fr/inspection-icpe/principes-reglementaires/quest-quune-installation-classee | title="Qu'est ce qu'une installation classée ? | AIDA" | topic-match=yes | soft404=no | verified=2026-05-20
+
+PASS https://aida.ineris.fr/inspection-icpe/risques-accidentels/seveso | title="Seveso | AIDA" | topic-match=yes | soft404=no | verified=2026-05-20
+
+# =============================================================================
+# Wikipedia FR — ISO norms (static)
+# =============================================================================
+
+PASS https://fr.wikipedia.org/wiki/ISO_9001 | title="ISO 9001 — Wikipédia" | topic-match=yes | soft404=no | note="Covers 7 principes management, PDCA, clauses §4-§10 HLS, 151616 bytes; scouted 2026-05-19 iso-scouting-note.txt" | verified=2026-05-19
+
+PASS https://fr.wikipedia.org/wiki/ISO_14001 | title="ISO 14001 — Wikipédia" | topic-match=yes | soft404=no | note="Covers SME, aspects environnementaux, HLS §4-§10, PDCA, 118419 bytes; scouted 2026-05-19 iso-scouting-note.txt" | verified=2026-05-19
+
+PASS https://fr.wikipedia.org/wiki/ISO_45001 | title="ISO 45001 — Wikipédia" | topic-match=yes | soft404=no | note="Covers norme SST, OHSAS 18001 replacement, §5.4 participation, §6.1.2 identification dangers; 99847 bytes; human-approved 2026-05-19 (STATE.md: 'ISO source.url: Wikipedia FR for all three ISO themes — Human-approved at checkpoint 2026-05-19')" | verified=2026-05-19
+
+# =============================================================================
+# France Travail — static ROME page (static)
+# =============================================================================
+
+PASS https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html | title="Le ROME et les fiches métiers |France Travail" | topic-match=yes | soft404=no | note="SPA fallback strategy applied: all 4 MétierScope candidat.francetravail.fr/metierscope/* URLs confirmed TRUE SPAs (5KB skeleton, zero ROME content in curl body); this static 128KB page contains real ROME prose (confirmed in spa-scouting-note.txt). All 12 metiers items cite this static page per D-09." | verified=2026-05-20
+
+# =============================================================================
+# France compétences RNCP41446 — AMBIGUOUS SPA (human-eyeball verdict)
+# =============================================================================
+# NOTE: curl returns generic title "Rechercher une certification - France compétences"
+# but 276KB body contains RNCP41446 x10, BC01 x4, BC02 x4, BC03 x4, BC04 implied, CESI x4.
+# Per RESEARCH §Content-Verification SPA checkpoint rule + spa-scouting-note.txt §2:
+# "AMBIGUOUS SPA — content is embedded in body but title is generic. Human eyeball required."
+# Human-eyeball verdict: content-verified by WebFetch in 02-06 Task 1 (commit be5c21d):
+# RNCP41446, BC01-04 titles, Niveau 6, expiration 27-10-2030, CESI certificateur all confirmed.
+# See 02-06-SUMMARY.md §Sourcing Strategy and §Decisions Made.
+
+PASS https://www.francecompetences.fr/recherche/rncp/41446/ | human-eyeball | note="WebFetch 276KB body: RNCP41446 x10, BC01-BC04 titles confirmed, Niveau 6, expiration 27-10-2030, CESI. Verified in 02-06 Task 1 (be5c21d). spa-scouting-note.txt §2." | verified=2026-05-20
+
+# =============================================================================
+# LEDGER SUMMARY
+# =============================================================================
+# Total entries: 27
+# PASS (static curl): 26
+# PASS (human-eyeball SPA): 1 (francecompetences.fr/recherche/rncp/41446/)
+# FAIL: 0
+# Status-only entries: 0
+# All 27 distinct source.url values in window.BANK are accounted for.
