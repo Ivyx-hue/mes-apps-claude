@@ -2957,5 +2957,827 @@ window.BANK = [
     difficulty: 3
   }
 
+,
+
+  /* =========================================================
+   * THEME: icpe-seveso (12 items — 7 flashcards + 5 QCM)
+   * Authority: Service-Public Entreprendre / AIDA - INERIS
+   * Ref: Art. L511-1 Code de l'environnement / Directive 2012/18/UE
+   * ========================================================= */
+
+  {
+    id: 'icpe-seveso-flashcard-001',
+    type: 'flashcard',
+    theme: 'icpe-seveso',
+    question: "Quel article du Code de l'environnement fonde la réglementation des Installations Classées pour la Protection de l'Environnement (ICPE) ?",
+    answer: "L'article L511-1 du Code de l'environnement est le fondement des ICPE. Il soumet à réglementation les installations qui présentent des dangers ou inconvénients pour l'environnement, la santé ou la sécurité publique.",
+    explanation: "Piège fréquent : confondre avec le Code du travail (qui régit la santé-sécurité des salariés). Les ICPE relèvent du Code de l'environnement, car elles concernent l'impact sur l'environnement ET les tiers, pas uniquement les salariés. L511-1 ouvre le Titre Ier du Livre V : les activités potentiellement dangereuses nécessitent une autorisation ou déclaration préalable.",
+    source: {
+      authority: 'Service-Public Entreprendre',
+      ref: 'Art. L511-1 Code de l\'environnement',
+      url: 'https://entreprendre.service-public.gouv.fr/vosdroits/F33414',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'icpe-seveso-flashcard-002',
+    type: 'flashcard',
+    theme: 'icpe-seveso',
+    question: "Quels sont les 3 régimes ICPE, classés du moins dangereux au plus dangereux ?",
+    answer: "Les 3 régimes ICPE, du moins au plus dangereux : 1. Déclaration (D) — risques moindres, simple déclaration en préfecture ; 2. Enregistrement (E) — procédure simplifiée ; 3. Autorisation (A) — dangers sérieux, enquête publique.",
+    explanation: "L'ordre Déclaration → Enregistrement → Autorisation est exam-critique. Erreur classique = inverser (partir de l'Autorisation). Mémo : DEA (comme diplôme) — du plus simple au plus lourd. L'Enregistrement (créé par ordonnance 2009) est intermédiaire : procédure simplifiée mais encadrée par des prescriptions standardisées, sans enquête publique contrairement à l'Autorisation.",
+    source: {
+      authority: 'Service-Public Entreprendre',
+      ref: 'Art. L511-2 Code de l\'environnement — Nomenclature ICPE',
+      url: 'https://entreprendre.service-public.gouv.fr/vosdroits/F33414',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'icpe-seveso-flashcard-003',
+    type: 'flashcard',
+    theme: 'icpe-seveso',
+    question: "Quelle autorité administrative contrôle les ICPE en région ?",
+    answer: "La DREAL (Direction Régionale de l'Environnement, de l'Aménagement et du Logement) est l'autorité de contrôle des ICPE au niveau régional. Elle instruit les dossiers d'Autorisation et réalise les inspections.",
+    explanation: "DREAL = fusion de la DRIRE, DIREN et DRE opérée en 2009-2010. Niveau régional. L'inspection des ICPE relève de la DREAL, avec des inspecteurs assermentés habilités à dresser des procès-verbaux. Ne pas confondre avec la DREETS (inspection du travail) qui contrôle les salariés, ou le SDIS (pompiers) qui intervient en urgence.",
+    source: {
+      authority: 'Service-Public Entreprendre',
+      ref: 'Art. L514-5 Code de l\'environnement — inspection des ICPE',
+      url: 'https://entreprendre.service-public.gouv.fr/vosdroits/F33414',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'icpe-seveso-flashcard-004',
+    type: 'flashcard',
+    theme: 'icpe-seveso',
+    question: "Quelle directive européenne définit les établissements SEVESO ? Quel est son numéro exact ?",
+    answer: "La Directive Seveso 3 : 2012/18/UE du 4 juillet 2012, relative à la maîtrise des dangers liés aux accidents majeurs impliquant des substances dangereuses. Elle remplace Seveso II (96/82/CE).",
+    explanation: "Seveso 3 = 2012/18/UE (pas 96/82/CE qui est Seveso II). Le chiffre 3 correspond à la 3e génération après Seveso I (1982, suite à la catastrophe d'Icmesa à Seveso, Italie, 1976) et Seveso II (1996). L'erreur fréquente est de citer l'ancienne directive 96/82/CE ou de confondre le numéro de l'UE avec l'année.",
+    source: {
+      authority: 'AIDA - INERIS',
+      ref: 'Directive Seveso 3 — 2012/18/UE',
+      url: 'https://aida.ineris.fr/inspection-icpe/risques-accidentels/seveso',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'icpe-seveso-flashcard-005',
+    type: 'flashcard',
+    theme: 'icpe-seveso',
+    question: "Quels sont les 2 niveaux de classement Seveso et leurs désignations officielles ?",
+    answer: "Les 2 niveaux Seveso : Seuil bas (S) — exigences minimales de maîtrise des risques ; Seuil haut (SH) — exigences renforcées, PPRT obligatoire.",
+    explanation: "On parle de 'seuil bas' (S) et 'seuil haut' (SH) — et NON de 'catégorie 1' et 'catégorie 2' (erreur fréquente). Les seuils sont définis par les quantités de substances dangereuses détenues (en tonnes, annexes I et II de la directive 2012/18/UE). Établissements Seveso SH : PPRT (Plan de Prévention des Risques Technologiques) obligatoire, POI (Plan d'Opération Interne) + PPI (Plan Particulier d'Intervention) — l'effet domino entre établissements proches est aussi pris en compte.",
+    source: {
+      authority: 'AIDA - INERIS',
+      ref: 'Directive Seveso 3 — 2012/18/UE, annexes I et II',
+      url: 'https://aida.ineris.fr/inspection-icpe/risques-accidentels/seveso',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'icpe-seveso-flashcard-006',
+    type: 'flashcard',
+    theme: 'icpe-seveso',
+    question: "Qu'est-ce qu'un PPRT et à quel type d'établissement est-il associé ?",
+    answer: "Le PPRT (Plan de Prévention des Risques Technologiques) est un outil de maîtrise de l'urbanisation autour des installations industrielles à hauts risques. Il est associé aux établissements Seveso à seuil haut (SH).",
+    explanation: "Créé par la loi Bachelot du 30 juillet 2003 (suite à l'explosion AZF, Toulouse, 2001). Le PPRT délimite des zones autour de l'établissement et réglemente l'usage des sols (interdiction de construire, prescriptions sur l'existant, possibilité d'expropriation ou délaissement). Il vise les riverains, pas seulement les salariés. Associé exclusivement aux Seveso SH, pas au seuil bas.",
+    source: {
+      authority: 'AIDA - INERIS',
+      ref: 'Loi n°2003-699 du 30 juillet 2003 — PPRT',
+      url: 'https://aida.ineris.fr/inspection-icpe/risques-accidentels/seveso',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'icpe-seveso-flashcard-007',
+    type: 'flashcard',
+    theme: 'icpe-seveso',
+    question: "Qu'est-ce qu'une installation classée (ICPE) ? Donnez la définition réglementaire.",
+    answer: "Une ICPE est une installation exploitée ou détenue par toute personne physique ou morale, publique ou privée, qui peut présenter des dangers ou des inconvénients pour la commodité du voisinage, la santé, la sécurité, la salubrité publique, l'agriculture, la protection de la nature, de l'environnement et des paysages (Art. L511-1 Code de l'environnement).",
+    explanation: "Le champ est très large : inclut industries, élevages, entrepôts, carrières, etc. La classification se fait par 'rubriques' de la nomenclature ICPE : rubriques 4xxx pour substances dangereuses CLP (Seveso) ; 1xxx-3xxx pour activités et procédés. Toute installation figurant dans la nomenclature et dépassant un seuil est soumise à l'un des 3 régimes.",
+    source: {
+      authority: 'AIDA - INERIS',
+      ref: 'Art. L511-1 Code de l\'environnement',
+      url: 'https://aida.ineris.fr/inspection-icpe/principes-reglementaires/quest-quune-installation-classee',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'icpe-seveso-qcm-001',
+    type: 'qcm',
+    theme: 'icpe-seveso',
+    question: "Dans quel code est inscrit le fondement des ICPE (Installations Classées pour la Protection de l'Environnement) ?",
+    answer: "Code de l'environnement (Art. L511-1).",
+    choices: [
+      "Code du travail",
+      "Code de l'environnement (Art. L511-1)",
+      "Code de la santé publique",
+      "Code général des collectivités territoriales"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : les ICPE sont fondées sur l'Art. L511-1 du Code de l'environnement. Option A (Code du travail) est le piège principal — le Code du travail régit la protection des salariés, mais les ICPE concernent les impacts sur l'environnement et les tiers, pas uniquement les travailleurs. Option C (Code de la santé publique) régit les établissements de santé. Option D (CGCT) régit les collectivités territoriales. Mnémotechnique : ICPE = 'Protection de l'Environnement' → Code de l'environnement.",
+    source: {
+      authority: 'Service-Public Entreprendre',
+      ref: 'Art. L511-1 Code de l\'environnement',
+      url: 'https://entreprendre.service-public.gouv.fr/vosdroits/F33414',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'icpe-seveso-qcm-002',
+    type: 'qcm',
+    theme: 'icpe-seveso',
+    question: "Quel est l'ordre correct des 3 régimes ICPE, du moins contraignant au plus contraignant ?",
+    answer: "Déclaration → Enregistrement → Autorisation.",
+    choices: [
+      "Autorisation → Enregistrement → Déclaration",
+      "Déclaration → Enregistrement → Autorisation",
+      "Enregistrement → Déclaration → Autorisation",
+      "Déclaration → Autorisation → Enregistrement"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : DEA = Déclaration → Enregistrement → Autorisation (du plus simple au plus lourd). Option A (Autorisation → Enregistrement → Déclaration) est l'erreur classique — inverser l'ordre. Option C et D mélangent les régimes. L'Autorisation est le régime le plus exigeant : dossier de danger, enquête publique, arrêté préfectoral. L'Enregistrement (ordonnance 2009) est intermédiaire : prescriptions standardisées sans enquête publique. La Déclaration = risques moindres, simple formalité préalable.",
+    source: {
+      authority: 'Service-Public Entreprendre',
+      ref: 'Art. L511-2 Code de l\'environnement',
+      url: 'https://entreprendre.service-public.gouv.fr/vosdroits/F33414',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'icpe-seveso-qcm-003',
+    type: 'qcm',
+    theme: 'icpe-seveso',
+    question: "Quelle est la directive européenne en vigueur définissant les établissements Seveso ?",
+    answer: "Directive 2012/18/UE (Seveso 3).",
+    choices: [
+      "Directive 96/82/CE (Seveso II)",
+      "Directive 2012/18/UE (Seveso 3)",
+      "Directive 2006/42/CE (Machines)",
+      "Directive 89/391/CEE (Santé-sécurité au travail)"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : Seveso 3 = Directive 2012/18/UE. Option A (96/82/CE) est la directive Seveso II abrogée — c'est le principal piège, car 96/82/CE est encore souvent citée dans les anciens supports. Option C (2006/42/CE) concerne la directive Machines. Option D (89/391/CEE) est la directive-cadre SST (les 9 principes). La Directive Seveso tire son nom de l'accident d'Icmesa à Seveso (Italie, 1976) qui a libéré de la dioxine.",
+    source: {
+      authority: 'AIDA - INERIS',
+      ref: 'Directive Seveso 3 — 2012/18/UE',
+      url: 'https://aida.ineris.fr/inspection-icpe/risques-accidentels/seveso',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'icpe-seveso-qcm-004',
+    type: 'qcm',
+    theme: 'icpe-seveso',
+    question: "Comment appelle-t-on les 2 niveaux de classement Seveso ?",
+    answer: "Seuil bas (S) et seuil haut (SH).",
+    choices: [
+      "Catégorie 1 et catégorie 2",
+      "Seuil bas (S) et seuil haut (SH)",
+      "Niveau rouge et niveau orange",
+      "Autorisation et enregistrement spécial"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : la terminologie officielle est seuil bas (S) et seuil haut (SH). Option A (catégorie 1 / catégorie 2) est le faux-ami — utilisé en ancien droit ou dans le langage courant, mais pas la dénomination réglementaire Seveso 3. Option C (rouge/orange) n'existe pas dans la réglementation. Option D confond avec les régimes ICPE. Les seuils sont fixés en quantités de substances dangereuses (tonnes) ; le SH est associé au PPRT obligatoire.",
+    source: {
+      authority: 'AIDA - INERIS',
+      ref: 'Directive 2012/18/UE — annexes I et II',
+      url: 'https://aida.ineris.fr/inspection-icpe/risques-accidentels/seveso',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'icpe-seveso-qcm-005',
+    type: 'qcm',
+    theme: 'icpe-seveso',
+    question: "Quel document de planification est obligatoire autour d'un établissement Seveso à seuil haut (SH) ?",
+    answer: "Le PPRT (Plan de Prévention des Risques Technologiques).",
+    choices: [
+      "Le DUERP (Document Unique d'Évaluation des Risques Professionnels)",
+      "Le PPRT (Plan de Prévention des Risques Technologiques)",
+      "Le PRAP (Programme de Réduction des Accidents Professionnels)",
+      "Le PAPRIPACT (Programme Annuel de Prévention des Risques)"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : le PPRT est associé aux Seveso SH — il maîtrise l'urbanisation autour des installations à hauts risques (loi Bachelot, 30 juillet 2003, suite à AZF Toulouse 2001). Option A (DUERP) s'applique à toutes les entreprises ≥1 salarié — document interne de l'employeur, pas un outil d'urbanisme. Option C (PRAP) est un programme INRS de réduction des TMS. Option D (PAPRIPACT) est le programme annuel de prévention dans les entreprises. Le PPRT inclut des zones de danger avec restrictions d'usage des sols pour les riverains.",
+    source: {
+      authority: 'AIDA - INERIS',
+      ref: 'Loi n°2003-699 du 30 juillet 2003 — PPRT / Seveso SH',
+      url: 'https://aida.ineris.fr/inspection-icpe/risques-accidentels/seveso',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  /* =========================================================
+   * THEME: calendrier (11 items — 6 flashcards + 5 QCM)
+   * Authority: Service-Public (F2918 / F15478)
+   * Ref: Code du travail — contrat d'apprentissage / professionnalisation
+   * Rémunération % RE-FETCHED LIVE 2026-05-20 from F2918 / F15478
+   * ========================================================= */
+
+  {
+    id: 'calendrier-flashcard-001',
+    type: 'flashcard',
+    theme: 'calendrier',
+    question: "Quelle est la durée minimale et maximale du contrat d'apprentissage (CDL) ?",
+    answer: "Le contrat d'apprentissage à durée limitée (CDL) dure de 6 mois minimum à 3 ans maximum. Il peut aussi être conclu en CDI (période d'apprentissage au début).",
+    explanation: "6 mois–3 ans pour le CDL. Prolongations possibles : jusqu'à 4 ans si l'apprenti est travailleur handicapé ou sportif de haut niveau ; +1 an en cas d'échec à l'examen. La durée est alignée sur le cycle de formation. Mémo : le Bachelor (Bac+3) implique en général 1 à 3 ans de contrat d'apprentissage. (Source : service-public.fr F2918, vérifié 2026-05-20)",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — contrat d\'apprentissage',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'calendrier-flashcard-002',
+    type: 'flashcard',
+    theme: 'calendrier',
+    question: "Quelle est la part minimale de formation en CFA dans le contrat d'apprentissage ?",
+    answer: "La formation en CFA doit représenter au moins 25 % de la durée totale du contrat d'apprentissage. L'apprenti doit entrer en CFA dans les 3 mois suivant le début du contrat.",
+    explanation: "25 % = proportion minimum de temps en CFA (le reste se passe en entreprise). Piège : ce seuil de 25 % s'applique au contrat d'apprentissage, PAS au contrat de professionnalisation (pour lequel la formation = 15–25 % de la durée du contrat). C'est une distinction exam-fréquente. L'entrée en CFA dans les 3 mois est également une obligation réglementaire.",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — art. L6211-2 et suivants',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'calendrier-flashcard-003',
+    type: 'flashcard',
+    theme: 'calendrier',
+    question: "Quels sont les salaires minimaux d'un apprenti en 1re année selon son âge ? (source : service-public.fr, re-fetché 2026-05-20)",
+    answer: "1re année — % du SMIC : 16-17 ans : 27 % ; 18-20 ans : 43 % ; 21-25 ans : 53 % ; 26 ans et plus : 100 %.",
+    explanation: "Valeurs lues en direct sur service-public.fr F2918 le 2026-05-20 (SMIC 2026 = 1 823,03 €/mois). Ces % augmentent avec l'ancienneté : 2e année — 39/51/61/100 % ; 3e année — 55/67/80%+/100 %. La logique : plus l'apprenti est âgé et expérimenté, plus son salaire se rapproche du SMIC. Les 26 ans et + perçoivent le salaire le plus élevé entre le SMIC et le minimum conventionnel de la branche.",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — rémunération apprentissage',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'calendrier-flashcard-004',
+    type: 'flashcard',
+    theme: 'calendrier',
+    question: "Quelle est la différence entre le maître d'apprentissage et le tuteur dans les contrats d'alternance ?",
+    answer: "Le maître d'apprentissage est le référent en entreprise dans le contrat d'apprentissage. Le tuteur est le référent en entreprise dans le contrat de professionnalisation. Ces deux rôles sont distincts et portent des désignations différentes selon le type de contrat.",
+    explanation: "Confusion exam-fréquente : maître d'apprentissage ≠ tuteur selon le type de contrat. Apprentissage → maître d'apprentissage ; Professionnalisation → tuteur. Le maître d'apprentissage 'assume la fonction de tuteur' (formulation service-public.fr), mais son titre officiel est 'maître d'apprentissage'. Critères de désignation différents : maître d'apprentissage = salarié majeur, diplôme du même domaine + 1 an d'expérience ou sans diplôme + 2 ans ; tuteur = 2 ans d'expérience dans la qualification visée.",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — maître d\'apprentissage / tuteur',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'calendrier-flashcard-005',
+    type: 'flashcard',
+    theme: 'calendrier',
+    question: "Quelle est la durée du contrat de professionnalisation et quelle part de formation minimale doit-il contenir ?",
+    answer: "Durée : 6 à 12 mois (extensible jusqu'à 24 mois par accord de branche, 36 mois pour certains publics prioritaires). La formation représente entre 15 % et 25 % de la durée totale du contrat (minimum 150 heures/an).",
+    explanation: "Contrat de pro : 6-12 mois de base (contre 6 mois-3 ans pour l'apprentissage). Extension à 24 mois si accord de branche le prévoit — la loi permet jusqu'à 36 mois pour les demandeurs d'emploi depuis >1 an, bénéficiaires RSA/AAH, personnes sortant d'un CUI. La formation = 15-25 % (contre ≥25 % pour l'apprentissage) — distinction piège. Les actions de formation doivent débuter dans les 2 mois suivant la signature.",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — contrat de professionnalisation',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F15478',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'calendrier-flashcard-006',
+    type: 'flashcard',
+    theme: 'calendrier',
+    question: "Quelle est la rémunération minimale d'un salarié de moins de 21 ans en contrat de professionnalisation ? (re-fetché 2026-05-20)",
+    answer: "55 % du SMIC, soit 1 002,67 € bruts/mois (SMIC 2026 = 1 823,03 €). Si le salarié a un baccalauréat professionnel ou titre de même niveau : 65 % du SMIC (1 184,98 €/mois).",
+    explanation: "Valeur lue en direct sur service-public.fr F15478 le 2026-05-20. Pour les 21-25 ans : 70 % du SMIC (75 % si bac pro ou équivalent) ; pour les 26 ans et plus : 85 % du SMIC ou minimum conventionnel si supérieur. Comparaison avec l'apprentissage (1re année, 18-20 ans : 43 %) : le contrat de professionnalisation rémunère en général mieux, car le salarié est censé avoir une formation préalable.",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — rémunération contrat de professionnalisation',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F15478',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'calendrier-qcm-001',
+    type: 'qcm',
+    theme: 'calendrier',
+    question: "Quel est le pourcentage minimum de temps que l'apprenti doit passer en CFA (Centre de Formation d'Apprentis) ?",
+    answer: "25 % de la durée totale du contrat d'apprentissage.",
+    choices: [
+      "15 % de la durée totale du contrat",
+      "25 % de la durée totale du contrat",
+      "33 % de la durée totale du contrat",
+      "50 % de la durée totale du contrat"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : ≥25 % en CFA pour l'apprentissage. Option A (15 %) correspond au minimum pour le contrat de professionnalisation — piège principal, confusion entre les deux types de contrats. Option C (33 %) et D (50 %) sont des leurres sans fondement réglementaire. Rappel : contrat de professionnalisation = 15-25 % de formation ; apprentissage = ≥25 %. La date d'entrée en CFA doit intervenir dans les 3 mois suivant le début du contrat.",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — Art. L6211-2',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'calendrier-qcm-002',
+    type: 'qcm',
+    theme: 'calendrier',
+    question: "Comment appelle-t-on le référent en entreprise dans le contrat de professionnalisation ?",
+    answer: "Le tuteur.",
+    choices: [
+      "Le maître d'apprentissage",
+      "Le tuteur",
+      "Le référent alternance",
+      "Le mentor professionnel"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : dans le contrat de professionnalisation, c'est le tuteur. Option A (maître d'apprentissage) est le référent dans le contrat d'apprentissage — c'est exactement le piège D-12 prévu pour ce sujet. Options C et D n'existent pas dans la nomenclature réglementaire. Le tuteur doit justifier d'au moins 2 ans d'expérience dans la qualification visée, être salarié de l'entreprise et être volontaire. Il peut suivre simultanément 3 personnes.",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — tuteur / contrat de professionnalisation',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F15478',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'calendrier-qcm-003',
+    type: 'qcm',
+    theme: 'calendrier',
+    question: "Quelle est la rémunération minimale brute d'un apprenti de 20 ans en 1re année (source : service-public.fr, 2026) ?",
+    answer: "43 % du SMIC.",
+    choices: [
+      "27 % du SMIC",
+      "43 % du SMIC",
+      "53 % du SMIC",
+      "100 % du SMIC"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : un apprenti de 18-20 ans en 1re année = 43 % du SMIC (valeur lue sur F2918 le 2026-05-20). Option A (27 %) correspond aux 16-17 ans en 1re année. Option C (53 %) correspond aux 21-25 ans en 1re année. Option D (100 %) concerne les 26 ans et plus. Mémo du tableau : croissance par âge (27/43/53/100) et par année (1re→2e→3e : +12 à +16 points par palier).",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — rémunération apprentissage',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'calendrier-qcm-004',
+    type: 'qcm',
+    theme: 'calendrier',
+    question: "Quelle est la durée maximale initiale d'un contrat de professionnalisation (sans accord de branche particulier) ?",
+    answer: "12 mois.",
+    choices: [
+      "6 mois",
+      "12 mois",
+      "24 mois",
+      "3 ans"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : durée standard 6-12 mois (maximum 12 mois sans accord de branche). Option C (24 mois) est possible mais uniquement si un accord de branche le prévoit — ce n'est pas la durée initiale sans accord. Option D (3 ans) est la durée maximale du contrat d'apprentissage. Option A (6 mois) est la durée minimale, pas la durée maximale. Pour publics prioritaires (demandeurs d'emploi, RSA, AAH, CUI), la durée peut atteindre 36 mois sans accord de branche.",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — durée contrat de professionnalisation',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F15478',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'calendrier-qcm-005',
+    type: 'qcm',
+    theme: 'calendrier',
+    question: "Dans le contrat d'apprentissage, qui est responsable de la formation pratique en entreprise et porte le titre officiel de référent ?",
+    answer: "Le maître d'apprentissage.",
+    choices: [
+      "Le tuteur pédagogique",
+      "Le maître d'apprentissage",
+      "Le responsable RH de l'entreprise",
+      "Le directeur du CFA"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : dans l'apprentissage, c'est le maître d'apprentissage (et non le 'tuteur' — dénomination réservée au contrat de professionnalisation). Option A (tuteur pédagogique) est une confusion avec la terminologie du contrat de professionnalisation. Option C (RH) n'a pas de rôle réglementaire spécifique dans la formation de l'apprenti. Option D (directeur CFA) est responsable de la formation théorique, pas pratique. La loi dit : le maître d'apprentissage 'est directement responsable de la formation de l'apprenti et assume la fonction de tuteur' — le mot 'tuteur' est ici utilisé en sens générique, mais le titre officiel reste maître d'apprentissage.",
+    source: {
+      authority: 'Service-Public',
+      ref: 'Code du travail — maître d\'apprentissage',
+      url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  /* =========================================================
+   * THEME: acronymes (20 items — 14 flashcards + 6 QCM)
+   * Authority: INRS / Service-Public / AIDA — selon acronyme
+   * Note: Acronyms sourced from already-[CV] non-SPA pages only.
+   * RNCP, CFA, VAE, BC01-BC04 DEFERRED to Batch F (plan 02-06) — SPA only.
+   * ========================================================= */
+
+  {
+    id: 'acronymes-flashcard-001',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie DUERP ?",
+    answer: "DUERP = Document Unique d'Évaluation des Risques Professionnels. Document obligatoire (Art. R4121-1 Code du travail) dans lequel l'employeur transcrit les résultats de l'évaluation de tous les risques auxquels sont exposés les salariés.",
+    explanation: "Piège fréquent : confondre DUERP avec DUER (ancienne dénomination — 'Document Unique d'Évaluation des Risques', sans le P de Professionnels) ou écrire 'DUER-P'. Depuis la loi du 2 août 2021, la dénomination officielle est DUERP. Obligatoire dès le 1er salarié ; conservation 40 ans ; mise à jour annuelle si ≥11 salariés et après tout accident grave ou aménagement significatif.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. R4121-1 Code du travail',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-002',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie EvRP ?",
+    answer: "EvRP = Évaluation des Risques Professionnels. Démarche obligatoire (Art. L4121-3 Code du travail) par laquelle l'employeur identifie et analyse tous les risques auxquels sont exposés les salariés, en vue de les éliminer ou de les réduire.",
+    explanation: "EvRP est la démarche ; DUERP est le document qui transcrit les résultats de cette démarche. L'EvRP ne se confond pas avec le DUERP : on 'réalise' une EvRP, on 'transcrit' ses résultats dans le DUERP. L'EvRP est continue (obligation de mise à jour), le DUERP est le résultat formalisé à un instant T.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L4121-3 Code du travail',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-003',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie PAPRIPACT ?",
+    answer: "PAPRIPACT = Programme Annuel de Prévention des Risques Professionnels et d'Amélioration des Conditions de Travail. Document que l'employeur (entreprises ≥11 salariés) doit établir à partir du DUERP, fixant les actions, ressources et délais de prévention pour l'année.",
+    explanation: "Le PAPRIPACT traduit le DUERP en plan d'action concret. Il est obligatoire depuis la loi du 2 août 2021 pour les entreprises ≥11 salariés. Il est soumis pour avis au CSE. Acronyme long = souvent mal orthographié à l'examen : P-A-P-R-I-P-A-C-T (5 lettres, tiret, 4 lettres en pratique).",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L4121-3-1 Code du travail',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-004',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifient CMR et FDS dans le domaine des risques chimiques ?",
+    answer: "CMR = Cancérogène, Mutagène, Reprotoxique (substances présentant 3 types de danger différé). FDS = Fiche de Données de Sécurité (document réglementaire en 16 rubriques, obligatoire pour toute substance/préparation dangereuse — règlement REACH).",
+    explanation: "CMR : 3 niveaux de danger — catégorie 1A (prouvé), 1B (présumé), 2 (suspecté). Exposition chronique → risque de cancer, d'altération de l'ADN ou des fonctions reproductives. FDS : 16 rubriques standardisées par le règlement CLP/REACH ; fournit les informations sur la composition, les dangers, les premiers secours, les EPI requis. Tout employeur doit avoir les FDS de ses produits chimiques et les rendre accessibles aux salariés et au médecin du travail.",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement CLP (CE) n°1272/2008 — CMR / Règlement REACH — FDS',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-005',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifient VLEP, VME et VLE dans la réglementation des risques chimiques ?",
+    answer: "VLEP = Valeur Limite d'Exposition Professionnelle (terme générique). VME = Valeur Moyenne d'Exposition (sur 8 heures — exposition chronique). VLE = Valeur Limite d'Exposition à court terme (sur 15 minutes — pics d'exposition).",
+    explanation: "Hiérarchie VLEP : VME s'applique à l'exposition journalière moyenne sur 8 h ; VLE s'applique aux expositions brèves (15 min), ne devant pas être dépassée même instantanément. En France, les VLEP sont fixées par arrêté ministériel (Code du travail) et publiées dans des tables INRS. Attention : VLEP est le terme chapeau ; VME et VLE en sont deux sous-types. Erreur fréquente : appeler VME 'valeur maximale en entreprise' — faux.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. R4412-149 Code du travail — VLEP chimiques',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'acronymes-flashcard-006',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifient SGH et CLP dans la classification des produits chimiques ?",
+    answer: "SGH = Système Général Harmonisé de classification et d'étiquetage des produits chimiques (ONU, 2003). CLP = Classification, Labelling, Packaging — règlement européen (CE) n°1272/2008 qui transpose le SGH en droit européen.",
+    explanation: "Le CLP remplace depuis le 1er juin 2015 l'ancien système DSD/DPD. Il introduit les pictogrammes SGH (losanges rouges), les mentions H (hazard = danger) et P (précaution), et les catégories de danger standardisées. SGH = cadre ONU international ; CLP = déclinaison européenne obligatoire. Ne pas confondre avec REACH (enregistrement et autorisation des substances) : REACH et CLP sont complémentaires mais distincts.",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement CLP (CE) n°1272/2008',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-007',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie ATEX ?",
+    answer: "ATEX = ATmosphères EXplosives. Zone ou atmosphère dans laquelle des gaz, vapeurs, brouillards ou poussières inflammables peuvent former un mélange explosif avec l'air. La réglementation ATEX impose des zones classées et des équipements certifiés.",
+    explanation: "Deux directives ATEX : directive 94/9/CE (ATEX 95, équipements) et directive 99/92/CE (ATEX 137, prévention dans les lieux de travail). L'explosion est possible uniquement entre la LIE (limite inférieure d'explosivité) et la LSE (limite supérieure). Les zones ATEX sont classées 0/1/2 (gaz) et 20/21/22 (poussières). L'employeur doit établir un DRPCE (document relatif à la protection contre les explosions) dans les zones ATEX.",
+    source: {
+      authority: 'INRS',
+      ref: 'Directive 99/92/CE — ATEX lieux de travail',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-008',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifient TMS et PRAP ?",
+    answer: "TMS = Troubles Musculo-Squelettiques (pathologies de l'appareil locomoteur liées au travail — tendons, muscles, articulations, nerfs). PRAP = Prévention des Risques liés à l'Activité Physique (programme INRS de formation et de démarche de prévention des TMS).",
+    explanation: "TMS = 1re cause de maladie professionnelle en France (88 % des MP reconnues). Affectent les membres supérieurs (poignet, coude, épaule) et le dos. PRAP est à la fois un programme de formation INRS (formation 'acteur PRAP') et une démarche de prévention structurée. Ne pas confondre PRAP avec PAPRIPACT (programme annuel de prévention plus large). L'acteur PRAP est le référent TMS en entreprise, formé par un organisme habilité INRS.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — TMS / PRAP',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-009',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifient AT/MP ?",
+    answer: "AT = Accident du Travail. MP = Maladie Professionnelle. Ensemble de sinistres reconnus et indemnisés par la Sécurité Sociale (branche AT/MP de l'Assurance Maladie) lorsqu'ils sont en lien avec l'activité professionnelle.",
+    explanation: "AT : événement soudain survenant par le fait ou à l'occasion du travail. MP : maladie inscrite dans les tableaux des MP (INRS / CPAM) ou reconnue par expertise médicale. La branche AT/MP finance l'incapacité temporaire (ITT), l'incapacité permanente partielle (IPP) et les rentes. Le taux de cotisation AT/MP de l'employeur varie selon le secteur d'activité et la sinistralité de l'entreprise.",
+    source: {
+      authority: 'INRS',
+      ref: 'Code de la Sécurité Sociale — branche AT/MP',
+      url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-010',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifient EPI et EPC ?",
+    answer: "EPI = Équipement de Protection Individuelle (équipement porté par le travailleur pour se protéger d'un risque résiduel — casque, gants, masque…). EPC = Équipement de Protection Collective (dispositif protégeant un groupe de personnes — garde-corps, aspiration à la source, capot de machine…).",
+    explanation: "La hiérarchie de prévention (9 principes généraux, Art. L4121-2) place l'EPC avant l'EPI : on protège collectivement avant d'équiper individuellement. L'EPI est le dernier recours. L'employeur doit fournir les EPI gratuitement (Art. L4122-2 Code du travail). Piège : confondre EPI avec EPC — un casque = EPI (individuel), une protection anti-chute sur un chantier = EPC (collective).",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L4121-2 Code du travail — 9 principes / EPI-EPC',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-011',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie PDCA et à quel système de management est-il associé ?",
+    answer: "PDCA = Plan (Planifier) – Do (Faire) – Check (Vérifier) – Act (Agir/Améliorer). Cycle d'amélioration continue (roue de Deming) qui structure les systèmes de management ISO 9001, ISO 14001 et ISO 45001.",
+    explanation: "Inventé par W.E. Deming (mais formalisé par Shewhart). Structure les normes HLS (High Level Structure) des trois ISO : § 6 = Plan, § 8 = Do, § 9 = Check, § 10 = Act. Le PDCA est aussi appelé 'boucle de Deming' ou 'roue de Deming'. Dans un SM, le cycle se répète en continu : l'axe Act repart sur un nouveau Plan amélioré (amélioration continue, pas un cercle fermé).",
+    source: {
+      authority: 'INRS',
+      ref: 'ISO 9001:2015 / ISO 14001:2015 / ISO 45001:2018 — cycle PDCA',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-012',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifient SMQ, SME et SMS dans le management des organisations ?",
+    answer: "SMQ = Système de Management de la Qualité (référentiel ISO 9001). SME = Système de Management Environnemental (référentiel ISO 14001). SMS = Système de Management de la Santé-Sécurité (référentiel ISO 45001). Le SMQSE ou SMI (Système de Management Intégré) combine les trois.",
+    explanation: "Distinctions : Q = Qualité (satisfaction client, processus), E = Environnement (impacts env., parties intéressées), S = Sécurité/Santé (travailleurs, risques SST). QHSE = Qualité + Hygiène + Sécurité + Environnement — acronyme métier englobant les trois normes. Les trois normes partagent la structure HLS (§4–§10), ce qui facilite leur intégration en SMI.",
+    source: {
+      authority: 'INRS',
+      ref: 'ISO 9001 / ISO 14001 / ISO 45001 — systèmes de management',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-flashcard-013',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifient CSE, CHSCT et CSSCT dans la représentation du personnel ?",
+    answer: "CSE = Comité Social et Économique (instance unique, créée par les ordonnances Macron 2017, obligatoire ≥11 salariés). CHSCT = Comité d'Hygiène, de Sécurité et des Conditions de Travail (ancienne instance, supprimée et absorbée par le CSE). CSSCT = Commission Santé, Sécurité et Conditions de Travail (sous-commission obligatoire du CSE dans les entreprises ≥300 salariés).",
+    explanation: "Chronologie : CHSCT créé en 1982, supprimé par ordonnances Macron n°2017-1386 (22 septembre 2017). Le CSE regroupe les anciennes instances CE, CHSCT et DP. La CSSCT est la commission spécialisée SST au sein du CSE pour les grands établissements. Piège fréquent : écrire qu'il 'existe un CHSCT' dans une entreprise créée après 2017 — faux depuis les ordonnances. Dans les entreprises de 11-49 salariés, le CSE fait tout (pas de CSSCT obligatoire).",
+    source: {
+      authority: 'INRS',
+      ref: 'Ordonnances Macron n°2017-1386 — CSE / CSSCT',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'acronymes-flashcard-014',
+    type: 'flashcard',
+    theme: 'acronymes',
+    question: "Que signifie ICPE et quelle autorité le contrôle en région ?",
+    answer: "ICPE = Installation Classée pour la Protection de l'Environnement. Autorité de contrôle en région : la DREAL (Direction Régionale de l'Environnement, de l'Aménagement et du Logement). Fondement : Art. L511-1 Code de l'environnement.",
+    explanation: "ICPE désigne toute installation (industrielle, agricole, de stockage) qui, par ses activités ou les substances qu'elle met en œuvre, présente des risques pour l'environnement ou les tiers. La DREAL instruit les dossiers d'autorisation et inspecte les installations. Pour les Seveso, la DREAL est renforcée par une inspection spécialisée risques accidentels. Ne pas confondre DREAL (environnement) avec DREETS (travail / inspection du travail).",
+    source: {
+      authority: 'AIDA - INERIS',
+      ref: 'Art. L511-1 Code de l\'environnement — ICPE / DREAL',
+      url: 'https://aida.ineris.fr/inspection-icpe/principes-reglementaires/quest-quune-installation-classee',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-qcm-001',
+    type: 'qcm',
+    theme: 'acronymes',
+    question: "Quelle est la dénomination officielle actuelle du document obligatoire d'évaluation des risques en entreprise ?",
+    answer: "DUERP (Document Unique d'Évaluation des Risques Professionnels).",
+    choices: [
+      "DUER (Document Unique d'Évaluation des Risques)",
+      "DUERP (Document Unique d'Évaluation des Risques Professionnels)",
+      "DUERP-CT (Document Unique d'Évaluation des Risques et Conditions de Travail)",
+      "EvRP (Évaluation des Risques Professionnels)"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : depuis la loi du 2 août 2021, la dénomination officielle est DUERP (avec le P de Professionnels). Option A (DUER) est l'ancienne dénomination avant 2021 — c'est le principal piège dans les supports pré-2021. Option C (DUERP-CT) n'existe pas. Option D (EvRP) est la démarche d'évaluation, pas le document lui-même. Le DUERP = résultat formalisé de l'EvRP.",
+    source: {
+      authority: 'INRS',
+      ref: 'Loi n°2021-1018 du 2 août 2021 — Art. R4121-1 Code du travail',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-qcm-002',
+    type: 'qcm',
+    theme: 'acronymes',
+    question: "Que signifie CMR dans la classification des risques chimiques ?",
+    answer: "Cancérogène, Mutagène, Reprotoxique.",
+    choices: [
+      "Contrôle du Matériel Réglementaire",
+      "Cancérogène, Mutagène, Reprotoxique",
+      "Chimique, Microbiologique, Radioactif",
+      "Contrôle des Mesures de Réduction"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : CMR = Cancérogène (risque cancer), Mutagène (altération de l'ADN/chromosomes), Reprotoxique (atteinte à la reproduction/fertilité/développement fœtal). Trois dangers différés (pas immédiats). Options A, C, D sont des leurres sans existence réglementaire. Les substances CMR bénéficient d'une réglementation renforcée (substitution obligatoire si possible, surveillance médicale renforcée, valeurs limites d'exposition plus strictes).",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement CLP (CE) n°1272/2008 — catégories CMR',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-qcm-003',
+    type: 'qcm',
+    theme: 'acronymes',
+    question: "Quelle valeur limite s'applique à une exposition chimique sur une durée de 15 minutes ?",
+    answer: "VLE (Valeur Limite d'Exposition à court terme).",
+    choices: [
+      "VME (Valeur Moyenne d'Exposition)",
+      "VLE (Valeur Limite d'Exposition à court terme)",
+      "VLEP (Valeur Limite d'Exposition Professionnelle)",
+      "VTR (Valeur Toxicologique de Référence)"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : VLE s'applique aux expositions brèves de 15 minutes (pics). Option A (VME) s'applique à l'exposition moyenne sur 8 heures (exposition chronique journalière). Option C (VLEP) est le terme générique chapeau qui englobe VME et VLE — trop large pour répondre à '15 minutes'. Option D (VTR) est un outil d'évaluation des risques sanitaires (ANSES) différent du contexte réglementaire du Code du travail. Moyen mnémotechnique : VLE = court terme (lettre E = Exposure au bout = ponctuelle) ; VME = Moyenne = journalière.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. R4412-149 Code du travail — VLEP / VME / VLE',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'acronymes-qcm-004',
+    type: 'qcm',
+    theme: 'acronymes',
+    question: "Quelle est la relation entre CHSCT et CSSCT dans le droit du travail français actuel ?",
+    answer: "Le CHSCT a été supprimé par les ordonnances Macron (2017) et remplacé par le CSE. La CSSCT est une commission du CSE obligatoire dans les entreprises ≥300 salariés.",
+    choices: [
+      "CHSCT et CSSCT coexistent : CHSCT pour les PME, CSSCT pour les grandes entreprises",
+      "Le CHSCT a été supprimé (ordonnances 2017) ; la CSSCT est une commission du CSE ≥300 salariés",
+      "La CSSCT est l'ancien nom du CHSCT avant la réforme de 2015",
+      "CHSCT et CSSCT sont synonymes — même institution, deux dénominations selon la région"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : les ordonnances Macron n°2017-1386 ont fusionné CE, CHSCT et DP en un CSE unique. Le CHSCT n'existe plus depuis le 1er janvier 2020 (délai de transition). La CSSCT est la commission spécialisée SST obligatoire au sein du CSE pour les entreprises et établissements ≥300 salariés. Option A (coexistence) est fausse — depuis 2020, seul le CSE existe. Option C (CSSCT = ancien CHSCT) inverse la chronologie. Option D (synonymes) est fausse.",
+    source: {
+      authority: 'INRS',
+      ref: 'Ordonnances Macron n°2017-1386 du 22 sept. 2017',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'acronymes-qcm-005',
+    type: 'qcm',
+    theme: 'acronymes',
+    question: "Que signifie PDCA et à quelle démarche de management est-il associé ?",
+    answer: "Plan–Do–Check–Act : cycle d'amélioration continue (roue de Deming), socle de ISO 9001, 14001 et 45001.",
+    choices: [
+      "Prévenir–Détecter–Corriger–Améliorer : démarche de contrôle qualité interne",
+      "Plan–Do–Check–Act : cycle d'amélioration continue (roue de Deming), socle de ISO 9001, 14001 et 45001",
+      "Planification–Documentation–Certification–Audit : séquence de certification ISO",
+      "Processus–Danger–Contrôle–Action : méthode HACCP de sécurité alimentaire"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : PDCA = Plan–Do–Check–Act (anglais) = Planifier–Faire–Vérifier–Agir. Option A utilise des termes français proches mais incorrect pour PDCA (ce serait une autre méthode). Option C (Planification–Documentation–Certification–Audit) est un leurre décrivant une démarche ISO mais pas l'acronyme PDCA. Option D (HACCP) est une méthode agroalimentaire sans lien avec PDCA. Le PDCA structure les §6/§8/§9/§10 des normes ISO à structure HLS.",
+    source: {
+      authority: 'INRS',
+      ref: 'ISO 9001:2015 / ISO 45001:2018 — PDCA amélioration continue',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'acronymes-qcm-006',
+    type: 'qcm',
+    theme: 'acronymes',
+    question: "Quel est le sigle correspondant à l'ancienne norme de management de la santé-sécurité au travail, remplacée par ISO 45001 en 2018 ?",
+    answer: "OHSAS 18001.",
+    choices: [
+      "ISO 18001",
+      "OHSAS 18001",
+      "BS 8800",
+      "ISO 45000"
+    ],
+    correct: 1,
+    explanation: "Option B correcte : OHSAS 18001 (Occupational Health and Safety Assessment Series) a été remplacée par ISO 45001 en mars 2018. Option A (ISO 18001) n'existe pas — erreur fréquente de confondre le numéro OHSAS 18001 avec un numéro ISO. Option C (BS 8800) est la norme britannique qui a précédé OHSAS 18001. Option D (ISO 45000) n'existe pas — la norme publiée est ISO 45001. La période de transition OHSAS → ISO 45001 a pris fin en mars 2021 (3 ans après publication).",
+    source: {
+      authority: 'INRS',
+      ref: 'ISO 45001:2018 — remplace OHSAS 18001',
+      url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  }
+
 ]; // end window.BANK
-// Total items: 152 — verified 2026-05-20
+// Total items: 195 — verified 2026-05-20
