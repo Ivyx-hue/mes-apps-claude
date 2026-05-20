@@ -2380,7 +2380,582 @@ window.BANK = [
       verified: '2026-05-20'
     },
     difficulty: 2
+  },
+
+  // ─── Batch D: risque-chimique (18 items) ───────────────────────────────────
+
+  {
+    id: 'risque-chimique-flashcard-001',
+    type: 'flashcard',
+    theme: 'risque-chimique',
+    question: "Quelle est la place du risque chimique parmi les causes de maladies professionnelles en France ?",
+    answer: "Le risque chimique est la 2e cause de maladies professionnelles reconnues en France, après les TMS.",
+    explanation: "Après les TMS (qui représentent ~88 % des MP), le risque chimique constitue la deuxième cause de maladies professionnelles. Il est à l'origine de pathologies aiguës (brûlures, intoxications) et chroniques (cancers, maladies respiratoires, allergies). Cette position justifie l'importance accordée à ce risque dans le Bachelor QHSE et dans l'évaluation des risques (DUERP).",
+    source: {
+      authority: 'Assurance Maladie - ameli',
+      ref: 'Ameli - risques chimiques en entreprise',
+      url: 'https://www.ameli.fr/entreprise/sante-travail/risques/risques-chimiques-entreprise/definition',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'risque-chimique-flashcard-002',
+    type: 'flashcard',
+    theme: 'risque-chimique',
+    question: "Que signifie l'acronyme CMR en santé et sécurité au travail ?",
+    answer: "CMR = Cancérogène, Mutagène, toxique pour la Reproduction. Ce sont des agents chimiques faisant l'objet d'une réglementation renforcée.",
+    explanation: "Les agents CMR sont classés en catégories (1A = avéré, 1B = présumé, 2 = suspecté). Pour ces substances, l'employeur a une obligation de substitution prioritaire (remplacer le CMR par un produit moins dangereux si techniquement possible) avant d'envisager d'autres mesures. Le Code du travail consacre les articles R4412-59 et suivants aux CMR. La classification repose sur le règlement CLP (CE) 1272/2008.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. R4412-59 et s. Code du travail — agents CMR',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'risque-chimique-flashcard-003',
+    type: 'flashcard',
+    theme: 'risque-chimique',
+    question: "Quel règlement européen régit la classification et l'étiquetage des produits chimiques depuis le 1er juin 2015 ?",
+    answer: "Le règlement CLP (CE) n° 1272/2008 — Classification, Labelling, Packaging — a remplacé intégralement l'ancien système DSD/DPD le 1er juin 2015.",
+    explanation: "CLP transpose en droit européen le SGH (Système Général Harmonisé des Nations Unies). Avant le CLP, la classification reposait sur la directive DSD (substances) et DPD (préparations/mélanges). La date clé à retenir pour l'examen est le 1er juin 2015 : à compter de cette date, toute nouvelle étiquette de produit chimique doit obligatoirement utiliser les pictogrammes SGH, les mentions de danger (H) et les conseils de prudence (P) du CLP. (Légifrance : règlement UE intégré en droit interne via le Code du travail, Art. R4411-6 et s.)",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement CLP (CE) 1272/2008',
+      url: 'https://www.inrs.fr/risques/classification-etiquetage-produits-chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'risque-chimique-flashcard-004',
+    type: 'flashcard',
+    theme: 'risque-chimique',
+    question: "Qu'est-ce que le SGH et quel est son lien avec le règlement CLP ?",
+    answer: "Le SGH (Système Général Harmonisé) est le système de classification/étiquetage développé par l'ONU. Le règlement CLP est la déclinaison européenne du SGH.",
+    explanation: "Le SGH a été adopté au niveau onusien pour harmoniser les critères de classification des dangers chimiques à l'échelle mondiale. Il définit 9 classes de pictogrammes. Le CLP (CE) 1272/2008 l'a intégré dans le droit européen. Le SGH prévoit des mentions de danger (H-phrases) et des conseils de prudence (P-phrases) qui remplacent les anciennes phrases R et S de l'ancien système DSD/DPD. Piège d'examen : SGH ≠ CLP — le SGH est l'outil ONU, le CLP est la norme UE qui l'applique.",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement CLP (CE) 1272/2008 — SGH ONU',
+      url: 'https://www.inrs.fr/risques/classification-etiquetage-produits-chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-chimique-flashcard-005',
+    type: 'flashcard',
+    theme: 'risque-chimique',
+    question: "Combien de pictogrammes de danger le SGH/CLP définit-il, et quels types de dangers couvrent-ils ?",
+    answer: "Le SGH/CLP définit 9 pictogrammes (losanges rouges) couvrant les dangers physiques (flamme, explosion, bouteille sous pression…), les dangers pour la santé (crâne, point d'exclamation, danger grave…) et les dangers pour l'environnement (arbre/poisson).",
+    explanation: "Les 9 pictogrammes CLP : GHS01 Explosif · GHS02 Inflammable · GHS03 Comburant · GHS04 Gaz sous pression · GHS05 Corrosif · GHS06 Toxique (crâne, mortel) · GHS07 Irritant/nocif (point d'exclamation) · GHS08 Danger pour la santé à long terme (silhouette + exclamation — CMR, sensibilisants) · GHS09 Dangereux pour l'environnement aquatique. Piège : le pictogramme GHS08 (danger grave pour la santé) inclut les CMR — c'est lui qui signale les cancérogènes.",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement CLP (CE) 1272/2008 — 9 pictogrammes SGH',
+      url: 'https://www.inrs.fr/risques/classification-etiquetage-produits-chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-chimique-flashcard-006',
+    type: 'flashcard',
+    theme: 'risque-chimique',
+    question: "Que sont les VLEP et quelles sont les deux valeurs qu'elles comprennent ?",
+    answer: "Les VLEP (valeurs limites d'exposition professionnelle) fixent les concentrations maximales d'un agent chimique dans l'air. Elles comprennent : la VME (valeur moyenne d'exposition, sur 8 heures) et la VLE (valeur limite d'exposition courte durée, sur 15 minutes).",
+    explanation: "La VME s'applique sur une période de référence de 8 heures (durée d'un poste de travail) : elle protège contre les effets à long terme. La VLE s'applique sur 15 minutes et ne doit jamais être dépassée : elle protège contre les effets aigus d'une exposition de courte durée. Piège d'examen : VME ≠ VLE. VME = durée longue (8h), VLE = courte durée (15 min). Les VLEP peuvent être réglementaires (obligatoires, fixées par décret) ou indicatives (valeurs guides).",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. R4412-149 et s. Code du travail — VLEP',
+      url: 'https://www.inrs.fr/risques/mesure-expositions-agents-chimiques-biologiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'risque-chimique-flashcard-007',
+    type: 'flashcard',
+    theme: 'risque-chimique',
+    question: "Qu'est-ce qu'une Fiche de Données de Sécurité (FDS) et quand est-elle obligatoire ?",
+    answer: "La FDS est un document remis par le fournisseur à tout utilisateur professionnel d'un agent chimique dangereux. Elle est obligatoire pour tout agent chimique dangereux classé selon le CLP.",
+    explanation: "La FDS comporte 16 rubriques obligatoires définies par le règlement REACH (annexe II, Art. R4411-73 du Code du travail) : 1. Identification · 2. Identification des dangers · 3. Composition · 4. Premiers secours · 5. Lutte contre l'incendie · 6. Mesures en cas de dispersion · 7. Manipulation/stockage · 8. Contrôles/EPI · 9. Propriétés physico-chimiques · 10. Stabilité/réactivité · 11. Toxicologie · 12. Écologie · 13. Élimination · 14. Transport · 15. Réglementation · 16. Autres. La FDS est le principal outil d'information sur les risques d'un produit chimique et sert de base à l'évaluation des risques chimiques.",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement REACH (CE) 1907/2006, Annexe II — FDS 16 rubriques (Art. R4411-73 CT)',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'risque-chimique-flashcard-008',
+    type: 'flashcard',
+    theme: 'risque-chimique',
+    question: "Quelle est la hiérarchie des mesures de prévention pour le risque chimique ?",
+    answer: "La hiérarchie prioritaire est : 1) Substitution (remplacer le produit dangereux) → 2) Mesures techniques collectives (captage, ventilation, confinement) → 3) Mesures organisationnelles → 4) EPI (en dernier recours).",
+    explanation: "Cette hiérarchie découle des 9 principes généraux de prévention (Art. L4121-2) appliqués au risque chimique. La substitution est la priorité absolue, notamment pour les CMR (obligation réglementaire si techniquement possible). Les EPI (masques, gants, lunettes) ne doivent être utilisés qu'en complément des mesures collectives, jamais comme seule protection. La protection collective prime toujours sur la protection individuelle (principe 8 de L4121-2). Piège : les EPI ne réduisent pas le risque à la source, ils protègent seulement l'opérateur exposé.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L4121-2 Code du travail — principes généraux + Art. R4412-x risque chimique',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-chimique-flashcard-009',
+    type: 'flashcard',
+    theme: 'risque-chimique',
+    question: "Quelles sont les deux VLEP réglementaires contraignantes en France, et quelle est leur valeur juridique ?",
+    answer: "En France, il existe des VLEP réglementaires contraignantes (obligatoires — fixées par décret, leur dépassement est interdit) et des VLEP indicatives (valeurs guides, non contraignantes mais de référence).",
+    explanation: "Les VLEP réglementaires contraignantes sont directement opposables à l'employeur : leur dépassement constitue une infraction. Les VLEP indicatives servent de référence pour l'évaluation des risques mais ne créent pas d'obligation absolue de ne pas les dépasser. La liste des VLEP réglementaires contraignantes figure dans l'arrêté du 30 juin 2004 et ses actualisations. Exemple : benzène, chlorure de vinyle monomère, poussières de bois. Piège : confondre VLEP réglementaire (opposable) et VLEP indicative (guide).",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. R4412-149 et s. Code du travail — VLEP réglementaires',
+      url: 'https://www.inrs.fr/risques/mesure-expositions-agents-chimiques-biologiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-chimique-flashcard-010',
+    type: 'flashcard',
+    theme: 'risque-chimique',
+    question: "Quels sont les effets sur la santé des agents chimiques dangereux ?",
+    answer: "Les effets sont aigus (immédiats : brûlures, intoxication aiguë, irritation) ou chroniques (à long terme : cancers, maladies respiratoires, dermites, troubles de la reproduction pour les CMR).",
+    explanation: "Les voies de pénétration d'un agent chimique dans l'organisme sont : inhalation (principale voie), contact cutané/oculaire, ingestion (accidentelle). L'inhalation est la voie la plus fréquente dans le milieu professionnel, d'où l'importance des VLEP atmosphériques. Les effets chroniques (cancers professionnels, asthmes professionnels, insuffisance rénale…) sont souvent sous-déclarés en maladies professionnelles. Le risque chimique est d'autant plus difficile à percevoir que les effets chroniques n'apparaissent qu'après une longue période de latence.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — effets sur la santé des agents chimiques',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'risque-chimique-qcm-001',
+    type: 'qcm',
+    theme: 'risque-chimique',
+    question: "Quelle est la durée de référence de la VME (valeur moyenne d'exposition) ?",
+    answer: "8 heures (correspondant à un poste de travail).",
+    choices: [
+      "15 minutes",
+      "1 heure",
+      "8 heures",
+      "24 heures"
+    ],
+    correct: 2,
+    explanation: "La VME (valeur moyenne d'exposition) est calculée sur 8 heures, correspondant à la durée standard d'un poste de travail. Option A (15 min) correspond à la VLE (valeur limite d'exposition courte durée) — c'est le piège classique d'examen VME/VLE. Option B (1h) ne correspond à aucune VLEP réglementaire. Option D (24h) est la valeur guide environnementale, pas une VLEP professionnelle.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. R4412-149 et s. Code du travail — VME 8h / VLE 15 min',
+      url: 'https://www.inrs.fr/risques/mesure-expositions-agents-chimiques-biologiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'risque-chimique-qcm-002',
+    type: 'qcm',
+    theme: 'risque-chimique',
+    question: "Le règlement CLP (CE) 1272/2008 a remplacé l'ancien système de classification chimique européen. Quelle était la date d'application complète pour les mélanges ?",
+    answer: "1er juin 2015.",
+    choices: [
+      "1er janvier 2009 (date de publication du règlement CLP)",
+      "1er décembre 2010 (pour les substances pures)",
+      "1er juin 2015 (application complète — substances et mélanges)",
+      "1er janvier 2020 (fin de la période de transition)"
+    ],
+    correct: 2,
+    explanation: "Option C est correcte : le 1er juin 2015 est la date à laquelle le règlement CLP est devenu pleinement applicable pour les mélanges (préparations), remplaçant définitivement la directive DPD. Option A (2009) est la date de publication officielle du règlement mais pas sa date d'application complète. Option B (2010) est la date d'application obligatoire pour les substances pures (étape intermédiaire). Option D (2020) est inventée. Piège d'examen : confondre la date de publication (2008/2009) avec la date d'application complète (2015).",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement CLP (CE) 1272/2008 — remplacement DSD/DPD le 1er juin 2015',
+      url: 'https://www.inrs.fr/risques/classification-etiquetage-produits-chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-chimique-qcm-003',
+    type: 'qcm',
+    theme: 'risque-chimique',
+    question: "Combien de rubriques obligatoires comporte une Fiche de Données de Sécurité (FDS) selon le règlement REACH ?",
+    answer: "16 rubriques.",
+    choices: [
+      "8 rubriques",
+      "12 rubriques",
+      "16 rubriques",
+      "20 rubriques"
+    ],
+    correct: 2,
+    explanation: "Option C est correcte : la FDS comporte exactement 16 rubriques obligatoires définies par l'annexe II du règlement REACH (CE) 1907/2006, transposée en droit français par l'Art. R4411-73 du Code du travail. Option A (8) et B (12) sont insuffisants. Option D (20) est excessif. Mnémotechnique : penser aux 16 cases d'une FDS comme un formulaire standardisé à 16 chapitres allant de l'identification du produit jusqu'aux informations diverses.",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement REACH (CE) 1907/2006, Annexe II — FDS 16 rubriques (Art. R4411-73 CT)',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'risque-chimique-qcm-004',
+    type: 'qcm',
+    theme: 'risque-chimique',
+    question: "Pour un agent chimique CMR avéré (catégorie 1A), quelle est l'obligation prioritaire de l'employeur ?",
+    answer: "Substituer le produit CMR par un produit ou procédé moins dangereux, si cela est techniquement possible.",
+    choices: [
+      "Équiper immédiatement les travailleurs exposés d'EPI adaptés (masques FFP3, gants nitrile)",
+      "Substituer le produit CMR par un produit ou procédé moins dangereux, si cela est techniquement possible",
+      "Informer les travailleurs des risques via une formation annuelle",
+      "Réduire le temps d'exposition en dessous de la VLEP réglementaire"
+    ],
+    correct: 1,
+    explanation: "Option B est correcte : pour les CMR, la substitution est la mesure prioritaire (obligation réglementaire — Art. R4412-66 CT). Si la substitution est impossible, l'employeur doit ensuite mettre en place des mesures techniques collectives (confinement, captage), puis organisationnelles, et seulement en dernier recours des EPI (option A). Option A seul est insuffisant et ne respecte pas la hiérarchie. Option C (formation) est complémentaire mais pas la mesure prioritaire. Option D (réduire en dessous de la VLEP) est une mesure utile mais secondaire par rapport à la substitution.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. R4412-66 Code du travail — substitution CMR',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-chimique-qcm-005',
+    type: 'qcm',
+    theme: 'risque-chimique',
+    question: "Quel règlement européen constitue la base réglementaire des FDS (Fiches de Données de Sécurité) ?",
+    answer: "Le règlement REACH (CE) 1907/2006.",
+    choices: [
+      "Le règlement CLP (CE) 1272/2008",
+      "Le règlement REACH (CE) 1907/2006",
+      "La directive Seveso III (2012/18/UE)",
+      "Le règlement Biocides (UE) 528/2012"
+    ],
+    correct: 1,
+    explanation: "Option B est correcte : les FDS sont régies par le règlement REACH (CE) 1907/2006, Annexe II (exigences relatives aux FDS). Le règlement CLP (option A) régit la classification et l'étiquetage, pas les FDS directement — bien que les informations de classification CLP figurent en rubrique 2 de la FDS. Option C (Seveso III) concerne les établissements à hauts risques industriels. Option D (Biocides) concerne les produits biocides. Piège classique : confondre CLP (étiquetage) et REACH (FDS).",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement REACH (CE) 1907/2006, Annexe II — FDS',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-chimique-qcm-006',
+    type: 'qcm',
+    theme: 'risque-chimique',
+    question: "Parmi les pictogrammes CLP suivants, lequel signale spécifiquement les dangers pour la santé à long terme (dont les CMR) ?",
+    answer: "GHS08 — silhouette humaine avec exclamation (danger grave pour la santé).",
+    choices: [
+      "GHS06 — tête de mort sur tibias croisés (toxicité aiguë létale)",
+      "GHS07 — point d'exclamation (irritant/nocif, toxicité aiguë faible)",
+      "GHS08 — silhouette humaine avec exclamation (danger grave pour la santé)",
+      "GHS05 — corrosion (corrosif pour la peau et les métaux)"
+    ],
+    correct: 2,
+    explanation: "Option C est correcte : GHS08 (silhouette humaine + point d'exclamation, cadre rouge) signale les dangers graves pour la santé à long terme : CMR (cancérogènes, mutagènes, toxiques pour la reproduction), sensibilisants respiratoires, toxicité spécifique pour certains organes. GHS06 (option A) signale la toxicité aiguë létale (mortelle en cas d'ingestion/inhalation/contact). GHS07 (option B) signale une toxicité moins grave (irritation, sensibilisation cutanée, toxicité systémique légère). GHS05 (option D) signale la corrosion. Piège : GHS07 et GHS08 se ressemblent — GHS07 = point d'exclamation seul; GHS08 = silhouette humaine avec exclamation = danger grave.",
+    source: {
+      authority: 'INRS',
+      ref: 'Règlement CLP (CE) 1272/2008 — pictogrammes SGH',
+      url: 'https://www.inrs.fr/risques/classification-etiquetage-produits-chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
+  },
+
+  {
+    id: 'risque-chimique-qcm-007',
+    type: 'qcm',
+    theme: 'risque-chimique',
+    question: "Dans la hiérarchie de prévention du risque chimique, quelle mesure doit être mise en place EN PRIORITÉ avant toute autre ?",
+    answer: "La suppression ou la substitution de l'agent chimique dangereux.",
+    choices: [
+      "La fourniture d'EPI adaptés (gants, masques, lunettes) aux travailleurs exposés",
+      "La mise en place d'une ventilation générale des locaux de travail",
+      "La suppression ou la substitution de l'agent chimique dangereux",
+      "La réalisation de mesurages atmosphériques pour vérifier le respect des VLEP"
+    ],
+    correct: 2,
+    explanation: "Option C est correcte : la suppression/substitution est la priorité absolue (principe 6 de L4121-2 : remplacer ce qui est dangereux par ce qui l'est moins). Elle intervient avant toute mesure technique ou organisationnelle. Option A (EPI) est le dernier recours — la protection collective prime sur la protection individuelle (principe 8). Option B (ventilation) est une mesure technique collective utile, mais secondaire à la suppression/substitution. Option D (mésurage) est une étape d'évaluation, pas une mesure de prévention à proprement parler.",
+    source: {
+      authority: 'INRS',
+      ref: 'Art. L4121-2 Code du travail — 9 principes généraux de prévention',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'risque-chimique-qcm-008',
+    type: 'qcm',
+    theme: 'risque-chimique',
+    question: "Quelle est la principale voie de pénétration des agents chimiques en milieu professionnel ?",
+    answer: "L'inhalation (voie respiratoire).",
+    choices: [
+      "L'ingestion (voie digestive)",
+      "Le contact cutané (voie dermique)",
+      "L'inhalation (voie respiratoire)",
+      "L'injection (plaies/coupures)"
+    ],
+    correct: 2,
+    explanation: "Option C est correcte : l'inhalation est la principale voie d'entrée des agents chimiques dans l'organisme en milieu de travail, notamment pour les vapeurs, gaz, aérosols et poussières. C'est pourquoi les VLEP atmosphériques (VME/VLE) sont la mesure d'évaluation centrale. Option B (contact cutané) est la deuxième voie importante — certains solvants et pesticides traversent facilement la peau (ex. : solvants organiques, acide cyanhydrique). Option A (ingestion) est généralement accidentelle (mains sales) et moins fréquente. Option D (injection) est exceptionnelle et liée à des accidents.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — voies de pénétration agents chimiques',
+      url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  // ─── Batch D: espaces-confines (12 items) ─────────────────────────────────
+
+  {
+    id: 'espaces-confines-flashcard-001',
+    type: 'flashcard',
+    theme: 'espaces-confines',
+    question: "Quelle est la définition d'un espace confiné au sens de la prévention des risques professionnels ?",
+    answer: "Un espace confiné est un volume totalement ou partiellement fermé, non conçu pour une occupation permanente, accessible temporairement pour y effectuer des travaux.",
+    explanation: "Exemples d'espaces confinés : fosses, cuves, silos, égouts, canalisations, puits, trémies, réservoirs, vides sanitaires, caissons, espaces sous-planchers. La notion clé est 'non conçu pour l'occupation permanente' — c'est ce qui distingue un espace confiné d'un local de travail ordinaire. L'accès temporaire implique que la configuration de l'espace complique les interventions de secours en cas d'accident.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — définition espace confiné',
+      url: 'https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'espaces-confines-flashcard-002',
+    type: 'flashcard',
+    theme: 'espaces-confines',
+    question: "Quels sont les 3 risques atmosphériques principaux en espace confiné ?",
+    answer: "1) Appauvrissement en oxygène (O₂ < 19,5%) ; 2) Atmosphère toxique (présence d'agents chimiques dangereux) ; 3) Atmosphère explosive (ATEX — mélange air/gaz/vapeurs inflammables).",
+    explanation: "Ces 3 risques atmosphériques sont souvent simultanés et potentiellement mortels. L'appauvrissement en O₂ peut être dû à la consommation d'oxygène par des réactions chimiques (oxydation, fermentation) ou par déplacement par un gaz inerte (azote, CO₂). L'atmosphère toxique résulte de la présence d'agents chimiques (H₂S, CO, solvants…). L'ATEX se forme quand la concentration d'un gaz ou vapeur inflammable est comprise entre la LIE (limite inférieure d'explosivité) et la LSE (limite supérieure d'explosivité). Une analyse atmosphérique OBLIGATOIRE avant toute entrée.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — risques atmosphériques espaces confinés',
+      url: 'https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'espaces-confines-flashcard-003',
+    type: 'flashcard',
+    theme: 'espaces-confines',
+    question: "En dessous de quel taux d'oxygène parle-t-on d'atmosphère appauvrie en O₂ dans un espace confiné ?",
+    answer: "En dessous de 19,5 % d'O₂ (valeur normale : 20,9 %). Une atmosphère est aussi considérée enrichie (suroxygénée) au-delà de 23,5 %.",
+    explanation: "Le taux normal d'O₂ dans l'air est de 20,9 %. Seuils critiques : < 19,5 % = atmosphère appauvrie (risque de perte de conscience rapide) ; < 16 % = danger grave immédiat ; < 6 % = mort en quelques minutes. Au-delà de 23,5 % = atmosphère enrichie/suroxygénée : risque d'inflammation accrue (les matières s'enflamment plus facilement). Piège d'examen : certains candidats écrivent '< 21 %' ou '< 17 %' — la valeur réglementaire INRS est bien 19,5 %.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — seuil O₂ atmosphère appauvrie espaces confinés',
+      url: 'https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'espaces-confines-flashcard-004',
+    type: 'flashcard',
+    theme: 'espaces-confines',
+    question: "Qu'est-ce que le permis d'entrer en espace confiné et pourquoi est-il obligatoire ?",
+    answer: "Le permis d'entrer est un document formel, obligatoire avant toute pénétration dans un espace confiné. Il informe les intervenants des dangers présents, des mesures de prévention à appliquer et des dispositions de secours.",
+    explanation: "Le permis d'entrer comporte typiquement : identification de l'espace, nature des travaux, résultats de l'analyse atmosphérique préalable, EPI requis, consignation des énergies, nombre d'intervenants, durée d'intervention, organisation des secours, nom du surveillant extérieur. Il constitue un acte formel de gestion des risques et de coordination entre le donneur d'ordre et l'entreprise intervenante. Sans permis d'entrer validé, aucun intervenant ne doit pénétrer dans l'espace. (Art. R4512-6 et s. CT pour les opérations impliquant plusieurs entreprises.)",
+    source: {
+      authority: 'INRS',
+      ref: "INRS — permis d'entrer espaces confinés",
+      url: 'https://www.inrs.fr/risques/espaces-confines/procedure-travail-espaces-confines.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'espaces-confines-flashcard-005',
+    type: 'flashcard',
+    theme: 'espaces-confines',
+    question: "Quel est le rôle du surveillant extérieur lors d'une intervention en espace confiné ?",
+    answer: "Le surveillant extérieur maintient une présence permanente à l'extérieur de l'espace confiné, surveille les travailleurs à l'intérieur et peut déclencher immédiatement les secours sans pénétrer lui-même dans l'espace.",
+    explanation: "La surveillance permanente extérieure est une exigence fondamentale des interventions en espace confiné. Le surveillant ne doit JAMAIS pénétrer dans l'espace pour secourir un intervenant en difficulté — il doit appeler les secours (pompiers) spécialisés. Une des causes majeures d'accidents mortels en espace confiné est la tentative de sauvetage non préparée : plusieurs personnes décèdent en tentant de secourir une première victime. Le surveillant est qualifié pour utiliser les équipements de communication, connaît la procédure d'urgence et surveille les paramètres atmosphériques en continu.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — surveillance permanente extérieure espaces confinés',
+      url: 'https://www.inrs.fr/risques/espaces-confines/procedure-travail-espaces-confines.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'espaces-confines-flashcard-006',
+    type: 'flashcard',
+    theme: 'espaces-confines',
+    question: "Quel est le lien entre le risque chimique et le risque en espace confiné ?",
+    answer: "Les espaces confinés sont souvent le lieu d'une accumulation d'agents chimiques dangereux (toxiques, asphyxiants, inflammables) provenant de la nature du produit stocké, de réactions chimiques ou de travaux effectués à l'intérieur.",
+    explanation: "Exemples concrets : une cuve ayant contenu un solvant présente des vapeurs toxiques et inflammables après vidange ; un égout peut contenir du H₂S (hydrogène sulfuré) — gaz incolore, odorant à faible dose mais anesthésiant les voies nasales à forte dose, donc très dangereux ; un réservoir à azote présente un risque d'asphyxie par O₂ < 19,5 %. La détection atmosphérique multi-gaz (O₂, CO, H₂S, LIE) est indispensable avant toute entrée. Ce lien justifie que les VLEP s'appliquent aussi à l'intérieur des espaces confinés.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — lien risque chimique / espaces confinés',
+      url: 'https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'espaces-confines-flashcard-007',
+    type: 'flashcard',
+    theme: 'espaces-confines',
+    question: "Quelles sont les principales causes d'accidents mortels dans les espaces confinés ?",
+    answer: "Analyse insuffisante des dangers, mauvaise coordination entre intervenants, absence de surveillance atmosphérique, formation inadéquate et — principale cause aggravante — les tentatives de sauvetage non préparées par des témoins.",
+    explanation: "Statistiquement, les tentatives de sauvetage spontanées (sans équipement ni protocole) multiplient le nombre de victimes : une seconde puis une troisième personne décèdent en tentant de secourir la première. Les accidents en espace confiné ont souvent plusieurs victimes pour cette raison. La prévention repose donc sur : (1) analyse préalable systématique, (2) permis d'entrer formalisé, (3) surveillance atmosphérique continue, (4) surveillant extérieur formé, (5) plan de secours préétabli avec pompiers spécialisés.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — causes accidents espaces confinés',
+      url: 'https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'espaces-confines-qcm-001',
+    type: 'qcm',
+    theme: 'espaces-confines',
+    question: "En dessous de quel taux d'oxygène une atmosphère en espace confiné est-elle considérée comme appauvrie selon les référentiels INRS ?",
+    answer: "19,5 %",
+    choices: [
+      "17 %",
+      "19,5 %",
+      "21 %",
+      "23,5 %"
+    ],
+    correct: 1,
+    explanation: "Option B est correcte : le seuil d'appauvrissement en O₂ retenu par l'INRS est 19,5 % (taux normal = 20,9 %). Option A (17 %) est un seuil de danger grave mais pas le seuil d'appauvrissement défini. Option C (21 %) correspond au taux normal arrondi — ce n'est pas un seuil d'alerte. Option D (23,5 %) est le seuil de suroxygénation (atmosphère enrichie). Piège classique d'examen : choisir 21 % parce que c'est le taux normal arrondi ou 17 % parce que c'est plus grave.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — seuil O₂ < 19,5 % atmosphère appauvrie',
+      url: 'https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 1
+  },
+
+  {
+    id: 'espaces-confines-qcm-002',
+    type: 'qcm',
+    theme: 'espaces-confines',
+    question: "Parmi les mesures suivantes, laquelle est OBLIGATOIRE avant toute pénétration dans un espace confiné ?",
+    answer: "Délivrance d'un permis d'entrer formalisé, après analyse atmosphérique préalable.",
+    choices: [
+      "Contacter le CHSCT (ou la CSSCT) pour information préalable",
+      "Délivrance d'un permis d'entrer formalisé, après analyse atmosphérique préalable",
+      "Effectuer une formation SST (Sauveteur Secouriste du Travail) pour tous les intervenants",
+      "Installer une ventilation naturelle en ouvrant tous les accès disponibles"
+    ],
+    correct: 1,
+    explanation: "Option B est correcte : le permis d'entrer (après mesure atmosphérique) est la mesure obligatoire et préalable à toute pénétration. Option A (informer le CSE/CSSCT) peut être une bonne pratique mais n'est pas l'obligation immédiate avant chaque entrée. Option C (formation SST) est utile mais une formation générique ne suffit pas — des compétences spécifiques espaces confinés sont nécessaires, et ce n'est pas la condition préalable à chaque intervention. Option D (ventilation naturelle) n'est pas suffisante : certains gaz (CO₂, H₂S) sont plus lourds que l'air et persistent en fond d'espace même avec les ouvertures en haut.",
+    source: {
+      authority: 'INRS',
+      ref: "INRS — permis d'entrer obligatoire espaces confinés",
+      url: 'https://www.inrs.fr/risques/espaces-confines/procedure-travail-espaces-confines.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'espaces-confines-qcm-003',
+    type: 'qcm',
+    theme: 'espaces-confines',
+    question: "Quelle est la règle absolue pour le surveillant extérieur en cas d'accident à l'intérieur d'un espace confiné ?",
+    answer: "Ne jamais pénétrer dans l'espace — alerter immédiatement les secours spécialisés (pompiers) sans tenter de sauvetage improvisé.",
+    choices: [
+      "Pénétrer avec un masque filtrant FFP3 pour récupérer la victime rapidement",
+      "Attendre 5 minutes que la victime reprenne connaissance avant d'appeler les secours",
+      "Ne jamais pénétrer dans l'espace — alerter immédiatement les secours spécialisés (pompiers) sans tenter de sauvetage improvisé",
+      "Ventiler l'espace avec un souffleur pendant 10 minutes avant d'entrer secourir"
+    ],
+    correct: 2,
+    explanation: "Option C est la seule réponse correcte : le surveillant ne doit JAMAIS pénétrer sans équipement spécialisé. Un masque FFP3 (option A) ne protège pas contre l'asphyxie par O₂ < 19,5 % (il filtre les particules, pas l'oxygène). Option B (attendre 5 min) est dangereuse — chaque minute compte en cas d'asphyxie. Option D (ventiler puis entrer) est insuffisante : 10 minutes peuvent ne pas suffire et l'atmosphère peut rester mortelle. La cause principale du bilan aggravé dans les accidents en espaces confinés est précisément la tentative de sauvetage improvisée.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — surveillant extérieur / non-pénétration espaces confinés',
+      url: 'https://www.inrs.fr/risques/espaces-confines/procedure-travail-espaces-confines.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'espaces-confines-qcm-004',
+    type: 'qcm',
+    theme: 'espaces-confines',
+    question: "Lequel des exemples suivants correspond à un espace confiné au sens de la prévention des risques ?",
+    answer: "Un silo à grain vide dans lequel un technicien entre pour inspection.",
+    choices: [
+      "Un atelier de mécanique sans fenêtre avec 3 salariés permanents",
+      "Un bureau sous-sol mal ventilé occupé quotidiennement",
+      "Un silo à grain vide dans lequel un technicien entre pour inspection",
+      "Un local technique de 20 m² avec éclairage artificiel"
+    ],
+    correct: 2,
+    explanation: "Option C est correcte : un silo à grain vide est un espace confiné classique — volume fermé, non conçu pour l'occupation permanente, accessible temporairement. Les espaces A, B et D sont des locaux de travail ordinaires (occupation permanente ou régulière) — ils peuvent avoir des problèmes de ventilation mais ne sont pas des 'espaces confinés' au sens réglementaire. La notion clé est 'non conçu pour l'occupation permanente' couplée à un accès difficile ou restreint (trappe, trou d'homme, passage étroit).",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — définition et exemples espaces confinés',
+      url: 'https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 2
+  },
+
+  {
+    id: 'espaces-confines-qcm-005',
+    type: 'qcm',
+    theme: 'espaces-confines',
+    question: "Dans quel intervalle de concentration d'un gaz ou vapeur inflammable dans l'air une explosion est-elle possible ?",
+    answer: "Entre la LIE (limite inférieure d'explosivité) et la LSE (limite supérieure d'explosivité).",
+    choices: [
+      "En dessous de la LIE (limite inférieure d'explosivité)",
+      "Entre la LIE (limite inférieure d'explosivité) et la LSE (limite supérieure d'explosivité)",
+      "Au-dessus de la LSE (limite supérieure d'explosivité)",
+      "Uniquement lorsque le taux d'O₂ est supérieur à 23,5 %"
+    ],
+    correct: 1,
+    explanation: "Option B est correcte : une explosion est possible uniquement dans le domaine d'inflammabilité, défini entre la LIE et la LSE. En dessous de la LIE (option A), le mélange est trop pauvre en combustible pour s'enflammer (pas assez de gaz). Au-dessus de la LSE (option C), le mélange est trop riche — il ne brûle pas mais peut devenir explosif si dilué. Option D est une condition aggravante (suroxygénation abaisse les seuils LIE/LSE) mais pas la condition exclusive d'explosivité. Exemple : pour le méthane (grisou), LIE = 5 %, LSE = 15 % dans l'air.",
+    source: {
+      authority: 'INRS',
+      ref: 'INRS — ATEX LIE/LSE espaces confinés',
+      url: 'https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html',
+      verified: '2026-05-20'
+    },
+    difficulty: 3
   }
 
 ]; // end window.BANK
-// Total items: 122 — verified 2026-05-20
+// Total items: 152 — verified 2026-05-20
