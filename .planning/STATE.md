@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: ready_to_plan
-stopped_at: Completed 02-03-PLAN.md — Batch C tms/risque-routier/rps (40 items, BANK=122)
-last_updated: "2026-05-20T00:15:03.752Z"
+stopped_at: Completed 02-05-PLAN.md — Batch E icpe-seveso/calendrier/acronymes (43 items, BANK=195)
+last_updated: "2026-05-20T08:55:41.336Z"
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 9
-  completed_plans: 6
+  completed_plans: 7
   percent: 20
 ---
 
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 02 (content-bank) — EXECUTING
-Plan: 5 of 7
+Plan: 6 of 7
 
 ```
 Milestone : v2.0 Étude
@@ -80,17 +80,20 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 | Batch C: All 7 source URLs content-verified; no D-09 gaps | INRS/ameli pédagogique pages used; /prevention.html sub-pages for prevention items |
 | RPS harcèlement moral = L1152-1 (not L1153-1) | Accuracy anchor embedded in QCM distractor; L1153-1 = harcèlement sexuel |
 | Burnout not in tableau MP as of 2026 | Accurate per RESEARCH; included as exam-relevant fact in rps-qcm-006 |
+| Calendrier rémunération % live-re-fetched 2026-05-20 | RESEARCH snapshot confirmed accurate (27/43/53/100% 1re année unchanged); source.verified = 2026-05-20 |
+| SPA-only acronymes deferred to Batch F (02-06) | RNCP, CFA, VAE, BC01-BC04 — only authoritative source is francecompetences.fr SPA; shipped in 02-06 with human eyeball |
+| Batch E: 8 source URLs content-verified; no D-09 gaps | All PASS: F33414 ICPE, AIDA Seveso x2, F2918, F15478, INRS DUERP/chimiques/TMS pages |
 
 ## Next Step
 
-`/gsd-execute-phase 2` — continue Phase 2, plan 04-PLAN.md (Batch D: risque-chimique/espaces-confines, 30 items).
+`/gsd-execute-phase 2` — continue Phase 2, plan 06-PLAN.md (Batch F: metiers + rncp SPA human-verify, 25 items).
 
 ## Session Continuity
 
-Last session: 2026-05-20T00:15:03.747Z
-Stopped at: Completed 02-03-PLAN.md — Batch C tms/risque-routier/rps (40 items, BANK=122)
+Last session: 2026-05-20T10:45:00.000Z
+Stopped at: Completed 02-05-PLAN.md — Batch E icpe-seveso/calendrier/acronymes (43 items, BANK=195)
 Resume file: None
-Proceeding to: `/gsd-execute-phase 2` (plan 04 of 7)
+Proceeding to: `/gsd-execute-phase 2` (plan 06 of 7)
 
 ---
 *State updated: 2026-05-16 — v2.0 "Étude" roadmap created; 5 phases, 26/26 requirements mapped; Phase 1 context locked, ready to plan*

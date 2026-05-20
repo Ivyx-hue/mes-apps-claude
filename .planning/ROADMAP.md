@@ -75,7 +75,7 @@ Plans:
 - [x] 02-04-PLAN.md — Batch D: risque-chimique/espaces-confines (30 items) — CLP/SGH/VLEP/O2 accuracy
 
 **Wave 5** *(blocked on Wave 4)*
-- [ ] 02-05-PLAN.md — Batch E: icpe-seveso/calendrier/acronymes (43 items) — calendrier % live-refetch; SPA acronyms deferred
+- [x] 02-05-PLAN.md — Batch E: icpe-seveso/calendrier/acronymes (43 items) — calendrier % live-refetch; SPA acronyms deferred
 
 **Wave 6** *(blocked on Wave 5)*
 - [ ] 02-06-PLAN.md — Batch F: metiers/rncp + deferred SPA acronymes (25+ items) — blocking human-verify of MétierScope/France compétences SPAs
@@ -123,7 +123,7 @@ Plans:
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 1. Skeleton chassis + visual identity | v1.0 | 2/2 | Complete   | 2026-05-17 |
-| 2. Découverte content | v1.0 | 4/7 | In Progress|  |
+| 2. Découverte content | v1.0 | 5/7 | In Progress|  |
 | 3. Biblio data + render + 5 categories populated | v1.0 | 1/1 | Complete | 2026-05-16 |
 | 1. Shell & Gateway | v2.0 | 0/? | Not started | - |
 | 2. Content Bank | v2.0 | 0/7 | Planned | - |
