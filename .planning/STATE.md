@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: ready_to_plan
-stopped_at: Phase 2 context gathered
-last_updated: "2026-05-19T23:50:46.383Z"
+stopped_at: Completed 02-03-PLAN.md — Batch C tms/risque-routier/rps (40 items, BANK=122)
+last_updated: "2026-05-20T00:02:18.172Z"
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 9
-  completed_plans: 4
+  completed_plans: 5
   percent: 20
 ---
 
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 02 (content-bank) — EXECUTING
-Plan: 3 of 7
+Plan: 4 of 7
 
 ```
 Milestone : v2.0 Étude
@@ -77,17 +77,20 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 | D-07/D-08/D-09: Hub gateway un-hidden | #outils nav item + section visible; editorial copy + same-tab link to outils.html |
 | ISO source.url: Wikipedia FR for all three ISO themes | Human-approved at checkpoint 2026-05-19; iso-45001 swapped from Pollutec to Wikipedia FR for OHSAS 18001 coverage |
 | No norm sub-field in ISO items | Theme slug (iso-9001, iso-14001, iso-45001) carries the norm identity per D-02 |
+| Batch C: All 7 source URLs content-verified; no D-09 gaps | INRS/ameli pédagogique pages used; /prevention.html sub-pages for prevention items |
+| RPS harcèlement moral = L1152-1 (not L1153-1) | Accuracy anchor embedded in QCM distractor; L1153-1 = harcèlement sexuel |
+| Burnout not in tableau MP as of 2026 | Accurate per RESEARCH; included as exam-relevant fact in rps-qcm-006 |
 
 ## Next Step
 
-`/gsd-execute-phase 2` — continue Phase 2, plan 03-PLAN.md (Batch C: tms/risque-routier/rps, 40 items).
+`/gsd-execute-phase 2` — continue Phase 2, plan 04-PLAN.md (Batch D: risque-chimique/espaces-confines, 30 items).
 
 ## Session Continuity
 
-Last session: 2026-05-20T00:00:00.000Z
-Stopped at: Completed 02-02-PLAN.md — Batch B ISO (46 items, BANK=82)
+Last session: 2026-05-20T02:05:00.000Z
+Stopped at: Completed 02-03-PLAN.md — Batch C tms/risque-routier/rps (40 items, BANK=122)
 Resume file: None
-Proceeding to: `/gsd-execute-phase 2` (plan 03 of 7)
+Proceeding to: `/gsd-execute-phase 2` (plan 04 of 7)
 
 ---
 *State updated: 2026-05-16 — v2.0 "Étude" roadmap created; 5 phases, 26/26 requirements mapped; Phase 1 context locked, ready to plan*
