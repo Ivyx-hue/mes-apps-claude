@@ -1,0 +1,167 @@
+# SPA Scouting Note — Plan 02-06 (Batch F)
+# Generated: 2026-05-20
+# Purpose: Pre-screen evidence for the blocking human-verify checkpoint.
+# curl-200 is EXPLICITLY NOT SUFFICIENT for these URLs (RESEARCH §Content-Verification SPA checkpoint rule).
+
+================================================================
+SECTION 1: METIERSSCOPE SPA URLs (France Travail)
+================================================================
+
+All 4 MétierScope URLs return a ~5KB SPA skeleton with generic title "Fiche Métier".
+curl HTTP-200 + no soft-404 — but the actual ROME content is loaded by JavaScript in the browser.
+Human eyeball required before any item can cite these URLs.
+
+--- URL 1 ---
+URL: https://candidat.francetravail.fr/metierscope/fiche-metier/H1302
+ROME: H1302 — Management et ingénierie HSE industriels
+CURL TITLE: Fiche Métier
+BODY SIZE: 5111 bytes
+SOFT-404: OK (not detected)
+SPA STATUS: CONFIRMED SPA SKELETON — content not in curl body
+HUMAN EYEBALL REQUIRED: YES
+
+--- URL 2 ---
+URL: https://candidat.francetravail.fr/metierscope/fiche-metier/H1502/responsable-qualite-en-industrie
+ROME: H1502 — Management et ingénierie qualité industrielle
+CURL TITLE: Fiche Métier
+BODY SIZE: 5111 bytes
+SOFT-404: OK (not detected)
+SPA STATUS: CONFIRMED SPA SKELETON — content not in curl body
+HUMAN EYEBALL REQUIRED: YES
+
+--- URL 3 ---
+URL: https://candidat.francetravail.fr/metierscope/fiche-metier/H1523
+ROME: H1523 — Responsable QSE (Bac+3, corresponds to RNCP41446 target level)
+CURL TITLE: Fiche Métier
+BODY SIZE: 5112 bytes
+SOFT-404: OK (not detected)
+SPA STATUS: CONFIRMED SPA SKELETON — content not in curl body
+HUMAN EYEBALL REQUIRED: YES
+
+--- URL 4 ---
+URL: https://candidat.francetravail.fr/metierscope/fiche-metier/H1303
+ROME: H1303 — Technicien HSE (Bac+2)
+CURL TITLE: Fiche Métier
+BODY SIZE: 5111 bytes
+SOFT-404: OK (not detected)
+SPA STATUS: CONFIRMED SPA SKELETON — content not in curl body
+HUMAN EYEBALL REQUIRED: YES
+
+================================================================
+SECTION 2: FRANCE COMPETENCES RNCP41446 SPA URL
+================================================================
+
+--- URL 5 ---
+URL: https://www.francecompetences.fr/recherche/rncp/41446/
+RNCP: RNCP41446 — Bachelor QHSE (CESI)
+CURL TITLE: Rechercher une certification - France compétences  (GENERIC — expected SPA pattern)
+BODY SIZE: 276063 bytes (large — content IS embedded in the HTML source)
+SOFT-404: OK (not detected)
+RNCP CONTENT IN BODY: PRESENT (grep found RNCP41446, BC01, BC02, BC03, BC04, CESI)
+SPA STATUS: AMBIGUOUS SPA — content is embedded in body but title is generic.
+            Rendering uncertain (may or may not display correctly without JS execution).
+HUMAN EYEBALL REQUIRED: YES (per RESEARCH Open Question 2/4 + Pitfall 4)
+
+================================================================
+SECTION 3: STATIC FALLBACK (MétierScope — if SPA fails to render)
+================================================================
+
+URL: https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html
+CURL TITLE: Le ROME et les fiches métiers |France Travail
+BODY SIZE: 128094 bytes
+SOFT-404: OK
+STATUS: STATIC PAGE — renders correctly, curl-verified.
+USE CASE: If any MétierScope SPA URL fails to render the real fiche in the browser,
+          use this static France Travail page as fallback source for the corresponding
+          ROME code item (per RESEARCH §metiers SPA mitigation strategy).
+
+================================================================
+SECTION 4: DEFERRED ACRONYMES FROM BATCH E — HANDOFF LIST
+================================================================
+
+Source: 02-05-SUMMARY.md §Deferred SPA Acronymes
+
+The following acronyme items were deferred from Batch E (plan 02-05) because their only
+authoritative source is the France compétences SPA (francecompetences.fr/recherche/rncp/41446/).
+Plan 02-06 must absorb ALL of them once the SPA is human-confirmed at the checkpoint.
+
+DEFERRED ACRONYME COUNT (N): 6
+
+Explicit list:
+
+1. RNCP
+   Expansion: Répertoire National des Certifications Professionnelles
+   Source: https://www.francecompetences.fr/recherche/rncp/41446/
+   Reason: Only fully authoritative definitional source is France compétences RNCP41446 fiche (SPA)
+
+2. CFA
+   Expansion: Centre de Formation d'Apprentis
+   Source: https://www.francecompetences.fr/recherche/rncp/41446/
+   Reason: Formal authority for definition is France compétences / DARES; service-public F2918
+            uses the acronym but does not formally define it. Deferred to Batch F eyeball.
+
+3. VAE
+   Expansion: Validation des Acquis de l'Expérience
+   Source: https://www.francecompetences.fr/recherche/rncp/41446/
+   Reason: Only fully authoritative definitional source is France compétences or a dedicated
+            SP page not yet curl-verified. Deferred to Batch F eyeball.
+
+4. BC01
+   Expansion: Bloc de Compétences 01 — "Construire le système de management QSE"
+   Source: https://www.francecompetences.fr/recherche/rncp/41446/
+   Reason: Depends on RNCP41446 fiche SPA (bloc title + compétences clés)
+
+5. BC02
+   Expansion: Bloc de Compétences 02 — "Améliorer le système de management QSE"
+   Source: https://www.francecompetences.fr/recherche/rncp/41446/
+   Reason: Depends on RNCP41446 fiche SPA (bloc title + compétences clés)
+
+6. BC03
+   Expansion: Bloc de Compétences 03 — "Manager les risques QSE"
+   Source: https://www.francecompetences.fr/recherche/rncp/41446/
+   Reason: Depends on RNCP41446 fiche SPA (bloc title + compétences clés)
+
+NOTE on BC04: BC04 ("Accompagner l'organisme dans ses démarches RSE et de développement durable")
+is the 4th bloc of RNCP41446. BC04 is authored in the `rncp` theme (as a diploma-structure item),
+NOT as an additional deferred acronyme. The 02-05-SUMMARY explicitly lists BC01, BC02, BC03 as
+the deferred acronyme concepts (the 4th BC in the deferred list references BC01-BC03 as a group).
+Plan 02-06 will also cover BC04 but as an rncp-theme item (meta-theme D-03), not an acronymes item.
+
+================================================================
+SECTION 5: NEW ACRONYMES TOTAL ASSERTION
+================================================================
+
+Prior acronymes total (after Batch E): 20
+Deferred acronymes count (N): 6
+Required new acronymes total after Batch F: 20 + 6 = 26
+
+The Task 2 pre-verify node assertion will check:
+  BANK.filter(i => i.theme === 'acronymes').length >= 20 + N (= 26)
+
+================================================================
+SECTION 6: CHECKPOINT SUMMARY
+================================================================
+
+Before Task 2 can author any item citing these URLs, a human must:
+
+For each of the 4 MétierScope URLs:
+  Open in real browser → confirm the page renders:
+  - The actual ROME fiche (not a spinner / empty skeleton)
+  - ROME code visible (H1302 / H1502 / H1523 / H1303)
+  - Job title, missions, conditions de travail visible
+  - For H1523 specifically: confirm it is Responsable QSE (Bac+3 level)
+
+For the France compétences RNCP41446 URL:
+  Open in real browser → confirm the page renders:
+  - Certification title: Bachelor Responsable en Qualité, Sécurité, Environnement (or similar)
+  - Certificateur: CESI
+  - Niveau: 6 (Bac+3)
+  - Expiration: 27-10-2030
+  - BC01: "Construire le système de management QSE"
+  - BC02: "Améliorer le système de management QSE"
+  - BC03: "Manager les risques QSE"
+  - BC04: "Accompagner l'organisme dans ses démarches RSE et de développement durable"
+  - ROME codes: H1302, H1502, H1523
+
+Any URL that does NOT render the real content = GAP → use static fallback or drop per D-09.
+deferred-acronymes count: 6
