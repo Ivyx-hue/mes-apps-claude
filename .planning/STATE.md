@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
-status: ready_to_plan
-stopped_at: Completed 02-05-PLAN.md — Batch E icpe-seveso/calendrier/acronymes (43 items, BANK=195)
-last_updated: "2026-05-20T09:41:04.224Z"
+status: complete
+stopped_at: Completed 02-07-PLAN.md — Final integration, --final gate PASS, BANK.length=226
+last_updated: "2026-05-20T11:55:00.000Z"
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 9
-  completed_plans: 8
-  percent: 20
+  completed_plans: 9
+  percent: 40
 ---
 
 # Project State: QHSE CESI Hub
@@ -32,8 +32,8 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-Phase: 02 (content-bank) — EXECUTING
-Plan: 7 of 7
+Phase: 02 (content-bank) — COMPLETE
+Plan: 7 of 7 (all complete)
 
 ```
 Milestone : v2.0 Étude
@@ -41,7 +41,7 @@ Phase     : 1 — Shell & Gateway (COMPLETE)
 Plan      : 2/2
 Status    : Phase 1 complete — awaiting /gsd-execute-phase 2
 
-[██░░░░░░░░] 20% — 1/5 phases complete
+[████░░░░░░] 40% — 2/5 phases complete
 ```
 
 ## Accumulated Context
@@ -76,6 +76,7 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 | D-06: Dated placeholders per panel | Flashcards=Phase 3, Fiches=Phase 5, QCM=Phase 4, Tests=Phase 4 |
 | D-07/D-08/D-09: Hub gateway un-hidden | #outils nav item + section visible; editorial copy + same-tab link to outils.html |
 | ISO source.url: Wikipedia FR for all three ISO themes | Human-approved at checkpoint 2026-05-19; iso-45001 swapped from Pollutec to Wikipedia FR for OHSAS 18001 coverage |
+| --final gate exits 0 on iteration 0 | Bank entered Plan 07 defect-free; all 4 ROADMAP SC + SHELL-05 + D-01..D-13 PASS; BANK.length=226 |
 | No norm sub-field in ISO items | Theme slug (iso-9001, iso-14001, iso-45001) carries the norm identity per D-02 |
 | Batch C: All 7 source URLs content-verified; no D-09 gaps | INRS/ameli pédagogique pages used; /prevention.html sub-pages for prevention items |
 | RPS harcèlement moral = L1152-1 (not L1153-1) | Accuracy anchor embedded in QCM distractor; L1153-1 = harcèlement sexuel |
@@ -86,14 +87,14 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Next Step
 
-`/gsd-execute-phase 2` — continue Phase 2, plan 06-PLAN.md (Batch F: metiers + rncp SPA human-verify, 25 items).
+`/gsd-execute-phase 3` — Phase 3: Flashcards + SRS
 
 ## Session Continuity
 
-Last session: 2026-05-20T09:41:04.218Z
-Stopped at: Completed 02-05-PLAN.md — Batch E icpe-seveso/calendrier/acronymes (43 items, BANK=195)
+Last session: 2026-05-20T11:55:00.000Z
+Stopped at: Completed 02-07-PLAN.md — Final integration, --final gate PASS, BANK.length=226
 Resume file: None
-Proceeding to: `/gsd-execute-phase 2` (plan 06 of 7)
+Proceeding to: `/gsd-execute-phase 3` (Phase 3: Flashcards + SRS)
 
 ---
 *State updated: 2026-05-16 — v2.0 "Étude" roadmap created; 5 phases, 26/26 requirements mapped; Phase 1 context locked, ready to plan*
