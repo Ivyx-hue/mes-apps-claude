@@ -4,12 +4,12 @@ milestone: v2.0
 milestone_name: Étude
 status: ready_to_plan
 stopped_at: Completed 02-05-PLAN.md — Batch E icpe-seveso/calendrier/acronymes (43 items, BANK=195)
-last_updated: "2026-05-20T08:55:41.336Z"
+last_updated: "2026-05-20T09:41:04.224Z"
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 9
-  completed_plans: 7
+  completed_plans: 8
   percent: 20
 ---
 
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 02 (content-bank) — EXECUTING
-Plan: 6 of 7
+Plan: 7 of 7
 
 ```
 Milestone : v2.0 Étude
@@ -90,7 +90,7 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Session Continuity
 
-Last session: 2026-05-20T10:45:00.000Z
+Last session: 2026-05-20T09:41:04.218Z
 Stopped at: Completed 02-05-PLAN.md — Batch E icpe-seveso/calendrier/acronymes (43 items, BANK=195)
 Resume file: None
 Proceeding to: `/gsd-execute-phase 2` (plan 06 of 7)

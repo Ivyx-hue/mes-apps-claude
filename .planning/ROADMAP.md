@@ -78,7 +78,7 @@ Plans:
 - [x] 02-05-PLAN.md — Batch E: icpe-seveso/calendrier/acronymes (43 items) — calendrier % live-refetch; SPA acronyms deferred
 
 **Wave 6** *(blocked on Wave 5)*
-- [ ] 02-06-PLAN.md — Batch F: metiers/rncp + deferred SPA acronymes (25+ items) — blocking human-verify of MétierScope/France compétences SPAs
+- [x] 02-06-PLAN.md — Batch F: metiers/rncp + deferred SPA acronymes (25+ items) — blocking human-verify of MétierScope/France compétences SPAs
 
 **Wave 7** *(blocked on Wave 6)*
 - [ ] 02-07-PLAN.md — Final integration: --final gate asserting ROADMAP SC1-4 + SHELL-05 closure + D-01..D-13 (BANK >= 200, target >= 210)
@@ -123,7 +123,7 @@ Plans:
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 1. Skeleton chassis + visual identity | v1.0 | 2/2 | Complete   | 2026-05-17 |
-| 2. Découverte content | v1.0 | 5/7 | In Progress|  |
+| 2. Découverte content | v1.0 | 6/7 | In Progress|  |
 | 3. Biblio data + render + 5 categories populated | v1.0 | 1/1 | Complete | 2026-05-16 |
 | 1. Shell & Gateway | v2.0 | 0/? | Not started | - |
 | 2. Content Bank | v2.0 | 0/7 | Planned | - |
