@@ -2382,7 +2382,11 @@ window.BANK = [
     difficulty: 2
   },
 
-  // ─── Batch D: risque-chimique (18 items) ───────────────────────────────────
+  /* =========================================================
+   * THEME: risque-chimique (18 items — 10 flashcards + 8 QCM)
+   * Authority: Assurance Maladie - ameli / INRS
+   * Ref: Règlement CLP, VLEP — Code du travail R4412
+   * ========================================================= */
 
   {
     id: 'risque-chimique-flashcard-001',
@@ -2728,7 +2732,11 @@ window.BANK = [
     difficulty: 1
   },
 
-  // ─── Batch D: espaces-confines (12 items) ─────────────────────────────────
+  /* =========================================================
+   * THEME: espaces-confines (12 items — 7 flashcards + 5 QCM)
+   * Authority: INRS
+   * Ref: Code du travail R4222 — atmosphères confinées
+   * ========================================================= */
 
   {
     id: 'espaces-confines-flashcard-001',
@@ -3411,7 +3419,7 @@ window.BANK = [
   },
 
   /* =========================================================
-   * THEME: acronymes (20 items — 14 flashcards + 6 QCM)
+   * THEME: acronymes (26 items — 20 flashcards + 6 QCM)
    * Authority: INRS / Service-Public / AIDA — selon acronyme
    * Note: Acronyms sourced from already-[CV] non-SPA pages only.
    * RNCP, CFA, VAE, BC01-BC04 DEFERRED to Batch F (plan 02-06) — SPA only.
@@ -3780,7 +3788,11 @@ window.BANK = [
   },
 
 
-  // ── BATCH F : metiers (12 items) ─────────────────────────────────────────
+  /* =========================================================
+   * THEME: metiers (12 items — 7 flashcards + 5 QCM)
+   * Authority: France Travail — nomenclature ROME
+   * Ref: codes ROME H1302 / H1502 …
+   * ========================================================= */
 
   {
     id: 'metiers-flashcard-001',
@@ -4009,7 +4021,11 @@ window.BANK = [
     difficulty: 2
   },
 
-  // ── BATCH F : rncp (13 items) ─────────────────────────────────────────────
+  /* =========================================================
+   * THEME: rncp (13 items — 8 flashcards + 5 QCM)
+   * Authority: France compétences — fiche RNCP41446
+   * Ref: RNCP41446 / BC01–BC04
+   * ========================================================= */
 
   {
     id: 'rncp-flashcard-001',
