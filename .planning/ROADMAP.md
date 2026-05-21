@@ -81,7 +81,7 @@ Plans:
 - [x] 02-06-PLAN.md — Batch F: metiers/rncp + deferred SPA acronymes (25+ items) — blocking human-verify of MétierScope/France compétences SPAs
 
 **Wave 7** *(blocked on Wave 6)*
-- [ ] 02-07-PLAN.md — Final integration: --final gate asserting ROADMAP SC1-4 + SHELL-05 closure + D-01..D-13 (BANK >= 200, target >= 210)
+- [x] 02-07-PLAN.md — Final integration: --final gate asserting ROADMAP SC1-4 + SHELL-05 closure + D-01..D-13 (BANK >= 200, target >= 210)
 
 ### Phase 3: Flashcards + SRS
 **Goal**: The owner can study flashcards with spaced repetition — reviewing due cards, self-grading, and returning the next day to find the scheduler has advanced their queue.

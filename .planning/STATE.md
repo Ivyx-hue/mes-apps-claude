@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
-status: complete
-stopped_at: Completed 02-07-PLAN.md — Final integration, --final gate PASS, BANK.length=226
-last_updated: "2026-05-20T11:55:00.000Z"
+status: ready_to_plan
+stopped_at: Phase 02 complete (7/7) — ready to discuss Phase 3
+last_updated: 2026-05-21T14:31:17.543Z
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 9
   completed_plans: 9
-  percent: 40
+  percent: 20
 ---
 
 # Project State: QHSE CESI Hub
@@ -24,7 +24,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 **Core value:** Have one trustworthy place that answers "what is this formation, what will I study, and where do I find the best resources" — without digging through scattered sources every time. *(v2.0 extends this with: actively revise that content and track mastery.)*
 
-**Current focus:** Phase 02 — content-bank
+**Current focus:** Phase 3 — flashcards + srs
 
 **Mode:** mvp · **Granularity:** coarse
 **Deploy target:** `https://mes-apps-claude.vercel.app/qhse-cesi/` (live, HTTP 200)
@@ -32,8 +32,8 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-Phase: 02 (content-bank) — COMPLETE
-Plan: 7 of 7 (all complete)
+Phase: 3
+Plan: Not started
 
 ```
 Milestone : v2.0 Étude
