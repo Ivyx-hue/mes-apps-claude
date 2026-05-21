@@ -879,7 +879,7 @@ window.BANK = [
     id: 'iso-45001-qcm-001',
     type: 'qcm',
     theme: 'iso-45001',
-    question: "Quelle norme ISO 45001:2018 remplace-t-elle ?",
+    question: "Quel référentiel de santé-sécurité au travail, antérieur à ISO 45001:2018, a été retiré au profit de cette norme ?",
     answer: "OHSAS 18001",
     choices: [
       "ISO 18001",
@@ -1517,7 +1517,7 @@ window.BANK = [
     id: 'iso-14001-qcm-003',
     type: 'qcm',
     theme: 'iso-14001',
-    question: "Qu'est-ce qu'une 'obligation de conformité' dans ISO 14001:2015 ?",
+    question: "Dans ISO 14001:2015, que recouvre la notion d'« obligation de conformité » (compliance obligation) ?",
     answer: "Toute exigence légale ou autre exigence que l'organisme doit ou choisit de respecter en matière environnementale.",
     choices: [
       "Uniquement les lois et règlements environnementaux obligatoires",
