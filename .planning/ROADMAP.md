@@ -25,7 +25,7 @@ Full phase details, goals, success criteria, and coverage audit: `.planning/mile
 ### v2.0 Étude
 
 - [x] **Phase 1: Shell & Gateway** — Extract `chassis.css`, scaffold `outils.html` 4-tab shell, un-hide Hub `#outils` gateway. Deployable walking skeleton. (completed 2026-05-17)
-- [ ] **Phase 2: Content Bank** — `outils-data.js` with 200+ source-verified study items covering all Bachelor QHSE themes.
+- [x] **Phase 2: Content Bank** — `outils-data.js` with 200+ source-verified study items covering all Bachelor QHSE themes. (completed 2026-05-21)
 - [ ] **Phase 3: Flashcards + SRS** — Flashcard mode with SM-2 spaced repetition scheduler and `localStorage` persistence.
 - [ ] **Phase 4: QCM + Tests blancs** — Quiz mode, timed mock exams, score history, SRS error feed.
 - [ ] **Phase 5: Fiches de révision** — Structured per-theme revision sheets with print stylesheet.

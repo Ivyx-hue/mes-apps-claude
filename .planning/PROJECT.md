@@ -36,7 +36,9 @@ Have one trustworthy place that answers "what is this formation, what will I stu
 
 **Design status:** fully locked in `.planning/V2-ETUDE-SPEC.md` (owner-approved brainstorming output) — not re-brainstormed.
 
-**Phase progress:** ✅ **Phase 1 Shell & Gateway complete** (2026-05-17, owner-verified) — `chassis.css` extracted verbatim, `outils.html` 4-tab ARIA shell scaffolded, `#outils` Hub gateway un-hidden; deployed live. SHELL-01/02/03/04, PERSIST-02 validated; SHELL-05 partial (shell done, `outils-data.js` content-bank clause → Phase 2). Next: Phase 2 Content Bank.
+**Phase progress:**
+- ✅ **Phase 1 Shell & Gateway complete** (2026-05-17, owner-verified) — `chassis.css` extracted verbatim, `outils.html` 4-tab ARIA shell scaffolded, `#outils` Hub gateway un-hidden; deployed live. SHELL-01/02/03/04, PERSIST-02 validated; SHELL-05 deferred clause carried to Phase 2.
+- ✅ **Phase 2 Content Bank complete** (2026-05-21, verified) — `outils-data.js` published with **226 source-verified study items** across 15 themes, `window.BANK` global contract wired into `outils.html` (SHELL-05 fully closed). 27 distinct source URLs, all content-verified (real `<title>` + topic match + soft-404; 1 SPA owner-delegated browser-eyeball). `verify-bank.cjs --final` gate asserts ROADMAP SC1-4 + D-01..D-13. BANK-01..05 validated. Next: Phase 3 Flashcards + SRS.
 
 Deferred alternative (not this milestone): v1.1 reading-hub quick wins in `.planning/V2_BACKLOG.md` § v1.1.
 
@@ -106,4 +108,4 @@ This document evolves at phase transitions and milestone boundaries.
 **After each milestone:** full review of all sections, Core Value check, Out of Scope audit, Context refresh.
 
 ---
-*Last updated: 2026-05-17 — Phase 1 Shell & Gateway complete (owner-verified)*
+*Last updated: 2026-05-21 — Phase 2 Content Bank complete (226-item bank, verified)*
