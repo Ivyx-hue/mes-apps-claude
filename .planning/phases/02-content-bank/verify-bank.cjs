@@ -423,14 +423,16 @@ function runFinalGate() {
     fail('SHELL-05', 'qhse-cesi/outils.html does not exist at ' + outilsHtmlPath);
   } else {
     const outilsHtml = fs.readFileSync(outilsHtmlPath, 'utf8');
-    const scriptTag = '<script src="outils-data.js"></script>';
-    const count = (outilsHtml.split(scriptTag)).length - 1;
+    // WR-04: accept an optional `defer` (or `async`) attribute on the tag.
+    const scriptTagRe = /<script src="outils-data\.js"(?:\s+(?:defer|async))?><\/script>/g;
+    const matches = outilsHtml.match(scriptTagRe);
+    const count = matches ? matches.length : 0;
     if (count === 0) {
-      fail('SHELL-05', 'outils.html does not contain ' + scriptTag);
+      fail('SHELL-05', 'outils.html does not contain a <script src="outils-data.js"> tag');
     } else if (count > 1) {
-      fail('SHELL-05', 'outils.html contains ' + count + ' occurrences of ' + scriptTag + ' (expected exactly 1)');
+      fail('SHELL-05', 'outils.html contains ' + count + ' <script src="outils-data.js"> tags (expected exactly 1)');
     } else {
-      pass('SHELL-05 outils.html contains exactly one <script src="outils-data.js"></script>');
+      pass('SHELL-05 outils.html contains exactly one <script src="outils-data.js"> tag');
       console.log('  SHELL-05 deferred clause: CLOSED');
     }
   }

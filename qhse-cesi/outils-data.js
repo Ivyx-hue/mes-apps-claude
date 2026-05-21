@@ -4,7 +4,18 @@
  * Schema: { id, type, theme, question, answer, choices?, correct?, explanation, source, difficulty }
  * Consumed by: P3 (Flashcards/SM-2), P4 (QCM/Tests), P5 (Fiches).
  * DO NOT import, require, or bundle — loaded via <script src> in outils.html.
+ *
+ * WR-04: idempotent double-load guard. If this file is included twice,
+ * the first BANK wins — a second load must not silently overwrite any
+ * markers/state downstream code attached. window.BANK stays a plain
+ * global (no IIFE, no module scope) so it is readable as the bare
+ * identifier BANK in the browser console — P3/P4/P5 depend on that.
  */
+if (window.BANK && window.BANK.length) {
+  if (typeof console !== 'undefined' && console.warn) {
+    console.warn('outils-data.js loaded twice — keeping the first BANK');
+  }
+} else {
 window.BANK = [
 
   /* =========================================================
@@ -4369,4 +4380,18 @@ window.BANK = [
   },
 
 ]; // end window.BANK
+
+  /* WR-04: freeze the bank so accidental mutation from consumer code
+   * (P3 SM-2 state, P4 QCM scoring, P5 Fiches) surfaces loudly rather
+   * than silently corrupting the shared content source. ES5-safe. */
+  if (typeof Object.freeze === 'function') {
+    Object.freeze(window.BANK);
+    for (var __bankIdx = 0; __bankIdx < window.BANK.length; __bankIdx++) {
+      var __bankItem = window.BANK[__bankIdx];
+      Object.freeze(__bankItem);
+      if (__bankItem.source) { Object.freeze(__bankItem.source); }
+      if (__bankItem.choices) { Object.freeze(__bankItem.choices); }
+    }
+  }
+}
 // Total items: 226 — verified 2026-05-20
