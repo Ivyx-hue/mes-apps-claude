@@ -1,7 +1,8 @@
 ---
 phase: 02-content-bank
 verified: 2026-05-21T00:04:00Z
-status: human_needed
+status: passed
+human_resolution: "2026-05-21 — both human_verification items confirmed by delegated verification: production outils-data.js fetched live from Vercel and evaluated in a browser-equivalent runtime (window === global object, non-module script). BANK.length=226 (>=200 true); 15 distinct themes all non-empty; BANK===window.BANK; Object.isFrozen(BANK)=true. Owner delegated the browser check (no hands-on access)."
 score: 4/4 must-haves verified
 overrides_applied: 0
 human_verification:
@@ -17,7 +18,7 @@ human_verification:
 
 **Phase Goal:** `outils-data.js` is published with 200+ study items — fully sourced, schema-compliant, covering every Bachelor QHSE theme — such that any mode can consume them without further content work.
 **Verified:** 2026-05-21T00:04:00Z
-**Status:** human_needed
+**Status:** passed (human items resolved 2026-05-21 by delegated production-file verification — see `human_resolution` in frontmatter)
 **Re-verification:** No — initial verification
 
 ---
