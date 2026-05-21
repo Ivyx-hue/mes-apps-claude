@@ -11,7 +11,14 @@ findings:
   warning: 4
   info: 5
   total: 9
-status: issues_found
+status: resolved
+fixed: 2026-05-21
+fix_summary:
+  WR-01: resolved
+  WR-02: resolved
+  WR-03: resolved
+  WR-04: resolved
+  IN-01..IN-05: not_addressed (out of fix scope)
 ---
 
 # Phase 2: Code Review Report
@@ -37,6 +44,8 @@ So Critical-tier defects are absent. The findings below are narrative-quality is
 ## Warnings
 
 ### WR-01: `answer` field diverges from `choices[correct]` in 17 QCM items — renderer will have to pick one
+
+**Status: RESOLVED** (2026-05-21, commit 2f33f68). The verifier recount found 79 affected QCM items (56 trailing-punctuation/whitespace diffs, 23 richer-paraphrase diffs), not 17. `answer` is the canonical truth and was never rewritten; instead `choices[correct]` was normalized to exactly equal `answer` in all 79 items. The `correct` index already pointed at the right choice in every case — **0 genuine authoring bugs, 0 unresolved items**. Every QCM item now satisfies `choices[correct] === answer` (exact string equality). No duplicate choices introduced.
 
 **File:** `qhse-cesi/outils-data.js` (17 QCM items across 9 themes)
 **Issue:**
@@ -68,6 +77,8 @@ Either way, lock the choice in the schema comment at the top of `outils-data.js`
 
 ### WR-02: Section-banner counts drift from real item counts (1 wrong header, 4 missing headers)
 
+**Status: RESOLVED** (2026-05-21, commit b407877). The `acronymes` banner was corrected to `26 items — 20 flashcards + 6 QCM`. Full section banners were inserted for `risque-chimique`, `espaces-confines`, `metiers`, and `rncp`, matching the existing THEME/Authority/Ref format. All 15 themes now have exactly one banner whose item/flashcard/QCM counts match the actual data.
+
 **File:** `qhse-cesi/outils-data.js`
 **Issue:**
 The file uses block-comment "section banners" of the form:
@@ -96,6 +107,8 @@ The banner is the only in-file documentation of intent; readers (and you in 6 mo
 
 ### WR-03: Two question texts are duplicated across flashcard/QCM modes — same session can show both
 
+**Status: RESOLVED** (2026-05-21, commit 7017d02). Both QCM questions were reworded to a distinct study angle on the same topic (the flashcard came first in source order and kept its wording), still backed by the same content-verified `source.url`: `iso-45001-qcm-001` now asks which pre-ISO referential was superseded; `iso-14001-qcm-003` now asks what the notion of "obligation de conformité" recovers. Answers and choices were left unchanged. Zero duplicate question texts remain (case-insensitive, trimmed).
+
 **File:** `qhse-cesi/outils-data.js`
 **Issue:**
 Two question strings appear verbatim (case-insensitive, trimmed) in two different items each:
@@ -117,6 +130,8 @@ BANK.forEach(it => {
 ```
 
 ### WR-04: `<script src="outils-data.js">` is render-blocking, no `defer`, and has no double-load guard
+
+**Status: RESOLVED** (2026-05-21, commit 289240b). `defer` was added to the `<script src="outils-data.js">` tag in `outils.html`. In `outils-data.js`, the `window.BANK` assignment was wrapped in an ES5-safe idempotent double-load guard (first BANK wins, `console.warn` on a second include) and the bank is deep-frozen post-assignment (array + items + `source` + `choices`). No IIFE was introduced — `window.BANK` remains a plain global readable as the bare identifier `BANK` in the browser console. The `verify-bank.cjs` SHELL-05 assertion was relaxed to a regex accepting an optional `defer`/`async` attribute so the gate stays green.
 
 **File:** `qhse-cesi/outils.html:16` and `qhse-cesi/outils-data.js:8`
 **Issue:**
