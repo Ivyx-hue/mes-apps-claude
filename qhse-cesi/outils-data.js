@@ -182,7 +182,7 @@ window.BANK = [
     choices: [
       "5 ans",
       "10 ans",
-      "40 ans",
+      "40 ans.",
       "Durée indéterminée (pas de limite fixée)"
     ],
     correct: 2,
@@ -228,7 +228,7 @@ window.BANK = [
     choices: [
       "Dès le 1er salarié",
       "11 salariés et plus",
-      "50 salariés et plus",
+      "50 salariés et plus.",
       "100 salariés et plus"
     ],
     correct: 2,
@@ -250,7 +250,7 @@ window.BANK = [
     answer: "Préparer la démarche (définir le périmètre, les acteurs, les ressources).",
     choices: [
       "Identifier les risques par unité de travail",
-      "Préparer la démarche (périmètre, acteurs, ressources)",
+      "Préparer la démarche (définir le périmètre, les acteurs, les ressources).",
       "Classer et hiérarchiser les risques",
       "Élaborer le plan d'actions de prévention"
     ],
@@ -275,7 +275,7 @@ window.BANK = [
       "Le médecin du travail",
       "Le responsable HSE ou QHSE",
       "Le CSE (Comité Social et Économique)",
-      "L'employeur"
+      "L'employeur, quelle que soit la taille de l'entreprise."
     ],
     correct: 3,
     explanation: "L'employeur (option D) est le seul responsable juridique, même s'il délègue la réalisation à un responsable HSE (option B) ou un prestataire extérieur. Le médecin du travail (option A) conseille mais ne peut pas être tenu responsable. Le CSE (option C) est consulté mais n'est pas l'auteur du DUERP.",
@@ -297,7 +297,7 @@ window.BANK = [
     choices: [
       "Une décision d'aménagement importante des conditions de travail",
       "Une information nouvelle sur un risque identifié dans une unité de travail",
-      "Un changement de dirigeant de l'entreprise",
+      "Un changement de dirigeant de l'entreprise.",
       "L'arrivée de la date anniversaire annuelle (pour les entreprises ≥ 11 salariés)"
     ],
     correct: 2,
@@ -320,7 +320,7 @@ window.BANK = [
     choices: [
       "Le poste de travail individuel",
       "Le service ou département",
-      "L'unité de travail",
+      "L'unité de travail.",
       "Le site ou établissement"
     ],
     correct: 2,
@@ -343,7 +343,7 @@ window.BANK = [
     choices: [
       "Elle a créé le DUERP (avant 2021, il n'existait pas)",
       "Elle a exigé la certification ISO 45001 pour valider le DUERP",
-      "Elle a étendu la conservation à 40 ans et rendu le Papripact obligatoire ≥ 50 salariés",
+      "Elle a étendu la conservation du DUERP à 40 ans et rendu obligatoire le Papripact dans les entreprises de 50 salariés et plus.",
       "Elle a supprimé l'obligation de mise à jour annuelle pour les PME"
     ],
     correct: 2,
@@ -532,7 +532,7 @@ window.BANK = [
     choices: [
       "Éviter les risques",
       "Évaluer les risques qui ne peuvent pas être évités",
-      "Combattre les risques à la source",
+      "Combattre les risques à la source.",
       "Adapter le travail à l'homme"
     ],
     correct: 2,
@@ -555,7 +555,7 @@ window.BANK = [
     choices: [
       "7 principes",
       "8 principes",
-      "9 principes",
+      "9 principes.",
       "10 principes"
     ],
     correct: 2,
@@ -577,7 +577,7 @@ window.BANK = [
     answer: "La protection collective, qui prime sur la protection individuelle.",
     choices: [
       "La protection individuelle (EPI), car chaque salarié est responsable de sa sécurité",
-      "La protection collective, qui prime sur la protection individuelle",
+      "La protection collective, qui prime sur la protection individuelle.",
       "Les deux sont équivalentes : le choix dépend du coût",
       "La formation des travailleurs, qui est le principe le plus efficace"
     ],
@@ -624,7 +624,7 @@ window.BANK = [
     choices: [
       "2e principe",
       "3e principe",
-      "4e principe",
+      "4e principe.",
       "5e principe"
     ],
     correct: 2,
@@ -647,7 +647,7 @@ window.BANK = [
     choices: [
       "Uniquement les risques physiques (bruit, chutes, TMS)",
       "Les risques chimiques et biologiques",
-      "Les risques psychosociaux (RPS) et le harcèlement",
+      "Les risques psychosociaux (RPS) et le harcèlement.",
       "Les risques environnementaux (pollution, déchets)"
     ],
     correct: 2,
@@ -670,7 +670,7 @@ window.BANK = [
     choices: [
       "Principe 3 : combattre les risques à la source",
       "Principe 4 : adapter le travail à l'homme",
-      "Principe 5 : tenir compte de l'état d'évolution de la technique",
+      "Principe 5 : tenir compte de l'état d'évolution de la technique.",
       "Principe 6 : remplacer ce qui est dangereux"
     ],
     correct: 2,
@@ -692,7 +692,7 @@ window.BANK = [
     answer: "Remplacer (principe 6) vient avant planifier (principe 7).",
     choices: [
       "Planifier (6e) vient avant remplacer (7e)",
-      "Remplacer (6e) vient avant planifier (7e)",
+      "Remplacer (principe 6) vient avant planifier (principe 7).",
       "Ils sont au même rang (co-principes)",
       "Planifier est le 5e, remplacer est le 6e"
     ],
@@ -975,7 +975,7 @@ window.BANK = [
     answer: "ISO 45001 exige explicitement la consultation et la participation des travailleurs (§5.4), pas seulement leur information.",
     choices: [
       "ISO 45001 supprime l'obligation d'évaluation des risques pour les PME",
-      "ISO 45001 exige explicitement la consultation et la participation des travailleurs (§5.4)",
+      "ISO 45001 exige explicitement la consultation et la participation des travailleurs (§5.4), pas seulement leur information.",
       "ISO 45001 remplace le DUERP par un document unique international",
       "ISO 45001 exige une certification obligatoire pour tous les employeurs"
     ],
@@ -998,7 +998,7 @@ window.BANK = [
     answer: "ISO 45001 utilise la High Level Structure (HLS) commune à ISO 9001:2015 et ISO 14001:2015.",
     choices: [
       "ISO 45001 a une structure propre, incompatible avec les autres normes ISO de management",
-      "ISO 45001 utilise la High Level Structure (HLS) commune à ISO 9001:2015 et ISO 14001:2015",
+      "ISO 45001 utilise la High Level Structure (HLS) commune à ISO 9001:2015 et ISO 14001:2015.",
       "ISO 45001 utilise la structure d'OHSAS 18001 avec des amendements mineurs",
       "La structure d'ISO 45001 comporte 12 chapitres numérotés 1 à 12"
     ],
@@ -1022,7 +1022,7 @@ window.BANK = [
     choices: [
       "Danger et risque sont synonymes dans ISO 45001",
       "Le risque est la source potentielle de dommage ; le danger est sa probabilité d'occurrence",
-      "Le danger est la source potentielle de dommage ; le risque est la combinaison probabilité × gravité",
+      "Le danger est la source potentielle de dommage ; le risque est la combinaison de la probabilité qu'un dommage survienne et de sa gravité.",
       "ISO 45001 n'utilise que le terme 'risque', pas 'danger'"
     ],
     correct: 2,
@@ -1045,7 +1045,7 @@ window.BANK = [
     choices: [
       "La planification des actions face aux risques et opportunités",
       "Les contrôles opérationnels et la gestion des entrepreneurs",
-      "L'évaluation des performances : surveillance, mesure, audits internes, revues de direction",
+      "L'évaluation des performances : surveillance, mesure, analyse, audits internes et revues de direction.",
       "L'amélioration continue et le traitement des non-conformités"
     ],
     correct: 2,
@@ -1249,7 +1249,7 @@ window.BANK = [
     choices: [
       "ISO 9001:2015 utilise la High Level Structure (HLS) commune à ISO 14001:2015",
       "ISO 9001:2015 introduit la pensée basée sur les risques",
-      "ISO 9001:2015 a 8 principes de management de la qualité (comme la version 2000)",
+      "ISO 9001:2015 a 8 principes de management de la qualité (comme la version 2000).",
       "ISO 9001:2015 exige une analyse du contexte de l'organisme (§4)"
     ],
     correct: 2,
@@ -1318,7 +1318,7 @@ window.BANK = [
     choices: [
       "Ce sont des synonymes dans ISO 9001:2015",
       "La correction est planifiée ; l'action corrective est immédiate",
-      "La correction traite la non-conformité elle-même ; l'action corrective élimine la cause pour éviter la récurrence",
+      "La correction traite la non-conformité elle-même ; l'action corrective élimine la cause pour éviter sa récurrence.",
       "L'action corrective s'applique aux clients ; la correction s'applique aux processus internes"
     ],
     correct: 2,
@@ -1476,7 +1476,7 @@ window.BANK = [
     choices: [
       "Ce sont des synonymes dans ISO 14001",
       "L'impact est la cause ; l'aspect est l'effet mesuré",
-      "L'aspect est la cause (élément de l'activité) ; l'impact est l'effet (modification de l'environnement)",
+      "L'aspect est la cause (élément de l'activité) ; l'impact est l'effet (modification de l'environnement).",
       "L'aspect se mesure ; l'impact se gère"
     ],
     correct: 2,
@@ -1522,7 +1522,7 @@ window.BANK = [
     choices: [
       "Uniquement les lois et règlements environnementaux obligatoires",
       "Les objectifs chiffrés de performance environnementale de l'organisme",
-      "Toute exigence légale ou autre exigence que l'organisme doit ou choisit de respecter",
+      "Toute exigence légale ou autre exigence que l'organisme doit ou choisit de respecter en matière environnementale.",
       "Les certifications ISO obligatoires pour opérer dans un secteur réglementé"
     ],
     correct: 2,
@@ -1545,7 +1545,7 @@ window.BANK = [
     choices: [
       "L'obligation de réaliser une Analyse de Cycle de Vie (ACV) formelle pour tous les produits",
       "L'interdiction de toute activité à impact environnemental non nul",
-      "La perspective de cycle de vie : considérer les aspects de l'extraction jusqu'à la fin de vie",
+      "La perspective de cycle de vie : l'organisme doit considérer les aspects environnementaux de l'extraction des matières premières jusqu'à la fin de vie.",
       "L'obligation de certification ISO 14001 pour les sous-traitants"
     ],
     correct: 2,
@@ -1591,7 +1591,7 @@ window.BANK = [
     choices: [
       "Obligatoire pour les sites ICPE soumis à autorisation",
       "Volontaire, mais elle certifie un niveau minimal de performance environnementale",
-      "Volontaire. Elle certifie le système de management (la démarche), pas un niveau de performance absolue",
+      "Volontaire. Elle certifie le système de management environnemental (la démarche), pas un niveau de performance environnementale absolue.",
       "Obligatoire pour les entreprises de plus de 500 salariés depuis 2020"
     ],
     correct: 2,
@@ -1748,7 +1748,7 @@ window.BANK = [
     choices: [
       "Environ 50 %",
       "Environ 70 %",
-      "Environ 88 %",
+      "Environ 88 %.",
       "Environ 95 %"
     ],
     correct: 2,
@@ -1770,7 +1770,7 @@ window.BANK = [
     answer: "Un programme en 4 étapes (Mobiliser, Investiguer, Maîtriser, Évaluer) accompagnant les entreprises à forte sinistralité TMS.",
     choices: [
       "Une formation gestes et postures certifiante dispensée par l'INRS (PRAP)",
-      "Un programme en 4 étapes (Mobiliser, Investiguer, Maîtriser, Évaluer) accompagnant les entreprises à forte sinistralité TMS",
+      "Un programme en 4 étapes (Mobiliser, Investiguer, Maîtriser, Évaluer) accompagnant les entreprises à forte sinistralité TMS.",
       "Un tableau de maladies professionnelles (tableau 57) couvrant les affections périarticulaires",
       "Un questionnaire d'évaluation des risques psychosociaux utilisé dans le DUERP"
     ],
@@ -1794,7 +1794,7 @@ window.BANK = [
     choices: [
       "Physiques, chimiques et biologiques",
       "Organisationnels, relationnels et techniques",
-      "Biomécaniques, psychosociaux et environnementaux",
+      "Biomécaniques, psychosociaux et environnementaux.",
       "Ergonomiques, médicaux et comportementaux"
     ],
     correct: 2,
@@ -1817,7 +1817,7 @@ window.BANK = [
     choices: [
       "Programme de Réduction des Accidents Professionnels",
       "Plan de Réhabilitation des Agents Publics",
-      "Prévention des Risques liés à l'Activité Physique",
+      "Prévention des Risques liés à l'Activité Physique.",
       "Protocole de Reclassement des Agents à Pathologies"
     ],
     correct: 2,
@@ -1840,7 +1840,7 @@ window.BANK = [
     choices: [
       "L'épicondylite latérale (tennis elbow)",
       "Les tendinites de la coiffe des rotateurs (épaule)",
-      "Le syndrome du canal carpien (poignet)",
+      "Le syndrome du canal carpien (compression du nerf médian au poignet).",
       "La hernie discale lombaire (rachis)"
     ],
     correct: 2,
@@ -1863,7 +1863,7 @@ window.BANK = [
     choices: [
       "La formation aux gestes et postures individuels est la mesure la plus efficace pour prévenir les TMS",
       "Les TMS ne pouvant pas être évités dans certains secteurs, la prévention se limite à la surveillance médicale",
-      "La prévention des TMS est avant tout collective et organisationnelle ; la formation aux gestes et postures ne suffit pas seule",
+      "La prévention des TMS est avant tout collective et organisationnelle ; la formation aux gestes et postures ne suffit pas seule.",
       "La prévention des TMS repose uniquement sur l'amélioration du matériel (outillage, port de charges)"
     ],
     correct: 2,
@@ -2004,7 +2004,7 @@ window.BANK = [
     choices: [
       "Environ 10 %",
       "Environ 20 %",
-      "Environ 30 %",
+      "Environ 30 %.",
       "Environ 50 %"
     ],
     correct: 2,
@@ -2027,7 +2027,7 @@ window.BANK = [
     choices: [
       "Accident du travail (AT) stricto sensu, couvert exactement comme un accident survenu sur le lieu de travail",
       "Accident de mission, car le salarié se déplace pour rejoindre son employeur",
-      "Accident de trajet, couvert par la législation AT/MP mais distinct de l'accident du travail stricto sensu",
+      "Accident de trajet, couvert par la législation AT/MP mais distinct de l'accident du travail stricto sensu.",
       "Accident privé, non couvert par la législation professionnelle"
     ],
     correct: 2,
@@ -2050,7 +2050,7 @@ window.BANK = [
     choices: [
       "Technique, organisationnelle, humaine",
       "Prévention primaire, secondaire, tertiaire",
-      "Organisation des déplacements, ressources, compétences",
+      "Organisation des déplacements, ressources (véhicules et équipements), compétences (formation et sensibilisation).",
       "Identification, évaluation, contrôle"
     ],
     correct: 2,
@@ -2072,7 +2072,7 @@ window.BANK = [
     answer: "Accident de mission, qualifié d'accident du travail.",
     choices: [
       "Accident de trajet, car il se déplace hors des locaux de l'entreprise",
-      "Accident de mission, qualifié d'accident du travail",
+      "Accident de mission, qualifié d'accident du travail.",
       "Accident privé, car il conduit son véhicule personnel",
       "Accident de travail seulement si le véhicule appartient à l'employeur"
     ],
@@ -2096,7 +2096,7 @@ window.BANK = [
     choices: [
       "Former les conducteurs à la conduite préventive (Bilan de Conduite)",
       "Équiper les véhicules de systèmes d'aide à la conduite (ABS, ESP)",
-      "Limiter les réunions tardives imposant une conduite de nuit ou en état de fatigue",
+      "Limiter les réunions tardives imposant une conduite de nuit ou en état de fatigue.",
       "Contrôler régulièrement les permis de conduire et les visites médicales des conducteurs"
     ],
     correct: 2,
@@ -2253,7 +2253,7 @@ window.BANK = [
     choices: [
       "L'article L1152-1 (harcèlement moral)",
       "L'article L4121-2 (9 principes généraux de prévention)",
-      "L'article L4121-1 (obligation générale de santé et sécurité, incluant santé mentale)",
+      "L'article L4121-1 du Code du travail.",
       "L'article R4121-1 (DUERP)"
     ],
     correct: 2,
@@ -2275,7 +2275,7 @@ window.BANK = [
     answer: "L'article L1152-1.",
     choices: [
       "L'article L1153-1 (harcèlement sexuel)",
-      "L'article L1152-1 (harcèlement moral)",
+      "L'article L1152-1.",
       "L'article L4121-1 (obligation générale de sécurité)",
       "L'article R4121-1 (DUERP)"
     ],
@@ -2299,7 +2299,7 @@ window.BANK = [
     choices: [
       "Burnout, dépression et anxiété",
       "Stress, conflits interpersonnels et surcharge de travail",
-      "Stress, violences internes et violences externes",
+      "Stress, violences internes (harcèlement moral/sexuel) et violences externes (incivilités, agressions de la clientèle).",
       "Harcèlement moral, harcèlement sexuel et discrimination"
     ],
     correct: 2,
@@ -2322,7 +2322,7 @@ window.BANK = [
     choices: [
       "La prévention tertiaire : accompagnement psychologique des salariés en souffrance par un psychologue du travail",
       "La prévention secondaire : ateliers de gestion du stress et de la résilience individuelle",
-      "La prévention primaire : agir collectivement sur les facteurs organisationnels (charge, autonomie, organisation)",
+      "La prévention primaire : agir collectivement sur les facteurs organisationnels (charge de travail, autonomie, organisation).",
       "La prévention par la surveillance médicale : visites médicales renforcées pour les salariés à risque"
     ],
     correct: 2,
@@ -2345,7 +2345,7 @@ window.BANK = [
     choices: [
       "Un client insulte une caissière de supermarché à la caisse",
       "Un salarié est agressé verbalement par un patient dans un service d'urgence",
-      "Un responsable isole systématiquement un salarié lors des réunions d'équipe et lui retire ses responsabilités sans justification",
+      "Un responsable isole systématiquement un salarié lors des réunions d'équipe et lui retire ses responsabilités sans justification.",
       "Un prestataire externe tient des propos méprisants envers un agent d'accueil"
     ],
     correct: 2,
@@ -2367,7 +2367,7 @@ window.BANK = [
     answer: "Un syndrome d'épuisement professionnel consécutif à un stress chronique au travail, caractérisé par épuisement émotionnel, dépersonnalisation et réduction du sentiment d'accomplissement.",
     choices: [
       "Une maladie professionnelle reconnue figurant dans les tableaux MP",
-      "Un syndrome d'épuisement professionnel consécutif à un stress chronique au travail, caractérisé par épuisement émotionnel, dépersonnalisation et réduction du sentiment d'accomplissement",
+      "Un syndrome d'épuisement professionnel consécutif à un stress chronique au travail, caractérisé par épuisement émotionnel, dépersonnalisation et réduction du sentiment d'accomplissement.",
       "Une forme sévère de dépression clinique diagnostiquée par un psychiatre",
       "Un trouble uniquement observable chez les managers soumis à forte pression hiérarchique"
     ],
@@ -2553,7 +2553,7 @@ window.BANK = [
     choices: [
       "15 minutes",
       "1 heure",
-      "8 heures",
+      "8 heures (correspondant à un poste de travail).",
       "24 heures"
     ],
     correct: 2,
@@ -2576,7 +2576,7 @@ window.BANK = [
     choices: [
       "1er janvier 2009 (date de publication du règlement CLP)",
       "1er décembre 2010 (pour les substances pures)",
-      "1er juin 2015 (application complète — substances et mélanges)",
+      "1er juin 2015.",
       "1er janvier 2020 (fin de la période de transition)"
     ],
     correct: 2,
@@ -2599,7 +2599,7 @@ window.BANK = [
     choices: [
       "8 rubriques",
       "12 rubriques",
-      "16 rubriques",
+      "16 rubriques.",
       "20 rubriques"
     ],
     correct: 2,
@@ -2621,7 +2621,7 @@ window.BANK = [
     answer: "Substituer le produit CMR par un produit ou procédé moins dangereux, si cela est techniquement possible.",
     choices: [
       "Équiper immédiatement les travailleurs exposés d'EPI adaptés (masques FFP3, gants nitrile)",
-      "Substituer le produit CMR par un produit ou procédé moins dangereux, si cela est techniquement possible",
+      "Substituer le produit CMR par un produit ou procédé moins dangereux, si cela est techniquement possible.",
       "Informer les travailleurs des risques via une formation annuelle",
       "Réduire le temps d'exposition en dessous de la VLEP réglementaire"
     ],
@@ -2644,7 +2644,7 @@ window.BANK = [
     answer: "Le règlement REACH (CE) 1907/2006.",
     choices: [
       "Le règlement CLP (CE) 1272/2008",
-      "Le règlement REACH (CE) 1907/2006",
+      "Le règlement REACH (CE) 1907/2006.",
       "La directive Seveso III (2012/18/UE)",
       "Le règlement Biocides (UE) 528/2012"
     ],
@@ -2668,7 +2668,7 @@ window.BANK = [
     choices: [
       "GHS06 — tête de mort sur tibias croisés (toxicité aiguë létale)",
       "GHS07 — point d'exclamation (irritant/nocif, toxicité aiguë faible)",
-      "GHS08 — silhouette humaine avec exclamation (danger grave pour la santé)",
+      "GHS08 — silhouette humaine avec exclamation (danger grave pour la santé).",
       "GHS05 — corrosion (corrosif pour la peau et les métaux)"
     ],
     correct: 2,
@@ -2691,7 +2691,7 @@ window.BANK = [
     choices: [
       "La fourniture d'EPI adaptés (gants, masques, lunettes) aux travailleurs exposés",
       "La mise en place d'une ventilation générale des locaux de travail",
-      "La suppression ou la substitution de l'agent chimique dangereux",
+      "La suppression ou la substitution de l'agent chimique dangereux.",
       "La réalisation de mesurages atmosphériques pour vérifier le respect des VLEP"
     ],
     correct: 2,
@@ -2714,7 +2714,7 @@ window.BANK = [
     choices: [
       "L'ingestion (voie digestive)",
       "Le contact cutané (voie dermique)",
-      "L'inhalation (voie respiratoire)",
+      "L'inhalation (voie respiratoire).",
       "L'injection (plaies/coupures)"
     ],
     correct: 2,
@@ -2873,7 +2873,7 @@ window.BANK = [
     answer: "Délivrance d'un permis d'entrer formalisé, après analyse atmosphérique préalable.",
     choices: [
       "Contacter le CHSCT (ou la CSSCT) pour information préalable",
-      "Délivrance d'un permis d'entrer formalisé, après analyse atmosphérique préalable",
+      "Délivrance d'un permis d'entrer formalisé, après analyse atmosphérique préalable.",
       "Effectuer une formation SST (Sauveteur Secouriste du Travail) pour tous les intervenants",
       "Installer une ventilation naturelle en ouvrant tous les accès disponibles"
     ],
@@ -2897,7 +2897,7 @@ window.BANK = [
     choices: [
       "Pénétrer avec un masque filtrant FFP3 pour récupérer la victime rapidement",
       "Attendre 5 minutes que la victime reprenne connaissance avant d'appeler les secours",
-      "Ne jamais pénétrer dans l'espace — alerter immédiatement les secours spécialisés (pompiers) sans tenter de sauvetage improvisé",
+      "Ne jamais pénétrer dans l'espace — alerter immédiatement les secours spécialisés (pompiers) sans tenter de sauvetage improvisé.",
       "Ventiler l'espace avec un souffleur pendant 10 minutes avant d'entrer secourir"
     ],
     correct: 2,
@@ -2920,7 +2920,7 @@ window.BANK = [
     choices: [
       "Un atelier de mécanique sans fenêtre avec 3 salariés permanents",
       "Un bureau sous-sol mal ventilé occupé quotidiennement",
-      "Un silo à grain vide dans lequel un technicien entre pour inspection",
+      "Un silo à grain vide dans lequel un technicien entre pour inspection.",
       "Un local technique de 20 m² avec éclairage artificiel"
     ],
     correct: 2,
@@ -2942,7 +2942,7 @@ window.BANK = [
     answer: "Entre la LIE (limite inférieure d'explosivité) et la LSE (limite supérieure d'explosivité).",
     choices: [
       "En dessous de la LIE (limite inférieure d'explosivité)",
-      "Entre la LIE (limite inférieure d'explosivité) et la LSE (limite supérieure d'explosivité)",
+      "Entre la LIE (limite inférieure d'explosivité) et la LSE (limite supérieure d'explosivité).",
       "Au-dessus de la LSE (limite supérieure d'explosivité)",
       "Uniquement lorsque le taux d'O₂ est supérieur à 23,5 %"
     ],
@@ -3085,7 +3085,7 @@ window.BANK = [
     answer: "Code de l'environnement (Art. L511-1).",
     choices: [
       "Code du travail",
-      "Code de l'environnement (Art. L511-1)",
+      "Code de l'environnement (Art. L511-1).",
       "Code de la santé publique",
       "Code général des collectivités territoriales"
     ],
@@ -3108,7 +3108,7 @@ window.BANK = [
     answer: "Déclaration → Enregistrement → Autorisation.",
     choices: [
       "Autorisation → Enregistrement → Déclaration",
-      "Déclaration → Enregistrement → Autorisation",
+      "Déclaration → Enregistrement → Autorisation.",
       "Enregistrement → Déclaration → Autorisation",
       "Déclaration → Autorisation → Enregistrement"
     ],
@@ -3131,7 +3131,7 @@ window.BANK = [
     answer: "Directive 2012/18/UE (Seveso 3).",
     choices: [
       "Directive 96/82/CE (Seveso II)",
-      "Directive 2012/18/UE (Seveso 3)",
+      "Directive 2012/18/UE (Seveso 3).",
       "Directive 2006/42/CE (Machines)",
       "Directive 89/391/CEE (Santé-sécurité au travail)"
     ],
@@ -3154,7 +3154,7 @@ window.BANK = [
     answer: "Seuil bas (S) et seuil haut (SH).",
     choices: [
       "Catégorie 1 et catégorie 2",
-      "Seuil bas (S) et seuil haut (SH)",
+      "Seuil bas (S) et seuil haut (SH).",
       "Niveau rouge et niveau orange",
       "Autorisation et enregistrement spécial"
     ],
@@ -3177,7 +3177,7 @@ window.BANK = [
     answer: "Le PPRT (Plan de Prévention des Risques Technologiques).",
     choices: [
       "Le DUERP (Document Unique d'Évaluation des Risques Professionnels)",
-      "Le PPRT (Plan de Prévention des Risques Technologiques)",
+      "Le PPRT (Plan de Prévention des Risques Technologiques).",
       "Le PRAP (Programme de Réduction des Accidents Professionnels)",
       "Le PAPRIPACT (Programme Annuel de Prévention des Risques)"
     ],
@@ -3303,7 +3303,7 @@ window.BANK = [
     answer: "25 % de la durée totale du contrat d'apprentissage.",
     choices: [
       "15 % de la durée totale du contrat",
-      "25 % de la durée totale du contrat",
+      "25 % de la durée totale du contrat d'apprentissage.",
       "33 % de la durée totale du contrat",
       "50 % de la durée totale du contrat"
     ],
@@ -3326,7 +3326,7 @@ window.BANK = [
     answer: "Le tuteur.",
     choices: [
       "Le maître d'apprentissage",
-      "Le tuteur",
+      "Le tuteur.",
       "Le référent alternance",
       "Le mentor professionnel"
     ],
@@ -3349,7 +3349,7 @@ window.BANK = [
     answer: "43 % du SMIC.",
     choices: [
       "27 % du SMIC",
-      "43 % du SMIC",
+      "43 % du SMIC.",
       "53 % du SMIC",
       "100 % du SMIC"
     ],
@@ -3372,7 +3372,7 @@ window.BANK = [
     answer: "12 mois.",
     choices: [
       "6 mois",
-      "12 mois",
+      "12 mois.",
       "24 mois",
       "3 ans"
     ],
@@ -3395,7 +3395,7 @@ window.BANK = [
     answer: "Le maître d'apprentissage.",
     choices: [
       "Le tuteur pédagogique",
-      "Le maître d'apprentissage",
+      "Le maître d'apprentissage.",
       "Le responsable RH de l'entreprise",
       "Le directeur du CFA"
     ],
@@ -3649,7 +3649,7 @@ window.BANK = [
     answer: "DUERP (Document Unique d'Évaluation des Risques Professionnels).",
     choices: [
       "DUER (Document Unique d'Évaluation des Risques)",
-      "DUERP (Document Unique d'Évaluation des Risques Professionnels)",
+      "DUERP (Document Unique d'Évaluation des Risques Professionnels).",
       "DUERP-CT (Document Unique d'Évaluation des Risques et Conditions de Travail)",
       "EvRP (Évaluation des Risques Professionnels)"
     ],
@@ -3672,7 +3672,7 @@ window.BANK = [
     answer: "Cancérogène, Mutagène, Reprotoxique.",
     choices: [
       "Contrôle du Matériel Réglementaire",
-      "Cancérogène, Mutagène, Reprotoxique",
+      "Cancérogène, Mutagène, Reprotoxique.",
       "Chimique, Microbiologique, Radioactif",
       "Contrôle des Mesures de Réduction"
     ],
@@ -3695,7 +3695,7 @@ window.BANK = [
     answer: "VLE (Valeur Limite d'Exposition à court terme).",
     choices: [
       "VME (Valeur Moyenne d'Exposition)",
-      "VLE (Valeur Limite d'Exposition à court terme)",
+      "VLE (Valeur Limite d'Exposition à court terme).",
       "VLEP (Valeur Limite d'Exposition Professionnelle)",
       "VTR (Valeur Toxicologique de Référence)"
     ],
@@ -3718,7 +3718,7 @@ window.BANK = [
     answer: "Le CHSCT a été supprimé par les ordonnances Macron (2017) et remplacé par le CSE. La CSSCT est une commission du CSE obligatoire dans les entreprises ≥300 salariés.",
     choices: [
       "CHSCT et CSSCT coexistent : CHSCT pour les PME, CSSCT pour les grandes entreprises",
-      "Le CHSCT a été supprimé (ordonnances 2017) ; la CSSCT est une commission du CSE ≥300 salariés",
+      "Le CHSCT a été supprimé par les ordonnances Macron (2017) et remplacé par le CSE. La CSSCT est une commission du CSE obligatoire dans les entreprises ≥300 salariés.",
       "La CSSCT est l'ancien nom du CHSCT avant la réforme de 2015",
       "CHSCT et CSSCT sont synonymes — même institution, deux dénominations selon la région"
     ],
@@ -3741,7 +3741,7 @@ window.BANK = [
     answer: "Plan–Do–Check–Act : cycle d'amélioration continue (roue de Deming), socle de ISO 9001, 14001 et 45001.",
     choices: [
       "Prévenir–Détecter–Corriger–Améliorer : démarche de contrôle qualité interne",
-      "Plan–Do–Check–Act : cycle d'amélioration continue (roue de Deming), socle de ISO 9001, 14001 et 45001",
+      "Plan–Do–Check–Act : cycle d'amélioration continue (roue de Deming), socle de ISO 9001, 14001 et 45001.",
       "Planification–Documentation–Certification–Audit : séquence de certification ISO",
       "Processus–Danger–Contrôle–Action : méthode HACCP de sécurité alimentaire"
     ],
@@ -3764,7 +3764,7 @@ window.BANK = [
     answer: "OHSAS 18001.",
     choices: [
       "ISO 18001",
-      "OHSAS 18001",
+      "OHSAS 18001.",
       "BS 8800",
       "ISO 45000"
     ],
@@ -3902,7 +3902,7 @@ window.BANK = [
     answer: "H1302 — Management et ingénierie Hygiène Sécurité Environnement industriels.",
     choices: [
       "H1303 — Intervention technique en Hygiène Sécurité Environnement",
-      "H1302 — Management et ingénierie Hygiène Sécurité Environnement industriels",
+      "H1302 — Management et ingénierie Hygiène Sécurité Environnement industriels.",
       "H1523 — Responsable QSE en industrie",
       "H1502 — Management et ingénierie qualité industrielle"
     ],
@@ -3925,7 +3925,7 @@ window.BANK = [
     answer: "H1303 — Intervention technique en Hygiène Sécurité Environnement.",
     choices: [
       "H1302 — Management et ingénierie HSE industriels",
-      "H1303 — Intervention technique en Hygiène Sécurité Environnement",
+      "H1303 — Intervention technique en Hygiène Sécurité Environnement.",
       "M1402 — Conseil en organisation et management",
       "H1502 — Management et ingénierie qualité industrielle"
     ],
@@ -3949,7 +3949,7 @@ window.BANK = [
     choices: [
       "H1302, H1502, H1523",
       "H1302, H1303, H1502",
-      "H1302, H1502, M1402",
+      "H1302, H1502, M1402.",
       "H1523, H1502, M1402"
     ],
     correct: 2,
@@ -3971,7 +3971,7 @@ window.BANK = [
     answer: "La lettre H désigne le domaine professionnel 'Industrie' dans la nomenclature ROME de France Travail.",
     choices: [
       "La lettre H signifie 'Hygiène' — initiale du domaine HSE",
-      "La lettre H désigne le domaine professionnel 'Industrie' dans la nomenclature ROME",
+      "La lettre H désigne le domaine professionnel 'Industrie' dans la nomenclature ROME de France Travail.",
       "La lettre H identifie le niveau de qualification (H = Bac+3 à Bac+5)",
       "La lettre H désigne le domaine 'Santé et action sociale' dans la nomenclature ROME"
     ],
@@ -3995,7 +3995,7 @@ window.BANK = [
     choices: [
       "M1402 — Conseil en organisation et management d'entreprise",
       "H1302 — Management et ingénierie HSE industriels",
-      "H1502 — Management et ingénierie qualité industrielle",
+      "H1502 — Management et ingénierie qualité industrielle.",
       "H1303 — Intervention technique en HSE"
     ],
     correct: 2,
@@ -4147,7 +4147,7 @@ window.BANK = [
     answer: "Construire le système de management QSE.",
     choices: [
       "Améliorer le système de management QSE",
-      "Construire le système de management QSE",
+      "Construire le système de management QSE.",
       "Manager les risques QSE",
       "Accompagner l'organisme dans ses démarches RSE et de développement durable"
     ],
@@ -4172,7 +4172,7 @@ window.BANK = [
       "BC01 — Construire le système de management QSE",
       "BC02 — Améliorer le système de management QSE",
       "BC03 — Manager les risques QSE",
-      "BC04 — Accompagner l'organisme dans ses démarches RSE et de développement durable"
+      "BC04 — Accompagner l'organisme dans ses démarches RSE et de développement durable."
     ],
     correct: 3,
     explanation: "Option D correcte : BC04 est explicitement dédié à la RSE et au développement durable — reporting extra-financier CSRD, bilan carbone, achats responsables, labellisation RSE. Les trois premiers blocs (BC01–BC03) couvrent le système QSE interne (construction, amélioration, risques). BC04 est la dimension stratégique externe et sociétale. Piège : attribuer RSE à BC03 (qui couvre les risques opérationnels QSE, pas la stratégie RSE).",
@@ -4193,7 +4193,7 @@ window.BANK = [
     answer: "Niveau 6 (Bac+3, équivalent Bachelor / Licence).",
     choices: [
       "Niveau 5 (Bac+2, BTS/BUT)",
-      "Niveau 6 (Bac+3, Bachelor/Licence)",
+      "Niveau 6 (Bac+3, équivalent Bachelor / Licence).",
       "Niveau 7 (Bac+5, Master/Ingénieur)",
       "Niveau III (ancienne classification RNCP)"
     ],
@@ -4217,7 +4217,7 @@ window.BANK = [
     choices: [
       "27 octobre 2025",
       "27 octobre 2028",
-      "27 octobre 2030",
+      "27 octobre 2030.",
       "31 décembre 2030"
     ],
     correct: 2,
@@ -4240,7 +4240,7 @@ window.BANK = [
     choices: [
       "BC01 — Construire le système de management QSE",
       "BC02 — Améliorer le système de management QSE",
-      "BC03 — Manager les risques QSE",
+      "BC03 — Manager les risques QSE.",
       "BC04 — Accompagner l'organisme dans ses démarches RSE et de développement durable"
     ],
     correct: 2,
