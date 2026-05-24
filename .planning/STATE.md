@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: ready_to_plan
-stopped_at: Phase 3 context gathered
-last_updated: "2026-05-23T15:19:09.562Z"
+stopped_at: Phase 3 UI-SPEC approved
+last_updated: "2026-05-24T17:20:38.385Z"
 progress:
   total_phases: 5
   completed_phases: 2
-  total_plans: 9
+  total_plans: 13
   completed_plans: 9
   percent: 40
 ---
@@ -91,9 +91,9 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Session Continuity
 
-Last session: 2026-05-23T15:19:09.553Z
-Stopped at: Phase 3 context gathered
-Resume file: .planning/phases/03-flashcards-srs/03-CONTEXT.md
+Last session: 2026-05-23T17:09:59.913Z
+Stopped at: Phase 3 UI-SPEC approved
+Resume file: .planning/phases/03-flashcards-srs/03-UI-SPEC.md
 Proceeding to: `/gsd-execute-phase 3` (Phase 3: Flashcards + SRS)
 
 ---
