@@ -124,7 +124,7 @@ Plans:
 |-------|-----------|----------------|--------|-----------|
 | 1. Skeleton chassis + visual identity | v1.0 | 2/2 | Complete   | 2026-05-17 |
 | 2. Découverte content | v1.0 | 6/7 | In Progress|  |
-| 3. Biblio data + render + 5 categories populated | v1.0 | 2/4 | In Progress|  |
+| 3. Biblio data + render + 5 categories populated | v1.0 | 3/4 | In Progress|  |
 | 1. Shell & Gateway | v2.0 | 0/? | Not started | - |
 | 2. Content Bank | v2.0 | 0/7 | Planned | - |
 | 3. Flashcards + SRS | v2.0 | 0/? | Not started | - |

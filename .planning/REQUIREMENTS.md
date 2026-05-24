@@ -26,15 +26,15 @@ Committed scope for the "Étude" milestone. Each maps to exactly one roadmap pha
 
 ### Flashcards (FLASH)
 
-- [ ] **FLASH-01**: The user can study flashcards (recto question → reveal verso answer + explanation + source) for a chosen theme or all themes
-- [ ] **FLASH-02**: After revealing a card, the user self-grades it on 4 levels (raté / dur / bien / facile)
+- [x] **FLASH-01**: The user can study flashcards (recto question → reveal verso answer + explanation + source) for a chosen theme or all themes
+- [x] **FLASH-02**: After revealing a card, the user self-grades it on 4 levels (raté / dur / bien / facile)
 
 ### Spaced Repetition (SRS)
 
 - [ ] **SRS-01**: A standard SM-2 scheduler computes each card's next due date from the user's self-grades, persisted in `localStorage` (`qhse-srs-v1`: ease, interval, due, lapses, reps)
-- [ ] **SRS-02**: A "À réviser aujourd'hui" view surfaces all cards currently due
-- [ ] **SRS-03**: Flashcard self-grades and wrong QCM answers feed the SRS queue; tests blancs do not
-- [ ] **SRS-04**: SRS progress persists across sessions and survives reloads (localStorage only, single-user, no backend)
+- [x] **SRS-02**: A "À réviser aujourd'hui" view surfaces all cards currently due
+- [x] **SRS-03**: Flashcard self-grades and wrong QCM answers feed the SRS queue; tests blancs do not
+- [x] **SRS-04**: SRS progress persists across sessions and survives reloads (localStorage only, single-user, no backend)
 
 ### QCM / Quiz (QUIZ)
 
@@ -55,7 +55,7 @@ Committed scope for the "Étude" milestone. Each maps to exactly one roadmap pha
 
 ### Persistence & Trust (PERSIST)
 
-- [ ] **PERSIST-01**: All persistence uses three documented `localStorage` keys (`qhse-srs-v1`, `qhse-scores-v1`, `qhse-prefs-v1`); the last theme/mode is restored on return
+- [x] **PERSIST-01**: All persistence uses three documented `localStorage` keys (`qhse-srs-v1`, `qhse-scores-v1`, `qhse-prefs-v1`); the last theme/mode is restored on return
 - [x] **PERSIST-02**: No backend, no accounts, no sync, no runtime AI question generation, no multi-user/gamification — the bank is hand-authored + sourced at commit time
 
 ## Future Requirements
@@ -96,13 +96,13 @@ Coverage audit: 26/26 v2.0 requirements mapped. 0 unmapped. 0 duplicates.
 | BANK-03 | Phase 2 | Complete |
 | BANK-04 | Phase 2 | Complete |
 | BANK-05 | Phase 2 | Complete |
-| FLASH-01 | Phase 3 | Pending |
-| FLASH-02 | Phase 3 | Pending |
+| FLASH-01 | Phase 3 | Complete |
+| FLASH-02 | Phase 3 | Complete |
 | SRS-01 | Phase 3 | Pending |
-| SRS-02 | Phase 3 | Pending |
-| SRS-03 | Phase 3 | Pending |
-| SRS-04 | Phase 3 | Pending |
-| PERSIST-01 | Phase 3 | Pending |
+| SRS-02 | Phase 3 | Complete |
+| SRS-03 | Phase 3 | Complete |
+| SRS-04 | Phase 3 | Complete |
+| PERSIST-01 | Phase 3 | Complete |
 | QUIZ-01 | Phase 4 | Pending |
 | QUIZ-02 | Phase 4 | Pending |
 | QUIZ-03 | Phase 4 | Pending |

@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: executing
-stopped_at: Phase 3 Plan 2 complete (03-02-SUMMARY.md)
-last_updated: "2026-05-24T22:27:00.000Z"
+stopped_at: Phase 3 Plan 2 complete — verify-srs.cjs Node gate green (21 PASS, exit 0)
+last_updated: "2026-05-24T22:43:25.635Z"
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 13
-  completed_plans: 11
-  percent: 46
+  completed_plans: 12
+  percent: 40
 ---
 
 # Project State: QHSE CESI Hub
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 03 (flashcards-srs) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 
 ```
 Milestone : v2.0 Étude
@@ -93,9 +93,9 @@ Execute Phase 3 Plan 3: `03-03-PLAN.md` — wire Flashcards view (outils.html + 
 
 ## Session Continuity
 
-Last session: 2026-05-24T22:27:00.000Z
+Last session: 2026-05-24T22:43:25.627Z
 Stopped at: Phase 3 Plan 2 complete — verify-srs.cjs Node gate green (21 PASS, exit 0)
-Resume file: .planning/phases/03-flashcards-srs/03-03-PLAN.md
+Resume file: None
 Proceeding to: Phase 3 Plan 3 (Flashcards view DOM + IIFE + .fc-* CSS)
 
 ---
