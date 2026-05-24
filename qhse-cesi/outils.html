@@ -213,6 +213,11 @@
       if (window.__fcViewBooted) return;
       window.__fcViewBooted = true;
 
+      // Inline scripts execute during HTML parsing — BEFORE deferred external
+      // scripts (outils-data.js, srs.js) finish evaluating. Defer the IIFE body
+      // until DOMContentLoaded (which fires after all defer scripts complete),
+      // so window.BANK and window.SRS are guaranteed populated.
+      function boot() {
       // ----------------------------------------------------------------
       // Pre-flight: require window.BANK and window.SRS before touching DOM
       // ----------------------------------------------------------------
@@ -780,7 +785,13 @@
         }
       }
       renderBandeau();
+      } // end boot()
 
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot, { once: true });
+      } else {
+        boot();
+      }
     })();
   </script>
 </body>
