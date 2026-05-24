@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="chassis.css">
   <script src="outils-data.js" defer></script>
+  <script src="srs.js" defer></script>
 </head>
 <body>
   <!-- Skip-link: must be the very first focusable element in <body>. -->
@@ -57,8 +58,71 @@
       </ul>
 
       <div role="tabpanel" id="panel-flashcards" aria-labelledby="tab-flashcards" tabindex="0">
-        <!-- Phase 3 mount point: Flashcards + SM-2 spaced repetition -->
-        <p class="placeholder">Ce mode arrive en Phase 3 — révision par cartes avec répétition espacée (algorithme SM-2). La banque de contenus couvre l'ensemble des blocs RNCP41446 : Code du Travail, normes ISO, ICPE/Seveso et plus.</p>
+        <h2 class="sr-only">Cartes mémoire avec répétition espacée</h2>
+
+        <header class="fc-bandeau" role="status" aria-live="off">
+          <span class="fc-bandeau__dues" data-fc-dues data-state="zero">0/0</span>
+          <span class="fc-bandeau__sep">·</span>
+          dues ·
+          <span class="fc-bandeau__new" data-fc-new>0/10</span>
+          nouvelles
+          <details class="fc-settings">
+            <summary>Réglages</summary>
+            <div class="fc-settings__panel">
+              <label>Cartes nouvelles par jour
+                <input type="number" min="1" max="50" step="1" inputmode="numeric" data-fc-cap>
+              </label>
+              <small>Entre 1 et 50. Par défaut : 10.</small>
+            </div>
+          </details>
+        </header>
+        <span class="sr-only" data-fc-aria-live aria-live="polite"></span>
+
+        <nav class="fc-theme">
+          <label for="fc-theme-select">Thème</label>
+          <select id="fc-theme-select" data-fc-theme>
+            <option value="all">Tous les thèmes</option>
+            <option value="duerp">DUERP</option>
+            <option value="principes-generaux">Principes généraux de prévention</option>
+            <option value="iso-9001">ISO 9001</option>
+            <option value="iso-14001">ISO 14001</option>
+            <option value="iso-45001">ISO 45001</option>
+            <option value="tms">TMS</option>
+            <option value="risque-routier">Risque routier</option>
+            <option value="risque-chimique">Risque chimique</option>
+            <option value="rps">RPS</option>
+            <option value="espaces-confines">Espaces confinés</option>
+            <option value="acronymes">Acronymes</option>
+            <option value="metiers">Métiers</option>
+            <option value="calendrier">Calendrier alternance</option>
+            <option value="icpe-seveso">ICPE / Seveso</option>
+            <option value="rncp">RNCP / Blocs de compétences</option>
+          </select>
+        </nav>
+
+        <article class="fc-card" data-fc-card>
+          <section class="fc-recto" data-fc-recto>
+            <h3 data-fc-question></h3>
+            <button type="button" data-fc-reveal>Révéler <small data-fc-reveal-hint>Espace ou Entrée</small></button>
+          </section>
+          <section class="fc-verso" data-fc-verso hidden>
+            <p><span class="sr-only">Réponse :</span> <span data-fc-answer></span></p>
+            <p><span class="sr-only">Explication :</span> <span data-fc-explanation></span></p>
+            <p data-fc-source><span class="sr-only">Source :</span> </p>
+            <div class="fc-grades">
+              <button type="button" data-fc-grade="rate" aria-label="Noter cette carte : Raté (raccourci : 1)">1 · Raté</button>
+              <button type="button" data-fc-grade="dur" aria-label="Noter cette carte : Dur (raccourci : 2)">2 · Dur</button>
+              <button type="button" data-fc-grade="bien" aria-label="Noter cette carte : Bien (raccourci : 3)">3 · Bien</button>
+              <button type="button" data-fc-grade="facile" aria-label="Noter cette carte : Facile (raccourci : 4)">4 · Facile</button>
+            </div>
+          </section>
+        </article>
+
+        <div class="fc-empty" data-fc-empty hidden>
+          <h3>Bravo — file vide pour aujourd'hui.</h3>
+          <p>Prochaine carte due le <time data-fc-next-due></time>. (<span data-fc-stats-good>0</span> validées · <span data-fc-stats-bad>0</span> à retravailler.)</p>
+          <button type="button" data-fc-free-revision>Continuer en révision libre</button>
+        </div>
       </div>
 
       <div role="tabpanel" id="panel-fiches" aria-labelledby="tab-fiches" tabindex="0" hidden>
@@ -136,6 +200,587 @@
       const hash = location.hash.slice(1);
       const initial = tabs.find(t => t.id === hash) || tabs[0];
       activate(initial);
+    })();
+  </script>
+
+  <script>
+    /* ============ IIFE: Flashcards view — SM-2 SRS, theme picker, grading, free-revision ============ */
+    /* No globals, no inline on* handlers, no document-level keydown. Phase 3 / Plan 03-03. */
+    (() => {
+      'use strict';
+
+      // Double-load guard — prevent re-running if script tag is somehow duplicated
+      if (window.__fcViewBooted) return;
+      window.__fcViewBooted = true;
+
+      // ----------------------------------------------------------------
+      // Pre-flight: require window.BANK and window.SRS before touching DOM
+      // ----------------------------------------------------------------
+      const panel = document.getElementById('panel-flashcards');
+
+      if (!window.BANK || !Array.isArray(window.BANK) || !window.SRS || typeof window.SRS.schedule !== 'function') {
+        // Graceful degradation — render an inline error inside the card
+        const card = panel && panel.querySelector('[data-fc-card]');
+        if (card) {
+          const errEl = document.createElement('p');
+          errEl.className = 'fc-error';
+          errEl.textContent = 'Impossible de charger la banque de cartes. Recharge la page ou vérifie que outils-data.js est bien servi.';
+          card.appendChild(errEl);
+        }
+        console.error('[Flashcards] BANK or SRS missing — cannot boot view.', { BANK: !!window.BANK, SRS: !!window.SRS });
+        return;
+      }
+
+      // ----------------------------------------------------------------
+      // Constants
+      // ----------------------------------------------------------------
+      const THEME_SLUGS = [
+        'duerp', 'principes-generaux', 'iso-9001', 'iso-14001', 'iso-45001',
+        'tms', 'risque-routier', 'risque-chimique', 'rps', 'espaces-confines',
+        'acronymes', 'metiers', 'calendrier', 'icpe-seveso', 'rncp'
+      ];
+
+      const DEFAULT_PREFS = {
+        lastTheme: 'all',
+        lastMode: 'flashcards',
+        newCardsPerDay: 10
+      };
+
+      // ----------------------------------------------------------------
+      // localStorage — only 4 functions touch it (PATTERNS.md constraint)
+      // ----------------------------------------------------------------
+      function readPrefs() {
+        try {
+          const raw = localStorage.getItem('qhse-prefs-v1');
+          if (!raw) return Object.assign({}, DEFAULT_PREFS);
+          const parsed = JSON.parse(raw);
+          return {
+            lastTheme: (typeof parsed.lastTheme === 'string') ? parsed.lastTheme : DEFAULT_PREFS.lastTheme,
+            lastMode:  (typeof parsed.lastMode  === 'string') ? parsed.lastMode  : DEFAULT_PREFS.lastMode,
+            newCardsPerDay: (typeof parsed.newCardsPerDay === 'number' &&
+                             parsed.newCardsPerDay >= 1 && parsed.newCardsPerDay <= 50)
+                            ? Math.floor(parsed.newCardsPerDay)
+                            : DEFAULT_PREFS.newCardsPerDay
+          };
+        } catch (e) {
+          console.warn('[Flashcards] readPrefs failed:', e.message);
+          return Object.assign({}, DEFAULT_PREFS);
+        }
+      }
+
+      function writePrefs(partial) {
+        try {
+          const raw = localStorage.getItem('qhse-prefs-v1');
+          const existing = raw ? JSON.parse(raw) : {};
+          const merged = Object.assign({}, existing, partial);
+          localStorage.setItem('qhse-prefs-v1', JSON.stringify(merged));
+        } catch (e) {
+          console.warn('[Flashcards] writePrefs failed:', e.message);
+        }
+      }
+
+      function readStore() {
+        try {
+          const raw = localStorage.getItem('qhse-srs-v1');
+          if (!raw) return {};
+          const parsed = JSON.parse(raw);
+          return (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) ? parsed : {};
+        } catch (e) {
+          console.warn('[Flashcards] readStore failed (corrupt JSON — starting fresh):', e.message);
+          return {};
+        }
+      }
+
+      function writeStore(store) {
+        try {
+          localStorage.setItem('qhse-srs-v1', JSON.stringify(store));
+        } catch (e) {
+          console.warn('[Flashcards] writeStore failed:', e.message);
+        }
+      }
+
+      // ----------------------------------------------------------------
+      // DOM handles (all data-fc-* selectors)
+      // ----------------------------------------------------------------
+      const elDues       = panel.querySelector('[data-fc-dues]');
+      const elNew        = panel.querySelector('[data-fc-new]');
+      const elCap        = panel.querySelector('[data-fc-cap]');
+      const elAriaLive   = panel.querySelector('[data-fc-aria-live]');
+      const elTheme      = panel.querySelector('[data-fc-theme]');
+      const elCard       = panel.querySelector('[data-fc-card]');
+      const elRecto      = panel.querySelector('[data-fc-recto]');
+      const elVerso      = panel.querySelector('[data-fc-verso]');
+      const elQuestion   = panel.querySelector('[data-fc-question]');
+      const elReveal     = panel.querySelector('[data-fc-reveal]');
+      const elAnswer     = panel.querySelector('[data-fc-answer]');
+      const elExplanation = panel.querySelector('[data-fc-explanation]');
+      const elSource     = panel.querySelector('[data-fc-source]');
+      const elGrades     = panel.querySelector('.fc-grades');
+      const elEmpty      = panel.querySelector('[data-fc-empty]');
+      const elNextDue    = panel.querySelector('[data-fc-next-due]');
+      const elStatsGood  = panel.querySelector('[data-fc-stats-good]');
+      const elStatsBad   = panel.querySelector('[data-fc-stats-bad]');
+      const elFreeRevBtn = panel.querySelector('[data-fc-free-revision]');
+
+      // ----------------------------------------------------------------
+      // State
+      // ----------------------------------------------------------------
+      let prefs = readPrefs();
+      let store = readStore();
+      let queue = [];
+      let currentCard = null;
+      let freePool = [];
+      let freeRevision = false;
+      let session = { dues: 0, total: 0, newIntroduced: 0, good: 0, bad: 0 };
+
+      // ----------------------------------------------------------------
+      // Fisher-Yates shuffle (inline, no dependency)
+      // ----------------------------------------------------------------
+      function shuffle(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+        }
+        return a;
+      }
+
+      // ----------------------------------------------------------------
+      // buildSession(theme) — RESEARCH §7.4
+      // Splits bank into seenDue + capped newPool, shuffles, returns queue.
+      // Sets session.dues and session.total.
+      // ----------------------------------------------------------------
+      function buildSession(theme) {
+        const today = window.SRS.todayLocal();
+        const themedPool = (theme === 'all')
+          ? window.BANK
+          : window.BANK.filter(c => c.theme === theme);
+
+        const seenDue = [];
+        const newPool = [];
+        for (let i = 0; i < themedPool.length; i++) {
+          const card = themedPool[i];
+          const row  = store[card.id];
+          if (!row) {
+            newPool.push(card);
+          } else if (window.SRS.isDue(row, today)) {
+            seenDue.push(card);
+          }
+        }
+
+        // Apply newCardsPerDay cap — subtract cards already introduced today
+        const introducedToday = window.SRS.countNew(store, today);
+        const newSlots = Math.max(0, prefs.newCardsPerDay - introducedToday);
+        const newToShow = newPool.slice(0, newSlots);
+
+        // Session counters — dues = seen-due only (not new)
+        session.dues  = seenDue.length;
+        session.total = seenDue.length;
+        session.newIntroduced = 0;
+        session.good  = 0;
+        session.bad   = 0;
+
+        // Keep free pool = entire themed pool (for free-revision mode)
+        freePool = themedPool.slice();
+
+        // Queue = shuffle(seenDue + capped new)
+        queue = shuffle(seenDue.concat(newToShow));
+
+        // Update cap input
+        if (elCap) elCap.value = prefs.newCardsPerDay;
+      }
+
+      // ----------------------------------------------------------------
+      // renderBandeau()
+      // ----------------------------------------------------------------
+      function renderBandeau() {
+        if (elDues) {
+          elDues.textContent = session.dues + '/' + session.total;
+          elDues.dataset.state = (session.dues > 0) ? 'has-dues' : 'zero';
+        }
+        if (elNew) {
+          elNew.textContent = session.newIntroduced + '/' + prefs.newCardsPerDay;
+        }
+        if (elAriaLive) {
+          elAriaLive.textContent = session.dues + ' cartes dues, ' +
+            session.newIntroduced + ' nouvelles introduites sur ' +
+            prefs.newCardsPerDay + ' aujourd\'hui';
+        }
+      }
+
+      // ----------------------------------------------------------------
+      // renderCard(card) — XSS-safe: textContent + createElement only (T-03-03-01)
+      // ----------------------------------------------------------------
+      function renderCard(card) {
+        if (!card) {
+          renderEmpty();
+          return;
+        }
+
+        // Show card, hide empty panel
+        elCard.hidden  = false;
+        elEmpty.hidden = true;
+
+        // Recto
+        elQuestion.textContent = card.question;
+
+        // Reset verso to hidden state
+        elVerso.hidden = true;
+
+        // Clear verso content
+        elAnswer.textContent      = '';
+        elExplanation.textContent = '';
+        // Clear source node but keep the sr-only span
+        while (elSource.childNodes.length > 1) {
+          elSource.removeChild(elSource.lastChild);
+        }
+
+        // Re-show grade buttons, hide any free-revision controls
+        if (elGrades) elGrades.hidden = false;
+        const existingFreeControls = panel.querySelector('.fc-free-controls');
+        if (existingFreeControls) existingFreeControls.hidden = true;
+
+        // Enable the reveal button
+        elReveal.disabled = false;
+
+        // Focus the reveal button (keyboard / accessibility)
+        elReveal.focus();
+      }
+
+      // ----------------------------------------------------------------
+      // revealCard() — populate verso and show it
+      // ----------------------------------------------------------------
+      function revealCard() {
+        if (!currentCard) return;
+
+        // Populate verso — all bank content via textContent (T-03-03-01)
+        elAnswer.textContent      = currentCard.answer;
+        elExplanation.textContent = currentCard.explanation;
+
+        // Build source line safely via createElement
+        // Keep the sr-only span (first child), then append text + elements
+        const src = currentCard.source;
+        if (src) {
+          // Authority text node
+          const authorityText = document.createTextNode(src.authority);
+          elSource.appendChild(authorityText);
+
+          if (src.ref) {
+            // " — " separator
+            elSource.appendChild(document.createTextNode(' — '));
+            const codeEl = document.createElement('code');
+            codeEl.textContent = src.ref;
+            elSource.appendChild(codeEl);
+          }
+
+          if (src.url && src.url.startsWith('http')) {
+            elSource.appendChild(document.createTextNode(' '));
+            const a = document.createElement('a');
+            a.href = src.url;
+            a.textContent = src.url;
+            a.rel = 'noopener noreferrer';
+            a.target = '_blank';
+            elSource.appendChild(a);
+          }
+        }
+
+        // Show verso
+        elVerso.hidden = false;
+
+        // Focus the first grade button
+        const firstGrade = elGrades && elGrades.querySelector('button');
+        if (firstGrade) firstGrade.focus();
+      }
+
+      // ----------------------------------------------------------------
+      // gradeCard(grade) — advance SM-2 state and persist
+      // ----------------------------------------------------------------
+      function gradeCard(grade) {
+        if (!currentCard || freeRevision) return;
+
+        const today  = window.SRS.todayLocal();
+        const row    = store[currentCard.id] || null;
+        const wasNew = !row;
+        const newRow = window.SRS.schedule(row, grade, today);
+
+        store[currentCard.id] = newRow;
+        writeStore(store);
+
+        // Update session counters
+        session.dues -= 1;
+        if (wasNew) session.newIntroduced += 1;
+        if (grade === 'rate') session.bad += 1;
+        else session.good += 1;
+
+        renderBandeau();
+
+        // Advance queue
+        currentCard = queue.shift() || null;
+        renderCard(currentCard);
+      }
+
+      // ----------------------------------------------------------------
+      // renderEmpty() — shown when queue is exhausted
+      // ----------------------------------------------------------------
+      function renderEmpty() {
+        elCard.hidden  = true;
+        elEmpty.hidden = false;
+
+        // Compute next-due date by scanning store
+        const today = window.SRS.todayLocal();
+        let nextDue = null;
+        const ids = Object.keys(store);
+        for (let i = 0; i < ids.length; i++) {
+          const row = store[ids[i]];
+          if (row && row.due && row.due > today) {
+            if (!nextDue || row.due < nextDue) nextDue = row.due;
+          }
+        }
+
+        if (elNextDue) {
+          if (nextDue) {
+            // Format as local French date: "24 mai 2026"
+            const parts = nextDue.split('-');
+            const d = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+            const formatted = d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+            elNextDue.textContent   = formatted;
+            elNextDue.dateTime      = nextDue;
+          } else {
+            elNextDue.textContent = 'quand tu commences à étudier';
+            elNextDue.dateTime    = '';
+          }
+        }
+
+        if (elStatsGood) elStatsGood.textContent = session.good;
+        if (elStatsBad)  elStatsBad.textContent  = session.bad;
+
+        // Focus free-revision button
+        if (elFreeRevBtn) elFreeRevBtn.focus();
+      }
+
+      // ----------------------------------------------------------------
+      // startFreeRevision() — read-only mode, NO writeStore calls
+      // Structurally separate code path (RESEARCH §5.2 / T-03-03-06)
+      // ----------------------------------------------------------------
+      function startFreeRevision() {
+        if (!freePool.length) return;
+
+        freeRevision = true;
+
+        // Hide empty panel, show card
+        elEmpty.hidden = false; // keep it hidden below
+        elEmpty.hidden = true;
+        elCard.hidden  = false;
+
+        // Show/create the free-revision banner above the card
+        let banner = panel.querySelector('.fc-free-banner');
+        if (!banner) {
+          banner = document.createElement('p');
+          banner.className = 'fc-free-banner';
+          banner.textContent = 'Révision libre — la progression SRS n\'est pas modifiée.';
+          elCard.parentNode.insertBefore(banner, elCard);
+        }
+        banner.hidden = false;
+
+        // Render a random card (recto only)
+        renderFreeCard();
+      }
+
+      // ----------------------------------------------------------------
+      // renderFreeCard() — free-revision card render (NO writeStore)
+      // ----------------------------------------------------------------
+      function renderFreeCard() {
+        if (!freePool.length) return;
+
+        const card = freePool[Math.floor(Math.random() * freePool.length)];
+        currentCard = card;
+
+        elCard.hidden  = false;
+        elEmpty.hidden = true;
+
+        // Recto
+        elQuestion.textContent = card.question;
+
+        // Reset verso to hidden
+        elVerso.hidden = true;
+
+        // Clear verso content
+        elAnswer.textContent      = '';
+        elExplanation.textContent = '';
+        while (elSource.childNodes.length > 1) {
+          elSource.removeChild(elSource.lastChild);
+        }
+
+        // Hide grade buttons — free-revision shows only "Carte suivante" + "Quitter"
+        if (elGrades) elGrades.hidden = true;
+
+        // Show or create free-revision controls
+        let freeControls = panel.querySelector('.fc-free-controls');
+        if (!freeControls) {
+          freeControls = document.createElement('div');
+          freeControls.className = 'fc-free-controls';
+
+          const nextBtn = document.createElement('button');
+          nextBtn.type = 'button';
+          nextBtn.dataset.fcNext = '';
+          nextBtn.textContent = 'Carte suivante';
+          nextBtn.addEventListener('click', renderFreeCard);
+
+          const quitBtn = document.createElement('button');
+          quitBtn.type = 'button';
+          quitBtn.dataset.fcQuit = '';
+          quitBtn.textContent = 'Quitter la révision libre';
+          quitBtn.addEventListener('click', quitFreeRevision);
+
+          freeControls.appendChild(nextBtn);
+          freeControls.appendChild(quitBtn);
+          elVerso.appendChild(freeControls);
+        }
+        freeControls.hidden = false;
+
+        elReveal.disabled = false;
+        elReveal.focus();
+      }
+
+      // ----------------------------------------------------------------
+      // quitFreeRevision()
+      // ----------------------------------------------------------------
+      function quitFreeRevision() {
+        freeRevision = false;
+
+        // Hide banner
+        const banner = panel.querySelector('.fc-free-banner');
+        if (banner) banner.hidden = true;
+
+        // Restore grade buttons visibility
+        if (elGrades) elGrades.hidden = false;
+
+        // Hide free-revision controls
+        const freeControls = panel.querySelector('.fc-free-controls');
+        if (freeControls) freeControls.hidden = true;
+
+        // Return to empty panel view and focus theme select
+        renderEmpty();
+        if (elTheme) elTheme.focus();
+      }
+
+      // ----------------------------------------------------------------
+      // Event wiring — ALL listeners scoped to panel or descendants
+      // (NEVER document — PATTERNS.md anti-pattern)
+      // ----------------------------------------------------------------
+
+      // Theme picker change
+      elTheme.addEventListener('change', () => {
+        const theme = elTheme.value;
+        writePrefs({ lastTheme: theme });
+        store = readStore(); // re-read in case of external mutation
+        buildSession(theme);
+        currentCard = queue.shift() || null;
+        renderBandeau();
+        renderCard(currentCard);
+      });
+
+      // Réglages cap input change
+      if (elCap) {
+        elCap.addEventListener('change', () => {
+          let val = parseInt(elCap.value, 10);
+          if (isNaN(val) || val < 1) val = 1;
+          if (val > 50) val = 50;
+          elCap.value = val;
+          prefs.newCardsPerDay = val;
+          writePrefs({ newCardsPerDay: val });
+          // Update denominator in bandeau immediately
+          renderBandeau();
+        });
+      }
+
+      // Reveal button click
+      elReveal.addEventListener('click', () => {
+        if (elVerso.hidden) revealCard();
+      });
+
+      // Reveal button keydown — Space/Enter (defensive for older Safari)
+      elReveal.addEventListener('keydown', e => {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          if (elVerso.hidden) revealCard();
+        }
+      });
+
+      // Tap-to-reveal on card body (touch parity)
+      elCard.addEventListener('click', e => {
+        if (elVerso.hidden && !e.target.closest('button')) {
+          revealCard();
+        }
+      });
+
+      // Grade buttons click
+      panel.querySelectorAll('[data-fc-grade]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          gradeCard(btn.dataset.fcGrade);
+        });
+      });
+
+      // Panel-scoped keydown for digit shortcuts (RESEARCH §3.3)
+      panel.addEventListener('keydown', e => {
+        // Don't intercept when focus is in form controls
+        if (e.target.matches('select, input, textarea')) return;
+
+        if (freeRevision) {
+          // Free-revision keyboard: N = next card, Q = quit (verso only)
+          if (!elVerso.hidden) {
+            if (e.key === 'n' || e.key === 'N') { e.preventDefault(); renderFreeCard(); }
+            if (e.key === 'q' || e.key === 'Q') { e.preventDefault(); quitFreeRevision(); }
+          }
+          return; // no digit grades in free mode
+        }
+
+        // Normal mode: digits 1-4 grade only when verso is visible
+        if (elVerso.hidden) return;
+        switch (e.key) {
+          case '1': e.preventDefault(); gradeCard('rate');   break;
+          case '2': e.preventDefault(); gradeCard('dur');    break;
+          case '3': e.preventDefault(); gradeCard('bien');   break;
+          case '4': e.preventDefault(); gradeCard('facile'); break;
+        }
+      });
+
+      // Empty-queue free-revision button
+      if (elFreeRevBtn) {
+        elFreeRevBtn.addEventListener('click', startFreeRevision);
+      }
+
+      // ----------------------------------------------------------------
+      // Boot — restore prefs, build session, render first card
+      // ----------------------------------------------------------------
+
+      // Restore select value BEFORE wiring change event would fire spuriously
+      // (already wired above — but value restore is safe since change fires on user action only)
+      elTheme.value = prefs.lastTheme;
+      // Verify theme value is valid (might be a slug that has zero cards — that is OK)
+      if (elCap) elCap.value = prefs.newCardsPerDay;
+
+      buildSession(prefs.lastTheme);
+      currentCard = queue.shift() || null;
+
+      if (currentCard) {
+        renderCard(currentCard);
+      } else {
+        // Check if theme has any cards at all (not just due ones)
+        const themedPool = (prefs.lastTheme === 'all')
+          ? window.BANK
+          : window.BANK.filter(c => c.theme === prefs.lastTheme);
+
+        if (!themedPool.length) {
+          // No cards for this theme at all
+          elQuestion.textContent = 'Aucune carte pour ce thème. Choisis un autre thème.';
+          elReveal.disabled = true;
+        } else {
+          renderEmpty();
+        }
+      }
+      renderBandeau();
+
     })();
   </script>
 </body>
