@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
-status: ready_to_plan
-stopped_at: Phase 3 UI-SPEC approved
-last_updated: "2026-05-24T17:20:38.385Z"
+status: executing
+stopped_at: Phase 3 Plan 1 complete (03-01-SUMMARY.md)
+last_updated: "2026-05-24T17:42:00.000Z"
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 13
-  completed_plans: 9
-  percent: 40
+  completed_plans: 10
+  percent: 43
 ---
 
 # Project State: QHSE CESI Hub
@@ -24,7 +24,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 **Core value:** Have one trustworthy place that answers "what is this formation, what will I study, and where do I find the best resources" — without digging through scattered sources every time. *(v2.0 extends this with: actively revise that content and track mastery.)*
 
-**Current focus:** Phase 3 — flashcards + srs
+**Current focus:** Phase 03 — flashcards-srs
 
 **Mode:** mvp · **Granularity:** coarse
 **Deploy target:** `https://mes-apps-claude.vercel.app/qhse-cesi/` (live, HTTP 200)
@@ -32,16 +32,15 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
+Phase: 03 (flashcards-srs) — EXECUTING
+Plan: 2 of 4
 
 ```
 Milestone : v2.0 Étude
-Phase     : 1 — Shell & Gateway (COMPLETE)
-Plan      : 2/2
-Status    : Phase 1 complete — awaiting /gsd-execute-phase 2
+Phase     : 3 — Flashcards + SRS (IN PROGRESS)
+Plan      : 1/4 complete (03-01 srs.js scheduler)
 
-[████░░░░░░] 40% — 2/5 phases complete
+[█████░░░░░] 43% — 2/5 phases complete, Phase 3 plan 1/4 done
 ```
 
 ## Accumulated Context
@@ -77,6 +76,8 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 | D-07/D-08/D-09: Hub gateway un-hidden | #outils nav item + section visible; editorial copy + same-tab link to outils.html |
 | ISO source.url: Wikipedia FR for all three ISO themes | Human-approved at checkpoint 2026-05-19; iso-45001 swapped from Pollutec to Wikipedia FR for OHSAS 18001 coverage |
 | --final gate exits 0 on iteration 0 | Bank entered Plan 07 defect-free; all 4 ROADMAP SC + SHELL-05 + D-01..D-13 PASS; BANK.length=226 |
+| srs.js: reps unchanged on raté | lapses and reps are independent counters (Anki model); a lapse is not a successful review — reps stays at its pre-raté value |
+| window.SRS itself Object.freeze'd | Structural free-revision purity: zero side-effecting keys assertable by Object.keys inspection (RESEARCH §5.3) |
 | No norm sub-field in ISO items | Theme slug (iso-9001, iso-14001, iso-45001) carries the norm identity per D-02 |
 | Batch C: All 7 source URLs content-verified; no D-09 gaps | INRS/ameli pédagogique pages used; /prevention.html sub-pages for prevention items |
 | RPS harcèlement moral = L1152-1 (not L1153-1) | Accuracy anchor embedded in QCM distractor; L1153-1 = harcèlement sexuel |
@@ -87,14 +88,14 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Next Step
 
-`/gsd-execute-phase 3` — Phase 3: Flashcards + SRS
+Execute Phase 3 Plan 2: `03-02-PLAN.md` — verify-srs.cjs Node gate
 
 ## Session Continuity
 
-Last session: 2026-05-23T17:09:59.913Z
-Stopped at: Phase 3 UI-SPEC approved
-Resume file: .planning/phases/03-flashcards-srs/03-UI-SPEC.md
-Proceeding to: `/gsd-execute-phase 3` (Phase 3: Flashcards + SRS)
+Last session: 2026-05-24T17:42:00.000Z
+Stopped at: Phase 3 Plan 1 complete — srs.js committed (a01e5ee)
+Resume file: .planning/phases/03-flashcards-srs/03-02-PLAN.md
+Proceeding to: Phase 3 Plan 2 (verify-srs.cjs)
 
 ---
 *State updated: 2026-05-16 — v2.0 "Étude" roadmap created; 5 phases, 26/26 requirements mapped; Phase 1 context locked, ready to plan*
