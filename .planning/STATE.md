@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: executing
-stopped_at: Phase 3 Plan 1 complete (03-01-SUMMARY.md)
-last_updated: "2026-05-24T17:42:00.000Z"
+stopped_at: Phase 3 Plan 2 complete (03-02-SUMMARY.md)
+last_updated: "2026-05-24T22:27:00.000Z"
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 13
-  completed_plans: 10
-  percent: 43
+  completed_plans: 11
+  percent: 46
 ---
 
 # Project State: QHSE CESI Hub
@@ -33,14 +33,14 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 03 (flashcards-srs) — EXECUTING
-Plan: 2 of 4
+Plan: 3 of 4
 
 ```
 Milestone : v2.0 Étude
 Phase     : 3 — Flashcards + SRS (IN PROGRESS)
-Plan      : 1/4 complete (03-01 srs.js scheduler)
+Plan      : 2/4 complete (03-01 srs.js scheduler + 03-02 verify-srs.cjs gate)
 
-[█████░░░░░] 43% — 2/5 phases complete, Phase 3 plan 1/4 done
+[█████░░░░░] 46% — 2/5 phases complete, Phase 3 plan 2/4 done
 ```
 
 ## Accumulated Context
@@ -78,6 +78,7 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 | --final gate exits 0 on iteration 0 | Bank entered Plan 07 defect-free; all 4 ROADMAP SC + SHELL-05 + D-01..D-13 PASS; BANK.length=226 |
 | srs.js: reps unchanged on raté | lapses and reps are independent counters (Anki model); a lapse is not a successful review — reps stays at its pre-raté value |
 | window.SRS itself Object.freeze'd | Structural free-revision purity: zero side-effecting keys assertable by Object.keys inspection (RESEARCH §5.3) |
+| verify-srs.cjs runs identically with or without --final | SRS module is frozen-by-contract — no iterative-mode shortcut needed (unlike Phase 2's evolving bank). 21 named PASS lines cover SC2/SC3/SC4 + PERSIST-01. |
 | No norm sub-field in ISO items | Theme slug (iso-9001, iso-14001, iso-45001) carries the norm identity per D-02 |
 | Batch C: All 7 source URLs content-verified; no D-09 gaps | INRS/ameli pédagogique pages used; /prevention.html sub-pages for prevention items |
 | RPS harcèlement moral = L1152-1 (not L1153-1) | Accuracy anchor embedded in QCM distractor; L1153-1 = harcèlement sexuel |
@@ -88,14 +89,14 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Next Step
 
-Execute Phase 3 Plan 2: `03-02-PLAN.md` — verify-srs.cjs Node gate
+Execute Phase 3 Plan 3: `03-03-PLAN.md` — wire Flashcards view (outils.html + chassis.css)
 
 ## Session Continuity
 
-Last session: 2026-05-24T17:42:00.000Z
-Stopped at: Phase 3 Plan 1 complete — srs.js committed (a01e5ee)
-Resume file: .planning/phases/03-flashcards-srs/03-02-PLAN.md
-Proceeding to: Phase 3 Plan 2 (verify-srs.cjs)
+Last session: 2026-05-24T22:27:00.000Z
+Stopped at: Phase 3 Plan 2 complete — verify-srs.cjs Node gate green (21 PASS, exit 0)
+Resume file: .planning/phases/03-flashcards-srs/03-03-PLAN.md
+Proceeding to: Phase 3 Plan 3 (Flashcards view DOM + IIFE + .fc-* CSS)
 
 ---
 *State updated: 2026-05-16 — v2.0 "Étude" roadmap created; 5 phases, 26/26 requirements mapped; Phase 1 context locked, ready to plan*
