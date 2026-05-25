@@ -26,7 +26,7 @@ Full phase details, goals, success criteria, and coverage audit: `.planning/mile
 
 - [x] **Phase 1: Shell & Gateway** — Extract `chassis.css`, scaffold `outils.html` 4-tab shell, un-hide Hub `#outils` gateway. Deployable walking skeleton. (completed 2026-05-17)
 - [x] **Phase 2: Content Bank** — `outils-data.js` with 200+ source-verified study items covering all Bachelor QHSE themes. (completed 2026-05-21)
-- [ ] **Phase 3: Flashcards + SRS** — Flashcard mode with SM-2 spaced repetition scheduler and `localStorage` persistence.
+- [x] **Phase 3: Flashcards + SRS** — Flashcard mode with SM-2 spaced repetition scheduler and `localStorage` persistence. (completed 2026-05-25)
 - [ ] **Phase 4: QCM + Tests blancs** — Quiz mode, timed mock exams, score history, SRS error feed.
 - [ ] **Phase 5: Fiches de révision** — Structured per-theme revision sheets with print stylesheet.
 
@@ -88,12 +88,16 @@ Plans:
 **Depends on**: Phase 2
 **Requirements**: FLASH-01, FLASH-02, SRS-01, SRS-02, SRS-03, SRS-04, PERSIST-01
 **Success Criteria** (what must be TRUE):
-  1. Owner opens the Flashcards tab, selects a theme (or "all themes"), and sees the recto (question) of the first card; clicking "Révéler" shows the verso (answer + explanation + source reference).
-  2. After revealing, owner sees 4 self-grade buttons (raté / dur / bien / facile); clicking one advances to the next card and the SM-2 scheduler records the grade in `localStorage` key `qhse-srs-v1`.
-  3. Owner opens the "À réviser aujourd'hui" view and sees only cards whose computed due date is today or earlier — demonstrating the scheduler is surfacing the right cards.
-  4. Owner reloads `outils.html` and returns to flashcards — their SRS progress (ease, interval, due, lapses, reps per card) is intact; their last-used theme/mode is restored from `qhse-prefs-v1`.
-  5. Owner grades a card as "raté" in flashcard mode, then checks the SRS queue — that card appears as due immediately; confirms flashcard grades and QCM wrong answers both feed the same queue.
-**Plans**: TBD
+  1. Owner opens the Flashcards tab, selects a theme (or "all themes"), and sees the recto (question) of the first card; clicking "Révéler" shows the verso (answer + explanation + source reference). ✅ owner-verified 2026-05-25
+  2. After revealing, owner sees 4 self-grade buttons (raté / dur / bien / facile); clicking one advances to the next card and the SM-2 scheduler records the grade in `localStorage` key `qhse-srs-v1`. ✅ owner-verified 2026-05-25
+  3. Owner opens the "À réviser aujourd'hui" view and sees only cards whose computed due date is today or earlier — demonstrating the scheduler is surfacing the right cards. ✅ owner-verified 2026-05-25
+  4. Owner reloads `outils.html` and returns to flashcards — their SRS progress (ease, interval, due, lapses, reps per card) is intact; their last-used theme/mode is restored from `qhse-prefs-v1`. ✅ owner-verified 2026-05-25
+  5. Owner grades a card as "raté" in flashcard mode, then checks the SRS queue — that card appears as due immediately; confirms flashcard grades and QCM wrong answers both feed the same queue. ✅ owner-verified 2026-05-25 (flashcard half; QCM-feed half ships in Phase 4)
+**Plans**:
+  - `03-01-PLAN.md` — `qhse-cesi/srs.js` pure SM-2 module (window.SRS w/ 6 pure functions + DEFAULTS + GRADE)
+  - `03-02-PLAN.md` — `verify-srs.cjs` Node gate (21 named PASS assertions, exit 0)
+  - `03-03-PLAN.md` — Flashcards view DOM/IIFE in `outils.html` + `.fc-*` CSS namespace in `chassis.css`
+  - `03-04-PLAN.md` — Integration + smoke-test + ship (this plan)
 **UI hint**: yes
 
 ### Phase 4: QCM + Tests blancs
@@ -127,7 +131,7 @@ Plans:
 | 3. Biblio data + render + 5 categories populated | v1.0 | 3/4 | In Progress|  |
 | 1. Shell & Gateway | v2.0 | 0/? | Not started | - |
 | 2. Content Bank | v2.0 | 0/7 | Planned | - |
-| 3. Flashcards + SRS | v2.0 | 0/? | Not started | - |
+| 3. Flashcards + SRS | v2.0 | 4/4 | Complete | 2026-05-25 |
 | 4. QCM + Tests blancs | v2.0 | 0/? | Not started | - |
 | 5. Fiches de révision | v2.0 | 0/? | Not started | - |
 

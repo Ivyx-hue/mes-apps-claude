@@ -31,9 +31,9 @@ Committed scope for the "Étude" milestone. Each maps to exactly one roadmap pha
 
 ### Spaced Repetition (SRS)
 
-- [ ] **SRS-01**: A standard SM-2 scheduler computes each card's next due date from the user's self-grades, persisted in `localStorage` (`qhse-srs-v1`: ease, interval, due, lapses, reps)
+- [x] **SRS-01**: A standard SM-2 scheduler computes each card's next due date from the user's self-grades, persisted in `localStorage` (`qhse-srs-v1`: ease, interval, due, lapses, reps) <!-- Phase 3: srs.js exposes pure SM-2 math (window.SRS.schedule); outils.html flashcards IIFE writes qhse-srs-v1 on each grade; verify-srs.cjs --final exit 0 with 8 E1-E8 edge cases + schema round-trip -->
 - [x] **SRS-02**: A "À réviser aujourd'hui" view surfaces all cards currently due
-- [x] **SRS-03**: Flashcard self-grades and wrong QCM answers feed the SRS queue; tests blancs do not
+- [ ] **SRS-03**: Flashcard self-grades and wrong QCM answers feed the SRS queue; tests blancs do not <!-- PARTIAL: Phase 3 ships the flashcard-grade half (qhse-srs-v1 write path live + schema asserted by verify-srs.cjs); Phase 4 ships the wrong-QCM-feed half -->
 - [x] **SRS-04**: SRS progress persists across sessions and survives reloads (localStorage only, single-user, no backend)
 
 ### QCM / Quiz (QUIZ)
@@ -98,9 +98,9 @@ Coverage audit: 26/26 v2.0 requirements mapped. 0 unmapped. 0 duplicates.
 | BANK-05 | Phase 2 | Complete |
 | FLASH-01 | Phase 3 | Complete |
 | FLASH-02 | Phase 3 | Complete |
-| SRS-01 | Phase 3 | Pending |
+| SRS-01 | Phase 3 | Complete |
 | SRS-02 | Phase 3 | Complete |
-| SRS-03 | Phase 3 | Complete |
+| SRS-03 | Phase 3→4 | Partial |
 | SRS-04 | Phase 3 | Complete |
 | PERSIST-01 | Phase 3 | Complete |
 | QUIZ-01 | Phase 4 | Pending |
