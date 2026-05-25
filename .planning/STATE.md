@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: phase_complete
-stopped_at: Phase 4 context gathered
-last_updated: "2026-05-25T17:03:48.613Z"
+stopped_at: Phase 4 UI-SPEC approved
+last_updated: "2026-05-25T17:46:33.839Z"
 progress:
   total_phases: 5
   completed_phases: 3
@@ -95,9 +95,9 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Session Continuity
 
-Last session: 2026-05-25T17:03:48.605Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-qcm-tests-blancs/04-CONTEXT.md
+Last session: 2026-05-25T17:46:33.829Z
+Stopped at: Phase 4 UI-SPEC approved
+Resume file: .planning/phases/04-qcm-tests-blancs/04-UI-SPEC.md
 Proceeding to: `/gsd-discuss-phase 4` — Phase 4 QCM + Tests blancs context gathering
 
 ---
