@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: phase_complete
-stopped_at: Phase 3 complete — owner-verified all 5 ROADMAP SC + 6/6 automated gates green
-last_updated: "2026-05-24T23:25:00.000Z"
+stopped_at: Phase 4 context gathered
+last_updated: "2026-05-25T17:03:48.613Z"
 progress:
   total_phases: 5
   completed_phases: 3
@@ -95,9 +95,9 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Session Continuity
 
-Last session: 2026-05-24T23:25:00.000Z
-Stopped at: Phase 3 complete — owner walk-through PASS on all 5 ROADMAP SC + DCL hotfix shipped
-Resume file: None (Phase 3 closed; awaiting Phase 4 discuss-phase)
+Last session: 2026-05-25T17:03:48.605Z
+Stopped at: Phase 4 context gathered
+Resume file: .planning/phases/04-qcm-tests-blancs/04-CONTEXT.md
 Proceeding to: `/gsd-discuss-phase 4` — Phase 4 QCM + Tests blancs context gathering
 
 ---
