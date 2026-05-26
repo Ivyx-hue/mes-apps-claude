@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
-status: phase_complete
-stopped_at: Phase 4 UI-SPEC approved
-last_updated: "2026-05-26T08:16:22.529Z"
+status: executing
+stopped_at: Phase 4 Plan 01 complete — chassis.css .qz-* namespace shipped (commit f06f48e)
+last_updated: "2026-05-26T15:22:00.000Z"
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 17
-  completed_plans: 13
-  percent: 60
+  completed_plans: 14
+  percent: 65
 ---
 
 # Project State: QHSE CESI Hub
@@ -24,7 +24,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 **Core value:** Have one trustworthy place that answers "what is this formation, what will I study, and where do I find the best resources" — without digging through scattered sources every time. *(v2.0 extends this with: actively revise that content and track mastery.)*
 
-**Current focus:** Phase 4 — QCM + Tests blancs (next; Phase 3 closed 2026-05-25)
+**Current focus:** Phase 04 — qcm-tests-blancs
 
 **Mode:** mvp · **Granularity:** coarse
 **Deploy target:** `https://mes-apps-claude.vercel.app/qhse-cesi/` (live, HTTP 200)
@@ -32,15 +32,16 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-Phase: 03 (flashcards-srs) — COMPLETE
-Next:  Phase 4 — QCM + Tests blancs (awaiting `/gsd-discuss-phase 4`)
+Phase: 04 (qcm-tests-blancs) — EXECUTING
+Plan: 2 of 4 (Plan 01 complete 2026-05-26, commit f06f48e)
+Next:  Phase 4 Plan 02 — QCM révision rapide IIFE (Wave 2)
 
 ```
 Milestone : v2.0 Étude
-Phase     : 3 — Flashcards + SRS (COMPLETE, owner-verified 2026-05-25)
-Plans     : 4/4 complete (srs.js + verify gate + view DOM/IIFE/CSS + ship)
+Phase     : 4 — QCM + Tests blancs (Plan 01/4 complete — chassis.css .qz-* namespace shipped)
+Plans     : 14/17 complete (Phase 4 Wave 1 done; Wave 2 QCM IIFE next)
 
-[██████░░░░] 60% — 3/5 phases complete
+[██████▓░░░] 65% — 3/5 phases + 1/4 of Phase 4 plans complete
 ```
 
 ## Accumulated Context
@@ -91,14 +92,23 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Next Step
 
-`/gsd-discuss-phase 4` — Phase 4: QCM + Tests blancs (QUIZ-01..03 + TEST-01..03)
+`/gsd-execute-phase 4` — execute Phase 4 Plan 02 (Wave 2 QCM IIFE inside `outils.html`, consumes `.qz-*` namespace shipped in Plan 01)
 
 ## Session Continuity
 
-Last session: 2026-05-25T17:46:33.829Z
-Stopped at: Phase 4 UI-SPEC approved
-Resume file: .planning/phases/04-qcm-tests-blancs/04-UI-SPEC.md
-Proceeding to: `/gsd-discuss-phase 4` — Phase 4 QCM + Tests blancs context gathering
+Last session: 2026-05-26T15:22:00.000Z
+Stopped at: Phase 4 Plan 01 complete — chassis.css `.qz-*` CSS namespace shipped (commit f06f48e, pushed to main, Vercel auto-deploy live ~60s later)
+Resume file: .planning/phases/04-qcm-tests-blancs/04-02-PLAN.md
+Proceeding to: Phase 4 Plan 02 execution (QCM révision rapide IIFE)
+
+### Phase 4 Plan 01 outcome (2026-05-26)
+
+- File modified: `qhse-cesi/chassis.css` (+529 lines, 960 → 1489)
+- Region: `@layer components { /* ============ Phase 4 — QCM + Tests blancs (.qz-*) ============ */ ... }` at line 883
+- 13 CSS blocks landed (theme picker, card, question stem, choices + 5 state variants, reveal panel + 2 badge states, primary CTAs, keyboard hint, timer row + 2 timer states, test controls, start screen, results screen + 3 score-tier colors, history table, inline error)
+- Tokens consumed: 100% from existing chassis; 0 new `:root` declarations
+- Verification: all 12 grep gates PASS (banner present, no bare `.qz-` leaks, `.fc-*` byte-identical, no animations/transitions/!important in new region, all required `[data-qz-*]` state attrs present)
+- Deploy: pushed to main 2026-05-26 ~17:20 CET; commit f06f48e
 
 ---
-*State updated: 2026-05-16 — v2.0 "Étude" roadmap created; 5 phases, 26/26 requirements mapped; Phase 1 context locked, ready to plan*
+*State updated: 2026-05-26 — Phase 4 Plan 01 complete; Wave 1 chassis CSS shipped; ready to execute Plan 02 (QCM IIFE)*

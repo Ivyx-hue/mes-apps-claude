@@ -78,7 +78,7 @@ Appended a 529-line `.qz-*` CSS block inside `@layer components { ... }` of `cha
 
 ## Commit + deploy
 
-- **Commit SHA:** (to be recorded after commit lands — see git log post-push)
+- **Commit SHA:** `f06f48e`
 - **Commit message:** `🚀 Phase 4 Plan 01 — chassis.css: .qz-* CSS namespace (additive, scoped, zero new tokens)`
 - **Deploy URL:** `https://mes-apps-claude.vercel.app/qhse-cesi/outils.html` (CSS deploys ~60s after push via existing GitHub Actions pipeline; no visible change until Wave 2 IIFE injects DOM)
 
