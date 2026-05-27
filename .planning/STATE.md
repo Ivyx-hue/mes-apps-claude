@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: executing
-stopped_at: Phase 4 Plan 04 complete — verify-quiz.cjs gate shipped (commit da255d1, 6/6 groups PASS). Phase 4 plans 4/4 complete; awaiting owner UAT to close the phase.
-last_updated: "2026-05-27T09:15:00.000Z"
+stopped_at: Phase 5 context gathered (commit 7b35047) — 3 gray areas resolved (Découpage·Source·Structure), CONTEXT.md + DISCUSSION-LOG.md committed. Phase 4 plans 4/4 still awaiting owner UAT in parallel.
+last_updated: "2026-05-27T11:30:00.000Z"
 progress:
   total_phases: 5
   completed_phases: 3
@@ -24,7 +24,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 **Core value:** Have one trustworthy place that answers "what is this formation, what will I study, and where do I find the best resources" — without digging through scattered sources every time. *(v2.0 extends this with: actively revise that content and track mastery.)*
 
-**Current focus:** Phase 04 — qcm-tests-blancs
+**Current focus:** Phase 05 — fiches-de-révision (context phase)
 
 **Mode:** mvp · **Granularity:** coarse
 **Deploy target:** `https://mes-apps-claude.vercel.app/qhse-cesi/` (live, HTTP 200)
@@ -92,14 +92,14 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Next Step
 
-Owner UAT walkthrough on `https://mes-apps-claude.vercel.app/qhse-cesi/outils.html`. After owner confirms QCM + Tests blancs work as expected, mark Phase 4 complete in ROADMAP.md and start `/gsd-plan-phase 5` (Fiches de révision).
+`/gsd-ui-phase 5` to lock the visual + print contract (`05-UI-SPEC.md`), then `/gsd-plan-phase 5` for research + plans. Phase 4 UAT can run in parallel.
 
 ## Session Continuity
 
-Last session: 2026-05-27T09:15:00.000Z
-Stopped at: Phase 4 Plan 04 complete — verify-quiz.cjs gate shipped (commit da255d1; 6/6 PASS groups; runtime < 1s; zero npm deps). Phase 4 all 4 plans shipped; awaiting owner UAT. Phase 3 verify-srs.cjs still 20/20 PASS — no regression across the milestone.
-Resume file: .planning/ROADMAP.md (Phase 4 SC1-SC4)
-Proceeding to: Owner UAT → Phase 5 planning
+Last session: 2026-05-27T11:30:00.000Z
+Stopped at: Phase 5 context gathered — commit 7b35047 captures CONTEXT.md + DISCUSSION-LOG.md. 3 decisions locked (DEC-01 15 fiches par thème BANK, DEC-02 hybride intro long-form + Questions clés BANK, DEC-03 template fixe 6 sections). 6 Claude's Discretion items deferred to planner (theme picker mirror, .fi-* CSS namespace, Ctrl+P only print, read-only surface). Phase 4 plans 4/4 still awaiting owner UAT (commits f06f48e, 1dfc90c, 271f258, da255d1).
+Resume file: .planning/phases/05-fiches-de-r-vision/05-CONTEXT.md
+Proceeding to: /gsd-ui-phase 5 → /gsd-plan-phase 5
 
 ### Phase 4 Plan 04 outcome (2026-05-27)
 
