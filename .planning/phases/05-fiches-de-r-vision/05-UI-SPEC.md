@@ -66,25 +66,27 @@ created: 2026-05-27
 
 **Inherited from chassis.css. Three families, fluid scale. Same role-mapping discipline as Phases 3 and 4.**
 
+**Phase 5 type contract: exactly 4 size tokens (`--step-0`, `--step-1`, `--step-3`, `--step-4`) and exactly 2 weights (400 regular, 600 semibold). `--step-2` is not used in Phase 5. Weight 500 is not used in Phase 5.**
+
 ### Screen typography
 
 | Role | Token | Family | Weight | Line height | Phase 5 element |
 |------|-------|--------|--------|-------------|-----------------|
-| Theme picker label | `--step-0` (14px) | `--font-sans` | 500 | 1.4 | `.fi-theme label` |
+| Theme picker label | `--step-0` (14px) | `--font-sans` | **600** | 1.4 | `.fi-theme label` |
 | Theme picker `<select>` text | `--step-0` (14px) | `--font-sans` | 400 | 1.4 | `#fi-theme-select` |
 | **Fiche title (h2)** | `--step-4` (clamp 28–40px) | **`--font-serif`** (Fraunces) | 600 | 1.15 | `.fi-fiche > header > h2.fi-title` — largest heading in the panel; `text-wrap: balance` |
 | Fiche subtitle / theme slug line | `--step-0` (14px) | `--font-mono` | 400 | 1.4 | `.fi-fiche > header > .fi-meta` — e.g. `duerp · 6 sections · 8 questions clés`. `color: var(--ink-3)`. |
-| **In-fiche ToC heading** (sr-only) | `--step-0` (14px) | `--font-sans` | 500 | 1.4 | `nav.fi-toc > h3.sr-only` — "Dans cette fiche" label, screen-reader only |
+| **In-fiche ToC heading** (sr-only) | `--step-0` (14px) | `--font-sans` | **600** | 1.4 | `nav.fi-toc > h3.sr-only` — "Dans cette fiche" label, screen-reader only |
 | ToC anchor links | `--step-0` (14px) | `--font-sans` | 400 | 1.4 | `nav.fi-toc a` — `color: var(--ink-2)` idle, `var(--accent)` on hover/focus |
 | **Section heading (h3)** | `--step-3` (clamp 20–24px) | **`--font-serif`** (Fraunces) | 600 | 1.2 | `.fi-section > h3` — one per each of the 6 fixed sections. `text-wrap: balance`. |
-| Sub-heading (h4, inside a section) | `--step-2` (clamp 17–18px) | **`--font-serif`** (Fraunces) | 600 | 1.3 | `.fi-section > h4` — optional, only where a section has sub-topics (e.g. multiple ISO norms under Cadre légal) |
+| Sub-heading (h4, inside a section) | `--step-1` (16px) | **`--font-serif`** (Fraunces) | **600** | 1.3 | `.fi-section > h4` — distinguished from body prose by weight 600 + serif family, not by size. Optional; only where a section has sub-topics (e.g. multiple ISO norms under Cadre légal). |
 | **Body prose** | `--step-1` (16px) | `--font-sans` | 400 | 1.6 | `.fi-section p` — main reading register; `max-width: var(--measure)` (68ch) to maintain optimal line length |
 | Definition term (`<dt>`) | `--step-1` (16px) | `--font-sans` | 600 | 1.5 | `.fi-section dt` — bold term in definition lists |
 | Definition value (`<dd>`) | `--step-1` (16px) | `--font-sans` | 400 | 1.5 | `.fi-section dd` — `color: var(--ink-1)`, `padding-inline-start: var(--space-md)` |
 | Bullet list items | `--step-1` (16px) | `--font-sans` | 400 | 1.6 | `.fi-section li` — `max-width: var(--measure)` |
 | Inline source citation | `--step-0` (14px) | `--font-sans` (authority) + `--font-mono` (ref code) | 400 | 1.5 | `span.fi-cite` — `(INRS — <code>Dossier risque chimique</code>)` pattern; `color: var(--ink-2)` for the wrapper |
 | Regulatory ref (inline `<code>`) | 0.9em of parent | `--font-mono` | 400 | — | `code` inside `.fi-section` — inherits chassis base `code` rule |
-| **Questions clés — summary** | `--step-1` (16px) | `--font-sans` | 500 | 1.4 | `details.fi-qa > summary` — question stem; `color: var(--ink-1)` |
+| **Questions clés — summary** | `--step-1` (16px) | `--font-sans` | **600** | 1.4 | `details.fi-qa > summary` — question stem; `color: var(--ink-1)` |
 | Questions clés — answer | `--step-1` (16px) | `--font-sans` | 600 | 1.5 | `.fi-qa-answer` — canonical answer revealed on expand |
 | Questions clés — explanation | `--step-1` (16px) | `--font-sans` | 400 | 1.6 | `.fi-qa-explanation` — `color: var(--ink-2)` |
 | Questions clés — source line | `--step-0` (14px) | `--font-sans` + `--font-mono` (ref) | 400 | 1.5 | `.fi-qa-source` — identical rendering to Phase 3/4 source line |
@@ -100,7 +102,7 @@ created: 2026-05-27
 | Body font size | 11pt | `#panel-fiches { font-size: 11pt; }` — slightly smaller than screen 16px for A4 density |
 | Body line-height | 1.55 | Matches chassis body `line-height: 1.55` baseline |
 | Fiche title (h2) | `--step-3` equivalent (~18pt) | `#panel-fiches .fi-title { font-size: 1.5rem; }` — scale down for print page economy |
-| Section headings (h3) | `--step-2` equivalent (~14pt) | `#panel-fiches .fi-section h3 { font-size: 1.15rem; }` |
+| Section headings (h3) | `--step-1` equivalent (~14pt) | `#panel-fiches .fi-section h3 { font-size: 1.15rem; }` — print-only point-size override; no screen token |
 | Source citation | 9pt | `#panel-fiches .fi-cite { font-size: 0.8em; }` |
 | Questions clés summary | `--step-1` equivalent (12pt) | Inherits from print body; no override needed |
 
@@ -324,6 +326,7 @@ No third-party registries. No CDN assets introduced. Zero new network dependenci
 - `.fi-title` uses `--step-4` (Fraunces 600) — the focal heading of the panel.
 - `.fi-meta` (theme slug line): `--step-0`, mono, `color: var(--ink-3)`.
 - Section headings (`.fi-section > h3`): `--step-3` Fraunces 600 — each gets a `::after` with `2px solid var(--accent)` underline (same `::after` rhythm pattern as chassis `section h2::after`).
+- Sub-headings (`.fi-section > h4`): `--step-1` Fraunces 600 — same size as body prose, distinguished by weight 600 + serif family.
 - **No flip animation. No slide animation.** Fiche switching on theme picker change is an instant DOM replace (the IIFE clears and re-renders the `.fi-fiche` element synchronously on `change` event). No `[hidden]` toggle between multiple pre-rendered fiches — only one fiche is in the DOM at a time.
 
 ### Questions clés (`<details>`) — screen interaction
