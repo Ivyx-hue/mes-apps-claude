@@ -173,8 +173,84 @@
       </div>
 
       <div role="tabpanel" id="panel-tests" aria-labelledby="tab-tests" tabindex="0" hidden>
-        <!-- Phase 4 mount point: Tests blancs chronométrés -->
-        <p class="placeholder">Ce mode arrive en Phase 4 — tests blancs chronométrés reproduisant les conditions d'examen. Durée configurable, résultats enregistrés dans <code>localStorage</code>.</p>
+        <h2 class="sr-only">Tests blancs chronométrés</h2>
+
+        <section class="qz-start" data-qz-start-screen>
+          <h3>Démarrer un test blanc</h3>
+          <p>20 questions tirées au hasard · 20 minutes · navigation libre. Le test ne modifie pas tes flashcards.</p>
+          <nav class="qz-theme" aria-label="Choisir un thème">
+            <label for="qz-test-theme-select">Thème</label>
+            <select id="qz-test-theme-select" data-qz-test-theme>
+              <option value="all">Tous les thèmes</option>
+              <option value="duerp">DUERP</option>
+              <option value="principes-generaux">Principes généraux de prévention</option>
+              <option value="iso-9001">ISO 9001</option>
+              <option value="iso-14001">ISO 14001</option>
+              <option value="iso-45001">ISO 45001</option>
+              <option value="tms">TMS</option>
+              <option value="risque-routier">Risque routier</option>
+              <option value="risque-chimique">Risque chimique</option>
+              <option value="rps">RPS</option>
+              <option value="espaces-confines">Espaces confinés</option>
+              <option value="acronymes">Acronymes</option>
+              <option value="metiers">Métiers</option>
+              <option value="calendrier">Calendrier alternance</option>
+              <option value="icpe-seveso">ICPE / Seveso</option>
+              <option value="rncp">RNCP / Blocs de compétences</option>
+            </select>
+          </nav>
+          <p class="qz-pool-small" data-qz-pool-warning hidden></p>
+          <button type="button" data-qz-start>Démarrer un test</button>
+        </section>
+
+        <section class="qz-running" data-qz-running-screen hidden>
+          <p class="qz-timer-banner" data-qz-timer-banner role="status" aria-live="polite" hidden>Temps écoulé — tu peux continuer.</p>
+          <div class="qz-timer-row">
+            <span class="sr-only">Temps restant</span>
+            <span data-qz-timer role="timer" aria-live="off">20:00</span>
+            <span data-qz-progress aria-label="Question 1 sur 20">1/20</span>
+          </div>
+          <article class="qz-card" data-qz-test-card>
+            <h3 id="qz-test-question" data-qz-question></h3>
+            <div class="qz-choices" role="group" aria-labelledby="qz-test-question" data-qz-test-choices>
+              <!-- 4 <button data-qz-choice data-qz-choice-idx="0..3"> injected by IIFE -->
+            </div>
+          </article>
+          <div class="qz-test-controls">
+            <button type="button" data-qz-prev>Précédent</button>
+            <button type="button" data-qz-abandon>Abandonner</button>
+            <button type="button" data-qz-next>Suivant</button>
+          </div>
+        </section>
+
+        <section class="qz-results" data-qz-results-screen hidden>
+          <div class="qz-results__hero">
+            <p class="qz-results__heading"><span data-qz-results-prefix></span> — <strong data-qz-score data-qz-score-tier="mid">0/20</strong>.</p>
+            <p class="qz-results__subheading">Thème : <span data-qz-results-theme></span></p>
+          </div>
+          <h3>Corrections</h3>
+          <ol class="qz-corrections" data-qz-corrections>
+            <!-- 20 <li> children injected by IIFE -->
+          </ol>
+          <button type="button" data-qz-restart>Nouveau test</button>
+        </section>
+
+        <section class="qz-history-section" data-qz-history-section>
+          <h3>Historique des tests</h3>
+          <table class="qz-history" data-qz-history>
+            <caption class="sr-only">Historique des tests</caption>
+            <thead>
+              <tr><th scope="col">Date</th><th scope="col">Thème</th><th scope="col">Score</th></tr>
+            </thead>
+            <tbody data-qz-history-body>
+              <!-- <tr> rows injected by IIFE -->
+            </tbody>
+          </table>
+          <p class="qz-history__empty" data-qz-history-empty hidden>Aucun test terminé pour le moment. Lance ton premier test ci-dessus.</p>
+          <p class="qz-history__announce sr-only" data-qz-history-announce aria-live="polite"></p>
+        </section>
+
+        <!-- Phase 4 Tests blancs engine — IIFE appended after QCM IIFE; see outils.html#tests-iife -->
       </div>
     </div>
   </main>
@@ -1289,6 +1365,585 @@
         state.currentItem = state.pool[0];
         renderQuestion(state.currentItem);
       }
+      } // end boot()
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot, { once: true });
+      } else {
+        boot();
+      }
+    })();
+  </script>
+
+  <script>
+    /* ============ IIFE: Tests blancs chronométrés — tri-state, 20Q/20min, free-nav, score history ============ */
+    /* No globals, no inline on* handlers, no document-level keydown, no SRS.schedule (D-V2-03 invariant). */
+    (() => {
+      'use strict';
+
+      if (window.__qzTestsBooted) return;
+      window.__qzTestsBooted = true;
+
+      const TEST_SIZE          = 20;
+      const DURATION_MS        = 20 * 60 * 1000;
+      const ALERT_THRESHOLD_MS = 5  * 60 * 1000;
+      const TICK_MS            = 1000;
+      const STATE              = { START: 'A', RUNNING: 'B', RESULTS: 'C' };
+      const SCORES_KEY         = 'qhse-scores-v1';
+      const PREFS_KEY          = 'qhse-prefs-v1';
+      const DEFAULT_PREFS      = {
+        lastTheme: 'all',
+        lastMode: 'libre',
+        newCardsPerDay: 10,
+        lastQcmTheme: 'all',
+        lastTestTheme: 'all'
+      };
+
+      function boot() {
+        const panel = document.getElementById('panel-tests');
+        if (!panel) {
+          console.warn('[Tests] #panel-tests not found — cannot boot view.');
+          return;
+        }
+
+        if (!window.BANK || !Array.isArray(window.BANK)) {
+          const startScreen = panel.querySelector('[data-qz-start-screen]');
+          if (startScreen) {
+            const errEl = document.createElement('p');
+            errEl.className = 'qz-error';
+            errEl.textContent = 'Impossible de charger la banque de questions. Recharge la page ou vérifie que outils-data.js est bien servi.';
+            startScreen.appendChild(errEl);
+          }
+          console.error('[Tests] BANK missing — cannot boot view.', { BANK: !!window.BANK });
+          return;
+        }
+
+        // Tests IIFE only needs SRS.todayLocal() (pure helper). Graceful fallback
+        // to a local date stamp if Phase 3 srs.js fails to load — the test still works.
+        function todayLocal() {
+          if (window.SRS && typeof window.SRS.todayLocal === 'function') {
+            return window.SRS.todayLocal();
+          }
+          return new Date().toLocaleDateString('sv-SE');
+        }
+
+        // ----------------------------------------------------------------
+        // DOM handles — distinct cache from Plan 02 QCM IIFE
+        // ----------------------------------------------------------------
+        const els = {
+          panel:           panel,
+          startScreen:     panel.querySelector('[data-qz-start-screen]'),
+          runningScreen:   panel.querySelector('[data-qz-running-screen]'),
+          resultsScreen:   panel.querySelector('[data-qz-results-screen]'),
+          historySection:  panel.querySelector('[data-qz-history-section]'),
+          themeSelect:     panel.querySelector('[data-qz-test-theme]'),
+          poolWarning:     panel.querySelector('[data-qz-pool-warning]'),
+          startBtn:        panel.querySelector('[data-qz-start]'),
+          banner:          panel.querySelector('[data-qz-timer-banner]'),
+          timer:           panel.querySelector('[data-qz-timer]'),
+          progress:        panel.querySelector('[data-qz-progress]'),
+          question:        panel.querySelector('#qz-test-question'),
+          testChoices:     panel.querySelector('[data-qz-test-choices]'),
+          prevBtn:         panel.querySelector('[data-qz-prev]'),
+          abandonBtn:      panel.querySelector('[data-qz-abandon]'),
+          nextBtn:         panel.querySelector('[data-qz-running-screen] [data-qz-next]'),
+          resultsPrefix:   panel.querySelector('[data-qz-results-prefix]'),
+          scoreEl:         panel.querySelector('[data-qz-score]'),
+          resultsTheme:    panel.querySelector('[data-qz-results-theme]'),
+          corrections:     panel.querySelector('[data-qz-corrections]'),
+          restartBtn:      panel.querySelector('[data-qz-restart]'),
+          historyTable:    panel.querySelector('[data-qz-history]'),
+          historyBody:     panel.querySelector('[data-qz-history-body]'),
+          historyEmpty:    panel.querySelector('[data-qz-history-empty]'),
+          historyAnnounce: panel.querySelector('[data-qz-history-announce]')
+        };
+
+        // ----------------------------------------------------------------
+        // In-memory state — D-14 + D-16: never persisted mid-test.
+        // ----------------------------------------------------------------
+        const sessionState = {
+          mode: STATE.START,
+          theme: 'all',
+          queue: [],
+          currentIdx: 0,
+          picks: [],
+          timer: { startedAt: 0, intervalId: null, bannerShown: false }
+        };
+
+        // Build theme slug → French label map from the picker options (UI-SPEC
+        // copywriting: results screen + history table show the human label, not the slug).
+        const themeLabels = (() => {
+          const map = {};
+          for (const opt of els.themeSelect.options) {
+            map[opt.value] = opt.textContent;
+          }
+          return map;
+        })();
+        function themeDisplayName(slug) {
+          return themeLabels[slug] || slug;
+        }
+
+        // ----------------------------------------------------------------
+        // localStorage helpers — Pattern S5 (try/catch) + Pattern S2 (merge-safe)
+        // ----------------------------------------------------------------
+        function readPrefs() {
+          try {
+            const raw = localStorage.getItem(PREFS_KEY);
+            if (!raw) return Object.assign({}, DEFAULT_PREFS);
+            const parsed = JSON.parse(raw);
+            if (!parsed || typeof parsed !== 'object') return Object.assign({}, DEFAULT_PREFS);
+            return Object.assign({}, DEFAULT_PREFS, parsed);
+          } catch (e) {
+            console.warn('[Tests] readPrefs failed (corrupt — using defaults):', e.message);
+            return Object.assign({}, DEFAULT_PREFS);
+          }
+        }
+        function writePrefs(partial) {
+          try {
+            const existing = readPrefs();
+            const merged = Object.assign({}, existing, partial);
+            localStorage.setItem(PREFS_KEY, JSON.stringify(merged));
+            return merged;
+          } catch (e) {
+            console.warn('[Tests] writePrefs failed:', e.message);
+            return readPrefs();
+          }
+        }
+        function readScores() {
+          try {
+            const raw = localStorage.getItem(SCORES_KEY);
+            if (!raw) return [];
+            const parsed = JSON.parse(raw);
+            return Array.isArray(parsed) ? parsed : [];
+          } catch (e) {
+            console.warn('[Tests] readScores failed (corrupt — starting fresh):', e.message);
+            return [];
+          }
+        }
+        function appendScore(row) {
+          try {
+            const scores = readScores();
+            scores.unshift(row);                    // newest-first — D-12
+            const capped = scores.slice(0, 50);     // FIFO cap — D-11
+            localStorage.setItem(SCORES_KEY, JSON.stringify(capped));
+            return capped;
+          } catch (e) {
+            console.warn('[Tests] appendScore failed:', e.message);
+            return readScores();
+          }
+        }
+
+        // ----------------------------------------------------------------
+        // Fisher-Yates shuffle (D-08 — applied to QUESTION ORDER only; never choices[])
+        // ----------------------------------------------------------------
+        function shuffle(arr) {
+          const a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+          }
+          return a;
+        }
+
+        function poolFor(theme) {
+          return window.BANK.filter(i => i.type === 'qcm' && (theme === 'all' || i.theme === theme));
+        }
+
+        function buildQueue(theme) {
+          const pool = poolFor(theme);
+          if (pool.length < TEST_SIZE) return null;
+          return shuffle(pool).slice(0, TEST_SIZE);
+        }
+
+        // ----------------------------------------------------------------
+        // State machine
+        // ----------------------------------------------------------------
+        function transitionTo(target) {
+          els.startScreen.hidden    = (target !== STATE.START);
+          els.runningScreen.hidden  = (target !== STATE.RUNNING);
+          els.resultsScreen.hidden  = (target !== STATE.RESULTS);
+          els.historySection.hidden = (target === STATE.RUNNING);
+
+          if (target !== STATE.RUNNING) {
+            stopTimer();
+          }
+
+          sessionState.mode = target;
+
+          if (target === STATE.START) {
+            if (els.themeSelect) els.themeSelect.focus();
+          } else if (target === STATE.RESULTS) {
+            if (els.restartBtn) els.restartBtn.focus();
+          }
+        }
+
+        // ----------------------------------------------------------------
+        // Pool-too-small warning + Démarrer enable/disable
+        // ----------------------------------------------------------------
+        function updatePoolWarning() {
+          const pool = poolFor(els.themeSelect.value);
+          if (pool.length < TEST_SIZE) {
+            els.poolWarning.textContent = 'Pool insuffisant pour ce thème (' + pool.length + ' QCM disponibles, ' + TEST_SIZE + ' requis). Choisis "Tous les thèmes" ou un autre thème.';
+            els.poolWarning.hidden = false;
+            els.startBtn.disabled = true;
+          } else {
+            els.poolWarning.hidden = true;
+            els.startBtn.disabled = false;
+          }
+        }
+
+        // ----------------------------------------------------------------
+        // Drift-resistant timer — Pattern 3 / Pitfall 2 defense.
+        // Wall-clock (Date.now() delta) is source of truth; setInterval is paint-only.
+        // Survives backgrounded-tab throttling: next tick recomputes elapsed correctly.
+        // ----------------------------------------------------------------
+        function startTimer() {
+          sessionState.timer.startedAt = Date.now();
+          tickTimer();
+          sessionState.timer.intervalId = setInterval(tickTimer, TICK_MS);
+        }
+        function tickTimer() {
+          const elapsed = Date.now() - sessionState.timer.startedAt;
+          const remaining = DURATION_MS - elapsed;
+          if (remaining <= 0) {
+            els.timer.textContent = '00:00';
+            els.timer.dataset.qzTimerState = 'expired';
+            if (!sessionState.timer.bannerShown) {
+              els.banner.hidden = false;
+              sessionState.timer.bannerShown = true;
+            }
+            // Do NOT clearInterval — D-13: banner only, test continues; idempotent paint.
+            return;
+          }
+          const totalSec = Math.floor(remaining / 1000);
+          const mm = String(Math.floor(totalSec / 60)).padStart(2, '0');
+          const ss = String(totalSec % 60).padStart(2, '0');
+          els.timer.textContent = mm + ':' + ss;
+          els.timer.dataset.qzTimerState = (remaining <= ALERT_THRESHOLD_MS) ? 'alert' : 'normal';
+        }
+        function stopTimer() {
+          if (sessionState.timer.intervalId !== null) {
+            clearInterval(sessionState.timer.intervalId);
+            sessionState.timer.intervalId = null;
+          }
+        }
+
+        // ----------------------------------------------------------------
+        // Render running question — XSS-safe (Pattern S3)
+        // ----------------------------------------------------------------
+        function renderTestQuestion(idx) {
+          if (idx < 0 || idx >= sessionState.queue.length) return;
+          sessionState.currentIdx = idx;
+          const item = sessionState.queue[idx];
+
+          els.question.textContent = item.question;
+
+          while (els.testChoices.firstChild) els.testChoices.removeChild(els.testChoices.firstChild);
+          const letters = ['A', 'B', 'C', 'D'];
+          for (let i = 0; i < item.choices.length; i++) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.setAttribute('data-qz-choice', '');
+            btn.setAttribute('data-qz-choice-idx', String(i));
+            btn.setAttribute('aria-label', 'Choix ' + letters[i] + ' : ' + item.choices[i]);
+            const isSelected = (sessionState.picks[idx] === i);
+            btn.dataset.qzChoiceState = isSelected ? 'selected' : 'idle';
+            btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'qz-choice__letter';
+            letterSpan.textContent = letters[i] + ' · ';
+            btn.appendChild(letterSpan);
+            btn.appendChild(document.createTextNode(item.choices[i]));
+            els.testChoices.appendChild(btn);
+          }
+
+          els.progress.textContent = (idx + 1) + '/' + sessionState.queue.length;
+          els.progress.setAttribute('aria-label', 'Question ' + (idx + 1) + ' sur ' + sessionState.queue.length);
+
+          els.prevBtn.disabled = (idx === 0);
+          els.nextBtn.textContent = (idx === sessionState.queue.length - 1) ? 'Terminer le test' : 'Suivant';
+
+          if (els.runningScreen.contains(document.activeElement) && els.testChoices.firstElementChild) {
+            els.testChoices.firstElementChild.focus();
+          }
+        }
+
+        // ----------------------------------------------------------------
+        // Choice click — toggle if same, replace if different. NO SRS write.
+        // ----------------------------------------------------------------
+        function onTestChoiceClick(event) {
+          const btn = event.target.closest('[data-qz-choice]');
+          if (!btn || !els.testChoices.contains(btn)) return;
+          const idx = Number(btn.dataset.qzChoiceIdx);
+          const cur = sessionState.picks[sessionState.currentIdx];
+          sessionState.picks[sessionState.currentIdx] = (cur === idx) ? null : idx;
+          renderTestQuestion(sessionState.currentIdx);
+          // D-V2-03: zero SRS.schedule calls in this IIFE — Tests blancs is pure simulation.
+        }
+
+        function onPrevClick() {
+          if (sessionState.currentIdx > 0) renderTestQuestion(sessionState.currentIdx - 1);
+        }
+        function onNextClick() {
+          if (sessionState.currentIdx === sessionState.queue.length - 1) {
+            finishTest();
+          } else {
+            renderTestQuestion(sessionState.currentIdx + 1);
+          }
+        }
+
+        function onAbandonClick() {
+          const ok = window.confirm('Es-tu sûr de vouloir abandonner ? Tes réponses seront perdues.');
+          if (!ok) return;
+          stopTimer();
+          // D-15 + D-14: NO write to qhse-scores-v1. Return to start.
+          transitionTo(STATE.START);
+        }
+
+        function onStartClick() {
+          sessionState.theme = els.themeSelect.value;
+          writePrefs({ lastTestTheme: sessionState.theme });
+          const queue = buildQueue(sessionState.theme);
+          if (queue === null) return; // defensive — Démarrer should already be disabled.
+          sessionState.queue = queue;
+          sessionState.currentIdx = 0;
+          sessionState.picks = new Array(TEST_SIZE).fill(null);
+          sessionState.timer.bannerShown = false;
+          els.banner.hidden = true;
+          els.timer.dataset.qzTimerState = 'normal';
+          startTimer();
+          transitionTo(STATE.RUNNING);
+          renderTestQuestion(0);
+          if (els.testChoices.firstElementChild) els.testChoices.firstElementChild.focus();
+        }
+
+        function onRestartClick() {
+          sessionState.queue = [];
+          sessionState.picks = [];
+          sessionState.currentIdx = 0;
+          sessionState.timer.bannerShown = false;
+          transitionTo(STATE.START);
+        }
+
+        function onTestThemeChange() {
+          sessionState.theme = els.themeSelect.value;
+          writePrefs({ lastTestTheme: sessionState.theme });
+          updatePoolWarning();
+        }
+
+        // ----------------------------------------------------------------
+        // Source line builder (Pattern S3) — XSS-safe; mirrors Plan 02.
+        // ----------------------------------------------------------------
+        function buildSourceLine(targetP, source) {
+          // Preserve the sr-only prefix span (first child); clear the rest.
+          while (targetP.childNodes.length > 1) targetP.removeChild(targetP.lastChild);
+          if (!source) return;
+          if (source.authority) targetP.appendChild(document.createTextNode(source.authority));
+          if (source.ref) {
+            targetP.appendChild(document.createTextNode(' — '));
+            const codeEl = document.createElement('code');
+            codeEl.textContent = source.ref;
+            targetP.appendChild(codeEl);
+          }
+          if (source.url) {
+            targetP.appendChild(document.createTextNode(' '));
+            const a = document.createElement('a');
+            a.href = source.url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.textContent = source.url;
+            targetP.appendChild(a);
+          }
+        }
+
+        // ----------------------------------------------------------------
+        // Build one correction <li> — pure DOM, no innerHTML on bank fields
+        // ----------------------------------------------------------------
+        function buildCorrectionLi(item, picked, position) {
+          const li = document.createElement('li');
+
+          const badge = document.createElement('p');
+          badge.className = 'qz-reveal__badge';
+          if (picked === null) {
+            badge.classList.add('qz-correction__noanswer');
+            badge.textContent = '— Non répondu';
+          } else if (picked === item.correct) {
+            badge.dataset.qzBadgeState = 'correct';
+            badge.textContent = '✓ Correct';
+          } else {
+            badge.dataset.qzBadgeState = 'incorrect';
+            badge.textContent = '✗ Incorrect';
+          }
+          li.appendChild(badge);
+
+          const h4 = document.createElement('h4');
+          h4.className = 'qz-correction__question';
+          h4.textContent = 'Q' + position + '. ' + item.question;
+          li.appendChild(h4);
+
+          const choicesWrap = document.createElement('div');
+          choicesWrap.className = 'qz-choices';
+          choicesWrap.setAttribute('data-qz-disabled', 'true');
+          const letters = ['A', 'B', 'C', 'D'];
+          for (let i = 0; i < item.choices.length; i++) {
+            const pill = document.createElement('button');
+            pill.type = 'button';
+            pill.disabled = true;
+            pill.setAttribute('data-qz-choice', '');
+            let s;
+            if (picked === i && i === item.correct) s = 'picked-correct';
+            else if (picked === i && i !== item.correct) s = 'picked-incorrect';
+            else if (i === item.correct) s = 'unpicked-correct';
+            else s = 'unpicked-distractor';
+            pill.dataset.qzChoiceState = s;
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'qz-choice__letter';
+            letterSpan.textContent = letters[i] + ' · ';
+            pill.appendChild(letterSpan);
+            pill.appendChild(document.createTextNode(item.choices[i]));
+            choicesWrap.appendChild(pill);
+          }
+          li.appendChild(choicesWrap);
+
+          const answerP = document.createElement('p');
+          answerP.setAttribute('data-qz-answer', '');
+          const aPrefix = document.createElement('span');
+          aPrefix.className = 'sr-only';
+          aPrefix.textContent = 'Réponse correcte : ';
+          answerP.appendChild(aPrefix);
+          answerP.appendChild(document.createTextNode(item.answer || ''));
+          li.appendChild(answerP);
+
+          const explP = document.createElement('p');
+          explP.setAttribute('data-qz-explanation', '');
+          const ePrefix = document.createElement('span');
+          ePrefix.className = 'sr-only';
+          ePrefix.textContent = 'Explication : ';
+          explP.appendChild(ePrefix);
+          explP.appendChild(document.createTextNode(item.explanation || ''));
+          li.appendChild(explP);
+
+          const srcP = document.createElement('p');
+          srcP.setAttribute('data-qz-source', '');
+          const sPrefix = document.createElement('span');
+          sPrefix.className = 'sr-only';
+          sPrefix.textContent = 'Source : ';
+          srcP.appendChild(sPrefix);
+          buildSourceLine(srcP, item.source);
+          li.appendChild(srcP);
+
+          return li;
+        }
+
+        // ----------------------------------------------------------------
+        // Render results — 4-tier prefix + 3-tier score color + 20 corrections
+        // ----------------------------------------------------------------
+        function renderResults(correctCount, total, themeSlug, queue, picks) {
+          const ratio = correctCount / total;
+          let tier, prefix;
+          if (correctCount === total) {
+            tier = 'high'; prefix = 'Sans faute';
+          } else if (ratio >= 0.75) {
+            tier = 'high'; prefix = 'Bravo';
+          } else if (ratio >= 0.50) {
+            tier = 'mid';  prefix = 'À retravailler';
+          } else {
+            tier = 'low';  prefix = 'Beaucoup à revoir';
+          }
+          els.resultsPrefix.textContent = prefix;
+          els.scoreEl.textContent = correctCount + '/' + total;
+          els.scoreEl.dataset.qzScoreTier = tier;
+          els.resultsTheme.textContent = themeDisplayName(themeSlug);
+
+          while (els.corrections.firstChild) els.corrections.removeChild(els.corrections.firstChild);
+          for (let i = 0; i < queue.length; i++) {
+            els.corrections.appendChild(buildCorrectionLi(queue[i], picks[i], i + 1));
+          }
+        }
+
+        // ----------------------------------------------------------------
+        // Render history table
+        // ----------------------------------------------------------------
+        function renderHistory(rows) {
+          while (els.historyBody.firstChild) els.historyBody.removeChild(els.historyBody.firstChild);
+          if (!rows || rows.length === 0) {
+            els.historyTable.hidden = true;
+            els.historyEmpty.hidden = false;
+            return;
+          }
+          els.historyTable.hidden = false;
+          els.historyEmpty.hidden = true;
+          for (const row of rows) {
+            const tr = document.createElement('tr');
+
+            const tdDate = document.createElement('td');
+            tdDate.className = 'qz-history__date';
+            const timeEl = document.createElement('time');
+            timeEl.setAttribute('datetime', row.dateISO || '');
+            timeEl.textContent = row.dateISO || '';
+            tdDate.appendChild(timeEl);
+            tr.appendChild(tdDate);
+
+            const tdTheme = document.createElement('td');
+            tdTheme.className = 'qz-history__theme';
+            tdTheme.textContent = themeDisplayName(row.theme);
+            tr.appendChild(tdTheme);
+
+            const tdScore = document.createElement('td');
+            tdScore.className = 'qz-history__score';
+            tdScore.textContent = (row.score != null ? row.score : '?') + '/' + (row.total != null ? row.total : TEST_SIZE);
+            tr.appendChild(tdScore);
+
+            els.historyBody.appendChild(tr);
+          }
+        }
+
+        function finishTest() {
+          stopTimer();
+          let correctCount = 0;
+          for (let i = 0; i < sessionState.queue.length; i++) {
+            const pick = sessionState.picks[i];
+            if (pick !== null && pick === sessionState.queue[i].correct) correctCount++;
+          }
+          const row = {
+            id:      'test-' + Date.now(),
+            dateISO: todayLocal(),
+            theme:   sessionState.theme,
+            score:   correctCount,
+            total:   TEST_SIZE
+          };
+          const capped = appendScore(row);
+          renderResults(correctCount, TEST_SIZE, sessionState.theme, sessionState.queue, sessionState.picks);
+          renderHistory(capped);
+          els.historyAnnounce.textContent = capped.length + ' tests enregistrés.';
+          transitionTo(STATE.RESULTS);
+        }
+
+        // ----------------------------------------------------------------
+        // Event wiring — panel-scoped only (Pattern S4).
+        // NEVER document.addEventListener('keydown', ...) — Escape is a no-op
+        // (UI-SPEC); only the Abandonner button triggers the confirm() flow.
+        // ----------------------------------------------------------------
+        els.themeSelect.addEventListener('change', onTestThemeChange);
+        els.startBtn.addEventListener('click', onStartClick);
+        els.testChoices.addEventListener('click', onTestChoiceClick);
+        els.prevBtn.addEventListener('click', onPrevClick);
+        els.nextBtn.addEventListener('click', onNextClick);
+        els.abandonBtn.addEventListener('click', onAbandonClick);
+        els.restartBtn.addEventListener('click', onRestartClick);
+
+        // ----------------------------------------------------------------
+        // Boot — restore prefs, paint history, stay in STATE.START
+        // ----------------------------------------------------------------
+        const prefs = readPrefs();
+        sessionState.theme = (typeof prefs.lastTestTheme === 'string') ? prefs.lastTestTheme : 'all';
+        els.themeSelect.value = sessionState.theme;
+        if (els.themeSelect.value !== sessionState.theme) {
+          sessionState.theme = 'all';
+          els.themeSelect.value = 'all';
+        }
+        updatePoolWarning();
+        renderHistory(readScores());
       } // end boot()
 
       if (document.readyState === 'loading') {
