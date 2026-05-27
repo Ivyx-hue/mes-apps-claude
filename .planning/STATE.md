@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: executing
-stopped_at: Phase 4 Plan 01 complete — chassis.css .qz-* namespace shipped (commit f06f48e)
-last_updated: "2026-05-26T15:22:00.000Z"
+stopped_at: Phase 4 Plan 02 complete — outils.html QCM révision rapide IIFE shipped (commit 1dfc90c)
+last_updated: "2026-05-27T07:42:00.000Z"
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 17
-  completed_plans: 14
-  percent: 65
+  completed_plans: 15
+  percent: 71
 ---
 
 # Project State: QHSE CESI Hub
@@ -33,15 +33,15 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 04 (qcm-tests-blancs) — EXECUTING
-Plan: 2 of 4 (Plan 01 complete 2026-05-26, commit f06f48e)
-Next:  Phase 4 Plan 02 — QCM révision rapide IIFE (Wave 2)
+Plan: 3 of 4 (Plan 01 complete 2026-05-26 f06f48e; Plan 02 complete 2026-05-27 1dfc90c)
+Next:  Phase 4 Plan 03 — Tests blancs IIFE (Wave 3)
 
 ```
 Milestone : v2.0 Étude
-Phase     : 4 — QCM + Tests blancs (Plan 01/4 complete — chassis.css .qz-* namespace shipped)
-Plans     : 14/17 complete (Phase 4 Wave 1 done; Wave 2 QCM IIFE next)
+Phase     : 4 — QCM + Tests blancs (Plans 01+02/4 complete — chassis CSS + QCM révision rapide IIFE shipped)
+Plans     : 15/17 complete (Phase 4 Waves 1+2 done; Wave 3 Tests blancs IIFE next)
 
-[██████▓░░░] 65% — 3/5 phases + 1/4 of Phase 4 plans complete
+[███████▓░░] 71% — 3/5 phases + 2/4 of Phase 4 plans complete
 ```
 
 ## Accumulated Context
@@ -92,14 +92,24 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Next Step
 
-`/gsd-execute-phase 4` — execute Phase 4 Plan 02 (Wave 2 QCM IIFE inside `outils.html`, consumes `.qz-*` namespace shipped in Plan 01)
+`/gsd-execute-phase 4` — execute Phase 4 Plan 03 (Wave 3 Tests blancs IIFE inside `outils.html` + score history persistence in `qhse-scores-v1`)
 
 ## Session Continuity
 
-Last session: 2026-05-26T15:22:00.000Z
-Stopped at: Phase 4 Plan 01 complete — chassis.css `.qz-*` CSS namespace shipped (commit f06f48e, pushed to main, Vercel auto-deploy live ~60s later)
-Resume file: .planning/phases/04-qcm-tests-blancs/04-02-PLAN.md
-Proceeding to: Phase 4 Plan 02 execution (QCM révision rapide IIFE)
+Last session: 2026-05-27T07:42:00.000Z
+Stopped at: Phase 4 Plan 02 complete — outils.html QCM révision rapide IIFE shipped (commit 1dfc90c, pushed to main, Vercel auto-deploy live ~60s later). Plan 04-02 SUMMARY recorded; Phase 3 verify-srs.cjs still 20/20 PASS — no regression.
+Resume file: .planning/phases/04-qcm-tests-blancs/04-03-PLAN.md
+Proceeding to: Phase 4 Plan 03 execution (Tests blancs IIFE + qhse-scores-v1)
+
+### Phase 4 Plan 02 outcome (2026-05-27)
+
+- File modified: `qhse-cesi/outils.html` (+506 lines, −2; 796 → 1302)
+- Region 1: `#panel-qcm` placeholder `<p>` replaced with full scaffold — theme picker (16 options), `<article class="qz-card">` with `[data-qz-question]`, `[data-qz-choices]`, `[data-qz-reveal][hidden]`, `[data-qz-next][hidden]`
+- Region 2: new `<script>` IIFE appended after Phase 3 Flashcards IIFE — `__qzQcmBooted` guard, DCL boot, pre-flight BANK+SRS check, merge-safe readPrefs/writePrefs, `buildPool`, `renderQuestion`, `renderReveal`, `onChoiceClick` (single `SRS.schedule(_,'rate',_)` call site, line 1205), `onNextClick` wrap-around, `onThemeChange` with per-session Set reset, `ensureScaffold` re-mount after `renderEmpty`
+- Requirements closed: QUIZ-01 (themed/global QCM), QUIZ-02 (auto-reveal feedback), QUIZ-03 (wrong-answer SRS feed), SRS-03 write-half
+- Verification: all 13 automated grep gates PASS (`__qzQcmBooted`=2, `SRS.schedule(`=2 file-wide, `srsWrittenThisSession`=6, `lastQcmTheme`=6, real keydown-on-document=0, `.innerHTML =` on bank content=0, `createElement('code'|'a')`=4)
+- Regression: Phase 3 verify-srs.cjs exits 0 (20/20 PASS) post-edit — `window.SRS` frozen contract intact, `qhse-srs-v1` schema unchanged
+- Deploy: pushed to main 2026-05-27 ~09:40 CET; commit 1dfc90c
 
 ### Phase 4 Plan 01 outcome (2026-05-26)
 
@@ -111,4 +121,4 @@ Proceeding to: Phase 4 Plan 02 execution (QCM révision rapide IIFE)
 - Deploy: pushed to main 2026-05-26 ~17:20 CET; commit f06f48e
 
 ---
-*State updated: 2026-05-26 — Phase 4 Plan 01 complete; Wave 1 chassis CSS shipped; ready to execute Plan 02 (QCM IIFE)*
+*State updated: 2026-05-27 — Phase 4 Plan 02 complete; Wave 2 QCM IIFE shipped; ready to execute Plan 03 (Tests blancs IIFE)*
