@@ -132,7 +132,7 @@ Plans:
 | 1. Shell & Gateway | v2.0 | 0/? | Not started | - |
 | 2. Content Bank | v2.0 | 0/7 | Planned | - |
 | 3. Flashcards + SRS | v2.0 | 4/4 | Complete | 2026-05-25 |
-| 4. QCM + Tests blancs | v2.0 | 2/4 | In Progress | - |
+| 4. QCM + Tests blancs | v2.0 | 3/4 | In Progress | - |
 | 5. Fiches de révision | v2.0 | 0/? | Not started | - |
 
 ## Out-of-Roadmap Notes
@@ -145,4 +145,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-05-11*
-*Last updated: 2026-05-27 — Phase 4 Plan 02 complete (QCM révision rapide IIFE shipped, commit 1dfc90c)*
+*Last updated: 2026-05-27 — Phase 4 Plan 03 complete (Tests blancs chronométrés IIFE shipped, commit 271f258)*

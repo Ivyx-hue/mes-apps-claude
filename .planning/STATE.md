@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: executing
-stopped_at: Phase 4 Plan 02 complete — outils.html QCM révision rapide IIFE shipped (commit 1dfc90c)
-last_updated: "2026-05-27T07:42:00.000Z"
+stopped_at: Phase 4 Plan 03 complete — outils.html Tests blancs chronométrés IIFE shipped (commit 271f258)
+last_updated: "2026-05-27T08:36:00.000Z"
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 17
-  completed_plans: 15
-  percent: 71
+  completed_plans: 16
+  percent: 76
 ---
 
 # Project State: QHSE CESI Hub
@@ -33,15 +33,15 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 04 (qcm-tests-blancs) — EXECUTING
-Plan: 3 of 4 (Plan 01 complete 2026-05-26 f06f48e; Plan 02 complete 2026-05-27 1dfc90c)
-Next:  Phase 4 Plan 03 — Tests blancs IIFE (Wave 3)
+Plan: 4 of 4 (Plan 01 f06f48e; Plan 02 1dfc90c; Plan 03 271f258 — all 2026-05-26/27)
+Next:  Phase 4 Plan 04 — verify-quiz.cjs Node assertion gate (Wave 4)
 
 ```
 Milestone : v2.0 Étude
-Phase     : 4 — QCM + Tests blancs (Plans 01+02/4 complete — chassis CSS + QCM révision rapide IIFE shipped)
-Plans     : 15/17 complete (Phase 4 Waves 1+2 done; Wave 3 Tests blancs IIFE next)
+Phase     : 4 — QCM + Tests blancs (Plans 01+02+03/4 complete — chassis CSS + QCM IIFE + Tests blancs IIFE shipped)
+Plans     : 16/17 complete (Phase 4 Waves 1+2+3 done; Wave 4 verify-quiz.cjs next)
 
-[███████▓░░] 71% — 3/5 phases + 2/4 of Phase 4 plans complete
+[████████░░] 76% — 3/5 phases + 3/4 of Phase 4 plans complete
 ```
 
 ## Accumulated Context
@@ -92,14 +92,25 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Next Step
 
-`/gsd-execute-phase 4` — execute Phase 4 Plan 03 (Wave 3 Tests blancs IIFE inside `outils.html` + score history persistence in `qhse-scores-v1`)
+`/gsd-execute-phase 4` — execute Phase 4 Plan 04 (Wave 4 `verify-quiz.cjs` Node assertion gate covering all 6 verification groups: single SRS call site per IIFE, merge-safe prefs, qhse-scores-v1 cap+FIFO, lastTestTheme round-trip, Tests IIFE SRS-free invariant, zero innerHTML on bank content)
 
 ## Session Continuity
 
-Last session: 2026-05-27T07:42:00.000Z
-Stopped at: Phase 4 Plan 02 complete — outils.html QCM révision rapide IIFE shipped (commit 1dfc90c, pushed to main, Vercel auto-deploy live ~60s later). Plan 04-02 SUMMARY recorded; Phase 3 verify-srs.cjs still 20/20 PASS — no regression.
-Resume file: .planning/phases/04-qcm-tests-blancs/04-03-PLAN.md
-Proceeding to: Phase 4 Plan 03 execution (Tests blancs IIFE + qhse-scores-v1)
+Last session: 2026-05-27T08:36:00.000Z
+Stopped at: Phase 4 Plan 03 complete — outils.html Tests blancs chronométrés IIFE shipped (commit 271f258, pushed to main, Vercel auto-deploy live ~60s later). Plan 04-03 SUMMARY recorded; Phase 3 verify-srs.cjs still 20/20 PASS — no regression. D-V2-03 invariant structurally proven: `SRS.schedule(` file-wide count = 2 (Flashcards + QCM, both upstream of Tests IIFE banner at line 1379).
+Resume file: .planning/phases/04-qcm-tests-blancs/04-04-PLAN.md
+Proceeding to: Phase 4 Plan 04 execution (verify-quiz.cjs gate)
+
+### Phase 4 Plan 03 outcome (2026-05-27)
+
+- File modified: `qhse-cesi/outils.html` (+657 lines, −2; 1302 → 1957)
+- Region 1: `#panel-tests` placeholder replaced with tri-state scaffold — `[data-qz-start-screen]` (theme picker + pool-too-small warning + Démarrer), `[data-qz-running-screen][hidden]` (timer + progress + question/4 choices + Précédent/Abandonner/Suivant), `[data-qz-results-screen][hidden]` (4-tier hero + 20-item corrections + Nouveau test), `[data-qz-history-section]` (`<table class="qz-history">` + empty-state + sr-only announce)
+- Region 2: new `<script>` IIFE appended after Plan 02 QCM IIFE (banner line 1379) — `__qzTestsBooted` guard, DCL boot, A→B→C state machine, drift-resistant `Date.now()`-based timer (Pitfall 2 defense), free-nav `picks[]` map with toggle-on-second-click, native `window.confirm(` abandon flow (line ~1731, sole call site in the file), banner-only timeout (D-13 — no auto-submit), `qhse-scores-v1` `unshift + slice(0,50)` FIFO (D-11/D-12), merge-safe `lastTestTheme` write preserving Phase 3 + Plan 02 keys, `<time datetime>` history cells
+- Requirements closed: TEST-01 (20Q timed exam), TEST-02 (score + corrections), TEST-03 (qhse-scores-v1 persistence + qhse-srs-v1 isolation)
+- D-V2-03 invariant proven: `SRS.schedule(` file-wide count = 2 (Flashcards line 622 + QCM line 1281); Tests IIFE banner at line 1379 — both call sites upstream, zero in Tests block. Tests IIFE only reads `SRS.todayLocal()` (pure helper) with local-date fallback.
+- Verification: all 15 automated grep gates PASS (`__qzTestsBooted`=2, `SRS.schedule(`=2 file-wide, `setInterval(`=1, `qhse-scores-v1`=2, `scores.unshift|slice(0,50)`=2, `lastTestTheme`=4, `beforeunload`=0, real `document.addEventListener('keydown')`=0, `window.confirm(`=1, `.innerHTML =` on bank=0, `createElement('time')`=1)
+- Regression: Phase 3 verify-srs.cjs exits 0 (20/20 PASS) post-edit; Plan 02 QCM IIFE byte-identical
+- Deploy: pushed to main 2026-05-27 ~10:35 CET; commit 271f258
 
 ### Phase 4 Plan 02 outcome (2026-05-27)
 
@@ -121,4 +132,4 @@ Proceeding to: Phase 4 Plan 03 execution (Tests blancs IIFE + qhse-scores-v1)
 - Deploy: pushed to main 2026-05-26 ~17:20 CET; commit f06f48e
 
 ---
-*State updated: 2026-05-27 — Phase 4 Plan 02 complete; Wave 2 QCM IIFE shipped; ready to execute Plan 03 (Tests blancs IIFE)*
+*State updated: 2026-05-27 — Phase 4 Plan 03 complete; Wave 3 Tests blancs IIFE shipped; ready to execute Plan 04 (verify-quiz.cjs)*
