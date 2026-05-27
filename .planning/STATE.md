@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: executing
-stopped_at: Phase 4 Plan 03 complete — outils.html Tests blancs chronométrés IIFE shipped (commit 271f258)
-last_updated: "2026-05-27T08:36:00.000Z"
+stopped_at: Phase 4 Plan 04 complete — verify-quiz.cjs gate shipped (commit da255d1, 6/6 groups PASS). Phase 4 plans 4/4 complete; awaiting owner UAT to close the phase.
+last_updated: "2026-05-27T09:15:00.000Z"
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 17
-  completed_plans: 16
-  percent: 76
+  completed_plans: 17
+  percent: 82
 ---
 
 # Project State: QHSE CESI Hub
@@ -32,16 +32,16 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-Phase: 04 (qcm-tests-blancs) — EXECUTING
-Plan: 4 of 4 (Plan 01 f06f48e; Plan 02 1dfc90c; Plan 03 271f258 — all 2026-05-26/27)
-Next:  Phase 4 Plan 04 — verify-quiz.cjs Node assertion gate (Wave 4)
+Phase: 04 (qcm-tests-blancs) — ALL PLANS SHIPPED, awaiting owner UAT
+Plan: 4 of 4 (Plan 01 f06f48e; Plan 02 1dfc90c; Plan 03 271f258; Plan 04 da255d1 — all 2026-05-26/27)
+Next:  Owner UAT against Phase 4 ROADMAP SC1-SC4 → mark Phase 4 complete → Phase 5 (Fiches de révision)
 
 ```
 Milestone : v2.0 Étude
-Phase     : 4 — QCM + Tests blancs (Plans 01+02+03/4 complete — chassis CSS + QCM IIFE + Tests blancs IIFE shipped)
-Plans     : 16/17 complete (Phase 4 Waves 1+2+3 done; Wave 4 verify-quiz.cjs next)
+Phase     : 4 — QCM + Tests blancs (Plans 01+02+03+04/4 complete — chassis CSS + QCM IIFE + Tests blancs IIFE + verify-quiz.cjs gate shipped)
+Plans     : 17/17 complete (Phase 4 Waves 1-4 done; awaiting owner UAT)
 
-[████████░░] 76% — 3/5 phases + 3/4 of Phase 4 plans complete
+[████████▓░] 82% — 3/5 phases complete + Phase 4 plans all shipped
 ```
 
 ## Accumulated Context
@@ -92,14 +92,29 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Next Step
 
-`/gsd-execute-phase 4` — execute Phase 4 Plan 04 (Wave 4 `verify-quiz.cjs` Node assertion gate covering all 6 verification groups: single SRS call site per IIFE, merge-safe prefs, qhse-scores-v1 cap+FIFO, lastTestTheme round-trip, Tests IIFE SRS-free invariant, zero innerHTML on bank content)
+Owner UAT walkthrough on `https://mes-apps-claude.vercel.app/qhse-cesi/outils.html`. After owner confirms QCM + Tests blancs work as expected, mark Phase 4 complete in ROADMAP.md and start `/gsd-plan-phase 5` (Fiches de révision).
 
 ## Session Continuity
 
-Last session: 2026-05-27T08:36:00.000Z
-Stopped at: Phase 4 Plan 03 complete — outils.html Tests blancs chronométrés IIFE shipped (commit 271f258, pushed to main, Vercel auto-deploy live ~60s later). Plan 04-03 SUMMARY recorded; Phase 3 verify-srs.cjs still 20/20 PASS — no regression. D-V2-03 invariant structurally proven: `SRS.schedule(` file-wide count = 2 (Flashcards + QCM, both upstream of Tests IIFE banner at line 1379).
-Resume file: .planning/phases/04-qcm-tests-blancs/04-04-PLAN.md
-Proceeding to: Phase 4 Plan 04 execution (verify-quiz.cjs gate)
+Last session: 2026-05-27T09:15:00.000Z
+Stopped at: Phase 4 Plan 04 complete — verify-quiz.cjs gate shipped (commit da255d1; 6/6 PASS groups; runtime < 1s; zero npm deps). Phase 4 all 4 plans shipped; awaiting owner UAT. Phase 3 verify-srs.cjs still 20/20 PASS — no regression across the milestone.
+Resume file: .planning/ROADMAP.md (Phase 4 SC1-SC4)
+Proceeding to: Owner UAT → Phase 5 planning
+
+### Phase 4 Plan 04 outcome (2026-05-27)
+
+- File created: `.planning/phases/04-qcm-tests-blancs/verify-quiz.cjs` (399 lines, pure Node)
+- 6 assertion groups (a)..(f) PASS — verbatim CONTEXT.md line 60-66 phrasing:
+  - (a) SC2/QUIZ-03 — wrong-answer SRS write ≡ `SRS.schedule(state, 'rate')`
+  - (b) SC3/TEST-01 — test composition: 20-item shape-valid queue
+  - (c) SC4/TEST-03 — qhse-scores-v1 FIFO cap 50 (D-10/D-11/D-12)
+  - (d) SC4/PERSIST-01 — qhse-prefs-v1 merge-safety (P3 + Plan 02 keys preserved through Plan 03 write)
+  - (e) SC4/D-V2-03 — Tests blancs path does NOT mutate qhse-srs-v1 (snapshot equality runtime proof)
+  - (f) SC4/PERSIST-01 — cross-phase schema compatibility (REQUIRED_FIELDS ⊆ actualKeys)
+- Smoke: `node verify-quiz.cjs` exits 0; runtime < 1s; bootstrap loads `srs.js` + `outils-data.js` (BANK.length=226)
+- Regression: Phase 3 verify-srs.cjs still exits 0
+- Atomic: 1 file, 399 insertions, 0 deletions. No Vercel deploy (file under `.planning/`).
+- Deploy: pushed to main 2026-05-27 ~11:15 CET; commit da255d1
 
 ### Phase 4 Plan 03 outcome (2026-05-27)
 
@@ -132,4 +147,4 @@ Proceeding to: Phase 4 Plan 04 execution (verify-quiz.cjs gate)
 - Deploy: pushed to main 2026-05-26 ~17:20 CET; commit f06f48e
 
 ---
-*State updated: 2026-05-27 — Phase 4 Plan 03 complete; Wave 3 Tests blancs IIFE shipped; ready to execute Plan 04 (verify-quiz.cjs)*
+*State updated: 2026-05-27 — Phase 4 Plan 04 complete; all 4 plans shipped (chassis CSS + QCM IIFE + Tests blancs IIFE + verify-quiz.cjs gate); awaiting owner UAT to close the phase*
