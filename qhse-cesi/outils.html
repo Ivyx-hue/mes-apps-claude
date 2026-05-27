@@ -131,8 +131,45 @@
       </div>
 
       <div role="tabpanel" id="panel-qcm" aria-labelledby="tab-qcm" tabindex="0" hidden>
-        <!-- Phase 4 mount point: QCM entraînement -->
-        <p class="placeholder">Ce mode arrive en Phase 4 — questions à choix multiples avec correction immédiate et score de session. Couvre l'ensemble des blocs de compétences du Bachelor QHSE CESI.</p>
+        <h2 class="sr-only">QCM — révision rapide</h2>
+
+        <nav class="qz-theme" aria-label="Choisir un thème">
+          <label for="qz-qcm-theme-select">Thème</label>
+          <select id="qz-qcm-theme-select" data-qz-qcm-theme>
+            <option value="all">Tous les thèmes</option>
+            <option value="duerp">DUERP</option>
+            <option value="principes-generaux">Principes généraux de prévention</option>
+            <option value="iso-9001">ISO 9001</option>
+            <option value="iso-14001">ISO 14001</option>
+            <option value="iso-45001">ISO 45001</option>
+            <option value="tms">TMS</option>
+            <option value="risque-routier">Risque routier</option>
+            <option value="risque-chimique">Risque chimique</option>
+            <option value="rps">RPS</option>
+            <option value="espaces-confines">Espaces confinés</option>
+            <option value="acronymes">Acronymes</option>
+            <option value="metiers">Métiers</option>
+            <option value="calendrier">Calendrier alternance</option>
+            <option value="icpe-seveso">ICPE / Seveso</option>
+            <option value="rncp">RNCP / Blocs de compétences</option>
+          </select>
+        </nav>
+
+        <article class="qz-card" data-qz-card>
+          <h3 id="qz-qcm-question" data-qz-question></h3>
+          <div class="qz-choices" role="group" aria-labelledby="qz-qcm-question" data-qz-choices>
+            <!-- 4 <button type="button" data-qz-choice data-qz-choice-idx="0..3"> nodes injected by IIFE -->
+          </div>
+          <div class="qz-reveal" data-qz-reveal hidden>
+            <p class="qz-reveal__badge" data-qz-badge></p>
+            <p data-qz-answer><span class="sr-only">Réponse correcte : </span><span data-qz-answer-text></span></p>
+            <p data-qz-explanation><span class="sr-only">Explication : </span><span data-qz-explanation-text></span></p>
+            <p data-qz-source><span class="sr-only">Source : </span></p>
+          </div>
+          <button type="button" data-qz-next hidden>Suivant<span data-qz-next-hint> Espace ou Entrée</span></button>
+        </article>
+
+        <!-- Phase 4 QCM engine — IIFE appended after Flashcards IIFE; see outils.html#qcm-iife -->
       </div>
 
       <div role="tabpanel" id="panel-tests" aria-labelledby="tab-tests" tabindex="0" hidden>
@@ -785,6 +822,473 @@
         }
       }
       renderBandeau();
+      } // end boot()
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot, { once: true });
+      } else {
+        boot();
+      }
+    })();
+  </script>
+
+  <script>
+    /* ============ IIFE: QCM révision rapide — auto-reveal click → SRS wrong-feed → Suivant advance ============ */
+    /* No globals, no inline on* handlers, no document-level keydown. Phase 4 / Plan 04-02. */
+    (() => {
+      'use strict';
+
+      // Double-load guard — unique guard name per IIFE (never reuse __fcViewBooted)
+      if (window.__qzQcmBooted) return;
+      window.__qzQcmBooted = true;
+
+      // Inline scripts execute during HTML parsing — BEFORE deferred external
+      // scripts (outils-data.js, srs.js) finish evaluating. Defer the IIFE body
+      // until DOMContentLoaded so window.BANK and window.SRS are populated.
+      // (Same hotfix pattern as Flashcards IIFE — commit 0553899.)
+      function boot() {
+      // ----------------------------------------------------------------
+      // Pre-flight: require window.BANK and window.SRS before touching DOM
+      // ----------------------------------------------------------------
+      const panel = document.getElementById('panel-qcm');
+
+      if (!panel) {
+        console.warn('[QCM] #panel-qcm not found — cannot boot view.');
+        return;
+      }
+
+      if (!window.BANK || !Array.isArray(window.BANK) || !window.SRS || typeof window.SRS.schedule !== 'function') {
+        // Graceful degradation — render an inline error inside the card
+        const card = panel.querySelector('[data-qz-card]');
+        if (card) {
+          const errEl = document.createElement('p');
+          errEl.className = 'qz-error';
+          errEl.textContent = 'Impossible de charger la banque de questions. Recharge la page ou vérifie que outils-data.js est bien servi.';
+          card.appendChild(errEl);
+        }
+        console.error('[QCM] BANK or SRS missing — cannot boot view.', { BANK: !!window.BANK, SRS: !!window.SRS });
+        return;
+      }
+
+      // ----------------------------------------------------------------
+      // Constants
+      // ----------------------------------------------------------------
+      const THEME_SLUGS = [
+        'duerp', 'principes-generaux', 'iso-9001', 'iso-14001', 'iso-45001',
+        'tms', 'risque-routier', 'risque-chimique', 'rps', 'espaces-confines',
+        'acronymes', 'metiers', 'calendrier', 'icpe-seveso', 'rncp'
+      ];
+
+      // QCM IIFE adds lastQcmTheme; Flashcards keys (lastTheme, lastMode,
+      // newCardsPerDay) are preserved by the merge-safe writer (Pattern S2).
+      const DEFAULT_PREFS = {
+        lastQcmTheme: 'all'
+      };
+
+      const CHOICE_LETTERS = ['A', 'B', 'C', 'D'];
+
+      // ----------------------------------------------------------------
+      // localStorage — merge-safe pattern S2 (Pitfall 3 protection)
+      // ----------------------------------------------------------------
+      function readPrefs() {
+        try {
+          const raw = localStorage.getItem('qhse-prefs-v1');
+          if (!raw) return Object.assign({}, DEFAULT_PREFS);
+          const parsed = JSON.parse(raw);
+          // Type-check lastQcmTheme; fall back to 'all' if absent/wrong type.
+          // Phase 3 sibling keys (lastTheme, lastMode, newCardsPerDay) are
+          // intentionally NOT consumed here — they belong to the Flashcards
+          // IIFE; writePrefs(partial) merges, preserving them on disk.
+          return {
+            lastQcmTheme: (typeof parsed.lastQcmTheme === 'string') ? parsed.lastQcmTheme : DEFAULT_PREFS.lastQcmTheme
+          };
+        } catch (e) {
+          console.warn('[QCM] readPrefs failed:', e.message);
+          return Object.assign({}, DEFAULT_PREFS);
+        }
+      }
+
+      function writePrefs(partial) {
+        try {
+          const raw = localStorage.getItem('qhse-prefs-v1');
+          const existing = raw ? JSON.parse(raw) : {};
+          const merged = Object.assign({}, existing, partial);
+          localStorage.setItem('qhse-prefs-v1', JSON.stringify(merged));
+        } catch (e) {
+          console.warn('[QCM] writePrefs failed:', e.message);
+        }
+      }
+
+      function readStore() {
+        try {
+          const raw = localStorage.getItem('qhse-srs-v1');
+          if (!raw) return {};
+          const parsed = JSON.parse(raw);
+          return (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) ? parsed : {};
+        } catch (e) {
+          console.warn('[QCM] readStore failed (corrupt JSON — starting fresh):', e.message);
+          return {};
+        }
+      }
+
+      function writeStore(store) {
+        try {
+          localStorage.setItem('qhse-srs-v1', JSON.stringify(store));
+        } catch (e) {
+          console.warn('[QCM] writeStore failed:', e.message);
+        }
+      }
+
+      // ----------------------------------------------------------------
+      // DOM handles (all data-qz-* selectors inside #panel-qcm)
+      // ----------------------------------------------------------------
+      const els = {
+        themeSelect:     panel.querySelector('[data-qz-qcm-theme]'),
+        card:            panel.querySelector('[data-qz-card]'),
+        question:        panel.querySelector('[data-qz-question]'),
+        choices:         panel.querySelector('[data-qz-choices]'),
+        reveal:          panel.querySelector('[data-qz-reveal]'),
+        badge:           panel.querySelector('[data-qz-badge]'),
+        answerEl:        panel.querySelector('[data-qz-answer]'),
+        answerText:      panel.querySelector('[data-qz-answer-text]'),
+        explanationEl:   panel.querySelector('[data-qz-explanation]'),
+        explanationText: panel.querySelector('[data-qz-explanation-text]'),
+        sourceEl:        panel.querySelector('[data-qz-source]'),
+        nextBtn:         panel.querySelector('[data-qz-next]'),
+        nextHint:        panel.querySelector('[data-qz-next-hint]')
+      };
+
+      // Assign id to reveal panel once at boot so picked choices can point
+      // aria-describedby at it (UI-SPEC §ARIA contract).
+      if (els.reveal && !els.reveal.id) {
+        els.reveal.id = 'qz-qcm-reveal-id';
+      }
+
+      // ----------------------------------------------------------------
+      // State (D-04: srsWrittenThisSession is in-memory only — reset on
+      // tab switch / reload because the IIFE re-evaluates from scratch.)
+      // ----------------------------------------------------------------
+      const state = {
+        theme: 'all',
+        pool: [],
+        cursor: 0,
+        currentItem: null,
+        picked: null,
+        isRevealed: false,
+        srsWrittenThisSession: new Set()
+      };
+
+      // ----------------------------------------------------------------
+      // buildPool(theme) — filter BANK to QCM items for chosen theme.
+      // No shuffle of choices[] (D-08 — preserves item.correct index).
+      // Pool order = BANK source order; daily variety comes from the
+      // natural mix across themes when "Tous les thèmes" is picked.
+      // ----------------------------------------------------------------
+      function buildPool(theme) {
+        return window.BANK.filter(item =>
+          item.type === 'qcm' && (theme === 'all' || item.theme === theme)
+        );
+      }
+
+      // ----------------------------------------------------------------
+      // renderEmpty() — empty pool message (UI-SPEC Copywriting)
+      // ----------------------------------------------------------------
+      function renderEmpty() {
+        // Wipe card children (question, choices, reveal, next) and insert
+        // the no-pool message. Restore on next theme change via the boot
+        // path (state.cursor=0 → renderQuestion repopulates everything).
+        while (els.card.firstChild) els.card.removeChild(els.card.firstChild);
+        const msg = document.createElement('p');
+        msg.className = 'qz-no-pool';
+        msg.textContent = 'Aucun QCM pour ce thème. Choisis un autre thème.';
+        els.card.appendChild(msg);
+        // Focus stays on theme select — no action available in empty card.
+        if (els.themeSelect) els.themeSelect.focus();
+      }
+
+      // ----------------------------------------------------------------
+      // ensureScaffold() — if renderEmpty wiped the card children, restore
+      // the original DOM scaffold so renderQuestion can populate it again.
+      // ----------------------------------------------------------------
+      function ensureScaffold() {
+        // Quick test: if the question element is still in the DOM under
+        // the card, scaffold is intact. Otherwise rebuild from the cached
+        // clone (snapshotted at boot below).
+        if (els.card.contains(els.question)) return;
+
+        // Restore from cached clone — re-clone so the cache stays pristine
+        // for future restorations.
+        const restored = scaffoldClone.cloneNode(true);
+        while (els.card.firstChild) els.card.removeChild(els.card.firstChild);
+        while (restored.firstChild) els.card.appendChild(restored.firstChild);
+
+        // Re-resolve DOM handles inside the freshly-restored scaffold
+        els.question        = els.card.querySelector('[data-qz-question]');
+        els.choices         = els.card.querySelector('[data-qz-choices]');
+        els.reveal          = els.card.querySelector('[data-qz-reveal]');
+        els.badge           = els.card.querySelector('[data-qz-badge]');
+        els.answerEl        = els.card.querySelector('[data-qz-answer]');
+        els.answerText      = els.card.querySelector('[data-qz-answer-text]');
+        els.explanationEl   = els.card.querySelector('[data-qz-explanation]');
+        els.explanationText = els.card.querySelector('[data-qz-explanation-text]');
+        els.sourceEl        = els.card.querySelector('[data-qz-source]');
+        els.nextBtn         = els.card.querySelector('[data-qz-next]');
+        els.nextHint        = els.card.querySelector('[data-qz-next-hint]');
+
+        // Re-id the reveal panel + re-wire the choices and next-btn
+        // listeners (the originals were on detached nodes).
+        if (els.reveal && !els.reveal.id) els.reveal.id = 'qz-qcm-reveal-id';
+        els.choices.addEventListener('click', onChoiceClick);
+        els.nextBtn.addEventListener('click', onNextClick);
+      }
+
+      // ----------------------------------------------------------------
+      // renderQuestion(item) — XSS-safe: textContent + createElement only
+      // (Pattern S3 / T-04-02-01). Builds 4 choice <button>s.
+      // ----------------------------------------------------------------
+      function renderQuestion(item) {
+        // Reset reveal state
+        els.reveal.hidden = true;
+        els.nextBtn.hidden = true;
+        state.isRevealed = false;
+        state.picked = null;
+
+        // Stem — textContent only (NEVER innerHTML on bank fields)
+        els.question.textContent = item.question;
+
+        // Clear and rebuild choices container (4 buttons)
+        while (els.choices.firstChild) els.choices.removeChild(els.choices.firstChild);
+        els.choices.removeAttribute('data-qz-disabled');
+
+        for (let idx = 0; idx < item.choices.length; idx++) {
+          const choiceText = item.choices[idx];
+          const letter = CHOICE_LETTERS[idx];
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.dataset.qzChoice = '';
+          btn.dataset.qzChoiceIdx = String(idx);
+          btn.dataset.qzChoiceState = 'idle';
+          btn.setAttribute('aria-label', 'Choix ' + letter + ' : ' + choiceText);
+          btn.setAttribute('aria-pressed', 'false');
+
+          // Leading letter prefix (mono, ink-3 — chassis rule .qz-choice__letter)
+          const letterSpan = document.createElement('span');
+          letterSpan.className = 'qz-choice__letter';
+          letterSpan.textContent = letter + ' · '; // U+00B7 middle dot
+          btn.appendChild(letterSpan);
+
+          // Choice prose — text node (XSS-safe)
+          btn.appendChild(document.createTextNode(choiceText));
+
+          els.choices.appendChild(btn);
+        }
+
+        // Clear reveal-panel contents (badge, answer, explanation, source)
+        els.badge.textContent = '';
+        els.badge.removeAttribute('data-qz-badge-state');
+        els.answerText.textContent = '';
+        els.explanationText.textContent = '';
+        // Clear source node but keep the sr-only span (first child)
+        while (els.sourceEl.childNodes.length > 1) {
+          els.sourceEl.removeChild(els.sourceEl.lastChild);
+        }
+
+        // Initial focus: first choice button, only if focus is outside
+        // the choices area (avoid stealing focus from the theme select
+        // during boot or theme change).
+        if (!panel.contains(document.activeElement) ||
+            document.activeElement === document.body) {
+          const firstChoice = els.choices.firstElementChild;
+          if (firstChoice) firstChoice.focus();
+        }
+      }
+
+      // ----------------------------------------------------------------
+      // renderReveal(item, pickedIdx, isCorrect) — populate reveal panel,
+      // update choice states, disable further clicks, focus Suivant.
+      // ----------------------------------------------------------------
+      function renderReveal(item, pickedIdx, isCorrect) {
+        const choiceBtns = els.choices.querySelectorAll('[data-qz-choice]');
+        for (let i = 0; i < choiceBtns.length; i++) {
+          const btn = choiceBtns[i];
+          const idx = Number(btn.dataset.qzChoiceIdx);
+          const isThisCorrect = (idx === item.correct);
+          const isThisPicked  = (idx === pickedIdx);
+
+          let stateName;
+          if (isThisPicked && isThisCorrect)  stateName = 'picked-correct';
+          else if (isThisPicked)              stateName = 'picked-incorrect';
+          else if (isThisCorrect)             stateName = 'unpicked-correct';
+          else                                stateName = 'unpicked-distractor';
+
+          btn.dataset.qzChoiceState = stateName;
+          btn.setAttribute('aria-pressed', isThisPicked ? 'true' : 'false');
+
+          // The picked button gets aria-describedby pointing at the reveal
+          // panel so screen readers announce the badge after the choice text.
+          if (isThisPicked && els.reveal && els.reveal.id) {
+            btn.setAttribute('aria-describedby', els.reveal.id);
+          } else {
+            btn.removeAttribute('aria-describedby');
+          }
+        }
+
+        // Disable further clicks via attribute (chassis rule sets
+        // pointer-events: none on children when [data-qz-disabled="true"]).
+        els.choices.setAttribute('data-qz-disabled', 'true');
+
+        // Badge
+        els.badge.textContent = isCorrect ? '✓ Correct' : '✗ Incorrect';
+        els.badge.dataset.qzBadgeState = isCorrect ? 'correct' : 'incorrect';
+
+        // Canonical answer + explanation (textContent — XSS-safe)
+        els.answerText.textContent = item.answer;
+        els.explanationText.textContent = item.explanation;
+
+        // Source line — verbatim port of Flashcards source builder
+        // (createElement + textContent only — Pattern S3 / T-04-02-01)
+        while (els.sourceEl.childNodes.length > 1) {
+          els.sourceEl.removeChild(els.sourceEl.lastChild);
+        }
+        const src = item.source;
+        if (src) {
+          els.sourceEl.appendChild(document.createTextNode(src.authority));
+          if (src.ref) {
+            els.sourceEl.appendChild(document.createTextNode(' — '));
+            const codeEl = document.createElement('code');
+            codeEl.textContent = src.ref;
+            els.sourceEl.appendChild(codeEl);
+          }
+          if (src.url && src.url.startsWith('http')) {
+            els.sourceEl.appendChild(document.createTextNode(' '));
+            const a = document.createElement('a');
+            a.href = src.url;
+            a.textContent = src.url;
+            a.rel = 'noopener noreferrer';
+            a.target = '_blank';
+            els.sourceEl.appendChild(a);
+          }
+        }
+
+        // Un-hide reveal + next, then focus Suivant for D-02 keyboard flow
+        els.reveal.hidden = false;
+        els.nextBtn.hidden = false;
+        els.nextBtn.focus();
+      }
+
+      // ----------------------------------------------------------------
+      // onChoiceClick(event) — event-delegated click handler on .qz-choices
+      // ----------------------------------------------------------------
+      function onChoiceClick(event) {
+        if (state.isRevealed) return; // re-click no-op (D-04 prevents double-write)
+        if (!state.currentItem) return;
+
+        const button = event.target.closest('[data-qz-choice]');
+        if (!button || !els.choices.contains(button)) return;
+
+        const pickedIdx = Number(button.dataset.qzChoiceIdx);
+        if (Number.isNaN(pickedIdx)) return;
+
+        const isCorrect = (pickedIdx === state.currentItem.correct);
+        state.picked = pickedIdx;
+        state.isRevealed = true;
+
+        renderReveal(state.currentItem, pickedIdx, isCorrect);
+
+        // D-03 + D-04: one 'rate' write per (panel-session, item); SM-2 math
+        // owned by window.SRS.schedule, never re-implemented.
+        if (!isCorrect && !state.srsWrittenThisSession.has(state.currentItem.id)) {
+          const today = window.SRS.todayLocal();
+          const store = readStore();
+          const existingRow = store[state.currentItem.id] || null;
+          const newRow = window.SRS.schedule(existingRow, 'rate', today);
+          store[state.currentItem.id] = newRow;
+          writeStore(store);
+          state.srsWrittenThisSession.add(state.currentItem.id);
+        }
+      }
+
+      // ----------------------------------------------------------------
+      // onNextClick() — advance to next pool item (wraps to start so
+      // daily revision can loop indefinitely)
+      // ----------------------------------------------------------------
+      function onNextClick() {
+        if (!state.pool.length) return;
+        state.cursor = (state.cursor + 1) % state.pool.length;
+        state.currentItem = state.pool[state.cursor];
+        renderQuestion(state.currentItem);
+      }
+
+      // ----------------------------------------------------------------
+      // onThemeChange() — fires on <select> change
+      // ----------------------------------------------------------------
+      function onThemeChange() {
+        state.theme = els.themeSelect.value;
+        // Merge-safe write — preserves Phase 3 sibling keys (Pattern S2)
+        writePrefs({ lastQcmTheme: state.theme });
+
+        // Reset srsWrittenThisSession on theme change — switching theme
+        // starts a fresh sub-session (generous reading of D-04 "panel
+        // session"; less surprising for the owner than carrying the Set
+        // across theme switches).
+        state.srsWrittenThisSession = new Set();
+
+        // Rebuild pool — if empty, show inline no-pool message; otherwise
+        // restore the scaffold (in case renderEmpty wiped it) and render
+        // the first item.
+        state.pool = buildPool(state.theme);
+        if (state.pool.length === 0) {
+          renderEmpty();
+          return;
+        }
+        ensureScaffold();
+        state.cursor = 0;
+        state.currentItem = state.pool[0];
+        renderQuestion(state.currentItem);
+      }
+
+      // ----------------------------------------------------------------
+      // Snapshot a clone of the empty scaffold (children of .qz-card)
+      // BEFORE any render runs, so renderEmpty can be reversed cleanly.
+      // ----------------------------------------------------------------
+      const scaffoldClone = document.createDocumentFragment();
+      for (let i = 0; i < els.card.children.length; i++) {
+        scaffoldClone.appendChild(els.card.children[i].cloneNode(true));
+      }
+
+      // ----------------------------------------------------------------
+      // Event wiring — panel-scoped only (Pattern S4)
+      // NEVER document.addEventListener('keydown', ...) — choices and
+      // Suivant are native <button>s; Enter/Space work via browser default.
+      // Arrow keys pass through to browser default (D-keyboard discipline).
+      // ----------------------------------------------------------------
+      els.themeSelect.addEventListener('change', onThemeChange);
+      els.choices.addEventListener('click', onChoiceClick);
+      els.nextBtn.addEventListener('click', onNextClick);
+
+      // ----------------------------------------------------------------
+      // Boot — restore prefs, build pool, render first item
+      // ----------------------------------------------------------------
+      const prefs = readPrefs();
+      state.theme = prefs.lastQcmTheme || 'all';
+
+      // Restore picker value; if the slug is unknown (theme removed from
+      // bank, garbage prefs), the <select> silently falls back to its
+      // first option ("Tous les thèmes") — graceful degradation.
+      els.themeSelect.value = state.theme;
+      if (els.themeSelect.value !== state.theme) {
+        state.theme = 'all';
+      }
+
+      state.pool = buildPool(state.theme);
+      if (state.pool.length === 0) {
+        renderEmpty();
+      } else {
+        state.cursor = 0;
+        state.currentItem = state.pool[0];
+        renderQuestion(state.currentItem);
+      }
       } // end boot()
 
       if (document.readyState === 'loading') {
