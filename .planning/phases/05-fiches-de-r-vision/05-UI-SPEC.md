@@ -1,10 +1,11 @@
 ---
 phase: 5
 slug: fiches-de-r-vision
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-05-27
+reviewed_at: 2026-05-27T15:21+02:00
 ---
 
 # Phase 5 — UI Design Contract (Fiches de révision)

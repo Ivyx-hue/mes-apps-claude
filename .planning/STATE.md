@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: executing
-stopped_at: Phase 5 context gathered (commit 7b35047) — 3 gray areas resolved (Découpage·Source·Structure), CONTEXT.md + DISCUSSION-LOG.md committed. Phase 4 plans 4/4 still awaiting owner UAT in parallel.
-last_updated: "2026-05-27T11:30:00.000Z"
+stopped_at: Phase 5 UI-SPEC approved (commits 532a05e → 063422f) — 6/6 dimensions PASS after one revision (typography consolidated to 4 sizes / 2 weights). Phase 4 plans 4/4 still awaiting owner UAT in parallel.
+last_updated: "2026-05-27T15:25:00.000Z"
 progress:
   total_phases: 5
   completed_phases: 3
@@ -24,7 +24,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 **Core value:** Have one trustworthy place that answers "what is this formation, what will I study, and where do I find the best resources" — without digging through scattered sources every time. *(v2.0 extends this with: actively revise that content and track mastery.)*
 
-**Current focus:** Phase 05 — fiches-de-révision (context phase)
+**Current focus:** Phase 05 — fiches-de-révision (UI-SPEC approved; planning next)
 
 **Mode:** mvp · **Granularity:** coarse
 **Deploy target:** `https://mes-apps-claude.vercel.app/qhse-cesi/` (live, HTTP 200)
@@ -92,14 +92,14 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Next Step
 
-`/gsd-ui-phase 5` to lock the visual + print contract (`05-UI-SPEC.md`), then `/gsd-plan-phase 5` for research + plans. Phase 4 UAT can run in parallel.
+`/gsd-plan-phase 5` for research + multi-plan structure (UI-SPEC contract now locked). Phase 4 UAT can run in parallel.
 
 ## Session Continuity
 
-Last session: 2026-05-27T11:30:00.000Z
-Stopped at: Phase 5 context gathered — commit 7b35047 captures CONTEXT.md + DISCUSSION-LOG.md. 3 decisions locked (DEC-01 15 fiches par thème BANK, DEC-02 hybride intro long-form + Questions clés BANK, DEC-03 template fixe 6 sections). 6 Claude's Discretion items deferred to planner (theme picker mirror, .fi-* CSS namespace, Ctrl+P only print, read-only surface). Phase 4 plans 4/4 still awaiting owner UAT (commits f06f48e, 1dfc90c, 271f258, da255d1).
-Resume file: .planning/phases/05-fiches-de-r-vision/05-CONTEXT.md
-Proceeding to: /gsd-ui-phase 5 → /gsd-plan-phase 5
+Last session: 2026-05-27T15:25:00.000Z
+Stopped at: Phase 5 UI-SPEC approved — initial draft (532a05e) BLOCKED on Dimension 4 (5 sizes, 3 weights); revision (063422f) consolidated typography to 4 sizes (`--step-0`, `--step-1`, `--step-3`, `--step-4`) and 2 weights (400 regular, 600 semibold); checker returned 6/6 PASS. Frontmatter updated to `status: approved`, `reviewed_at: 2026-05-27T15:21+02:00`. Phase 4 plans 4/4 still awaiting owner UAT (f06f48e, 1dfc90c, 271f258, da255d1).
+Resume file: .planning/phases/05-fiches-de-r-vision/05-UI-SPEC.md
+Proceeding to: /gsd-plan-phase 5
 
 ### Phase 4 Plan 04 outcome (2026-05-27)
 
