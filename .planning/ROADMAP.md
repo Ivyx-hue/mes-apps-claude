@@ -119,7 +119,25 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. Owner opens the Fiches tab and sees one revision sheet per major theme — each a structured, readable summary with inline source citations (authority + ref), consistent with the Découverte section's provenance style.
   2. Owner triggers browser print (Ctrl+P) on a fiche and sees a clean print preview: sticky nav removed, link URLs rendered as footnotes, no dark-mode ink waste — reusing the v1.0 print stylesheet rules.
-**Plans**: TBD
+**Plans**: 6 plans
+Plans:
+**Wave 1**
+- [ ] 05-01-PLAN.md — Plumbing: .fi-* CSS namespace + 8 print rules on chassis.css, replace #panel-fiches placeholder + append __fiBooted IIFE shell in outils.html, create fiches-data.js skeleton (window.FICHES=[])
+
+**Wave 2** *(blocked on Wave 1 — shared fiches-data.js + outils.html)*
+- [ ] 05-02-PLAN.md — Renderer expansion + Batch 1: 4 fiches (duerp, principes-generaux, iso-9001, iso-14001) + full 6-section renderer + safeSetHTML whitelist filter
+
+**Wave 3** *(blocked on Wave 2)*
+- [ ] 05-03-PLAN.md — Batch 2: 4 fiches (iso-45001, tms, risque-routier, risque-chimique) — INRS backbone batch
+
+**Wave 4** *(blocked on Wave 3)*
+- [ ] 05-04-PLAN.md — Batch 3: 4 fiches (rps, espaces-confines, acronymes, metiers) — RPS L1152/1153 anchor + Batch F SPA reuse
+
+**Wave 5** *(blocked on Wave 4)*
+- [ ] 05-05-PLAN.md — Batch 4: final 3 fiches (calendrier, icpe-seveso, rncp) — completes 15-fiche BANK theme coverage
+
+**Wave 6** *(blocked on Wave 5)*
+- [ ] 05-06-PLAN.md — verify-fiches.cjs Node gate: 6 assertion groups (schema · slug coverage · selectedIds cross-ref · prefs merge-safety · DEC-09 read-only invariant · sources URL format)
 **UI hint**: yes
 
 ## Progress

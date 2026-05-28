@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: executing
-stopped_at: Phase 5 UI-SPEC approved (commits 532a05e → 063422f) — 6/6 dimensions PASS after one revision (typography consolidated to 4 sizes / 2 weights). Phase 4 plans 4/4 still awaiting owner UAT in parallel.
-last_updated: "2026-05-27T15:25:00.000Z"
+stopped_at: "Phase 5 UI-SPEC approved — initial draft (532a05e) BLOCKED on Dimension 4 (5 sizes, 3 weights); revision (063422f) consolidated typography to 4 sizes (`--step-0`, `--step-1`, `--step-3`, `--step-4`) and 2 weights (400 regular, 600 semibold); checker returned 6/6 PASS. Frontmatter updated to `status: approved`, `reviewed_at: 2026-05-27T15:21+02:00`. Phase 4 plans 4/4 still awaiting owner UAT (f06f48e, 1dfc90c, 271f258, da255d1)."
+last_updated: "2026-05-28T19:43:49.058Z"
 progress:
   total_phases: 5
-  completed_phases: 3
-  total_plans: 17
+  completed_phases: 4
+  total_plans: 23
   completed_plans: 17
-  percent: 82
+  percent: 74
 ---
 
 # Project State: QHSE CESI Hub
