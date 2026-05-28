@@ -1408,6 +1408,317 @@
         line-height: 1.6;
         padding: var(--space-md) 0;
       }
+
+      /* ============ Phase 5 — Fiches de révision (.fi-*) ============ */
+
+      /* -- 1. Theme picker -- */
+      #panel-fiches .fi-theme {
+        display: flex;
+        gap: var(--space-sm);
+        align-items: center;
+        margin-block: var(--space-md);
+        flex-wrap: wrap;
+      }
+      #panel-fiches .fi-theme label {
+        font-size: var(--step-0);
+        font-weight: 600;
+        color: var(--ink-2);
+      }
+      #fi-theme-select {
+        font: inherit;
+        font-size: var(--step-0);
+        font-weight: 400;
+        min-height: 44px;
+        background: var(--bg-2);
+        color: var(--ink-1);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-sm);
+        padding: 0 var(--space-md);
+        width: 100%;
+      }
+      #fi-theme-select:focus-visible {
+        border-color: var(--accent);
+        outline: 2px solid var(--focus-ring);
+        outline-offset: 2px;
+      }
+      @media (min-width: 48rem) {
+        #fi-theme-select {
+          min-width: 16rem;
+          max-width: 24rem;
+          width: auto;
+        }
+      }
+
+      /* -- 2. In-fiche ToC -- */
+      #panel-fiches nav.fi-toc {
+        margin-block: var(--space-md);
+        padding: var(--space-sm);
+      }
+      #panel-fiches nav.fi-toc ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+      }
+      #panel-fiches nav.fi-toc li {
+        margin: 0;
+      }
+      #panel-fiches nav.fi-toc a {
+        font-size: var(--step-0);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: var(--ink-2);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+      #panel-fiches nav.fi-toc a:hover {
+        color: var(--accent);
+      }
+      #panel-fiches nav.fi-toc a:focus-visible {
+        color: var(--accent);
+        outline: 2px solid var(--focus-ring);
+        outline-offset: 2px;
+        border-radius: var(--radius-sm);
+      }
+      @media (min-width: 48rem) {
+        #panel-fiches nav.fi-toc {
+          position: sticky;
+          top: var(--header-h);
+          background: var(--bg-2);
+          border-radius: var(--radius-md);
+          padding: var(--space-lg);
+          z-index: 10;
+        }
+      }
+
+      /* -- 3. Fiche article card surface -- */
+      #panel-fiches article.fi-fiche {
+        background: var(--bg-2);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: var(--space-md);
+        margin-block: var(--space-md);
+      }
+      @media (min-width: 48rem) {
+        #panel-fiches article.fi-fiche {
+          padding: var(--space-lg);
+          max-width: 48rem;
+          margin-inline: auto;
+        }
+      }
+
+      /* -- 4. Fiche header -- */
+      #panel-fiches .fi-fiche > header.fi-fiche-header {
+        border-bottom: 1px solid var(--border-subtle);
+        padding-block-end: var(--space-lg);
+        margin-block-end: var(--space-xl);
+      }
+      #panel-fiches .fi-title {
+        font-size: var(--step-4);
+        font-family: var(--font-serif);
+        font-weight: 600;
+        line-height: 1.15;
+        text-wrap: balance;
+        color: var(--ink-1);
+        margin-block-end: var(--space-sm);
+      }
+      #panel-fiches .fi-meta {
+        font-size: var(--step-0);
+        font-family: var(--font-mono);
+        font-weight: 400;
+        color: var(--ink-3);
+        line-height: 1.4;
+      }
+
+      /* -- 5. Sections -- */
+      #panel-fiches .fi-section {
+        padding-block: var(--space-md);
+      }
+      #panel-fiches .fi-section > h3 {
+        font-size: var(--step-3);
+        font-family: var(--font-serif);
+        font-weight: 600;
+        line-height: 1.2;
+        text-wrap: balance;
+        color: var(--ink-1);
+        margin-block-end: var(--space-md);
+        padding-block-end: var(--space-sm);
+        position: relative;
+      }
+      #panel-fiches .fi-section > h3::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: var(--accent);
+        margin-block-start: var(--space-xs);
+        width: 3rem;
+      }
+      #panel-fiches .fi-section > h4 {
+        font-size: var(--step-1);
+        font-family: var(--font-serif);
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--ink-1);
+        margin-block: var(--space-md) var(--space-sm);
+      }
+      #panel-fiches .fi-section p {
+        font-size: var(--step-1);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--ink-1);
+        max-width: var(--measure);
+        margin-block-end: var(--space-md);
+      }
+      #panel-fiches .fi-section dl {
+        margin: 0;
+        padding: 0;
+      }
+      #panel-fiches .fi-section dt {
+        font-size: var(--step-1);
+        font-family: var(--font-sans);
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--ink-1);
+        margin-block-start: var(--space-sm);
+      }
+      #panel-fiches .fi-section dd {
+        font-size: var(--step-1);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--ink-1);
+        padding-inline-start: var(--space-md);
+        margin-inline-start: 0;
+        margin-block-end: var(--space-sm);
+      }
+      #panel-fiches .fi-section ul {
+        list-style: disc;
+        padding-inline-start: var(--space-lg);
+        margin: 0;
+      }
+      #panel-fiches .fi-section li {
+        font-size: var(--step-1);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--ink-1);
+        max-width: var(--measure);
+        margin-block-end: var(--space-sm);
+      }
+
+      /* -- 6. Section separator -- */
+      #panel-fiches .fi-section + .fi-section {
+        border-top: 1px solid var(--border-subtle);
+        padding-block-start: var(--space-2xl);
+        margin-block-start: 0;
+      }
+
+      /* -- 7. Inline citation -- */
+      #panel-fiches span.fi-cite {
+        font-size: var(--step-0);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: var(--ink-2);
+        line-height: 1.5;
+      }
+
+      /* -- 8. Questions clés (<details>) -- */
+      #panel-fiches .fi-qa-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        margin-block: var(--space-md);
+      }
+      #panel-fiches details.fi-qa {
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: var(--space-md);
+      }
+      #panel-fiches details.fi-qa > summary {
+        font-size: var(--step-1);
+        font-family: var(--font-sans);
+        font-weight: 600;
+        line-height: 1.4;
+        color: var(--ink-1);
+        cursor: pointer;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        user-select: none;
+      }
+      #panel-fiches details.fi-qa > summary::-webkit-details-marker {
+        display: none;
+      }
+      #panel-fiches details.fi-qa > summary::before {
+        content: "\25B8 ";
+        color: var(--ink-3);
+        margin-inline-end: var(--space-xs);
+        flex-shrink: 0;
+      }
+      #panel-fiches details.fi-qa > summary:hover {
+        color: var(--accent);
+      }
+      #panel-fiches details.fi-qa[open] {
+        border: 1px solid var(--accent);
+        background: color-mix(in oklch, var(--accent-soft) 60%, transparent);
+      }
+      #panel-fiches .fi-qa-answer {
+        font-size: var(--step-1);
+        font-family: var(--font-sans);
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--ink-1);
+        margin-block: var(--space-md) var(--space-sm);
+      }
+      #panel-fiches .fi-qa-explanation {
+        font-size: var(--step-1);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--ink-2);
+        margin-block-end: var(--space-sm);
+      }
+      #panel-fiches .fi-qa-source {
+        font-size: var(--step-0);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--ink-2);
+        margin-block-end: 0;
+      }
+
+      /* -- 9. Sources bibliography list -- */
+      #panel-fiches .fi-sources-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+      #panel-fiches .fi-sources-list li {
+        font-size: var(--step-0);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--ink-1);
+        max-width: none;
+      }
+
+      /* -- 10. Empty / error states -- */
+      #panel-fiches .fi-empty,
+      #panel-fiches .fi-error {
+        font-size: var(--step-1);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        color: var(--ink-2);
+        line-height: 1.6;
+        padding: var(--space-md) 0;
+      }
     }
 
     /* ============ 5. UTILITIES (@layer utilities) ============ */
@@ -1486,4 +1797,59 @@
       /* Restore measure for prose readability on A4. */
       p, li { max-width: none; }
       section { break-inside: avoid-page; }
+
+      /* ---- Phase 5 print extensions ---- */
+
+      /* 1. Hide sibling panels + tablist */
+      #panel-flashcards,
+      #panel-qcm,
+      #panel-tests,
+      [role="tablist"] { display: none !important; }
+
+      /* 2. Force-show Fiches panel even if [hidden] attribute is set */
+      #panel-fiches { display: block !important; }
+
+      /* 3. Page break before each fiche article */
+      #panel-fiches .fi-fiche { page-break-before: always; }
+
+      /* 4. Hide theme picker and ToC — not useful on paper */
+      #panel-fiches .fi-theme,
+      #panel-fiches nav.fi-toc { display: none !important; }
+
+      /* 5. Force all <details> open in print — Questions clés must be readable */
+      #panel-fiches details.fi-qa { display: block; }
+      #panel-fiches details.fi-qa > summary {
+        display: block;
+        font-weight: 600;
+        list-style: none;
+      }
+      #panel-fiches details.fi-qa > summary::before { content: none; }
+
+      /* 6. Section headings — restore accent underline in grayscale-safe version */
+      #panel-fiches .fi-section > h3 {
+        border-bottom: 1px solid oklch(30% 0 0);
+        padding-block-end: 0.2em;
+        margin-block-end: 0.5em;
+      }
+
+      /* 7. Sources section — break before so bibliography starts fresh */
+      #panel-fiches [data-fi-section="sources"] { page-break-before: always; }
+
+      /* 8. Flat-white fiche card — remove card chrome for print */
+      #panel-fiches .fi-fiche {
+        background: #fff;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        max-width: none;
+        margin: 0;
+      }
+
+      /* Phase 5 print typography (UI-SPEC §Print typography) */
+      #panel-fiches { font-size: 11pt; }
+      #panel-fiches .fi-title { font-size: 1.5rem; }
+      #panel-fiches .fi-section h3 { font-size: 1.15rem; }
+      #panel-fiches .fi-cite { font-size: 0.8em; }
+
+      @page { margin: 1cm; size: A4 portrait; }
     }
