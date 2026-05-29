@@ -3,9 +3,10 @@ phase: 05-fiches-de-r-vision
 plan: 03
 type: execute
 wave: 3
-status: checkpoint-human-verify
-completed_tasks: 1
+status: complete
+completed_tasks: 2
 total_tasks: 2
+owner_uat: approved-2026-05-29
 task1_commit: 3e182f1
 subsystem: fiches
 tags: [phase-5, fiches, content-authoring, iso-45001, tms, risque-routier, risque-chimique]

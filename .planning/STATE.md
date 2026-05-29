@@ -33,8 +33,8 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 05 (fiches-de-r-vision) — EXECUTING
-Plan: 4 of 6 (05-01 + 05-02 complete & owner-approved)
-Next:  Phase 5 Wave 3 (05-03) — author second 4 fiches (iso-45001, tms, risque-routier, risque-chimique) in fiches-data.js (renderer is byte-stable from 05-02). Owner pacing wave-by-wave (token-conscious): `/clear` then `/gsd-execute-phase 5 --wave 3`. (Phase 4 plans 4/4 still awaiting owner UAT.)
+Plan: 4 of 6 (05-01 + 05-02 + 05-03 complete & owner-approved — 8 fiches live)
+Next:  Phase 5 Wave 4 (05-04) — author third 4 fiches (rps, espaces-confines, acronymes, metiers) in fiches-data.js (renderer byte-stable). Owner ran full-phase `/gsd-execute-phase 5`; executing remaining waves with a UAT checkpoint after each. (Phase 4 plans 4/4 still awaiting owner UAT.)
 
 ```
 Milestone : v2.0 Étude
