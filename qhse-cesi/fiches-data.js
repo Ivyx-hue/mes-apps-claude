@@ -353,6 +353,315 @@ window.FICHES = [
         url: 'https://fr.wikipedia.org/wiki/ISO_14000'
       }
     ]
+  },
+
+  /* =========================================================
+   * FICHE 5: iso-45001
+   * Plan 05-03, Wave 3
+   * selectedIds: 8 items from iso-45001 pool (18 total in BANK)
+   * URL verification: Wikipédia FR (curl 200, 2026-05-29)
+   * Locked decision STATE.md: "ISO source.url = Wikipedia FR for all three ISO themes"
+   * ========================================================= */
+  {
+    slug: 'iso-45001',
+    title: 'ISO 45001',
+    tldr: 'ISO 45001:2018 définit les exigences d\'un Système de Management de la Santé et Sécurité au Travail (SMSST), en remplacement d\'OHSAS 18001 retiré en mars 2021. Première norme ISO internationale dédiée à la SST, elle partage la High Level Structure (HLS) avec ISO 9001:2015 et ISO 14001:2015 — ce qui permet leur intégration dans un SMI. Ses deux apports majeurs par rapport à OHSAS 18001 : l\'analyse du contexte (§4) et la participation obligatoire des travailleurs (§5.4).',
+    definitions: [
+      {
+        term: 'SMSST',
+        value: 'Système de Management de la Santé et Sécurité au Travail. Ensemble des processus et pratiques permettant à un organisme de gérer ses responsabilités SST de façon systématique et de s\'améliorer en continu. ISO 45001:2018 en définit les exigences — c\'est la première vraie norme internationale ISO sur la SST.'
+      },
+      {
+        term: 'OHSAS 18001',
+        value: 'Référentiel britannique (BSI — British Standards Institution) sur la santé et sécurité au travail, adopté comme standard de facto international depuis 1999. N\'était pas une norme ISO. Retiré officiellement en mars 2021, après une période de transition de 3 ans suivant la publication d\'ISO 45001 en mars 2018.'
+      },
+      {
+        term: 'Danger (hazard)',
+        value: 'Source, situation ou acte ayant un potentiel de dommage pour la santé et la sécurité humaines. Ex : machine sans carter, produit corrosif, plancher glissant. C\'est la cause ; le risque en est l\'effet combiné (probabilité × gravité). §6.1.2 impose d\'identifier les dangers avant d\'évaluer les risques.'
+      },
+      {
+        term: 'Participation des travailleurs (§5.4)',
+        value: 'Exigence clé d\'ISO 45001 absente d\'OHSAS 18001 : l\'organisation doit établir, mettre en œuvre et maintenir des processus pour consulter et faire participer activement les travailleurs à tous les niveaux. Couvre : identification des dangers, évaluation des risques, définition des objectifs SST et des contrôles opérationnels.'
+      },
+      {
+        term: 'Consultation vs. participation',
+        value: 'Distinction importante au sens d\'ISO 45001 : la consultation est un processus unilatéral (l\'employeur demande l\'avis des travailleurs avant de décider) ; la participation implique une implication active dans la prise de décision. ISO 45001 exige les deux, alors qu\'OHSAS 18001 n\'exigeait que la consultation.'
+      },
+      {
+        term: 'Leadership SST (§5.1)',
+        value: 'ISO 45001 impose que la direction démontre son leadership et son engagement en matière de SST : définir la politique SST, fixer les objectifs, allouer les ressources, participer aux audits, promouvoir l\'amélioration continue. C\'est une exigence HLS renforcée par rapport à OHSAS 18001.'
+      },
+      {
+        term: 'AT/MP',
+        value: 'Accident du Travail / Maladie Professionnelle. Dans le contexte d\'un SMSST, les AT et MP constituent les indicateurs de résultat à réduire. ISO 45001 §10.2 exige une investigation systématique des incidents (AT, presqu\'accidents, situations dangereuses) pour identifier les causes et mettre en œuvre des actions correctives.'
+      }
+    ],
+    cadreLegal: '<p>ISO 45001:2018 est une norme internationale volontaire publiée en mars 2018 par l\'ISO (Organisation internationale de normalisation). Elle remplace <span class="fi-cite"><a href="https://fr.wikipedia.org/wiki/BS_OHSAS_18001" target="_blank" rel="noopener noreferrer">Wikipédia FR — <code>BS OHSAS 18001</code></a></span>, référentiel BSI retiré en mars 2021 après 3 ans de transition.</p><p>En France, l\'obligation légale de l\'employeur en matière de SST repose sur le Code du travail (<code>Art. L4121-1</code> obligation générale, <code>Art. L4121-2</code> 9 principes généraux) — ces obligations existent indépendamment de toute certification ISO 45001. La norme est complémentaire au cadre légal français : son §6.1.3 (exigences légales et autres exigences) impose d\'intégrer les obligations réglementaires dans le SMSST.</p><p>ISO 45001 partage la High Level Structure commune à <span class="fi-cite"><a href="https://fr.wikipedia.org/wiki/ISO_45001" target="_blank" rel="noopener noreferrer">Wikipédia FR — <code>ISO 45001:2018 §4–§10</code></a></span> — ISO 9001:2015 et ISO 14001:2015. Cette structure harmonisée (§4 Contexte, §5 Leadership, §6 Planification, §7 Support, §8 Réalisation, §9 Évaluation, §10 Amélioration) facilite l\'intégration des trois normes en un Système de Management Intégré (SMI).</p>',
+    demarche: '<p>La mise en œuvre d\'un SMSST conforme à ISO 45001:2018 suit le <strong>cycle PDCA</strong> appliqué à la SST :</p><ul><li><strong>Plan — §4 à §6</strong> : analyser le contexte et identifier les parties intéressées (§4), démontrer le leadership de la direction et définir la politique SST (§5), identifier les dangers et évaluer les risques (§6.1.2), établir les exigences légales et autres exigences (§6.1.3), définir les objectifs SST et les plans d\'action (§6.2). La participation des travailleurs (§5.4) est requise à chacune de ces étapes.</li><li><strong>Do — §7 et §8</strong> : allouer les ressources, assurer les compétences et la communication (§7), maîtriser les opérations selon la hiérarchie des contrôles — élimination → substitution → contrôles techniques collectifs → contrôles administratifs → EPI (§8.1.2), gérer les changements (§8.1.3), maîtriser les entrepreneurs et sous-traitants (§8.1.4), préparer la réponse aux situations d\'urgence (§8.2).</li><li><strong>Check — §9</strong> : surveiller et mesurer les performances SST (§9.1), investiguer les incidents et non-conformités (§9.1.1), conduire les audits internes (§9.2), tenir la revue de direction (§9.3).</li><li><strong>Act — §10</strong> : traiter les incidents et non-conformités avec analyse de cause racine (§10.2), améliorer continuellement le SMSST (§10.3).</li></ul><p>La revue de direction (§9.3) boucle chaque cycle PDCA : elle évalue l\'adéquation du SMSST et décide des priorités et ressources pour le cycle suivant.</p>',
+    selectedIds: [
+      'iso-45001-flashcard-001',
+      'iso-45001-flashcard-003',
+      'iso-45001-flashcard-004',
+      'iso-45001-flashcard-005',
+      'iso-45001-flashcard-008',
+      'iso-45001-qcm-001',
+      'iso-45001-qcm-002',
+      'iso-45001-qcm-005'
+    ],
+    pieges: [
+      'ISO 45001 ≠ une norme ISO précédente renommée : il n\'existait pas d\'"ISO 18001" — OHSAS 18001 était un référentiel BSI (britannique), pas une norme ISO. ISO 45001 est la première vraie norme ISO internationale sur la SST.',
+      'ISO 45001 est VOLONTAIRE — elle ne remplace pas les obligations du Code du travail (DUERP, 9 principes généraux). Les deux coexistent : le SMSST ISO 45001 intègre les obligations légales dans son §6.1.3.',
+      'ISO 45001 ≠ DUERP : le SMSST est un cadre de management (comment organiser la SST) ; le DUERP est le document légal français qui transcrit les résultats de l\'EvRP. ISO 45001 §6.1.2 couvre conceptuellement la même démarche, mais le DUERP reste une obligation réglementaire autonome.',
+      'Confusion §5.4 (participation travailleurs) vs. §5.1 (leadership direction) : les deux sont dans le chapitre "Leadership" mais concernent des acteurs différents. Un QCM qui inverse les deux est un piège classique.',
+      'Consultation ≠ participation au sens d\'ISO 45001 : OHSAS 18001 ne demandait que la consultation ; ISO 45001 exige la participation active à la prise de décision SST.',
+      'HLS partagée : ISO 9001:2015, ISO 14001:2015 et ISO 45001:2018 ont tous les chapitres §4–§10. OHSAS 18001 n\'utilise PAS la HLS — c\'est son successeur ISO 45001 qui l\'utilise.'
+    ],
+    sources: [
+      {
+        authority: 'Wikipédia FR',
+        ref: 'ISO 45001:2018 — Système de management de la santé et sécurité au travail',
+        url: 'https://fr.wikipedia.org/wiki/ISO_45001'
+      },
+      {
+        authority: 'Wikipédia FR',
+        ref: 'BS OHSAS 18001 — référentiel BSI retiré en mars 2021',
+        url: 'https://fr.wikipedia.org/wiki/BS_OHSAS_18001'
+      },
+      {
+        authority: 'Wikipédia FR',
+        ref: 'Roue de Deming (PDCA) — cycle Plan-Do-Check-Act',
+        url: 'https://fr.wikipedia.org/wiki/PDCA'
+      }
+    ]
+  },
+
+  /* =========================================================
+   * FICHE 6: tms
+   * Plan 05-03, Wave 3
+   * selectedIds: 8 items from tms pool (14 total in BANK)
+   * URL verification: INRS + ameli.fr (curl 200, 2026-05-29)
+   * ========================================================= */
+  {
+    slug: 'tms',
+    title: 'TMS — Troubles Musculo-Squelettiques',
+    tldr: 'Les troubles musculo-squelettiques (TMS) sont la première cause de maladie professionnelle reconnue en France, représentant environ 88 % des MP indemnisées. Ils touchent principalement les membres supérieurs (canal carpien, coiffe des rotateurs, épicondylite) et le rachis. Leur prévention est avant tout collective et organisationnelle — la formation individuelle aux gestes et postures ne suffit pas seule. La démarche INRS en 4 étapes (Mobiliser → Investiguer → Maîtriser → Évaluer) structure l\'action en entreprise.',
+    definitions: [
+      {
+        term: 'TMS',
+        value: 'Troubles Musculo-Squelettiques. Affections des muscles, tendons, nerfs, articulations et tissus mous, localisées principalement aux membres supérieurs (poignet, épaule, coude) et au rachis. Contractées progressivement par l\'exposition répétée à des facteurs de risque, ils relèvent des maladies professionnelles, pas des accidents du travail.'
+      },
+      {
+        term: 'MP — Maladie Professionnelle',
+        value: 'Affection contractée progressivement lors de l\'exercice d\'une activité professionnelle et listée dans un tableau de maladies professionnelles (Code de la Sécurité Sociale). Les TMS relèvent principalement des tableaux 57 (membres supérieurs) et 98 (lombalgies). La reconnaissance en MP ouvre droit à une indemnisation majorée par rapport à un AT.'
+      },
+      {
+        term: 'Tableau 57',
+        value: 'Tableau de maladies professionnelles du régime général le plus sollicité en France. Couvre les affections périarticulaires provoquées par certains gestes et postures de travail : syndrome du canal carpien, tendinites de la coiffe des rotateurs, épicondylites. Le syndrome du canal carpien est la TMS la plus fréquemment reconnue.'
+      },
+      {
+        term: 'Tableau 98',
+        value: 'Tableau de MP du régime général couvrant les affections chroniques du rachis lombaire provoquées par des vibrations de basses et moyennes fréquences transmises au corps entier. Distinct du tableau 57 : le tableau 98 concerne le dos, le 57 les membres supérieurs.'
+      },
+      {
+        term: 'Facteurs biomécaniques',
+        value: 'Première catégorie de facteurs de risque TMS selon l\'INRS : gestes répétitifs à cadence élevée, postures contraignantes (bras au-dessus des épaules, poignet en déviation), efforts excessifs, vibrations. Ils sont les plus visibles mais ne suffisent pas à expliquer à eux seuls le développement des TMS.'
+      },
+      {
+        term: 'Facteurs psychosociaux (TMS)',
+        value: 'Deuxième catégorie de facteurs de risque TMS : stress, manque d\'autonomie, pression temporelle, faible soutien social, monotonie. Un salarié stressé contracte davantage ses muscles — les facteurs psychosociaux potentialisent les facteurs biomécaniques. À distinguer des RPS (thème à part entière) : ici, on parle de leur rôle dans le développement des TMS.'
+      },
+      {
+        term: 'PRAP',
+        value: 'Prévention des Risques liés à l\'Activité Physique. Programme de formation certifiante INRS formant les salariés à analyser leurs propres gestes et postures pour réduire les TMS. Se décline en PRAP IBC (industrie, commerce, bureau) et PRAP 2S (sanitaire et social). Outil individuel complémentaire des mesures organisationnelles collectives.'
+      }
+    ],
+    cadreLegal: '<p>Les TMS relèvent de l\'obligation générale de prévention de l\'employeur fondée sur <span class="fi-cite"><a href="https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html" target="_blank" rel="noopener noreferrer">INRS — <code>Art. L4121-1 et L4121-2 Code du travail</code></a></span>. Tout employeur doit identifier et évaluer les risques TMS dans le DUERP (<code>Art. R4121-1</code>) et planifier des actions de prévention.</p><p>La reconnaissance en maladie professionnelle s\'effectue par les tableaux de MP du Code de la Sécurité Sociale, principalement : <strong>tableau 57</strong> (affections périarticulaires — membres supérieurs, régime général) et <strong>tableau 98</strong> (affections chroniques du rachis lombaire). Pour qu\'une TMS soit reconnue en MP, il faut que les conditions du tableau soient remplies : désignation de la maladie, délai de prise en charge, liste des travaux. Les TMS peuvent aussi être reconnues hors tableau via le système complémentaire (comité régional de reconnaissance des maladies professionnelles).</p><p>Le programme <span class="fi-cite"><a href="https://www.ameli.fr/entreprise/sante-travail/risques/troubles-musculosquelettiques-tms/pourquoi-comment-agir" target="_blank" rel="noopener noreferrer">Assurance Maladie — TMS-Pros</a></span> accompagne les entreprises à forte sinistralité TMS. Il ne crée pas d\'obligation réglementaire supplémentaire mais structure une démarche de prévention adaptée.</p>',
+    demarche: '<p>La démarche de prévention des TMS préconisée par l\'INRS suit <strong>4 étapes</strong> inspirées du cycle PDCA :</p><ul><li><strong>Mobiliser</strong> — constituer un groupe de travail pluridisciplinaire (encadrement, salariés, médecin du travail, préventeur) et obtenir l\'engagement de la direction. La prévention TMS ne réussit que si elle est collective.</li><li><strong>Investiguer</strong> — analyser les situations de travail via des observations, des questionnaires salariés (ex. questionnaire INRS), des relevés de sinistralité MP. Identifier les postes et activités les plus exposés aux 3 familles de facteurs (biomécaniques, psychosociaux, environnementaux).</li><li><strong>Maîtriser</strong> — concevoir et mettre en œuvre des solutions prioritairement techniques et organisationnelles : adapter les postes de travail (ergonomie), modifier l\'organisation (rotation des tâches, réduction des cadences, pauses), améliorer les outils et équipements. La formation individuelle aux gestes et postures (PRAP) ne vient qu\'en complément.</li><li><strong>Évaluer</strong> — mesurer l\'efficacité des actions (indicateurs sinistralité MP, absentéisme, résultats questionnaires), ajuster la démarche et relancer un nouveau cycle.</li></ul><p>L\'intégration des TMS dans le <span class="fi-cite"><a href="https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/prevention.html" target="_blank" rel="noopener noreferrer">INRS — Démarche de prévention TMS</a></span> passe obligatoirement par le DUERP : les unités de travail exposées doivent être identifiées, les risques cotés, les actions planifiées dans le programme de prévention annuel (Papripact si ≥ 50 salariés).</p>',
+    selectedIds: [
+      'tms-flashcard-001',
+      'tms-flashcard-002',
+      'tms-flashcard-004',
+      'tms-flashcard-005',
+      'tms-flashcard-006',
+      'tms-qcm-001',
+      'tms-qcm-002',
+      'tms-qcm-006'
+    ],
+    pieges: [
+      'TMS ≠ accident du travail : les TMS sont quasi exclusivement des maladies professionnelles (MP), pas des AT. La différence est fondamentale pour l\'indemnisation et la reconnaissance. Un effort brutal au dos peut être un AT ; la même douleur apparue progressivement est une MP.',
+      'La prévention TMS n\'est PAS uniquement la "formation gestes et postures" : la démarche INRS est collective et organisationnelle (réaménagement des postes, organisation du travail) — la formation individuelle (PRAP) n\'est qu\'un complément.',
+      'Confusion biomécanique seul vs. multifactoriel : les TMS sont multifactoriels (biomécaniques + psychosociaux + environnementaux). Réduire la prévention aux seuls facteurs biomécaniques est insuffisant — c\'est un piège classique en QCM.',
+      'Tableau 57 ≠ tableau 98 : le 57 couvre les membres supérieurs (canal carpien, épaule, coude) ; le 98 couvre les affections chroniques du rachis lombaire liées aux vibrations. Confondre les deux tableaux est un piège fréquent.',
+      'TMS-Pros (programme Assurance Maladie, 4 étapes) ≠ PRAP (formation INRS, outil individuel) : deux dispositifs complémentaires mais distincts, souvent confondus dans les QCM.',
+      'Le syndrome du canal carpien est la TMS la plus fréquemment RECONNUE en MP (tableau 57 B) ; mais les tendinites de la coiffe des rotateurs (épaule) génèrent davantage d\'arrêts de travail. Ces deux affirmations sont simultanément vraies.'
+    ],
+    sources: [
+      {
+        authority: 'INRS',
+        ref: 'Troubles musculo-squelettiques (TMS) — ce qu\'il faut retenir',
+        url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/ce-qu-il-faut-retenir.html'
+      },
+      {
+        authority: 'Assurance Maladie — ameli',
+        ref: 'Les TMS : pourquoi et comment agir (programme TMS-Pros)',
+        url: 'https://www.ameli.fr/entreprise/sante-travail/risques/troubles-musculosquelettiques-tms/pourquoi-comment-agir'
+      },
+      {
+        authority: 'INRS',
+        ref: 'TMS — démarche de prévention (Mobiliser, Investiguer, Maîtriser, Évaluer)',
+        url: 'https://www.inrs.fr/risques/tms-troubles-musculosquelettiques/prevention.html'
+      }
+    ]
+  },
+
+  /* =========================================================
+   * FICHE 7: risque-routier
+   * Plan 05-03, Wave 3
+   * selectedIds: 8 items from risque-routier pool (12 total in BANK)
+   * URL verification: INRS + service-public.fr (curl 200, 2026-05-29)
+   * ========================================================= */
+  {
+    slug: 'risque-routier',
+    title: 'Risque routier professionnel',
+    tldr: 'Le risque routier professionnel est la première cause de mortalité au travail en France, représentant environ 30 % des accidents du travail mortels. Il couvre deux régimes distincts : le risque de mission (AT classique, salarié en déplacement professionnel) et le risque de trajet (domicile-travail, régime AT/MP spécifique). Sa prévention s\'articule autour de 3 axes INRS : organisation des déplacements, ressources (véhicules), compétences (formation). L\'inscription dans le DUERP est obligatoire dès lors que des salariés se déplacent dans le cadre de leur activité.',
+    definitions: [
+      {
+        term: 'Accident de mission',
+        value: 'Accident survenu pendant un déplacement commandé par l\'employeur dans le cadre de l\'activité professionnelle (visite client, déplacement inter-sites, formation externe). Qualifié d\'accident du travail au sens de l\'Art. L411-1 CSS — présomption d\'imputabilité totale. La propriété du véhicule (personnel ou de service) n\'entre pas en compte.'
+      },
+      {
+        term: 'Accident de trajet',
+        value: 'Accident survenu lors du trajet aller-retour entre le domicile et le lieu de travail, ou entre le domicile et le lieu de restauration habituel. Couvert par la législation AT/MP au titre de l\'Art. L411-2 CSS — mais régime distinct de l\'AT stricto sensu, avec des différences sur l\'indemnisation journalière et la présomption d\'imputabilité.'
+      },
+      {
+        term: 'Axe Organisation (prévention routière)',
+        value: 'Premier axe de la démarche INRS : planifier les déplacements, limiter les réunions tardives imposant une conduite de nuit ou en état de fatigue, favoriser les alternatives (visioconférence, transports en commun, covoiturage). Agit sur les causes organisationnelles de l\'exposition au risque routier.'
+      },
+      {
+        term: 'Axe Ressources (prévention routière)',
+        value: 'Deuxième axe INRS : politique véhicule (choix, entretien, équipements de sécurité), gestion des télécommunications au volant (interdiction téléphone tenu en main, restrictions kit mains-libres), GPS. Agit sur les équipements mis à disposition des conducteurs.'
+      },
+      {
+        term: 'Axe Compétences (prévention routière)',
+        value: 'Troisième axe INRS : formation à la conduite préventive (Bilan de Conduite, éco-conduite), contrôle des aptitudes (permis, visites médicales), sensibilisation aux facteurs de risque (alcool, téléphone, fatigue). Agit sur les comportements et aptitudes des conducteurs.'
+      }
+    ],
+    cadreLegal: '<p>L\'obligation de prévention du risque routier s\'appuie sur l\'obligation générale de sécurité de l\'employeur (<span class="fi-cite"><a href="https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html" target="_blank" rel="noopener noreferrer">INRS — <code>Art. L4121-1 et R4121-1 Code du travail</code></a></span>) : les déplacements professionnels sont des activités de travail exposant les salariés et doivent figurer dans le DUERP.</p><p>La distinction mission / trajet repose sur le Code de la Sécurité Sociale : <code>Art. L411-1 CSS</code> (accident du travail, couvre la mission) et <code>Art. L411-2 CSS</code> (accident de trajet, couverture spécifique). En cas d\'accident de mission avec véhicule personnel, l\'AT est qualifié même si le véhicule appartient au salarié — l\'appartenance du véhicule est sans incidence sur la qualification juridique.</p><p>Pour les entreprises avec des conducteurs professionnels ou des salariés faisant de fréquents déplacements, la <span class="fi-cite"><a href="https://www.inrs.fr/risques/routiers/demarche-prevention.html" target="_blank" rel="noopener noreferrer">INRS — Démarche de prévention du risque routier</a></span> recommande la mise en place d\'un plan de prévention routière, avec diagnostic de sinistralité, engagement de la direction et actions sur les 3 axes (organisation / ressources / compétences).</p>',
+    demarche: '<p>La démarche INRS de prévention du risque routier professionnel suit <strong>5 étapes</strong> selon un cycle PDCA :</p><ul><li><strong>Obtenir l\'engagement de la direction</strong> — La direction formalise sa politique de sécurité routière et désigne un pilote (préventeur, RH ou responsable flotte).</li><li><strong>Établir un diagnostic</strong> — Recenser les déplacements (kilométrage annuel, fréquence, catégories de conducteurs), analyser la sinistralité (AT mission, accidents de trajet), interroger les conducteurs sur les contraintes ressenties.</li><li><strong>Définir un plan d\'action sur les 3 axes</strong> :<ul><li>Organisation : planification des déplacements, réunions à distance, politique alcool et fatigue.</li><li>Ressources : choix et entretien du parc véhicule, équipements de sécurité, politique téléphone.</li><li>Compétences : formation à la conduite préventive, sensibilisation, bilan de conduite.</li></ul></li><li><strong>Mettre en œuvre</strong> — Communiquer le plan, former les managers et conducteurs, équiper les véhicules.</li><li><strong>Évaluer les résultats</strong> — Suivre les indicateurs (sinistralité, coûts, sondages conducteurs), réviser le plan chaque année.</li></ul><p>L\'inscription du risque routier dans le <span class="fi-cite"><a href="https://www.service-public.fr/particuliers/vosdroits/F171" target="_blank" rel="noopener noreferrer">service-public.fr — Accident du travail : démarches</a></span> passe par le DUERP : les unités de travail exposées (commerciaux itinérants, techniciens, livreurs) doivent faire l\'objet d\'une évaluation spécifique et d\'un plan d\'actions.</p>',
+    selectedIds: [
+      'risque-routier-flashcard-001',
+      'risque-routier-flashcard-002',
+      'risque-routier-flashcard-003',
+      'risque-routier-flashcard-004',
+      'risque-routier-flashcard-005',
+      'risque-routier-qcm-001',
+      'risque-routier-qcm-002',
+      'risque-routier-qcm-004'
+    ],
+    pieges: [
+      'Accident de mission ≠ accident de trajet : la mission est un déplacement commandé par l\'employeur dans le cadre du travail (AT, Art. L411-1 CSS) ; le trajet est l\'aller-retour domicile-travail quotidien (régime spécifique, Art. L411-2 CSS). La frontière est nette et exam-critique.',
+      'Véhicule personnel en mission = AT : si un salarié utilise son véhicule personnel pour une mission professionnelle et a un accident, c\'est bien un AT de mission. La propriété du véhicule est sans incidence sur la qualification juridique.',
+      'Le kit mains-libres n\'exonère pas la responsabilité : utiliser un kit mains-libres au volant n\'est pas une garantie d\'absence de responsabilité en cas d\'accident — la distraction cognitive reste présente et peut engager la responsabilité de l\'employeur s\'il n\'a pas interdit ces communications.',
+      'Confusion organisation / ressources / compétences : chaque mesure concrète doit être rattachée à son axe. Planification des déplacements = organisation ; choix des véhicules = ressources ; formation à la conduite = compétences. QCM classique : "Quel axe couvre la limitation des réunions tardives ?" → organisation.',
+      '30 % des AT mortels = stat exam clé : "1 mort au travail sur 3 est lié à la route". Ne pas confondre avec d\'autres statistiques de sinistralité (chutes de hauteur = 2e cause, pas 1ère).',
+      'Responsabilité employeur hors locaux : le risque routier se produit hors de l\'entreprise, mais l\'employeur est pleinement responsable de sa prévention — les obligations de L4121-1 et R4121-1 s\'appliquent sans restriction géographique.'
+    ],
+    sources: [
+      {
+        authority: 'INRS',
+        ref: 'Risques routiers — ce qu\'il faut retenir',
+        url: 'https://www.inrs.fr/risques/routiers/ce-qu-il-faut-retenir.html'
+      },
+      {
+        authority: 'INRS',
+        ref: 'Risques routiers — démarche de prévention',
+        url: 'https://www.inrs.fr/risques/routiers/demarche-prevention.html'
+      },
+      {
+        authority: 'Service-public.fr',
+        ref: 'Accident du travail : démarches à effectuer (AT et trajet)',
+        url: 'https://www.service-public.fr/particuliers/vosdroits/F171'
+      }
+    ]
+  },
+
+  /* =========================================================
+   * FICHE 8: risque-chimique
+   * Plan 05-03, Wave 3
+   * selectedIds: 8 items from risque-chimique pool (18 total in BANK)
+   * URL verification: INRS (curl 200, 2026-05-29)
+   * ========================================================= */
+  {
+    slug: 'risque-chimique',
+    title: 'Risque chimique — CLP / SGH / VLEP',
+    tldr: 'Le risque chimique est la 2e cause de maladies professionnelles en France, après les TMS. Il concerne tout agent chimique dangereux (ACD) présent sur le lieu de travail — avec un régime renforcé pour les agents CMR (Cancérogènes, Mutagènes, Reprotoxiques), qui impose la substitution prioritaire. Le cadre réglementaire repose sur le règlement européen CLP (CE) 1272/2008 (classification et étiquetage via les pictogrammes SGH), les Fiches de Données de Sécurité (FDS, 16 rubriques REACH) et les Valeurs Limites d\'Exposition Professionnelle (VLEP — VME 8h / VLE 15 min).',
+    definitions: [
+      {
+        term: 'ACD — Agent Chimique Dangereux',
+        value: 'Tout agent chimique classifié comme dangereux selon le règlement CLP, ou qui peut présenter un risque pour la santé ou la sécurité des travailleurs en raison de ses propriétés physico-chimiques, chimiques ou toxicologiques. Catégorie large : inclut les ACD généraux et les CMR comme sous-ensemble renforcé.'
+      },
+      {
+        term: 'CMR — Cancérogène, Mutagène, Reprotoxique',
+        value: 'Sous-ensemble des ACD faisant l\'objet d\'une réglementation renforcée (Art. R4412-59 et s. CT). Classés en catégories CLP : 1A (avéré), 1B (présumé), 2 (suspecté). L\'employeur a une obligation de substitution prioritaire : remplacer le CMR par un produit moins dangereux si techniquement possible. Les EPI seuls ne suffisent pas pour les CMR.'
+      },
+      {
+        term: 'CLP — Classification, Labelling, Packaging',
+        value: 'Règlement européen (CE) 1272/2008 transposant en droit européen le SGH (Système Général Harmonisé des Nations Unies). Régit la classification, l\'étiquetage et l\'emballage des substances et mélanges chimiques. Obligatoire depuis le 1er juin 2015 pour tous les produits (substances depuis 2010, mélanges depuis 2015).'
+      },
+      {
+        term: 'SGH — Système Général Harmonisé',
+        value: 'Système de classification et d\'étiquetage des produits chimiques adopté par l\'ONU pour harmoniser les critères à l\'échelle mondiale. Définit 9 classes de pictogrammes (losanges rouges GHS01–GHS09), les mentions de danger (phrases H) et les conseils de prudence (phrases P). Le CLP est la déclinaison européenne du SGH.'
+      },
+      {
+        term: 'FDS — Fiche de Données de Sécurité',
+        value: 'Document remis par le fournisseur à tout utilisateur professionnel d\'un ACD. Obligatoire pour tout ACD classé CLP. Comporte 16 rubriques obligatoires définies par l\'annexe II du règlement REACH (CE) 1907/2006 (Art. R4411-73 CT). Elle est le principal outil d\'information sur les risques d\'un produit et la base de l\'évaluation du risque chimique.'
+      },
+      {
+        term: 'VLEP — Valeur Limite d\'Exposition Professionnelle',
+        value: 'Concentration maximale d\'un agent chimique dans l\'air en milieu de travail. Comprend la VME (valeur moyenne d\'exposition, sur 8 heures — protège contre les effets à long terme) et la VLE (valeur limite d\'exposition courte durée, sur 15 minutes — protège contre les effets aigus). Peuvent être réglementaires contraignantes (obligatoires) ou indicatives (valeurs guides).'
+      },
+      {
+        term: 'Pictogramme GHS08',
+        value: 'Pictogramme SGH/CLP représentant une silhouette humaine avec un point d\'exclamation (dans un losange rouge). Signale les dangers graves pour la santé à long terme : CMR (cancérogènes, mutagènes, reprotoxiques), sensibilisants respiratoires, toxicité spécifique pour certains organes. À distinguer de GHS07 (point d\'exclamation seul, irritant/nocif) et GHS06 (tête de mort, toxicité aiguë létale).'
+      }
+    ],
+    cadreLegal: '<p>La réglementation française du risque chimique repose sur le Code du travail, chapitre risques chimiques (<span class="fi-cite"><a href="https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html" target="_blank" rel="noopener noreferrer">INRS — <code>Art. R4412-1 et suivants Code du travail</code></a></span>) : identification et évaluation des risques, mesures de prévention (avec substitution prioritaire pour les CMR — <code>Art. R4412-66</code>), surveillance atmosphérique (VLEP — <code>Art. R4412-149</code>), surveillance médicale renforcée.</p><p>Le cadre européen est structuré par deux règlements majeurs : le <strong>règlement CLP (CE) 1272/2008</strong> (<span class="fi-cite"><a href="https://www.inrs.fr/risques/classification-etiquetage-produits-chimiques/ce-qu-il-faut-retenir.html" target="_blank" rel="noopener noreferrer">INRS — Classification et étiquetage CLP/SGH</a></span>) pour la classification, l\'étiquetage et les pictogrammes SGH (remplace les directives DSD/DPD depuis le 1er juin 2015) ; et le <strong>règlement REACH (CE) 1907/2006</strong> qui régit les FDS (16 rubriques, Annexe II REACH, <code>Art. R4411-73 CT</code>).</p><p>Les VLEP réglementaires contraignantes sont directement opposables à l\'employeur : leur dépassement constitue une infraction. La liste figure dans l\'arrêté du 30 juin 2004 et ses mises à jour. Les VLEP indicatives servent de référence pour l\'évaluation mais ne créent pas d\'obligation absolue. La surveillance atmosphérique (<span class="fi-cite"><a href="https://www.inrs.fr/risques/mesure-expositions-agents-chimiques-biologiques/ce-qu-il-faut-retenir.html" target="_blank" rel="noopener noreferrer">INRS — Mesure des expositions aux agents chimiques</a></span>) est obligatoire pour les agents ayant une VLEP réglementaire.</p>',
+    demarche: '<p>La démarche INRS de prévention du risque chimique suit les <strong>9 principes généraux de prévention</strong> (<code>Art. L4121-2</code>) adaptés aux agents chimiques :</p><ul><li><strong>Repérer les agents chimiques</strong> — Inventorier tous les produits chimiques utilisés ou produits sur le site (procédés, nettoyage, maintenance), collecter et analyser les FDS, identifier les CMR.</li><li><strong>Évaluer les risques</strong> — Estimer l\'exposition (fréquence, durée, voies de pénétration — inhalation en priorité) et la dangerosité (classification CLP). Comparer aux VLEP pour les agents mesurables. Inscrire les résultats dans le DUERP.</li><li><strong>Substituer en priorité pour les CMR</strong> — Remplacer les CMR par des procédés ou produits moins dangereux si techniquement possible (<code>Art. R4412-66</code>). C\'est l\'obligation prioritaire — elle précède toutes les autres mesures pour cette catégorie.</li><li><strong>Mesures techniques collectives</strong> — Confinement, captage à la source, ventilation générale, automatisation des opérations dangereuses. Mesures collectives avant individuelles (principe 8 de L4121-2).</li><li><strong>Mesures organisationnelles</strong> — Limitation du nombre de travailleurs exposés, rotation des postes, réduction des durées d\'exposition, consignes de sécurité.</li><li><strong>EPI en dernier recours</strong> — Masques adaptés (P2/P3 selon les poussières, FFP selon les vapeurs), gants nitrile ou autres, lunettes. Les EPI ne réduisent pas le risque à la source — ils protègent seulement l\'opérateur et ne remplacent jamais les mesures collectives.</li></ul><p>La FDS (16 rubriques REACH) est le document de base pour toute démarche d\'évaluation du risque chimique. Elle doit être accessible aux travailleurs exposés et au médecin du travail. La <strong>FDS doit être rédigée en français</strong> pour les utilisateurs professionnels français.</p>',
+    selectedIds: [
+      'risque-chimique-flashcard-002',
+      'risque-chimique-flashcard-003',
+      'risque-chimique-flashcard-005',
+      'risque-chimique-flashcard-006',
+      'risque-chimique-flashcard-007',
+      'risque-chimique-qcm-001',
+      'risque-chimique-qcm-004',
+      'risque-chimique-qcm-006'
+    ],
+    pieges: [
+      'ACD ≠ CMR : les CMR sont un sous-ensemble des ACD, soumis à une réglementation renforcée (substitution prioritaire obligatoire, Art. R4412-66). Tous les ACD ne sont pas des CMR ; tous les CMR sont des ACD. Confusion fréquente en QCM.',
+      'Le pictogramme GHS06 (tête de mort) ≠ toxicité chronique CMR : GHS06 signale la toxicité aiguë LÉTALE (mortel en cas d\'ingestion/inhalation/contact) ; les CMR sont signalés par GHS08 (silhouette humaine). Un QCM qui attribue GHS06 aux CMR est un piège.',
+      'La substitution est la mesure PRIORITAIRE pour les CMR — pas les EPI : l\'Art. R4412-66 impose la substitution avant toute autre mesure. Les EPI seuls (masques, gants) ne constituent pas une réponse suffisante à un risque CMR si la substitution est techniquement possible.',
+      'FDS ≠ CLP : la FDS est régie par le règlement REACH (annexe II, 16 rubriques) ; le CLP régit la classification et l\'étiquetage. Les informations de classification CLP figurent en rubrique 2 de la FDS, mais les deux règlements sont distincts.',
+      'VME ≠ VLE : la VME est calculée sur 8 heures (effets à long terme) ; la VLE sur 15 minutes (effets aigus). Piège exam classique : confondre les durées de référence ou les noms.',
+      'CLP = déclinaison UE du SGH de l\'ONU — SGH ≠ CLP : le SGH est le système onusien, le CLP est la norme européenne qui le met en œuvre. La date clé pour les mélanges est le 1er juin 2015 (fin de transition du régime DSD/DPD vers CLP).'
+    ],
+    sources: [
+      {
+        authority: 'INRS',
+        ref: 'Risques chimiques — ce qu\'il faut retenir',
+        url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html'
+      },
+      {
+        authority: 'INRS',
+        ref: 'Classification et étiquetage des produits chimiques (CLP/SGH)',
+        url: 'https://www.inrs.fr/risques/classification-etiquetage-produits-chimiques/ce-qu-il-faut-retenir.html'
+      },
+      {
+        authority: 'INRS',
+        ref: 'Mesure des expositions aux agents chimiques (VLEP — VME/VLE)',
+        url: 'https://www.inrs.fr/risques/mesure-expositions-agents-chimiques-biologiques/ce-qu-il-faut-retenir.html'
+      }
+    ]
   }
 
 ];
