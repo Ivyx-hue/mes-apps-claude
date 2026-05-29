@@ -131,7 +131,7 @@ Plans:
 - [x] 05-03-PLAN.md — Batch 2: 4 fiches (iso-45001, tms, risque-routier, risque-chimique) — INRS backbone batch
 
 **Wave 4** *(blocked on Wave 3)*
-- [ ] 05-04-PLAN.md — Batch 3: 4 fiches (rps, espaces-confines, acronymes, metiers) — RPS L1152/1153 anchor + Batch F SPA reuse
+- [x] 05-04-PLAN.md — Batch 3: 4 fiches (rps, espaces-confines, acronymes, metiers) — RPS L1152/1153 anchor + Batch F SPA reuse
 
 **Wave 5** *(blocked on Wave 4)*
 - [ ] 05-05-PLAN.md — Batch 4: final 3 fiches (calendrier, icpe-seveso, rncp) — completes 15-fiche BANK theme coverage
@@ -151,7 +151,7 @@ Plans:
 | 2. Content Bank | v2.0 | 0/7 | Planned | - |
 | 3. Flashcards + SRS | v2.0 | 4/4 | Complete | 2026-05-25 |
 | 4. QCM + Tests blancs | v2.0 | 4/4 | Awaiting UAT | - |
-| 5. Fiches de révision | v2.0 | 3/6 | In Progress|  |
+| 5. Fiches de révision | v2.0 | 4/6 | In Progress|  |
 
 ## Out-of-Roadmap Notes
 

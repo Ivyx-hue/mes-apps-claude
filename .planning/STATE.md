@@ -4,12 +4,12 @@ milestone: v2.0
 milestone_name: Étude
 status: executing
 stopped_at: "Phase 5 UI-SPEC approved — initial draft (532a05e) BLOCKED on Dimension 4 (5 sizes, 3 weights); revision (063422f) consolidated typography to 4 sizes (`--step-0`, `--step-1`, `--step-3`, `--step-4`) and 2 weights (400 regular, 600 semibold); checker returned 6/6 PASS. Frontmatter updated to `status: approved`, `reviewed_at: 2026-05-27T15:21+02:00`. Phase 4 plans 4/4 still awaiting owner UAT (f06f48e, 1dfc90c, 271f258, da255d1)."
-last_updated: "2026-05-29T15:53:09.095Z"
+last_updated: "2026-05-29T19:00:12.273Z"
 progress:
   total_phases: 5
   completed_phases: 4
   total_plans: 23
-  completed_plans: 20
+  completed_plans: 21
   percent: 80
 ---
 
@@ -33,7 +33,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 05 (fiches-de-r-vision) — EXECUTING
-Plan: 4 of 6 (05-01 + 05-02 + 05-03 complete & owner-approved — 8 fiches live)
+Plan: 5 of 6 (05-01 + 05-02 + 05-03 complete & owner-approved — 8 fiches live)
 Next:  Phase 5 Wave 4 (05-04) — author third 4 fiches (rps, espaces-confines, acronymes, metiers) in fiches-data.js (renderer byte-stable). Owner ran full-phase `/gsd-execute-phase 5`; executing remaining waves with a UAT checkpoint after each. (Phase 4 plans 4/4 still awaiting owner UAT.)
 
 ```
@@ -96,7 +96,7 @@ None. v1.0 closed clean; v2.0 roadmap approved; ready to plan Phase 1.
 
 ## Session Continuity
 
-Last session: 2026-05-29T15:53:09.087Z
+Last session: 2026-05-29T19:00:12.264Z
 Stopped at: Phase 5 UI-SPEC approved — initial draft (532a05e) BLOCKED on Dimension 4 (5 sizes, 3 weights); revision (063422f) consolidated typography to 4 sizes (`--step-0`, `--step-1`, `--step-3`, `--step-4`) and 2 weights (400 regular, 600 semibold); checker returned 6/6 PASS. Frontmatter updated to `status: approved`, `reviewed_at: 2026-05-27T15:21+02:00`. Phase 4 plans 4/4 still awaiting owner UAT (f06f48e, 1dfc90c, 271f258, da255d1).
 Resume file: None
 Proceeding to: /gsd-plan-phase 5
