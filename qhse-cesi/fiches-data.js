@@ -177,6 +177,16 @@ window.FICHES = [
         authority: 'INRS',
         ref: 'Principes généraux de prévention — Neuf principes généraux',
         url: 'https://www.inrs.fr/demarche/principes-generaux/Principes-generaux-prevention.html'
+      },
+      {
+        authority: 'Légifrance',
+        ref: 'Art. L4121-2 Code du travail — les 9 principes',
+        url: 'https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033019913'
+      },
+      {
+        authority: 'Légifrance',
+        ref: 'Art. L4121-1 Code du travail — obligation générale de prévention',
+        url: 'https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000035640828'
       }
     ]
   },
@@ -251,6 +261,16 @@ window.FICHES = [
         authority: 'Wikipédia FR',
         ref: 'ISO 9001 — Système de Management de la Qualité',
         url: 'https://fr.wikipedia.org/wiki/ISO_9001'
+      },
+      {
+        authority: 'Wikipédia FR',
+        ref: 'Système de management de la qualité (SMQ)',
+        url: 'https://fr.wikipedia.org/wiki/Système_de_management_de_la_qualité'
+      },
+      {
+        authority: 'Wikipédia FR',
+        ref: 'Série des normes ISO 9000',
+        url: 'https://fr.wikipedia.org/wiki/ISO_9000'
       }
     ]
   },
@@ -321,6 +341,16 @@ window.FICHES = [
         authority: 'Wikipédia FR',
         ref: 'ISO 14001 — Système de Management Environnemental',
         url: 'https://fr.wikipedia.org/wiki/ISO_14001'
+      },
+      {
+        authority: 'Wikipédia FR',
+        ref: 'Management environnemental (SME)',
+        url: 'https://fr.wikipedia.org/wiki/Système_de_management_environnemental'
+      },
+      {
+        authority: 'Wikipédia FR',
+        ref: 'Série des normes ISO 14000',
+        url: 'https://fr.wikipedia.org/wiki/ISO_14000'
       }
     ]
   }
