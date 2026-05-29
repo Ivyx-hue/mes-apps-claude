@@ -125,7 +125,7 @@ Plans:
 - [x] 05-01-PLAN.md — Plumbing: .fi-* CSS namespace + 8 print rules on chassis.css, replace #panel-fiches placeholder + append __fiBooted IIFE shell in outils.html, create fiches-data.js skeleton (window.FICHES=[])
 
 **Wave 2** *(blocked on Wave 1 — shared fiches-data.js + outils.html)*
-- [ ] 05-02-PLAN.md — Renderer expansion + Batch 1: 4 fiches (duerp, principes-generaux, iso-9001, iso-14001) + full 6-section renderer + safeSetHTML whitelist filter
+- [x] 05-02-PLAN.md — Renderer expansion + Batch 1: 4 fiches (duerp, principes-generaux, iso-9001, iso-14001) + full 6-section renderer + safeSetHTML whitelist filter
 
 **Wave 3** *(blocked on Wave 2)*
 - [ ] 05-03-PLAN.md — Batch 2: 4 fiches (iso-45001, tms, risque-routier, risque-chimique) — INRS backbone batch
@@ -151,7 +151,7 @@ Plans:
 | 2. Content Bank | v2.0 | 0/7 | Planned | - |
 | 3. Flashcards + SRS | v2.0 | 4/4 | Complete | 2026-05-25 |
 | 4. QCM + Tests blancs | v2.0 | 4/4 | Awaiting UAT | - |
-| 5. Fiches de révision | v2.0 | 1/6 | In Progress|  |
+| 5. Fiches de révision | v2.0 | 2/6 | In Progress|  |
 
 ## Out-of-Roadmap Notes
 

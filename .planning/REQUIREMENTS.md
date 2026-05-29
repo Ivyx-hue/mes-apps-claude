@@ -50,7 +50,7 @@ Committed scope for the "Étude" milestone. Each maps to exactly one roadmap pha
 
 ### Fiches de révision (FICHE)
 
-- [ ] **FICHE-01**: The user can read one structured révision sheet per major theme — a condensed sourced summary of the Hub content with inline citations (Découverte-style provenance)
+- [x] **FICHE-01**: The user can read one structured révision sheet per major theme — a condensed sourced summary of the Hub content with inline citations (Découverte-style provenance)
 - [ ] **FICHE-02**: Fiches are printable with a clean print stylesheet (reusing the v1.0 print rules — sticky nav removed, link URLs as footnotes)
 
 ### Persistence & Trust (PERSIST)
@@ -109,7 +109,7 @@ Coverage audit: 26/26 v2.0 requirements mapped. 0 unmapped. 0 duplicates.
 | TEST-01 | Phase 4 | Pending |
 | TEST-02 | Phase 4 | Pending |
 | TEST-03 | Phase 4 | Pending |
-| FICHE-01 | Phase 5 | Pending |
+| FICHE-01 | Phase 5 | Complete |
 | FICHE-02 | Phase 5 | Pending |
 
 **Coverage:**
