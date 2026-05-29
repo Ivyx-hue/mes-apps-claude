@@ -3,8 +3,8 @@ phase: 05-fiches-de-r-vision
 plan: 02
 type: execute
 wave: 2
-status: checkpoint:human-verify
-completed_tasks: 2
+status: complete
+completed_tasks: 3
 total_tasks: 3
 task1_commit: 82bdaa9
 task2_commit: f344e7d
@@ -28,7 +28,7 @@ decisions:
 metrics:
   duration_min: ~67
   completed_date: 2026-05-29
-  tasks_completed: 2
+  tasks_completed: 3
   files_modified: 2
 ---
 
@@ -168,7 +168,7 @@ DEC-09 holds: Fiches IIFE adds zero SRS/scores references.
 
 ## Owner UAT outcome
 
-Awaiting owner UAT (Task 3 checkpoint). Vercel deploy triggered by push `5929a72..f344e7d` on 2026-05-29 at ~11:08 UTC+2.
+**APPROVED** by owner on 2026-05-29 (browser + print verification on live Vercel deploy). All 4 fiches render the full 6-section template with ToC, Questions clés, and 3 verified sources each; print path clean; localStorage merge-safe (no clobber of P3/P4 keys); zero console errors.
 
 ## Deviations from Plan
 
