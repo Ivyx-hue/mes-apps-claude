@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Étude
 status: executing
-stopped_at: "Phase 5 UI-SPEC approved — initial draft (532a05e) BLOCKED on Dimension 4 (5 sizes, 3 weights); revision (063422f) consolidated typography to 4 sizes (`--step-0`, `--step-1`, `--step-3`, `--step-4`) and 2 weights (400 regular, 600 semibold); checker returned 6/6 PASS. Frontmatter updated to `status: approved`, `reviewed_at: 2026-05-27T15:21+02:00`. Phase 4 plans 4/4 still awaiting owner UAT (f06f48e, 1dfc90c, 271f258, da255d1)."
-last_updated: "2026-05-28T19:43:49.058Z"
+stopped_at: "Phase 5 Wave 1 (05-01 plumbing) complete and pushed — chassis .fi-* CSS + 8 print rules + @page (6c901b9), #panel-fiches 15-option scaffold + __fiBooted IIFE shell + fiches-data.js skeleton (a5f1a43), SUMMARY (e3eda9b). All gates PASS; verify-srs.cjs + verify-quiz.cjs still exit 0. NOTE: worktree isolation malfunctioned (task-1 commit landed on main, worktree branch stayed empty/locked) and the executor hit a session-limit mid-task-2; orchestrator recovered inline. Owner paused after Wave 1 (token-conscious); next = Wave 2 (05-02) content batch via `/clear` + `/gsd-execute-phase 5 --wave 2`. Phase 4 plans 4/4 still awaiting owner UAT (f06f48e, 1dfc90c, 271f258, da255d1)."
+last_updated: "2026-05-28T20:51:56.576Z"
 progress:
   total_phases: 5
   completed_phases: 4
@@ -24,7 +24,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 **Core value:** Have one trustworthy place that answers "what is this formation, what will I study, and where do I find the best resources" — without digging through scattered sources every time. *(v2.0 extends this with: actively revise that content and track mastery.)*
 
-**Current focus:** Phase 05 — fiches-de-révision (UI-SPEC approved; planning next)
+**Current focus:** Phase 05 — fiches-de-r-vision
 
 **Mode:** mvp · **Granularity:** coarse
 **Deploy target:** `https://mes-apps-claude.vercel.app/qhse-cesi/` (live, HTTP 200)
@@ -32,9 +32,9 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-Phase: 04 (qcm-tests-blancs) — ALL PLANS SHIPPED, awaiting owner UAT
-Plan: 4 of 4 (Plan 01 f06f48e; Plan 02 1dfc90c; Plan 03 271f258; Plan 04 da255d1 — all 2026-05-26/27)
-Next:  Owner UAT against Phase 4 ROADMAP SC1-SC4 → mark Phase 4 complete → Phase 5 (Fiches de révision)
+Phase: 05 (fiches-de-r-vision) — EXECUTING (Wave 1 of 6 complete)
+Plan: 1 of 6 (05-01 plumbing shipped — chassis .fi-* CSS + #panel-fiches scaffold + __fiBooted IIFE + fiches-data.js skeleton; commits 6c901b9 + a5f1a43 + e3eda9b)
+Next:  Phase 5 Wave 2 (05-02) — author first 4 fiches (duerp, principes-generaux, iso-9001, iso-14001) + finalize renderFiche() 6-section renderer. Owner paused after Wave 1 (token-conscious): `/clear` then `/gsd-execute-phase 5 --wave 2`. (Phase 4 plans 4/4 still awaiting owner UAT.)
 
 ```
 Milestone : v2.0 Étude
