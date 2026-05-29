@@ -662,6 +662,372 @@ window.FICHES = [
         url: 'https://www.inrs.fr/risques/mesure-expositions-agents-chimiques-biologiques/ce-qu-il-faut-retenir.html'
       }
     ]
+  },
+
+  /* =========================================================
+   * FICHE 9: rps
+   * Plan 05-04, Wave 4
+   * selectedIds: 8 items from rps pool (14 total in BANK)
+   * URL verification: INRS x3 (curl 200, 2026-05-29)
+   * Légifrance L1152-1 + L1153-1: pre-verified by orchestrator (WebFetch 2026-05-29)
+   * Accuracy anchors: harcèlement moral = L1152-1 (NOT L1153-1); burnout NOT in tableau MP
+   * ========================================================= */
+  {
+    slug: 'rps',
+    title: 'Risques Psychosociaux (RPS)',
+    tldr: 'Les risques psychosociaux (RPS) regroupent le stress chronique, le harcèlement et les violences au travail — ils menacent la santé physique et mentale des travailleurs et engagent l\'obligation générale de sécurité de l\'employeur (Art. L4121-1). Leur évaluation est obligatoire au titre du DUERP. La prévention primaire collective — agir sur l\'organisation du travail — prime sur l\'accompagnement individuel.',
+    definitions: [
+      {
+        term: 'RPS',
+        value: 'Risques Psychosociaux. Catégorie de risques professionnels couvrant trois composantes : (1) stress (écart entre les exigences du travail et les ressources de la personne), (2) violences internes (harcèlement moral, harcèlement sexuel — entre membres de l\'organisation), (3) violences externes (incivilités, agressions par des tiers — clients, patients, usagers). Les RPS peuvent conduire à des troubles de la santé (anxiété, burnout, TMS, maladies cardiovasculaires).'
+      },
+      {
+        term: 'Harcèlement moral — Art. L1152-1',
+        value: 'Agissements répétés ayant pour objet ou pour effet une dégradation des conditions de travail susceptible de porter atteinte aux droits du salarié, à sa dignité, d\'altérer sa santé physique ou mentale ou de compromettre son avenir professionnel (Art. L1152-1 Code du travail). L\'intention de nuire n\'est pas requise — l\'effet suffit. Les agissements doivent être RÉPÉTÉS : un acte isolé ne constitue pas du harcèlement moral.'
+      },
+      {
+        term: 'Harcèlement sexuel — Art. L1153-1',
+        value: 'Propos ou comportements à connotation sexuelle ou sexiste répétés qui soit portent atteinte à la dignité du salarié en raison de leur caractère dégradant ou humiliant, soit créent à son encontre une situation intimidante, hostile ou offensante (Art. L1153-1 Code du travail). À ne pas confondre avec L1152-1 (harcèlement moral) — deux articles distincts pour deux infractions distinctes.'
+      },
+      {
+        term: 'Burnout (épuisement professionnel)',
+        value: 'Syndrome d\'épuisement professionnel consécutif à un stress chronique au travail, caractérisé par trois dimensions (modèle Maslach) : épuisement émotionnel, dépersonnalisation (détachement cynique), réduction du sentiment d\'accomplissement. En 2026, le burnout n\'est pas reconnu comme maladie professionnelle dans un tableau MP spécifique — il peut être reconnu en MP "hors tableau" via le Comité Régional de Reconnaissance des Maladies Professionnelles (CRRMP), mais c\'est une procédure rare et complexe.'
+      },
+      {
+        term: 'Violence interne vs. violence externe',
+        value: 'Violence interne : exercée par des membres de l\'organisation (harcèlement moral par un supérieur, conflit entre collègues). Violence externe : exercée par des personnes extérieures à l\'entreprise (client agressif, patient en urgence, usager mécontent). La distinction est fondamentale pour identifier les acteurs responsables et les leviers de prévention.'
+      },
+      {
+        term: 'Prévention primaire RPS',
+        value: 'Agir collectivement sur les causes organisationnelles des RPS : charge de travail, autonomie, organisation du temps, relations hiérarchiques, clarté des rôles. C\'est le niveau de prévention préconisé en priorité par l\'INRS — il s\'oppose à la prévention secondaire (renforcer la résistance individuelle) et tertiaire (accompagner les victimes). La prévention primaire est la seule à s\'attaquer aux causes racines.'
+      },
+      {
+        term: 'CSE et prévention RPS',
+        value: 'Le Comité Social et Économique (CSE) est compétent pour analyser les risques psychosociaux, formuler des avis sur le DUERP et proposer des mesures de prévention. La délégation du personnel au CSE peut déclencher un droit d\'alerte en cas de situation RPS sérieuse. L\'employeur reste juridiquement responsable de la prévention — la compétence du CSE ne le décharge pas.'
+      },
+      {
+        term: 'Droit de retrait — Art. L4131-1',
+        value: 'Droit de tout salarié de se retirer d\'une situation de travail dont il a un motif raisonnable de penser qu\'elle présente un danger grave et imminent pour sa vie ou sa santé (<code>Art. L4131-1</code> Code du travail). Applicable en cas de RPS sévères (menace grave, violences). Le salarié doit en avertir immédiatement l\'employeur ou le représentant du personnel. L\'exercice normal du droit de retrait ne peut pas être sanctionné.'
+      }
+    ],
+    cadreLegal: '<p>L\'obligation de prévention des RPS repose sur l\'obligation générale de sécurité de l\'employeur : <span class="fi-cite"><a href="https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html" target="_blank" rel="noopener noreferrer">INRS — <code>Art. L4121-1 Code du travail</code></a></span>. Ce texte impose à l\'employeur de prendre toutes les mesures nécessaires pour assurer la sécurité et protéger la santé physique <em>et mentale</em> des travailleurs — ce qui couvre explicitement les RPS depuis la loi du 17 janvier 2002.</p><p>Le harcèlement moral est défini et interdit par <span class="fi-cite"><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006900818" target="_blank" rel="noopener noreferrer">Légifrance — <code>Art. L1152-1 Code du travail</code></a></span>. Le harcèlement sexuel est défini et interdit par <span class="fi-cite"><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000043893894" target="_blank" rel="noopener noreferrer">Légifrance — <code>Art. L1153-1 Code du travail</code></a></span>. Ces deux infractions sont passibles de sanctions pénales (2 ans d\'emprisonnement et 30 000 € d\'amende).</p><p>L\'accord national interprofessionnel sur le stress au travail du 2 juillet 2008 (transposition de l\'accord-cadre européen du 8 octobre 2004) complète le cadre légal en définissant le stress professionnel et en fixant des obligations de négociation aux branches et entreprises. Les RPS doivent figurer dans le DUERP (<code>Art. R4121-1</code>) au titre de l\'évaluation des risques par unité de travail.</p>',
+    demarche: '<p>La démarche INRS de prévention des RPS suit <strong>5 étapes</strong> inspirées du cycle PDCA :</p><ul><li><strong>Préparer</strong> — Constituer un groupe de travail pluridisciplinaire (DRH, médecin du travail, CSE, manager, salariés) ; obtenir l\'engagement de la direction ; formaliser le pilotage du projet.</li><li><strong>Analyser</strong> — Utiliser les outils INRS : <span class="fi-cite"><a href="https://www.inrs.fr/risques/psychosociaux/prevention.html" target="_blank" rel="noopener noreferrer">INRS — Démarche de prévention RPS</a></span> ; questionnaire RPS-DU (collectif, confidentiel) ; analyse de la sinistralité AT/MP liée aux RPS ; entretiens avec les unités de travail exposées.</li><li><strong>Traiter</strong> — Définir et mettre en œuvre des mesures de prévention primaire collectives (réorganisation des équipes, clarification des rôles, réduction des sur-charges, réunions de service régulières) ; compléter par des mesures secondaires (formation des managers) et tertiaires si nécessaire.</li><li><strong>Suivre</strong> — Piloter les indicateurs : absentéisme lié aux RPS, taux de rotation, déclarations AT/MP, résultats du questionnaire RPS-DU.</li><li><strong>Évaluer</strong> — Mesurer l\'impact des actions, actualiser le DUERP, présenter les résultats au CSE, lancer un nouveau cycle.</li></ul><p>Le rôle du médecin du travail est central : il dispose d\'un accès privilégié aux données de santé et peut déclencher une visite de l\'entreprise si des cas de RPS sont identifiés lors des consultations. Le signalement par un salarié peut transiter par le CSE, le médecin du travail ou directement l\'employeur — <span class="fi-cite"><a href="https://www.inrs.fr/risques/psychosociaux/accidents-travail-maladies-professionnelles.html" target="_blank" rel="noopener noreferrer">INRS — RPS, AT et maladies professionnelles</a></span>.</p>',
+    selectedIds: [
+      'rps-flashcard-001',
+      'rps-flashcard-002',
+      'rps-flashcard-003',
+      'rps-flashcard-004',
+      'rps-qcm-001',
+      'rps-qcm-002',
+      'rps-qcm-004',
+      'rps-qcm-006'
+    ],
+    pieges: [
+      'Harcèlement moral = L1152-1 (PAS L1153-1) : L1152-1 = harcèlement moral ; L1153-1 = harcèlement sexuel. Les deux articles se suivent et leur confusion est le piège le plus fréquent en examen — mémo : "moral" avant "sexuel" dans l\'ordre numérique (52 avant 53).',
+      'Burnout PAS au tableau MP en 2026 : le burnout n\'est pas reconnu comme maladie professionnelle dans un tableau spécifique — il peut l\'être via le système complémentaire CRRMP, mais c\'est une procédure rare. Un QCM qui propose "burnout = MP tableau" est faux.',
+      'Confusion stress (état) vs. RPS (catégorie de risques) : le stress est une réaction de l\'organisme, une composante RPS ; les RPS sont la catégorie de risques qui englobe stress + violences internes + violences externes.',
+      'Prévention tertiaire ≠ prévention RPS : accompagner psychologiquement les victimes est de la prévention tertiaire (soigner les cas), pas de la prévention des RPS au sens de l\'INRS. La prévention primaire (agir sur l\'organisation) prime.',
+      'CSE compétent, pas seul responsable : le CSE peut formuler des alertes et des avis sur les RPS, mais la responsabilité juridique reste celle de l\'employeur au titre de L4121-1. Un QCM qui place la "responsabilité RPS" sur le CSE est faux.',
+      'Violences internes vs. violences externes : la frontière est l\'appartenance à l\'organisation. Un prestataire externe qui agresse un salarié = violence externe ; un supérieur qui harcèle = violence interne. La source (intra vs extra-organisationnelle) est le critère, pas la gravité.'
+    ],
+    sources: [
+      {
+        authority: 'INRS',
+        ref: 'Risques psychosociaux (RPS) — ce qu\'il faut retenir',
+        url: 'https://www.inrs.fr/risques/psychosociaux/ce-qu-il-faut-retenir.html'
+      },
+      {
+        authority: 'INRS',
+        ref: 'RPS — démarche de prévention',
+        url: 'https://www.inrs.fr/risques/psychosociaux/prevention.html'
+      },
+      {
+        authority: 'INRS',
+        ref: 'RPS — accidents du travail et maladies professionnelles (burnout)',
+        url: 'https://www.inrs.fr/risques/psychosociaux/accidents-travail-maladies-professionnelles.html'
+      }
+    ]
+  },
+
+  /* =========================================================
+   * FICHE 10: espaces-confines
+   * Plan 05-04, Wave 4
+   * selectedIds: 8 items from espaces-confines pool (12 total in BANK)
+   * URL verification: INRS x3 (curl 200, 2026-05-29)
+   * Légifrance refs (R4222-23, R4225-1): rendered as plain <code> text — not curl-verified
+   * ========================================================= */
+  {
+    slug: 'espaces-confines',
+    title: 'Espaces confinés',
+    tldr: 'Un espace confiné est un volume fermé ou partiellement fermé, non conçu pour l\'occupation permanente, présentant des risques atmosphériques (anoxie, toxicité, ATEX). Tout travail en espace confiné impose une procédure stricte : analyse préalable, mesure atmosphérique multi-gaz, permis d\'entrer, surveillance permanente extérieure et plan de secours. La principale cause aggravante des accidents mortels est la tentative de sauvetage improvisée.',
+    definitions: [
+      {
+        term: 'Espace confiné',
+        value: 'Volume totalement ou partiellement fermé, non conçu pour une occupation permanente, accessible temporairement pour y effectuer des travaux. Exemples : fosses, cuves, silos, égouts, canalisations, réservoirs, vides sanitaires, puits. La difficulté d\'évacuation et la possibilité d\'atmosphère dangereuse sont les deux critères déterminants.'
+      },
+      {
+        term: 'Anoxie',
+        value: 'Déficience en oxygène dans l\'atmosphère. Seuil réglementaire INRS : O₂ < 19,5 % = atmosphère appauvrie (risque de perte de conscience rapide) ; < 16 % = danger grave et immédiat ; < 6 % = mort en minutes. La valeur normale d\'O₂ dans l\'air ambiant est 20,9 %. Au-delà de 23,5 % = atmosphère enrichie (suroxygénée), qui aggrave les risques d\'incendie.'
+      },
+      {
+        term: 'ATEX — Atmosphères EXplosives',
+        value: 'Zone ou atmosphère dans laquelle un mélange de gaz, vapeurs, brouillards ou poussières inflammables avec l\'air peut s\'enflammer et exploser. Une explosion est possible uniquement dans l\'intervalle de concentration défini par la LIE (limite inférieure d\'explosivité) et la LSE (limite supérieure d\'explosivité). En dessous de la LIE, le mélange est trop pauvre ; au-dessus de la LSE, trop riche.'
+      },
+      {
+        term: 'Permis d\'entrer (work permit)',
+        value: 'Document formel obligatoire avant toute pénétration dans un espace confiné. Il consigne : identification de l\'espace, résultats de l\'analyse atmosphérique préalable, mesures de prévention requises (EPI, consignation des énergies, ventilation), nombre d\'intervenants, durée, organisation des secours, nom du surveillant extérieur. Sans permis d\'entrer validé, aucun intervenant ne pénètre dans l\'espace.'
+      },
+      {
+        term: 'Surveillance permanente extérieure',
+        value: 'Exigence fondamentale : un surveillant qualifié maintient une présence en dehors de l\'espace confiné pendant toute la durée de l\'intervention. Il surveille les intervenants, les paramètres atmosphériques et peut déclencher les secours — mais il ne doit JAMAIS pénétrer dans l\'espace pour secourir une victime. Il appelle les pompiers spécialisés. La tentative de sauvetage non préparée est la principale cause de bilan aggravé (plusieurs victimes au lieu d\'une).'
+      },
+      {
+        term: 'ARI — Appareil Respiratoire Isolant',
+        value: 'EPI de protection respiratoire fournissant une atmosphère autonome (bouteilles d\'air comprimé). Indispensable en espace confiné présentant une atmosphère appauvrie en O₂ ou contaminée par des gaz toxiques. À distinguer formellement du masque à cartouche filtrante (qui filtre les contaminants mais ne fournit pas d\'oxygène et est inefficace en atmosphère sous-oxygénée).'
+      },
+      {
+        term: 'Détection atmosphérique multi-gaz',
+        value: 'Mesure obligatoire avant toute entrée en espace confiné. Le détecteur multi-gaz mesure simultanément : O₂ (appauvrissement et enrichissement), CO (monoxyde de carbone), H₂S (hydrogène sulfuré) et LEL (% de la LIE pour les gaz inflammables). La mesure doit être effectuée à différentes hauteurs (gaz plus lourds que l\'air s\'accumulent au fond, gaz plus légers au sommet).'
+      }
+    ],
+    cadreLegal: '<p>La réglementation sur le travail en espace confiné repose sur le Code du travail, chapitre "locaux et espace de travail" : <span class="fi-cite"><a href="https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html" target="_blank" rel="noopener noreferrer">INRS — espaces confinés</a></span>. Les dispositions relatives à la ventilation des locaux à pollution spécifique relèvent de <code>Art. R4222-23</code> du Code du travail. Les locaux de travail clos, leur aménagement et leur sécurité sont encadrés par <code>Art. R4225-1</code> et suivants.</p><p>La réglementation ATEX s\'appuie sur l\'arrêté du 8 juillet 2003 (transposant la directive 99/92/CE ATEX 137) : l\'employeur doit établir un document relatif à la protection contre les explosions (DRPCE) dans toute zone ATEX et classer les zones (0/1/2 pour les gaz, 20/21/22 pour les poussières). Les équipements utilisés dans ces zones doivent être certifiés ATEX.</p><p>Pour les opérations en espaces confinés impliquant plusieurs entreprises, le plan de prévention (<code>Art. R4512-6</code> et suivants) est obligatoire lorsque l\'opération dépasse 400 heures ou figure sur la liste des travaux dangereux. La <span class="fi-cite"><a href="https://www.inrs.fr/risques/espaces-confines/procedure-travail-espaces-confines.html" target="_blank" rel="noopener noreferrer">INRS — Procédure de travail en espaces confinés</a></span> formalise les étapes obligatoires : analyse des risques → permis d\'entrer → surveillance → secours.</p>',
+    demarche: '<p>La procédure d\'intervention en espace confiné suit <strong>6 étapes séquentielles obligatoires</strong> définies par l\'<span class="fi-cite"><a href="https://www.inrs.fr/risques/espaces-confines/prevenir-risques.html" target="_blank" rel="noopener noreferrer">INRS — Prévenir les risques en espaces confinés</a></span> :</p><ul><li><strong>Analyse préalable des dangers</strong> — Identifier la nature de l\'espace (anciens produits stockés, risques biologiques, configuration), les risques atmosphériques attendus, les risques mécaniques et les moyens d\'accès/évacuation.</li><li><strong>Mesure atmosphérique multi-gaz</strong> — Effectuer la mesure avant toute entrée (O₂, CO, H₂S, LEL) à différentes hauteurs. Si l\'atmosphère est non conforme, ventiler et re-mesurer avant d\'autoriser l\'entrée.</li><li><strong>Ventilation</strong> — Ventilation mécanique forcée avant et pendant l\'intervention si nécessaire. La ventilation naturelle (ouvrir les accès) est insuffisante pour les gaz lourds (CO₂, H₂S) qui persistent au fond.</li><li><strong>Délivrance du permis d\'entrer</strong> — Document signé par le responsable des travaux, précisant les mesures de prévention et les résultats atmosphériques. Condition sine qua non avant toute pénétration.</li><li><strong>Surveillance permanente extérieure</strong> — Le surveillant reste à l\'extérieur pendant toute la durée. Il surveille les paramètres, maintient la communication avec les intervenants et dispose du plan de secours pré-établi.</li><li><strong>Procédure d\'évacuation et de secours</strong> — Plan de secours préparé à l\'avance, numéros des pompiers spécialisés affichés, équipement de sauvetage disponible à l\'extérieur (treuil, ARI). En cas d\'accident, le surveillant appelle les secours — il ne pénètre pas.</li></ul>',
+    selectedIds: [
+      'espaces-confines-flashcard-001',
+      'espaces-confines-flashcard-002',
+      'espaces-confines-flashcard-003',
+      'espaces-confines-flashcard-004',
+      'espaces-confines-flashcard-005',
+      'espaces-confines-qcm-001',
+      'espaces-confines-qcm-002',
+      'espaces-confines-qcm-003'
+    ],
+    pieges: [
+      'Seuil O₂ : 19,5 % (pas 17 %, pas 21 %) : le seuil d\'appauvrissement INRS est 19,5 % (taux normal = 20,9 %) ; la suroxygénation commence à 23,5 %. Piège classique : écrire "21 %" (taux normal arrondi) ou "17 %" (seuil de danger grave, pas d\'appauvrissement).',
+      'Espace clos ≠ espace confiné nécessairement : un local de travail fermé sans fenêtre est un espace clos, pas forcément un espace confiné. La "confinedness" résulte de l\'impossibilité d\'occupation permanente + risque atmosphérique + difficulté d\'évacuation — un bureau sous-sol ne répond pas à ces critères.',
+      'Masque FFP3 ≠ ARI : un masque filtrant FFP3 protège contre les particules — il ne fournit pas d\'oxygène et est totalement inefficace en atmosphère sous-oxygénée (O₂ < 19,5 %). L\'ARI (appareil respiratoire isolant, bouteilles d\'air) est le seul EPI respiratoire adapté en cas d\'anoxie.',
+      'Le surveillant extérieur NE PÉNÈTRE JAMAIS dans l\'espace pour secourir : tenter de secourir une victime sans équipement spécialisé est la principale cause de bilan aggravé (2e et 3e victimes). Le surveillant appelle les pompiers spécialisés et attend. C\'est contre-intuitif mais c\'est la règle absolue.',
+      'Ventilation naturelle insuffisante pour les gaz lourds : ouvrir les trappes d\'accès ne suffit pas à évacuer les gaz plus lourds que l\'air (H₂S, CO₂, vapeurs de solvants) qui persistent au fond — seule la ventilation mécanique forcée est efficace. Un QCM qui propose "ouvrir les accès pour ventiler" comme mesure suffisante est un piège.',
+      'ATEX : l\'explosion est possible ENTRE LIE et LSE : en dessous de la LIE, le mélange est trop pauvre pour s\'enflammer ; au-dessus de la LSE, trop riche. Un candidat qui dit "plus c\'est concentré, plus c\'est explosif" ignore la LSE — erreur classique.'
+    ],
+    sources: [
+      {
+        authority: 'INRS',
+        ref: 'Espaces confinés — ce qu\'il faut retenir',
+        url: 'https://www.inrs.fr/risques/espaces-confines/ce-qu-il-faut-retenir.html'
+      },
+      {
+        authority: 'INRS',
+        ref: 'Espaces confinés — procédure de travail (permis d\'entrer, surveillance)',
+        url: 'https://www.inrs.fr/risques/espaces-confines/procedure-travail-espaces-confines.html'
+      },
+      {
+        authority: 'INRS',
+        ref: 'Espaces confinés — prévenir les risques',
+        url: 'https://www.inrs.fr/risques/espaces-confines/prevenir-risques.html'
+      }
+    ]
+  },
+
+  /* =========================================================
+   * FICHE 11: acronymes
+   * Plan 05-04, Wave 4
+   * Variable-density fiche: heavy Définitions (≥15 entries), light prose
+   * selectedIds: 8 items from acronymes pool (26 total in BANK)
+   * URL verification: INRS x2 + AIDA INERIS (all verified in prior waves — same URLs)
+   * SPA URL: francecompetences.fr/recherche/rncp/41446/ — Batch F 2026 human-verified
+   * ========================================================= */
+  {
+    slug: 'acronymes',
+    title: 'Acronymes QHSE — lexique de référence',
+    tldr: 'Lexique de référence pour la formation Bachelor QHSE : les acronymes les plus testés en exam, classés par bloc thématique. Mémoriser par regroupement (SST, chimique, management, représentation du personnel, formation) plutôt que par ordre alphabétique. Croiser avec la fiche thématique correspondante pour les définitions approfondies.',
+    definitions: [
+      {
+        term: 'AT / MP',
+        value: 'AT = Accident du Travail (événement soudain survenant par le fait ou à l\'occasion du travail). MP = Maladie Professionnelle (affection contractée progressivement, inscrite aux tableaux du Code de la Sécurité Sociale). La branche AT/MP de la Sécurité Sociale indemnise les deux. Taux de cotisation patronale variable selon secteur et sinistralité.'
+      },
+      {
+        term: 'CSE',
+        value: 'Comité Social et Économique. Instance unique de représentation du personnel, obligatoire dès 11 salariés, issue des ordonnances Macron n°2017-1386 du 22 septembre 2017. Absorbe les anciennes instances CE (comité d\'entreprise), CHSCT et DP (délégués du personnel). Compétent pour les questions économiques, sociales, de santé, sécurité et conditions de travail.'
+      },
+      {
+        term: 'CHSCT',
+        value: 'Comité d\'Hygiène, de Sécurité et des Conditions de Travail. Instance de représentation du personnel spécialisée en SST, créée en 1982. SUPPRIMÉE par les ordonnances Macron en 2017 (disparue au plus tard au 1er janvier 2020). Ses missions ont été transférées au CSE (et à la CSSCT dans les établissements ≥ 300 salariés). Citer le "CHSCT" dans une entreprise créée après 2017 est inexact.'
+      },
+      {
+        term: 'CSSCT',
+        value: 'Commission Santé, Sécurité et Conditions de Travail. Sous-commission obligatoire du CSE dans les établissements d\'au moins 300 salariés (et dans les établissements Seveso, ICPE AS, et établissements nucléaires quelle que soit la taille). Délégation du CSE pour les missions SST — le CSE garde la compétence et la délibération finales.'
+      },
+      {
+        term: 'DUERP',
+        value: 'Document Unique d\'Évaluation des Risques Professionnels. Document obligatoire dès le 1er salarié (<code>Art. R4121-1</code>). Transcrit les résultats de l\'EvRP par unité de travail. Conservation : 40 ans. Mise à jour annuelle si ≥ 11 salariés. Depuis la loi du 2 août 2021, la dénomination officielle est DUERP (et non plus "DUER" sans le P).'
+      },
+      {
+        term: 'EvRP',
+        value: 'Évaluation des Risques Professionnels. Démarche continue d\'identification, d\'analyse et de hiérarchisation des risques professionnels (<code>Art. L4121-3</code>). L\'EvRP est la démarche ; le DUERP est le document qui en formalise les résultats à un instant T. Ne pas confondre la démarche et son document.'
+      },
+      {
+        term: 'PAPRIPACT',
+        value: 'Programme Annuel de Prévention des Risques Professionnels et d\'Amélioration des Conditions de Travail. Obligatoire pour les entreprises ≥ 11 salariés depuis la loi du 2 août 2021. Annexé au DUERP, il liste les actions concrètes de l\'année, les ressources allouées et les délais de réalisation. Soumis pour avis au CSE.'
+      },
+      {
+        term: 'EPI / EPC',
+        value: 'EPI = Équipement de Protection Individuelle (casque, gants, masque, harnais — porté par le travailleur). EPC = Équipement de Protection Collective (garde-corps, aspiration à la source, écran, filet anti-chute — protège un groupe). Hiérarchie impérative (L4121-2) : EPC prime toujours sur EPI. L\'EPI est le dernier recours. Fourni gratuitement par l\'employeur (<code>Art. L4122-2</code>).'
+      },
+      {
+        term: 'RPS / TMS',
+        value: 'RPS = Risques PsychoSociaux (stress, harcèlement, violences — atteintes à la santé mentale et physique). TMS = Troubles Musculo-Squelettiques (pathologies des tendons, muscles, articulations — 1re cause de MP en France). Les deux sont liés : le stress chronique (RPS) potentialise les facteurs biomécaniques et augmente la prévalence des TMS.'
+      },
+      {
+        term: 'CMR / ACD',
+        value: 'CMR = Cancérogène, Mutagène, Reprotoxique (sous-ensemble des agents chimiques dangereux soumis à une réglementation renforcée — substitution prioritaire obligatoire). ACD = Agent Chimique Dangereux (catégorie large : tout agent classé CLP ou présentant un risque pour la santé). Tous les CMR sont des ACD, mais tous les ACD ne sont pas des CMR.'
+      },
+      {
+        term: 'CLP / SGH',
+        value: 'CLP = Classification, Labelling, Packaging — règlement européen (CE) 1272/2008 réglementant la classification et l\'étiquetage des produits chimiques (pictogrammes SGH, mentions H et P). SGH = Système Général Harmonisé des Nations Unies — cadre international dont le CLP est la déclinaison européenne obligatoire. En vigueur pour tous les produits depuis le 1er juin 2015.'
+      },
+      {
+        term: 'VLEP / VME / VLE',
+        value: 'VLEP = Valeur Limite d\'Exposition Professionnelle (terme chapeau). VME = Valeur Moyenne d\'Exposition (sur 8 heures — expositions chroniques). VLE = Valeur Limite d\'Exposition à court terme (sur 15 minutes — pics). Piège : la VME n\'est pas une "valeur maximale" — c\'est une moyenne journalière. VLE = pic ; VME = journalière.'
+      },
+      {
+        term: 'SMQ / SME / SMS-SST',
+        value: 'SMQ = Système de Management de la Qualité (référentiel ISO 9001). SME = Système de Management Environnemental (référentiel ISO 14001). SMS-SST = Système de Management de la Santé et Sécurité au Travail (référentiel ISO 45001). Les trois partagent la HLS (High Level Structure §4–§10) et peuvent être intégrés en SMI (Système de Management Intégré). SMS-SST ≠ DUERP : le DUERP est l\'obligation légale française ; le SMS-SST est le système de management volontaire.'
+      },
+      {
+        term: 'ICPE / Seveso',
+        value: 'ICPE = Installation Classée pour la Protection de l\'Environnement (<code>Art. L511-1</code> Code de l\'environnement). Contrôlée par la DREAL en région. Seveso = directive européenne sur les risques d\'accidents majeurs (directive 2012/18/UE "Seveso III"). Les sites Seveso sont un sous-ensemble des ICPE avec des risques accidentels majeurs. Seuil haut (Seveso haut) = CSSCT obligatoire quelle que soit la taille.'
+      },
+      {
+        term: 'RNCP / BC01-BC04',
+        value: 'RNCP = Répertoire National des Certifications Professionnelles. Le Bachelor QHSE CESI est enregistré sous la référence RNCP41446. La certification est découpée en 4 blocs de compétences : BC01 (Management QSE), BC02 (Prévention des risques), BC03 (Environnement et développement durable), BC04 (Management de la qualité). Ces codes sont spécifiques au RNCP41446 — ils ne sont pas universels. Source : <a href="https://www.francecompetences.fr/recherche/rncp/41446/" target="_blank" rel="noopener noreferrer">France compétences — RNCP41446</a>.'
+      },
+      {
+        term: 'CFA / VAE / OPCO',
+        value: 'CFA = Centre de Formation des Apprentis (organisme qui délivre la formation en alternance). VAE = Validation des Acquis de l\'Expérience (procédure permettant d\'obtenir une certification sur la base de l\'expérience professionnelle). OPCO = Opérateur de Compétences (organisme qui finance la formation professionnelle selon les branches). Dans le parcours Bachelor QHSE en alternance : le CFA organise la formation, l\'OPCO la cofinance, la VAE est une voie alternative d\'accès à RNCP41446.'
+      },
+      {
+        term: 'FDS / REACH',
+        value: 'FDS = Fiche de Données de Sécurité (document obligatoire en 16 rubriques pour tout ACD classé CLP). REACH = Registration, Evaluation, Authorisation and restriction of CHemicals — règlement européen (CE) 1907/2006 régissant l\'enregistrement et l\'autorisation des substances chimiques. L\'annexe II de REACH définit le format obligatoire des FDS. CLP et REACH sont complémentaires : REACH identifie les substances, CLP les classifie et les étiquette.'
+      }
+    ],
+    cadreLegal: '<p>Cette fiche est un lexique thématique : chaque acronyme renvoie à son texte de référence. Références structurantes : <span class="fi-cite"><a href="https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html" target="_blank" rel="noopener noreferrer">INRS — DUERP (<code>Art. R4121-1</code>)</a></span> pour les acronymes SST/DUERP ; <span class="fi-cite"><a href="https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html" target="_blank" rel="noopener noreferrer">INRS — Risques chimiques</a></span> pour CMR/FDS/CLP/VLEP ; <span class="fi-cite"><a href="https://aida.ineris.fr/inspection-icpe/principes-reglementaires/quest-quune-installation-classee" target="_blank" rel="noopener noreferrer">AIDA INERIS — ICPE (<code>Art. L511-1</code>)</a></span> pour ICPE/Seveso.</p><p>Repères article-clés : <code>Art. R4121-1</code> → DUERP ; <code>Art. L4121-2</code> → 9 principes (EPC/EPI) ; <code>Art. L2311-1</code> → CSE (périmètre légal) ; <code>Art. L511-1</code> Code de l\'environnement → ICPE. Pour le RNCP41446 et les blocs de compétences, la référence officielle est France compétences (SPA — vérifiée Batch F 2026).</p>',
+    demarche: '<p>Cette fiche s\'utilise comme un <strong>lexique de révision</strong>. Méthode recommandée :</p><ul><li><strong>Regrouper par bloc thématique</strong> et non par ordre alphabétique : bloc SST (AT/MP, DUERP, EvRP, PAPRIPACT, EPI/EPC, RPS, TMS) ; bloc chimique (ACD, CMR, CLP, SGH, VLEP, VME, VLE, FDS, REACH) ; bloc management (SMQ, SME, SMS-SST, SMI, PDCA, HLS) ; bloc représentation du personnel (CSE, CHSCT, CSSCT) ; bloc formation (RNCP, BC01-04, CFA, VAE, OPCO).</li><li><strong>Croiser avec la fiche thématique associée</strong> pour approfondir : l\'acronyme DUERP → fiche DUERP ; CMR/FDS → fiche Risque chimique ; CSE/CHSCT → fiches principes généraux ou DUERP ; RNCP/BC → fiche Métiers.</li><li><strong>Identifier les pièges par thème</strong> : les confusions les plus fréquentes sont listées dans la section Pièges ci-dessous — réviser par paire (CHSCT vs CSE, VME vs VLE, EPI vs EPC, L1152-1 vs L1153-1).</li></ul>',
+    selectedIds: [
+      'acronymes-flashcard-001',
+      'acronymes-flashcard-006',
+      'acronymes-flashcard-008',
+      'acronymes-flashcard-009',
+      'acronymes-flashcard-010',
+      'acronymes-flashcard-013',
+      'acronymes-qcm-001',
+      'acronymes-qcm-004'
+    ],
+    pieges: [
+      'CHSCT supprimé en 2017, disparu en 2020 : le CHSCT n\'existe plus depuis les ordonnances Macron. Toute question qui le présente comme une instance active dans une entreprise moderne est fausse — la réponse correcte est CSE (et CSSCT dans les établissements ≥ 300 salariés).',
+      'BC01..BC04 sont spécifiques au RNCP41446 du Bachelor QHSE CESI — ils ne sont pas des codes universels. D\'autres certifications QHSE ont leurs propres blocs avec d\'autres numéros ; seul RNCP41446 est en jeu dans cette formation.',
+      'SMS-SST ≠ DUERP : le SMS-SST (ISO 45001) est un système de management volontaire global ; le DUERP est l\'obligation légale française de transcription des résultats de l\'EvRP. Les deux sont complémentaires mais distincts — en QCM, un SMS-SST ne remplace pas le DUERP.',
+      'EPI prime sur EPC : FAUX — c\'est l\'inverse. La hiérarchie L4121-2 place l\'EPC (protection collective) AVANT l\'EPI (protection individuelle). L\'EPI est le dernier recours. Un QCM qui propose "distribuer des EPI en priorité" comme première mesure de prévention est un piège.',
+      'VME ≠ "Valeur Maximale en Entreprise" : la VME = Valeur Moyenne d\'Exposition sur 8 heures. Ce n\'est pas une valeur maximale instantanée — c\'est une moyenne journalière. La VLE couvre les pics (15 min). Cette confusion est très courante.',
+      'CSSCT obligatoire ≠ seulement 300 salariés : la CSSCT est obligatoire dans les établissements ≥ 300 salariés, MAIS AUSSI dans tous les établissements Seveso, ICPE à autorisation spéciale et établissements nucléaires quelle que soit leur taille. Le seul seuil "300 salariés" est incomplet.'
+    ],
+    sources: [
+      {
+        authority: 'INRS',
+        ref: 'DUERP — Document unique et évaluation des risques professionnels',
+        url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html'
+      },
+      {
+        authority: 'INRS',
+        ref: 'Risques chimiques — ce qu\'il faut retenir (CMR, FDS, CLP, VLEP)',
+        url: 'https://www.inrs.fr/risques/chimiques/ce-qu-il-faut-retenir.html'
+      },
+      {
+        authority: 'France compétences',
+        ref: 'RNCP41446 — Bachelor QHSE CESI (BC01–BC04)',
+        url: 'https://www.francecompetences.fr/recherche/rncp/41446/'
+      }
+    ]
+  },
+
+  /* =========================================================
+   * FICHE 12: metiers
+   * Plan 05-04, Wave 4
+   * selectedIds: 8 items from metiers pool (12 total in BANK)
+   * URL verification: France Travail (curl 200, 2026-05-29)
+   * SPA URL: francecompetences.fr/recherche/rncp/41446/ — Batch F 2026 human-verified
+   * ========================================================= */
+  {
+    slug: 'metiers',
+    title: 'Métiers QHSE — codes ROME et parcours alternance',
+    tldr: 'Le Bachelor QHSE CESI (RNCP41446) ouvre sur trois codes ROME officiels : H1302 (management/ingénierie HSE), H1502 (management/ingénierie qualité) et M1402 (conseil en organisation). L\'alternance est la voie privilégiée — le CFA organise la formation, l\'OPCO la cofinance, l\'entreprise apporte le terrain. ROME ≠ RNCP : deux référentiels distincts, un pour les métiers, l\'autre pour les certifications.',
+    definitions: [
+      {
+        term: 'ROME',
+        value: 'Répertoire Opérationnel des Métiers et des Emplois. Référentiel élaboré par France Travail (ex Pôle Emploi) qui classe les métiers en familles professionnelles. Chaque code ROME comprend 5 caractères : 1 lettre (domaine) + 4 chiffres (famille métier). H = Industrie ; M = Support à l\'entreprise. Le ROME décrit les activités, compétences et environnements de travail de chaque famille de métiers.'
+      },
+      {
+        term: 'ROME H1302',
+        value: 'Management et ingénierie Hygiène Sécurité Environnement (HSE) industriels. Premier code ROME officiellement associé à RNCP41446 par France compétences. Couvre les postes de responsable/ingénieur HSE : pilotage du SMSST, mise en conformité réglementaire, gestion des risques industriels, animation de la culture sécurité, relations avec DREAL et inspection du travail. Niveau typiquement Bac+5 dans l\'offre d\'emploi.'
+      },
+      {
+        term: 'ROME H1502',
+        value: 'Management et ingénierie qualité industrielle. Deuxième code ROME officiel de RNCP41446. Couvre les postes de responsable qualité : pilotage du SMQ ISO 9001, audits fournisseurs, métrologie, certification produit/process, gestion des non-conformités. Distinct de H1302 (HSE) : ici la priorité est la conformité qualité, pas la sécurité au travail.'
+      },
+      {
+        term: 'ROME M1402',
+        value: 'Conseil en organisation et management d\'entreprise. Troisième code ROME officiel de RNCP41446. Couvre les fonctions transversales de conseil et de structuration des systèmes de management (SMI, RSE, processus). La lettre M (Support à l\'entreprise) souligne la dimension stratégique et transverse du profil QHSE. H1523 (Responsable QSE) est souvent cité dans les offres d\'emploi mais n\'apparaît pas dans la fiche RNCP41446 officielle.'
+      },
+      {
+        term: 'ROME H1303',
+        value: 'Intervention technique en Hygiène Sécurité Environnement. Code ROME du technicien HSE, niveau d\'entrée dans la filière (typiquement Bac+2). Couvre les missions terrain : rondes de sécurité, vérification EPI/EPC, animation des quarts d\'heure sécurité, tenue du registre des accidents. Niveau inférieur à H1302 (Bac+5) et H1523 (Bac+3).'
+      },
+      {
+        term: 'RNCP41446',
+        value: 'Numéro d\'enregistrement au Répertoire National des Certifications Professionnelles du Bachelor QHSE CESI. La fiche RNCP41446 publiée par France compétences liste les blocs de compétences (BC01-BC04), les codes ROME associés (H1302, H1502, M1402), les modalités d\'accès et les passerelles. C\'est la référence officielle de la certification — ne pas confondre avec le code CPF ou le code NSF.'
+      },
+      {
+        term: 'Alternance — rôles CFA / OPCO / tuteur',
+        value: 'En contrat d\'alternance (apprentissage ou professionnalisation) : le CFA (Centre de Formation des Apprentis) dispense la formation théorique et délivre la certification ; l\'OPCO (Opérateur de Compétences de la branche) finance tout ou partie des frais de formation et rémunère l\'apprenti ; le tuteur en entreprise encadre l\'alternant et valide les compétences terrain. Le tuteur n\'est pas le responsable hiérarchique — son rôle est pédagogique.'
+      }
+    ],
+    cadreLegal: '<p>Le Bachelor QHSE CESI est enregistré au <span class="fi-cite"><a href="https://www.francecompetences.fr/recherche/rncp/41446/" target="_blank" rel="noopener noreferrer">France compétences — RNCP41446</a></span>. L\'enregistrement RNCP est la reconnaissance officielle de la certification par l\'État. Les codes ROME associés (H1302, H1502, M1402) sont issus du référentiel France Travail, accessible sur <span class="fi-cite"><a href="https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html" target="_blank" rel="noopener noreferrer">France Travail — le ROME et les fiches métiers</a></span>.</p><p>Le cadre juridique de la formation en alternance repose sur le Code du travail : <code>Art. L6313-1</code> et suivants (formation professionnelle continue) ; <code>Art. L6211-1</code> et suivants (contrat d\'apprentissage). L\'employeur qui accueille un alternant signe un contrat d\'apprentissage ou de professionnalisation, soumis à l\'OPCO compétent pour la branche.</p><p>Le ROME n\'est pas le RNCP : le ROME est un outil de description des métiers (emploi, activités, compétences) géré par France Travail ; le RNCP est un outil de description des certifications (niveau, blocs, modalités) géré par France compétences. Les deux référentiels se complètent mais dépendent d\'autorités différentes.</p>',
+    demarche: '<p>Pour lire et utiliser la fiche <span class="fi-cite"><a href="https://www.francecompetences.fr/recherche/rncp/41446/" target="_blank" rel="noopener noreferrer">RNCP41446</a></span> dans le cadre de son parcours QHSE :</p><ul><li><strong>Identifier les blocs de compétences (BC01-BC04)</strong> — La fiche RNCP41446 décompose la certification en 4 blocs, chacun correspondant à un domaine de compétences du métier QSE. En alternance, les missions confiées par l\'entreprise doivent couvrir les activités de chaque bloc pour que la formation soit complète.</li><li><strong>Lire les codes ROME associés</strong> — H1302, H1502, M1402 donnent une description des activités et compétences attendues du niveau Bachelor QHSE. Ils servent aussi pour cibler les offres d\'emploi : un alternant peut se positionner sur des offres codées H1523 (QSE Bac+3) même si ce code n\'est pas dans la fiche RNCP41446 officielle.</li><li><strong>Identifier l\'OPCO de sa branche</strong> — Selon le secteur de l\'entreprise d\'accueil, l\'OPCO compétent diffère (ex : OCAPIAT pour l\'agriculture, ATLAS pour les services financiers). L\'OPCO valide le contrat et finance la formation ; sa contribution peut couvrir tout ou partie des frais.</li><li><strong>Rôle du tuteur entreprise</strong> — Le tuteur pédagogique assure le suivi des apprentissages terrain, évalue les compétences acquises et signe les documents de validation. Un mauvais choix de tuteur (sans compétences QHSE) est un facteur de risque pour la validation des blocs de compétences.</li></ul>',
+    selectedIds: [
+      'metiers-flashcard-001',
+      'metiers-flashcard-002',
+      'metiers-flashcard-003',
+      'metiers-flashcard-004',
+      'metiers-flashcard-006',
+      'metiers-qcm-001',
+      'metiers-qcm-002',
+      'metiers-qcm-003'
+    ],
+    pieges: [
+      'ROME ≠ RNCP : deux référentiels distincts, deux autorités différentes. ROME = métiers/emploi (France Travail). RNCP = certifications/diplômes (France compétences). Un QCM qui confond les deux référentiels est un piège classique.',
+      'H1523 (Responsable QSE) ≠ dans la liste officielle RNCP41446 : H1523 apparaît dans de nombreuses offres d\'emploi pour un Bac+3 QSE, mais la fiche RNCP41446 de France compétences liste H1302, H1502 et M1402 — pas H1523. Les QCM basés sur la fiche RNCP officielle ne citent pas H1523.',
+      'H1303 ≠ niveau Bachelor : H1303 (Intervention technique HSE) est le niveau technicien Bac+2. H1302 est le niveau manager/ingénieur Bac+5. Le Bachelor Bac+3 se positionne entre les deux — code H1523 dans les offres d\'emploi, M1402 dans la fiche RNCP officielle.',
+      'La lettre H du code ROME ≠ Hygiène : H est le domaine professionnel "Industrie" dans la nomenclature ROME. Ce n\'est pas l\'initiale de "Hygiène". M (M1402) = Support à l\'entreprise. Ce faux ami est piégeant.',
+      'CFA ≠ OPCO : le CFA forme et certifie ; l\'OPCO finance. Les deux sont partenaires mais distincts — confondre leurs rôles est une erreur fréquente dans les QCM sur la formation professionnelle.',
+      'VAE : l\'alternance n\'est pas la seule voie pour obtenir RNCP41446 — la VAE (Validation des Acquis de l\'Expérience) permet d\'obtenir tout ou partie de la certification sans formation, sur la base de l\'expérience professionnelle. Un QCM qui présente l\'alternance comme la "seule voie" est inexact.'
+    ],
+    sources: [
+      {
+        authority: 'France compétences',
+        ref: 'RNCP41446 — Bachelor QHSE CESI (codes ROME, BC01-BC04)',
+        url: 'https://www.francecompetences.fr/recherche/rncp/41446/'
+      },
+      {
+        authority: 'France Travail',
+        ref: 'Le ROME et les fiches métiers (H1302, H1502, M1402, H1303)',
+        url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html'
+      },
+      {
+        authority: 'INRS',
+        ref: 'DUERP et EvRP — référentiel de base (RNCP41446 BC02)',
+        url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html'
+      }
+    ]
   }
 
 ];
