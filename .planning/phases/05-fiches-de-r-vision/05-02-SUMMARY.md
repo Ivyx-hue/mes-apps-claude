@@ -72,9 +72,9 @@ The Fiches IIFE empty-state stub was replaced with a complete 6-section renderer
 | Fiche | defs | selectedIds | pieges | sources |
 |-------|------|-------------|--------|---------|
 | duerp | 7 | 8 | 6 | 3 |
-| principes-generaux | 8 | 8 | 6 | 1 |
-| iso-9001 | 8 | 8 | 6 | 1 |
-| iso-14001 | 7 | 8 | 6 | 1 |
+| principes-generaux | 8 | 8 | 6 | 3 |
+| iso-9001 | 8 | 8 | 6 | 3 |
+| iso-14001 | 7 | 8 | 6 | 3 |
 
 ## Commit isolation confirmation
 
@@ -94,8 +94,16 @@ All URLs content-verified via `curl -sL` on 2026-05-29. Légifrance returns 403 
 | https://www.inrs.fr/demarche/principes-generaux/Principes-generaux-prevention.html | "Principes généraux de la démarche de prévention. Neuf principes généraux de prévention" | 200 | INRS | principes-generaux |
 | https://fr.wikipedia.org/wiki/ISO_9001 | "ISO 9001 — Wikipédia" | 200 | Wikipédia FR | iso-9001 |
 | https://fr.wikipedia.org/wiki/ISO_14001 | "ISO 14001 — Wikipédia" | 200 | Wikipédia FR | iso-14001 |
+| https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033019913 | "Article L4121-2 - Code du travail" (les 9 principes) | 200 | Légifrance | principes-generaux |
+| https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000035640828 | "Article L4121-1 - Code du travail" (obligation employeur) | 200 | Légifrance | principes-generaux |
+| https://fr.wikipedia.org/wiki/Système_de_management_de_la_qualité | "Système de management de la qualité — Wikipédia" | 200 | Wikipédia FR | iso-9001 |
+| https://fr.wikipedia.org/wiki/ISO_9000 | "Série des normes ISO 9000" | 200 | Wikipédia FR | iso-9001 |
+| https://fr.wikipedia.org/wiki/Système_de_management_environnemental | "Management environnemental — Wikipédia" | 200 | Wikipédia FR | iso-14001 |
+| https://fr.wikipedia.org/wiki/ISO_14000 | "Série des normes ISO 14000" | 200 | Wikipédia FR | iso-14001 |
 
 Soft-404 grep (search for "404", "introuvable", "page non trouvée") on all verified pages: no matches. All pages confirmed to land directly on topic content.
+
+**Source-count fix (commit `b5f0a78`):** The 2 Légifrance + 4 Wikipédia FR URLs above were added to bring `principes-generaux`, `iso-9001`, and `iso-14001` from 1 → 3 sources. The 2 Légifrance URLs (curl-blocked, HTTP 403 anti-bot) were content-verified by the orchestrator via WebFetch on 2026-05-29 — both confirmed real article pages (L4121-2 contains the 9 principles; L4121-1 is the general obligation). The 4 Wikipédia FR additions stay within the locked "Wikipedia FR for ISO" decision (STATE.md). No duplicate URLs within any fiche.
 
 **Note on Légifrance:** URLs present in `cadreLegal` / `demarche` HTML strings (e.g. in BANK source.url fields already verified human-in-loop on 2026-05-19) are inside anchor text authored by the IIFE safeSetHTML whitelist — they are not in `sources[]`. The sources[] arrays use only the curl-verified authorities above.
 
@@ -153,7 +161,7 @@ DEC-09 holds: Fiches IIFE adds zero SRS/scores references.
 | `cadreLegal` contains `<span class="fi-cite">` | PASS (all 4) |
 | `demarche` ≥ 50 chars | PASS (all >> 50) |
 | `pieges.length` ∈ [3, 8] per fiche (all = 6) | PASS |
-| `sources.length` ≥ 1 per fiche | PASS (3, 1, 1, 1) |
+| `sources.length` ∈ [3, 8] per fiche | PASS (all = 3, after fix `b5f0a78`) |
 | All `sources[].url` match `^https?://` | PASS |
 | `target="_blank"` count ≡ `rel="noopener noreferrer"` count | PASS |
 | selectedIds cross-reference: all resolve with matching theme | PASS |
@@ -164,11 +172,11 @@ Awaiting owner UAT (Task 3 checkpoint). Vercel deploy triggered by push `5929a72
 
 ## Deviations from Plan
 
-**1. [Rule 1 - Bug] principes-generaux and ISO fiches have 1 source each (not ≥ 3)**
+**1. [Rule 1 - Bug] principes-generaux and ISO fiches initially had 1 source each (not ≥ 3) — RESOLVED**
 
-The PLAN says `sources.length ∈ [3, 8] per fiche` in the acceptance criteria text, but the only verifiable authority for principes-generaux is INRS (one URL covers all L4121-2 content) and for ISO themes the locked decision STATE.md restricts sources to "Wikipedia FR for all three ISO themes" (one URL per fiche). Adding artificial duplicate sources would violate the "deduplicate URLs within a fiche" rule.
+Initial state: the executor shipped 1 source each for `principes-generaux`, `iso-9001`, `iso-14001`, arguing Légifrance was curl-blocked (403) and the ISO lock implied a single Wikipedia source. This under-delivered against the plan's `sources.length ∈ [3, 8]` acceptance criteria.
 
-Resolution: The schema gate was written as `F.every(f => f.sources.length >= 1)` (matching the locked DEC) rather than the possibly-inconsistent `>= 3` from the plan text. The PLAN's Task 2 `<verify>` node script also uses `>= 3` but the actual acceptance criteria list at line 296 says `∈ [3, 8]`. Given the locked decision conflict, minimum 1 was applied. Owner can add more sources in a future content-polish pass.
+Resolution (owner-approved via checkpoint, applied in commit `b5f0a78`): each of the 3 fiches was brought to exactly 3 content-verified sources. `principes-generaux` += Légifrance L4121-2 + L4121-1 (verified via orchestrator WebFetch, since curl returns 403). The two ISO fiches += two related Wikipédia FR articles each (SMQ / ISO 9000 family; Management environnemental / ISO 14000 family) — all distinct, topic-direct, and consistent with the locked "Wikipedia FR for ISO" decision. No duplicate URLs. The plan's `>= 3` schema gate now passes for all 4 fiches.
 
 ## Known Stubs
 
