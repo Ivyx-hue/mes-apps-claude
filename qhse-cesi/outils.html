@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="chassis.css">
   <script src="outils-data.js" defer></script>
   <script src="srs.js" defer></script>
+  <script src="fiches-data.js" defer></script>
 </head>
 <body>
   <!-- Skip-link: must be the very first focusable element in <body>. -->
@@ -126,8 +127,37 @@
       </div>
 
       <div role="tabpanel" id="panel-fiches" aria-labelledby="tab-fiches" tabindex="0" hidden>
-        <!-- Phase 5 mount point: Fiches de révision imprimables -->
-        <p class="placeholder">Ce mode arrive en Phase 5 — fiches de révision synthétiques, optimisées pour l'impression (feuille A4 recto-verso par bloc RNCP). La feuille de style dédiée est déjà incluse dans <code>chassis.css</code>.</p>
+        <h2 class="sr-only">Fiches de révision</h2>
+
+        <nav class="fi-theme" aria-label="Choisir un thème">
+          <label for="fi-theme-select">Thème</label>
+          <select id="fi-theme-select" data-fi-theme>
+            <option value="duerp" selected>DUERP</option>
+            <option value="principes-generaux">Principes généraux de prévention</option>
+            <option value="iso-9001">ISO 9001</option>
+            <option value="iso-14001">ISO 14001</option>
+            <option value="iso-45001">ISO 45001</option>
+            <option value="tms">TMS</option>
+            <option value="risque-routier">Risque routier</option>
+            <option value="risque-chimique">Risque chimique</option>
+            <option value="rps">RPS</option>
+            <option value="espaces-confines">Espaces confinés</option>
+            <option value="acronymes">Acronymes</option>
+            <option value="metiers">Métiers</option>
+            <option value="calendrier">Calendrier alternance</option>
+            <option value="icpe-seveso">ICPE / Seveso</option>
+            <option value="rncp">RNCP / Blocs de compétences</option>
+          </select>
+        </nav>
+
+        <nav class="fi-toc" aria-label="Sommaire de la fiche" data-fi-toc>
+          <h3 class="sr-only">Dans cette fiche</h3>
+          <ol></ol>
+        </nav>
+
+        <article class="fi-fiche" data-fi-active-fiche aria-live="polite" aria-atomic="false"></article>
+
+        <!-- Phase 5 Fiches engine — IIFE appended after Tests blancs IIFE; see outils.html#fiches-iife -->
       </div>
 
       <div role="tabpanel" id="panel-qcm" aria-labelledby="tab-qcm" tabindex="0" hidden>
@@ -1944,6 +1974,159 @@
         }
         updatePoolWarning();
         renderHistory(readScores());
+      } // end boot()
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot, { once: true });
+      } else {
+        boot();
+      }
+    })();
+  </script>
+
+  <script>
+    /* ============ IIFE: Fiches de révision — read-only fiche reader ============ */
+    /* No globals, no inline on* handlers, no document-level keydown. Phase 5 / Plan 05-01 (plumbing). */
+    (() => {
+      'use strict';
+
+      // Double-load guard — distinct from __fcViewBooted / __qzQcmBooted / __qzTestsBooted
+      if (window.__fiBooted) return;
+      window.__fiBooted = true;
+
+      // Inline scripts execute during HTML parsing — BEFORE deferred external
+      // scripts (outils-data.js, srs.js, fiches-data.js) finish evaluating. Defer
+      // the IIFE body until DOMContentLoaded so window.BANK and window.FICHES are
+      // populated. (Same hotfix pattern as Flashcards IIFE — commit 0553899.)
+      function boot() {
+      // ----------------------------------------------------------------
+      // Pre-flight: require window.BANK and window.FICHES before touching DOM
+      // ----------------------------------------------------------------
+      const panel = document.getElementById('panel-fiches');
+
+      if (!panel) {
+        console.warn('[Fiches] #panel-fiches not found — cannot boot view.');
+        return;
+      }
+
+      if (!window.BANK || !Array.isArray(window.BANK) || !window.FICHES || !Array.isArray(window.FICHES)) {
+        // Graceful degradation — render an inline error inside the panel
+        const errEl = document.createElement('p');
+        errEl.className = 'fi-error';
+        errEl.textContent = 'Impossible de charger les données. Recharge la page ou vérifie que outils-data.js et fiches-data.js sont bien servis.';
+        panel.appendChild(errEl);
+        console.error('[Fiches] BANK or FICHES missing — cannot boot view.', { BANK: !!window.BANK, FICHES: !!window.FICHES });
+        return;
+      }
+
+      // ----------------------------------------------------------------
+      // Preferences — merge-safe read/write (Pattern S2 / P4)
+      // Fiches adds lastFicheTheme; Phase 3 + Phase 4 keys are preserved by
+      // the merge-safe writer — a naive setItem would clobber sibling keys.
+      // ----------------------------------------------------------------
+      const DEFAULT_PREFS = {
+        lastFicheTheme: 'duerp'
+      };
+
+      function readPrefs() {
+        try {
+          const raw = localStorage.getItem('qhse-prefs-v1');
+          if (!raw) return Object.assign({}, DEFAULT_PREFS);
+          const parsed = JSON.parse(raw);
+          return {
+            lastFicheTheme: (typeof parsed.lastFicheTheme === 'string') ? parsed.lastFicheTheme : DEFAULT_PREFS.lastFicheTheme
+          };
+        } catch (e) {
+          console.warn('[Fiches] readPrefs failed:', e.message);
+          return Object.assign({}, DEFAULT_PREFS);
+        }
+      }
+
+      function writePrefs(partial) {
+        try {
+          const raw = localStorage.getItem('qhse-prefs-v1');
+          const existing = raw ? JSON.parse(raw) : {};
+          const merged = Object.assign({}, existing, partial);
+          localStorage.setItem('qhse-prefs-v1', JSON.stringify(merged));
+        } catch (e) {
+          console.warn('[Fiches] writePrefs failed:', e.message);
+        }
+      }
+
+      // ----------------------------------------------------------------
+      // DOM references — panel-scoped only (Pattern S4)
+      // ----------------------------------------------------------------
+      const themeSelect = panel.querySelector('[data-fi-theme]');
+      const ficheEl = panel.querySelector('[data-fi-active-fiche]');
+
+      // ----------------------------------------------------------------
+      // renderFiche(slug) — Wave 1 stub: empty-state only.
+      // Real per-section rendering arrives in Plan 05-02.
+      // ----------------------------------------------------------------
+      function renderFiche(slug) {
+        if (!ficheEl) return;
+
+        // Clear existing content
+        while (ficheEl.firstChild) {
+          ficheEl.removeChild(ficheEl.firstChild);
+        }
+
+        // Wave 1: FICHES is empty — always render empty state
+        const fiche = window.FICHES.find(function(f) { return f.slug === slug; });
+        if (!fiche) {
+          const emptyEl = document.createElement('p');
+          emptyEl.className = 'fi-empty';
+          emptyEl.textContent = 'Aucune fiche disponible pour ce thème. Sélectionne un autre thème dans la liste.';
+          ficheEl.appendChild(emptyEl);
+          return;
+        }
+
+        // When FICHES has content (Plans 05-02..05-05), full rendering arrives here.
+        // For now this path is unreachable since FICHES is empty in Wave 1.
+        const emptyEl = document.createElement('p');
+        emptyEl.className = 'fi-empty';
+        emptyEl.textContent = 'Aucune fiche disponible pour ce thème. Sélectionne un autre thème dans la liste.';
+        ficheEl.appendChild(emptyEl);
+      }
+
+      // ----------------------------------------------------------------
+      // Event handlers
+      // ----------------------------------------------------------------
+      function onThemeChange(event) {
+        const slug = event.target.value;
+        writePrefs({ lastFicheTheme: slug });
+        renderFiche(slug);
+      }
+
+      // ----------------------------------------------------------------
+      // Event wiring — panel-scoped only (Pattern S4)
+      // NEVER document.addEventListener('keydown', ...) — native <select>
+      // and <details> handle keyboard via browser defaults.
+      // ----------------------------------------------------------------
+      if (themeSelect) {
+        themeSelect.addEventListener('change', onThemeChange);
+      }
+
+      // ----------------------------------------------------------------
+      // Boot: restore prefs, render initial fiche
+      // ----------------------------------------------------------------
+      const prefs = readPrefs();
+      let slug = prefs.lastFicheTheme || 'duerp';
+
+      if (themeSelect) {
+        themeSelect.value = slug;
+        // If the slug was unknown (garbage prefs, removed theme), fall back to duerp
+        if (themeSelect.value !== slug) {
+          slug = 'duerp';
+          themeSelect.value = slug;
+        }
+      }
+
+      // Materialize lastFicheTheme in localStorage (merge-safe — must NOT clobber P3 + P4 keys)
+      writePrefs({ lastFicheTheme: slug });
+
+      renderFiche(slug);
+
       } // end boot()
 
       if (document.readyState === 'loading') {
