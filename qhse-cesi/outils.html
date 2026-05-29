@@ -1986,7 +1986,7 @@
 
   <script>
     /* ============ IIFE: Fiches de révision — read-only fiche reader ============ */
-    /* No globals, no inline on* handlers, no document-level keydown. Phase 5 / Plan 05-01 (plumbing). */
+    /* No globals, no inline on* handlers, no document-level keydown. Phase 5 / Plan 05-02 (content + renderer). */
     (() => {
       'use strict';
 
@@ -2057,45 +2057,381 @@
       // DOM references — panel-scoped only (Pattern S4)
       // ----------------------------------------------------------------
       const themeSelect = panel.querySelector('[data-fi-theme]');
-      const ficheEl = panel.querySelector('[data-fi-active-fiche]');
 
       // ----------------------------------------------------------------
-      // renderFiche(slug) — Wave 1 stub: empty-state only.
-      // Real per-section rendering arrives in Plan 05-02.
+      // safeSetHTML(el, htmlString) — whitelist filter for cadreLegal / demarche.
+      // Parses htmlString via DOMParser (inert until appended — no XSS surface),
+      // walks the tree, keeps only whitelisted tags + attributes, appends survivors.
+      // NEVER assigns raw htmlString to .innerHTML. (T-05-02-01 mitigation)
       // ----------------------------------------------------------------
-      function renderFiche(slug) {
-        if (!ficheEl) return;
+      const ALLOWED_TAGS = new Set(['p', 'strong', 'em', 'span', 'a', 'code', 'ul', 'li', 'div']);
 
-        // Clear existing content
-        while (ficheEl.firstChild) {
-          ficheEl.removeChild(ficheEl.firstChild);
+      function safeSetHTML(el, htmlString) {
+        const doc = new DOMParser().parseFromString('<div>' + htmlString + '</div>', 'text/html');
+        const root = doc.body.firstChild;
+        function cloneAllowed(srcNode) {
+          if (srcNode.nodeType === Node.TEXT_NODE) {
+            return document.createTextNode(srcNode.nodeValue);
+          }
+          if (srcNode.nodeType !== Node.ELEMENT_NODE) return null;
+          const tag = srcNode.tagName.toLowerCase();
+          if (!ALLOWED_TAGS.has(tag)) {
+            // Tag not allowed — inline its children instead (drop the tag itself)
+            const frag = document.createDocumentFragment();
+            srcNode.childNodes.forEach(function(child) {
+              const cloned = cloneAllowed(child);
+              if (cloned) frag.appendChild(cloned);
+            });
+            return frag;
+          }
+          const out = document.createElement(tag);
+          // Attribute whitelist per tag
+          if (tag === 'span') {
+            if (srcNode.getAttribute('class') === 'fi-cite') out.className = 'fi-cite';
+          } else if (tag === 'a') {
+            const href = srcNode.getAttribute('href') || '';
+            if (/^https?:\/\//.test(href)) out.href = href;
+            out.target = '_blank';
+            out.rel = 'noopener noreferrer';
+          }
+          // All other allowed tags: no attributes preserved
+          srcNode.childNodes.forEach(function(child) {
+            const cloned = cloneAllowed(child);
+            if (cloned) out.appendChild(cloned);
+          });
+          return out;
         }
+        root.childNodes.forEach(function(child) {
+          const cloned = cloneAllowed(child);
+          if (cloned) el.appendChild(cloned);
+        });
+      }
 
-        // Wave 1: FICHES is empty — always render empty state
+      // ----------------------------------------------------------------
+      // appendSourceLine(targetEl, src) — verbatim port of QCM source-line builder.
+      // (Pattern P3 — createElement + textContent only, XSS-safe)
+      // ----------------------------------------------------------------
+      function appendSourceLine(targetEl, src) {
+        if (!src) return;
+        targetEl.appendChild(document.createTextNode(src.authority));
+        if (src.ref) {
+          targetEl.appendChild(document.createTextNode(' — '));
+          const codeEl = document.createElement('code');
+          codeEl.textContent = src.ref;
+          targetEl.appendChild(codeEl);
+        }
+        if (src.url && src.url.startsWith('http')) {
+          targetEl.appendChild(document.createTextNode(' '));
+          const a = document.createElement('a');
+          a.href = src.url;
+          a.textContent = src.url;
+          a.rel = 'noopener noreferrer';
+          a.target = '_blank';
+          targetEl.appendChild(a);
+        }
+      }
+
+      // ----------------------------------------------------------------
+      // buildToc() — static <ol> of 6 section anchor links
+      // ----------------------------------------------------------------
+      function buildToc() {
+        const tocItems = [
+          { href: '#fi-s-tldr',     label: 'TL;DR' },
+          { href: '#fi-s-defs',     label: 'Définitions' },
+          { href: '#fi-s-cadre',    label: 'Cadre légal' },
+          { href: '#fi-s-demarche', label: 'Démarche' },
+          { href: '#fi-s-pieges',   label: 'Pièges fréquents' },
+          { href: '#fi-s-sources',  label: 'Sources' }
+        ];
+        const ol = document.createElement('ol');
+        tocItems.forEach(function(item) {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = item.href;
+          a.textContent = item.label;
+          li.appendChild(a);
+          ol.appendChild(li);
+        });
+        return ol;
+      }
+
+      // ----------------------------------------------------------------
+      // buildHeader(fiche) — <header> with title + meta line
+      // ----------------------------------------------------------------
+      function buildHeader(fiche) {
+        const header = document.createElement('header');
+        header.className = 'fi-fiche-header';
+
+        const h2 = document.createElement('h2');
+        h2.className = 'fi-title';
+        h2.setAttribute('tabindex', '-1');
+        h2.textContent = fiche.title;
+        header.appendChild(h2);
+
+        const meta = document.createElement('p');
+        meta.className = 'fi-meta';
+        meta.textContent = fiche.title + ' · ' + fiche.selectedIds.length + ' questions clés';
+        header.appendChild(meta);
+
+        return header;
+      }
+
+      // ----------------------------------------------------------------
+      // buildTldrSection(tldr)
+      // ----------------------------------------------------------------
+      function buildTldrSection(tldr) {
+        const section = document.createElement('section');
+        section.id = 'fi-s-tldr';
+        section.dataset.fiSection = 'tldr';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = 'TL;DR';
+        section.appendChild(h3);
+
+        const p = document.createElement('p');
+        p.textContent = tldr;
+        section.appendChild(p);
+
+        return section;
+      }
+
+      // ----------------------------------------------------------------
+      // buildDefinitionsSection(definitions)
+      // ----------------------------------------------------------------
+      function buildDefinitionsSection(definitions) {
+        const section = document.createElement('section');
+        section.id = 'fi-s-defs';
+        section.dataset.fiSection = 'definitions';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Définitions';
+        section.appendChild(h3);
+
+        const dl = document.createElement('dl');
+        definitions.forEach(function(entry) {
+          const dt = document.createElement('dt');
+          dt.textContent = entry.term;
+          dl.appendChild(dt);
+          const dd = document.createElement('dd');
+          dd.textContent = entry.value;
+          dl.appendChild(dd);
+        });
+        section.appendChild(dl);
+
+        return section;
+      }
+
+      // ----------------------------------------------------------------
+      // buildCadreLegalSection(htmlString)
+      // ----------------------------------------------------------------
+      function buildCadreLegalSection(htmlString) {
+        const section = document.createElement('section');
+        section.id = 'fi-s-cadre';
+        section.dataset.fiSection = 'cadre-legal';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Cadre légal et normatif';
+        section.appendChild(h3);
+
+        const div = document.createElement('div');
+        safeSetHTML(div, htmlString);
+        section.appendChild(div);
+
+        return section;
+      }
+
+      // ----------------------------------------------------------------
+      // buildQuestionsCles(selectedIds) — resolves each id against window.BANK
+      // ----------------------------------------------------------------
+      function buildQuestionsCles(selectedIds) {
+        const container = document.createElement('div');
+        container.className = 'fi-qa-list';
+
+        selectedIds.forEach(function(id) {
+          const item = window.BANK.find(function(b) { return b.id === id; });
+          if (!item) {
+            console.warn('[Fiches] selectedIds entry not in BANK — skipping:', id);
+            return;
+          }
+
+          const details = document.createElement('details');
+          details.className = 'fi-qa';
+
+          const summary = document.createElement('summary');
+          summary.textContent = item.question;
+          details.appendChild(summary);
+
+          const answer = document.createElement('p');
+          answer.className = 'fi-qa-answer';
+          answer.textContent = item.answer;
+          details.appendChild(answer);
+
+          const explanation = document.createElement('p');
+          explanation.className = 'fi-qa-explanation';
+          explanation.textContent = item.explanation;
+          details.appendChild(explanation);
+
+          const sourceP = document.createElement('p');
+          sourceP.className = 'fi-qa-source';
+          appendSourceLine(sourceP, item.source);
+          details.appendChild(sourceP);
+
+          container.appendChild(details);
+        });
+
+        return container;
+      }
+
+      // ----------------------------------------------------------------
+      // buildDemarcheSection(htmlString, selectedIds)
+      // ----------------------------------------------------------------
+      function buildDemarcheSection(htmlString, selectedIds) {
+        const section = document.createElement('section');
+        section.id = 'fi-s-demarche';
+        section.dataset.fiSection = 'demarche';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Démarche et méthode';
+        section.appendChild(h3);
+
+        const div = document.createElement('div');
+        safeSetHTML(div, htmlString);
+        section.appendChild(div);
+
+        const h4 = document.createElement('h4');
+        h4.textContent = 'Questions clés';
+        section.appendChild(h4);
+
+        section.appendChild(buildQuestionsCles(selectedIds));
+
+        return section;
+      }
+
+      // ----------------------------------------------------------------
+      // buildPiegesSection(pieges)
+      // ----------------------------------------------------------------
+      function buildPiegesSection(pieges) {
+        const section = document.createElement('section');
+        section.id = 'fi-s-pieges';
+        section.dataset.fiSection = 'pieges';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Pièges fréquents';
+        section.appendChild(h3);
+
+        const ul = document.createElement('ul');
+        pieges.forEach(function(piege) {
+          const li = document.createElement('li');
+          li.textContent = piege;
+          ul.appendChild(li);
+        });
+        section.appendChild(ul);
+
+        return section;
+      }
+
+      // ----------------------------------------------------------------
+      // buildSourcesSection(sources)
+      // ----------------------------------------------------------------
+      function buildSourcesSection(sources) {
+        const section = document.createElement('section');
+        section.id = 'fi-s-sources';
+        section.dataset.fiSection = 'sources';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = 'Sources';
+        section.appendChild(h3);
+
+        const ul = document.createElement('ul');
+        ul.className = 'fi-sources-list';
+        sources.forEach(function(src) {
+          const li = document.createElement('li');
+          appendSourceLine(li, src);
+          ul.appendChild(li);
+        });
+        section.appendChild(ul);
+
+        return section;
+      }
+
+      // ----------------------------------------------------------------
+      // buildFiche(fiche) — assembles the full <article> with 6 sections
+      // ----------------------------------------------------------------
+      function buildFiche(fiche) {
+        const article = document.createElement('article');
+        article.className = 'fi-fiche';
+        article.dataset.fiActiveFiche = '';
+        article.setAttribute('aria-live', 'polite');
+        article.setAttribute('aria-atomic', 'false');
+
+        article.appendChild(buildHeader(fiche));
+        article.appendChild(buildTldrSection(fiche.tldr));
+        article.appendChild(buildDefinitionsSection(fiche.definitions));
+        article.appendChild(buildCadreLegalSection(fiche.cadreLegal));
+        article.appendChild(buildDemarcheSection(fiche.demarche, fiche.selectedIds));
+        article.appendChild(buildPiegesSection(fiche.pieges));
+        article.appendChild(buildSourcesSection(fiche.sources));
+
+        return article;
+      }
+
+      // ----------------------------------------------------------------
+      // renderFiche(slug, options) — full 6-section renderer
+      // options.moveFocus: if true, move focus to .fi-title after render
+      // ----------------------------------------------------------------
+      function renderFiche(slug, options) {
+        const moveFocus = options && options.moveFocus;
+        const tocNav = panel.querySelector('nav.fi-toc');
+
+        // Remove existing fiche article if any
+        const existing = panel.querySelector('article.fi-fiche');
+        if (existing) existing.remove();
+
         const fiche = window.FICHES.find(function(f) { return f.slug === slug; });
+
         if (!fiche) {
-          const emptyEl = document.createElement('p');
-          emptyEl.className = 'fi-empty';
-          emptyEl.textContent = 'Aucune fiche disponible pour ce thème. Sélectionne un autre thème dans la liste.';
-          ficheEl.appendChild(emptyEl);
+          // Empty-state path — clear ToC, render placeholder article
+          if (tocNav) {
+            const oldOl = tocNav.querySelector('ol');
+            const newOl = document.createElement('ol');
+            if (oldOl) tocNav.replaceChild(newOl, oldOl);
+            else tocNav.appendChild(newOl);
+          }
+          const emptyArticle = document.createElement('article');
+          emptyArticle.className = 'fi-fiche';
+          emptyArticle.dataset.fiActiveFiche = '';
+          const emptyP = document.createElement('p');
+          emptyP.className = 'fi-empty';
+          emptyP.textContent = 'Aucune fiche disponible pour ce thème. Sélectionne un autre thème dans la liste.';
+          emptyArticle.appendChild(emptyP);
+          panel.appendChild(emptyArticle);
           return;
         }
 
-        // When FICHES has content (Plans 05-02..05-05), full rendering arrives here.
-        // For now this path is unreachable since FICHES is empty in Wave 1.
-        const emptyEl = document.createElement('p');
-        emptyEl.className = 'fi-empty';
-        emptyEl.textContent = 'Aucune fiche disponible pour ce thème. Sélectionne un autre thème dans la liste.';
-        ficheEl.appendChild(emptyEl);
+        // Populated path — replace ToC ol and render full article
+        if (tocNav) {
+          const oldOl = tocNav.querySelector('ol');
+          const newOl = buildToc();
+          if (oldOl) tocNav.replaceChild(newOl, oldOl);
+          else tocNav.appendChild(newOl);
+        }
+
+        const article = buildFiche(fiche);
+        panel.appendChild(article);
+
+        // Focus management — move focus to h2.fi-title on theme change (not on boot)
+        if (moveFocus) {
+          const titleEl = article.querySelector('.fi-title');
+          if (titleEl) titleEl.focus();
+        }
       }
 
       // ----------------------------------------------------------------
       // Event handlers
       // ----------------------------------------------------------------
       function onThemeChange(event) {
-        const slug = event.target.value;
-        writePrefs({ lastFicheTheme: slug });
-        renderFiche(slug);
+        writePrefs({ lastFicheTheme: event.target.value });
+        renderFiche(event.target.value, { moveFocus: true });
       }
 
       // ----------------------------------------------------------------
@@ -2125,7 +2461,7 @@
       // Materialize lastFicheTheme in localStorage (merge-safe — must NOT clobber P3 + P4 keys)
       writePrefs({ lastFicheTheme: slug });
 
-      renderFiche(slug);
+      renderFiche(slug, { moveFocus: false });
 
       } // end boot()
 
