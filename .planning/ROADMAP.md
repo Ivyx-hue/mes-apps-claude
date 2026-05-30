@@ -134,7 +134,7 @@ Plans:
 - [x] 05-04-PLAN.md — Batch 3: 4 fiches (rps, espaces-confines, acronymes, metiers) — RPS L1152/1153 anchor + Batch F SPA reuse
 
 **Wave 5** *(blocked on Wave 4)*
-- [ ] 05-05-PLAN.md — Batch 4: final 3 fiches (calendrier, icpe-seveso, rncp) — completes 15-fiche BANK theme coverage
+- [x] 05-05-PLAN.md — Batch 4: final 3 fiches (calendrier, icpe-seveso, rncp) — completes 15-fiche BANK theme coverage
 
 **Wave 6** *(blocked on Wave 5)*
 - [ ] 05-06-PLAN.md — verify-fiches.cjs Node gate: 6 assertion groups (schema · slug coverage · selectedIds cross-ref · prefs merge-safety · DEC-09 read-only invariant · sources URL format)
@@ -151,7 +151,7 @@ Plans:
 | 2. Content Bank | v2.0 | 0/7 | Planned | - |
 | 3. Flashcards + SRS | v2.0 | 4/4 | Complete | 2026-05-25 |
 | 4. QCM + Tests blancs | v2.0 | 4/4 | Awaiting UAT | - |
-| 5. Fiches de révision | v2.0 | 4/6 | In Progress|  |
+| 5. Fiches de révision | v2.0 | 5/6 | In Progress|  |
 
 ## Out-of-Roadmap Notes
 
