@@ -33,8 +33,8 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 05 (fiches-de-r-vision) — EXECUTING
-Plan: 6 of 6 (05-01..05-04 complete & owner-approved — 12 fiches live)
-Next:  Phase 5 Wave 5 (05-05) — author final 3 fiches (calendrier, icpe-seveso, rncp) in fiches-data.js (renderer byte-stable). After 05-05: window.FICHES.length===15 (DEC-01 coverage complete), then Wave 6 ships verify-fiches.cjs. (Phase 4 plans 4/4 still awaiting owner UAT.)
+Plan: 6 of 6 (05-01..05-05 complete & owner-approved — 15 fiches live, DEC-01 coverage satisfied)
+Next:  Phase 5 Wave 6 (05-06) — ship `verify-fiches.cjs` Node gate (6 assertion groups: schema · slug coverage · selectedIds cross-ref · prefs merge-safety · DEC-09 read-only invariant · sources URL format). Autonomous (no UAT). After 05-06 → phase verification + completion. (Phase 4 plans 4/4 still awaiting owner UAT.)
 
 ```
 Milestone : v2.0 Étude

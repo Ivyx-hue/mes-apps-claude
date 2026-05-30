@@ -3,9 +3,10 @@ phase: 05-fiches-de-r-vision
 plan: 05
 type: execute
 wave: 5
-status: checkpoint
-completed_tasks: 1
+status: complete
+completed_tasks: 2
 total_tasks: 2
+owner_uat: approved-2026-05-30
 task1_commit: 5dec14c
 subsystem: fiches
 tags: [phase-5, fiches, content-authoring, calendrier, icpe-seveso, rncp]
