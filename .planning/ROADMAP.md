@@ -28,7 +28,7 @@ Full phase details, goals, success criteria, and coverage audit: `.planning/mile
 - [x] **Phase 2: Content Bank** — `outils-data.js` with 200+ source-verified study items covering all Bachelor QHSE themes. (completed 2026-05-21)
 - [x] **Phase 3: Flashcards + SRS** — Flashcard mode with SM-2 spaced repetition scheduler and `localStorage` persistence. (completed 2026-05-25)
 - [ ] **Phase 4: QCM + Tests blancs** — Quiz mode, timed mock exams, score history, SRS error feed.
-- [ ] **Phase 5: Fiches de révision** — Structured per-theme revision sheets with print stylesheet.
+- [x] **Phase 5: Fiches de révision** — Structured per-theme revision sheets with print stylesheet. (completed 2026-05-30)
 
 ## Phase Details
 
@@ -137,7 +137,7 @@ Plans:
 - [x] 05-05-PLAN.md — Batch 4: final 3 fiches (calendrier, icpe-seveso, rncp) — completes 15-fiche BANK theme coverage
 
 **Wave 6** *(blocked on Wave 5)*
-- [ ] 05-06-PLAN.md — verify-fiches.cjs Node gate: 6 assertion groups (schema · slug coverage · selectedIds cross-ref · prefs merge-safety · DEC-09 read-only invariant · sources URL format)
+- [x] 05-06-PLAN.md — verify-fiches.cjs Node gate: 6 assertion groups (schema · slug coverage · selectedIds cross-ref · prefs merge-safety · DEC-09 read-only invariant · sources URL format)
 **UI hint**: yes
 
 ## Progress
@@ -151,7 +151,7 @@ Plans:
 | 2. Content Bank | v2.0 | 0/7 | Planned | - |
 | 3. Flashcards + SRS | v2.0 | 4/4 | Complete | 2026-05-25 |
 | 4. QCM + Tests blancs | v2.0 | 4/4 | Awaiting UAT | - |
-| 5. Fiches de révision | v2.0 | 5/6 | In Progress|  |
+| 5. Fiches de révision | v2.0 | 6/6 | Complete   | 2026-05-30 |
 
 ## Out-of-Roadmap Notes
 
