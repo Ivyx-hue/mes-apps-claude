@@ -33,8 +33,8 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 ## Current Position
 
 Phase: 05 (fiches-de-r-vision) — EXECUTING
-Plan: 5 of 6 (05-01 + 05-02 + 05-03 complete & owner-approved — 8 fiches live)
-Next:  Phase 5 Wave 4 (05-04) — author third 4 fiches (rps, espaces-confines, acronymes, metiers) in fiches-data.js (renderer byte-stable). Owner ran full-phase `/gsd-execute-phase 5`; executing remaining waves with a UAT checkpoint after each. (Phase 4 plans 4/4 still awaiting owner UAT.)
+Plan: 5 of 6 (05-01..05-04 complete & owner-approved — 12 fiches live)
+Next:  Phase 5 Wave 5 (05-05) — author final 3 fiches (calendrier, icpe-seveso, rncp) in fiches-data.js (renderer byte-stable). After 05-05: window.FICHES.length===15 (DEC-01 coverage complete), then Wave 6 ships verify-fiches.cjs. (Phase 4 plans 4/4 still awaiting owner UAT.)
 
 ```
 Milestone : v2.0 Étude

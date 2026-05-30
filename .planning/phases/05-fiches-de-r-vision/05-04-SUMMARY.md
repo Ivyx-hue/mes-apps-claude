@@ -3,9 +3,10 @@ phase: 05-fiches-de-r-vision
 plan: 04
 type: execute
 wave: 4
-status: checkpoint-pending-uat
-completed_tasks: 1
+status: complete
+completed_tasks: 2
 total_tasks: 2
+owner_uat: approved-2026-05-30
 task1_commit: 2c57ea8
 subsystem: fiches
 tags: [phase-5, fiches, content-authoring, rps, espaces-confines, acronymes, metiers]
