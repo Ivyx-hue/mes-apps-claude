@@ -1028,6 +1028,262 @@ window.FICHES = [
         url: 'https://www.inrs.fr/demarche/document-unique/ce-qu-il-faut-retenir.html'
       }
     ]
+  },
+
+  /* =========================================================
+   * FICHE 13: calendrier
+   * Plan 05-05, Wave 5
+   * selectedIds: 8 items from calendrier pool (11 total in BANK)
+   * URL verification: service-public.gouv.fr F2918 + F15478 (curl 200, 2026-05-30)
+   * Accuracy anchor: 27/43/53/100% 1re année — live-refetch verified 2026-05-20 per STATE.md
+   * ========================================================= */
+  {
+    slug: 'calendrier',
+    title: 'Calendrier alternance',
+    tldr: 'Le contrat d\'apprentissage dure de 6 mois à 3 ans, avec au moins 25 % du temps passé en CFA. La rémunération minimale d\'un apprenti en 1re année est exprimée en pourcentage du SMIC selon l\'âge : moins de 18 ans = 27 % du SMIC, 18-20 ans = 43 %, 21-25 ans = 53 %, 26 ans et plus = 100 %. Le contrat de professionnalisation suit un régime parallèle (tuteur, OPCO, rémunération distincte). Ces barèmes constituent un repère de calcul incontournable pour l\'alternant QHSE.',
+    definitions: [
+      {
+        term: 'Contrat d\'apprentissage',
+        value: 'Contrat de travail en alternance qui permet à l\'apprenti de suivre une formation qualifiante (RNCP) en CFA tout en exerçant une activité professionnelle en entreprise. Durée : 6 mois minimum à 3 ans maximum (ou 4 ans pour les travailleurs handicapés). La formation en CFA représente au minimum 25 % de la durée totale du contrat.'
+      },
+      {
+        term: 'Contrat de professionnalisation',
+        value: 'Contrat en alternance orienté vers l\'acquisition d\'une qualification professionnelle reconnue. Durée : 6 à 12 mois en général (extensible jusqu\'à 24 mois par accord de branche, 36 mois pour certains publics). Le tuteur en entreprise encadre l\'alternant ; la rémunération est calculée selon l\'âge et le niveau de qualification, en pourcentage du SMIC ou du salaire minimum conventionnel.'
+      },
+      {
+        term: 'Rythme alternance',
+        value: 'Répartition des semaines entre l\'entreprise et le CFA tout au long du contrat. Pour le Bachelor QHSE CESI, le rythme indicatif est généralement de 3 semaines en entreprise pour 1 semaine en CFA, mais peut varier selon les promotions et les années. À confirmer avec le CFA pour la promotion 2026.'
+      },
+      {
+        term: 'SMIC (Salaire Minimum Interprofessionnel de Croissance)',
+        value: 'Salaire minimum légal en France, réévalué au 1er janvier de chaque année et lors de révisions exceptionnelles. En 2026, le SMIC mensuel brut est de 1 823,03 €. La rémunération de l\'apprenti est calculée en pourcentage du SMIC — sauf si la convention collective de branche prévoit un minimum plus favorable, qui prime dans ce cas.'
+      },
+      {
+        term: 'CFA (Centre de Formation des Apprentis)',
+        value: 'Établissement qui dispense la partie théorique de la formation de l\'apprenti, délivre la certification et assure le suivi pédagogique. Le CFA est l\'interlocuteur principal de l\'apprenti pour tout ce qui concerne la formation, les examens et la validation des blocs de compétences (BC01-BC04 pour RNCP41446).'
+      },
+      {
+        term: 'OPCO (Opérateur de Compétences)',
+        value: 'Organisme de branche qui finance tout ou partie des frais de formation en alternance et prend en charge la rémunération de l\'apprenti. L\'OPCO compétent dépend du secteur d\'activité de l\'entreprise d\'accueil (ex : OCAPIAT pour l\'agriculture, ATLAS pour les services financiers, OPCO 2i pour l\'industrie).'
+      },
+      {
+        term: 'Maître d\'apprentissage',
+        value: 'Désignation spécifique au contrat d\'apprentissage (à distinguer du "tuteur" du contrat de professionnalisation). Le maître d\'apprentissage est le référent pédagogique en entreprise — il doit justifier d\'une expérience professionnelle de 2 ans minimum en lien avec la qualification préparée. Son rôle est d\'encadrer, de former et d\'évaluer les compétences terrain de l\'apprenti.'
+      }
+    ],
+    cadreLegal: '<p>La rémunération minimale de l\'apprenti est fixée par les articles <code>D6222-26</code> et suivants du Code du travail. La fiche pratique de référence est publiée par <span class="fi-cite"><a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F2918" target="_blank" rel="noopener noreferrer">Service-Public.gouv.fr — Contrat d\'apprentissage (F2918)</a></span>. Le barème officiel 2026 pour la <strong>1re année</strong> est : moins de 18 ans = <strong>27 %</strong> du SMIC, 18-20 ans = <strong>43 %</strong>, 21-25 ans = <strong>53 %</strong>, 26 ans et plus = <strong>100 %</strong>. Pour les 2e et 3e années, consulter le tableau complet sur la fiche F2918.</p><p>Le contrat de professionnalisation est encadré par les articles <code>L6325-1</code> et suivants du Code du travail. La fiche pratique est disponible sur <span class="fi-cite"><a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F15478" target="_blank" rel="noopener noreferrer">Service-Public.gouv.fr — Contrat de professionnalisation (F15478)</a></span>. La rémunération d\'un salarié de moins de 21 ans est de 55 % du SMIC minimum ; pour les 21-25 ans, 70 % du SMIC minimum.</p><p>En cas de convention collective de branche plus favorable, celle-ci prime sur les minima légaux (<code>Art. L2253-1</code> — principe de faveur).</p>',
+    demarche: '<p>Pour calculer sa rémunération minimale légale en contrat d\'apprentissage :</p><ul><li><strong>Identifier son âge à la date de signature du contrat</strong> — c\'est l\'âge au moment de la conclusion du contrat qui détermine le taux applicable pour toute la 1re année.</li><li><strong>Appliquer le pourcentage au SMIC en vigueur</strong> : moins de 18 ans = <strong>27 %</strong> × 1 823,03 € = 492,22 € bruts/mois ; 18-20 ans = <strong>43 %</strong> × 1 823,03 € = 783,90 € ; 21-25 ans = <strong>53 %</strong> × 1 823,03 € = 966,21 € ; 26 ans et plus = <strong>100 %</strong> × 1 823,03 € = 1 823,03 €.</li><li><strong>Vérifier la convention collective</strong> — si la branche prévoit un taux ou un montant supérieur, ce minimum de branche s\'applique à la place du minimum légal.</li><li><strong>Vérifier les années suivantes</strong> — les pourcentages augmentent en 2e et 3e année selon le tableau de la fiche F2918 sur Service-Public.gouv.fr.</li></ul><p>L\'OPCO de la branche peut être identifié via le site du Ministère du travail ou auprès du CFA. Il est recommandé de prendre contact avec l\'OPCO dès la signature du contrat pour vérifier la prise en charge des frais de formation.</p>',
+    selectedIds: [
+      'calendrier-flashcard-001',
+      'calendrier-flashcard-002',
+      'calendrier-flashcard-003',
+      'calendrier-flashcard-004',
+      'calendrier-flashcard-005',
+      'calendrier-qcm-001',
+      'calendrier-qcm-002',
+      'calendrier-qcm-003'
+    ],
+    pieges: [
+      'Confusion contrat d\'apprentissage / contrat de professionnalisation : ce sont deux régimes distincts. Dans l\'apprentissage, le référent en entreprise s\'appelle "maître d\'apprentissage" ; dans la professionnalisation, c\'est le "tuteur". Les QCM testent souvent cette distinction terminologique.',
+      'L\'apprenti de 26 ans et plus reçoit 100 % du SMIC — soit le SMIC complet (1 823,03 € en 2026). Ce n\'est pas un bonus : c\'est le minimum légal. L\'employeur peut toujours verser plus, mais ne peut pas verser moins.',
+      'Le barème en pourcentage du SMIC est le minimum légal : si la convention collective de branche prévoit un minimum plus élevé (en valeur absolue ou en pourcentage), c\'est ce minimum de branche qui s\'applique — le principe de faveur (Art. L2253-1) impose la règle la plus avantageuse pour le salarié.',
+      'La tranche "21-25 ans = 53 %" est souvent confondue avec "21-25 ans = 50 %" ou "21-26 ans". Le barème légal est précisément : < 18 ans = 27 %, 18-20 ans = 43 %, 21-25 ans = 53 %, 26 ans + = 100 % (pour la 1re année).',
+      'Le pourcentage est calculé sur le SMIC et non sur le salaire conventionnel de base du poste visé. Ce sont deux références différentes — sauf si la convention collective aligne les deux.',
+      'La durée minimale du CFA (25 % du contrat) est une obligation légale — l\'entreprise ne peut pas réduire unilatéralement le temps en CFA pour des raisons opérationnelles, sauf accord exprès du CFA et de l\'OPCO.'
+    ],
+    sources: [
+      {
+        authority: 'Service-Public.gouv.fr',
+        ref: 'Contrat d\'apprentissage — rémunération, durée, maître d\'apprentissage (F2918)',
+        url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918'
+      },
+      {
+        authority: 'Service-Public.gouv.fr',
+        ref: 'Contrat de professionnalisation — rémunération, tuteur, OPCO (F15478)',
+        url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F15478'
+      },
+      {
+        authority: 'Code du travail',
+        ref: 'Rémunération minimale apprenti — <code>Art. D6222-26</code> et suivants (Légifrance — non hyperlié, anti-bot)',
+        url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918'
+      }
+    ]
+  },
+
+  /* =========================================================
+   * FICHE 14: icpe-seveso
+   * Plan 05-05, Wave 5
+   * selectedIds: 8 items from icpe-seveso pool (12 total in BANK)
+   * URL verification: entreprendre.service-public.gouv.fr/F33414 + AIDA INERIS (curl 200, 2026-05-30)
+   * Légifrance L511-1 : plain <code> text — curl returns 403 (anti-bot)
+   * ========================================================= */
+  {
+    slug: 'icpe-seveso',
+    title: 'ICPE / Seveso',
+    tldr: 'Les ICPE (Installations Classées pour la Protection de l\'Environnement) sont soumises à l\'un des trois régimes réglementaires — Déclaration, Enregistrement ou Autorisation — selon la nomenclature publiée par rubrique d\'activité. Seveso est un sous-ensemble des ICPE : seules les installations dépassant certains seuils de substances dangereuses sont classées Seveso seuil bas (S) ou seuil haut (SH) au titre de la Directive 2012/18/UE. La DREAL instruit les dossiers et assure le contrôle ; l\'inspecteur ICPE est un agent de la DREAL.',
+    definitions: [
+      {
+        term: 'ICPE (Installation Classée pour la Protection de l\'Environnement)',
+        value: 'Toute installation exploitée ou détenue par toute personne physique ou morale, publique ou privée, susceptible de créer des risques ou de provoquer des pollutions ou nuisances (pour la commodité des riverains, la santé, la sécurité, la salubrité publiques, l\'agriculture, la nature et l\'environnement). Fondement légal : <code>Art. L511-1</code> du Code de l\'environnement.'
+      },
+      {
+        term: 'Nomenclature ICPE (rubriques)',
+        value: 'Liste réglementaire des activités soumises à la réglementation ICPE, organisée en rubriques numérotées. Chaque rubrique précise les seuils déclenchant le régime applicable (D, E ou A). Une même installation peut relever de plusieurs rubriques. La nomenclature est annexée au décret du Code de l\'environnement.'
+      },
+      {
+        term: 'Déclaration (D) — régime ICPE',
+        value: 'Régime le moins contraignant des 3. L\'exploitant déclare son installation à la préfecture avant l\'ouverture ; aucun accord préalable n\'est requis, mais le dossier doit être complet. L\'exploitant doit respecter les prescriptions générales fixées par arrêté ministériel.'
+      },
+      {
+        term: 'Enregistrement (E) — régime ICPE',
+        value: 'Régime intermédiaire. L\'installation est soumise à des prescriptions générales de référence (arrêtés de prescriptions générales) et à une instruction simplifiée. Un délai d\'instruction est prévu ; l\'autorité peut adapter les prescriptions générales, voire passer en régime d\'autorisation si les enjeux le justifient.'
+      },
+      {
+        term: 'Autorisation (A) — régime ICPE',
+        value: 'Régime le plus contraignant. L\'exploitant doit constituer un dossier de demande d\'autorisation environnementale comprenant une étude d\'impact, une étude de dangers et une consultation publique. L\'autorisation est délivrée par le préfet, après instruction par la DREAL, et précise toutes les prescriptions applicables.'
+      },
+      {
+        term: 'Seveso seuil bas (S)',
+        value: 'Classement attribué aux établissements dont les quantités de substances dangereuses dépassent le seuil bas défini à l\'annexe I de la Directive 2012/18/UE, sans atteindre le seuil haut. Implique des exigences minimales : politique de prévention des accidents majeurs (PPAM), système de gestion de la sécurité (SGS) simplifié.'
+      },
+      {
+        term: 'Seveso seuil haut (SH)',
+        value: 'Classement attribué aux établissements dont les quantités de substances dangereuses dépassent le seuil haut de l\'annexe I de la Directive 2012/18/UE. Implique toutes les exigences du seuil bas, plus : SGS complet, plan d\'opération interne (POI), information des riverains, PPRT (Plan de Prévention des Risques Technologiques) imposé par le préfet.'
+      },
+      {
+        term: 'DREAL (Direction Régionale de l\'Environnement, de l\'Aménagement et du Logement)',
+        value: 'Service déconcentré de l\'État compétent pour l\'instruction des dossiers ICPE, la délivrance des autorisations et le contrôle des installations. L\'inspecteur ICPE est un agent de la DREAL — il est distinct de l\'inspecteur du travail (qui dépend de la DREETS/DRSM).'
+      },
+      {
+        term: 'POI (Plan d\'Opération Interne)',
+        value: 'Plan de gestion des accidents majeurs propre à l\'établissement Seveso SH. Élaboré par l\'exploitant, il définit l\'organisation interne d\'intervention en cas d\'accident : chaîne de commandement, moyens d\'intervention, procédures d\'évacuation et de confinement. À distinguer du PPI (Plan Particulier d\'Intervention), externe, géré par la préfecture.'
+      },
+      {
+        term: 'PPI (Plan Particulier d\'Intervention)',
+        value: 'Plan externe d\'urgence établi par le préfet pour les établissements Seveso SH. Organise les secours extérieurs (pompiers, SAMU, forces de l\'ordre, communication publique) en cas d\'accident dépassant le périmètre du site. Il complète le POI de l\'exploitant.'
+      }
+    ],
+    cadreLegal: '<p>La réglementation ICPE est fondée sur <span class="fi-cite"><a href="https://aida.ineris.fr/inspection-icpe/principes-reglementaires/quest-quune-installation-classee" target="_blank" rel="noopener noreferrer">AIDA INERIS — Qu\'est-ce qu\'une installation classée ?</a></span> (<code>Art. L511-1</code> et suivants du Code de l\'environnement — Légifrance, non hyperlié). Les démarches administratives pour les entreprises sont détaillées dans <span class="fi-cite"><a href="https://entreprendre.service-public.gouv.fr/vosdroits/F33414" target="_blank" rel="noopener noreferrer">Service-Public Entreprendre — ICPE (F33414)</a></span>.</p><p>Le régime Seveso est issu de la <strong>Directive 2012/18/UE du 4 juillet 2012</strong> (Seveso 3), transposée en droit français. La base documentaire est disponible sur <span class="fi-cite"><a href="https://aida.ineris.fr/inspection-icpe/risques-accidentels/seveso" target="_blank" rel="noopener noreferrer">AIDA INERIS — Seveso</a></span>. Les établissements Seveso SH sont en outre soumis au PPRT (loi n°2003-699 du 30 juillet 2003 relative à la prévention des risques technologiques et naturels).</p><p>L\'inspecteur ICPE intervient au titre du <code>Art. L514-5</code> du Code de l\'environnement. Ses constats peuvent déboucher sur des mesures de mise en demeure, des sanctions administratives ou la fermeture de l\'installation.</p>',
+    demarche: '<p>Pour déterminer le régime applicable à une activité industrielle :</p><ul><li><strong>Consulter la nomenclature ICPE</strong> — identifier toutes les rubriques applicables à l\'installation (une même installation peut relever de plusieurs rubriques). La nomenclature est disponible en ligne (Légifrance et AIDA INERIS).</li><li><strong>Identifier le régime le plus contraignant</strong> — si l\'installation relève de plusieurs rubriques, c\'est le régime le plus élevé (D &lt; E &lt; A) qui s\'applique pour l\'ensemble du dossier.</li><li><strong>Constituer et déposer le dossier</strong> — pour le régime D : déclaration en préfecture ; pour E : dossier simplifié à la DREAL ; pour A : dossier de demande d\'autorisation environnementale (étude d\'impact + étude de dangers + enquête publique), instruit par la DREAL.</li><li><strong>Vérifier le classement Seveso</strong> — calculer les quantités de substances dangereuses présentes sur le site et les comparer aux seuils de l\'annexe I de la Directive 2012/18/UE. L\'outil de calcul est disponible via AIDA INERIS.</li><li><strong>Si Seveso SH : préparer le POI</strong> — rédiger le Plan d\'Opération Interne, le tester régulièrement, et informer le préfet pour l\'élaboration du PPI.</li></ul>',
+    selectedIds: [
+      'icpe-seveso-flashcard-001',
+      'icpe-seveso-flashcard-002',
+      'icpe-seveso-flashcard-003',
+      'icpe-seveso-flashcard-004',
+      'icpe-seveso-flashcard-005',
+      'icpe-seveso-flashcard-007',
+      'icpe-seveso-qcm-001',
+      'icpe-seveso-qcm-002'
+    ],
+    pieges: [
+      'Seveso ≠ ICPE : Seveso est un sous-ensemble des ICPE — toutes les installations Seveso sont des ICPE, mais toutes les ICPE ne sont pas Seveso. Un site peut être soumis à autorisation ICPE sans être classé Seveso si les substances dangereuses présentes ne dépassent pas les seuils annexe I de la Directive 2012/18/UE.',
+      'Confusion des 3 régimes ICPE (D / E / A) : l\'ordre croissant de contrainte est Déclaration < Enregistrement < Autorisation. L\'autorisation est le régime le plus contraignant (instruction complète + enquête publique) ; la déclaration est le plus simple (pas d\'accord préalable). Un QCM qui inverse l\'ordre est un piège classique.',
+      'L\'inspecteur ICPE relève de la DREAL, pas de l\'Inspection du Travail (qui dépend de la DREETS). Ce sont deux corps d\'inspection distincts avec des périmètres de compétence différents — l\'un contrôle l\'environnement et les risques technologiques, l\'autre les conditions de travail et le droit du travail.',
+      'POI ≠ PPI : le POI (Plan d\'Opération Interne) est élaboré et géré par l\'exploitant ; le PPI (Plan Particulier d\'Intervention) est établi par le préfet. Les deux sont complémentaires et obligatoires pour les établissements Seveso SH, mais leurs périmètres d\'action sont distincts.',
+      'Seveso seuil bas ≠ absence d\'obligations : même le seuil bas impose une politique de prévention des accidents majeurs (PPAM) et un SGS simplifié. Le "bas" est relatif — par rapport au seuil haut, pas par rapport à une absence de contraintes.',
+      'La nomenclature ICPE est annexée au Code de l\'environnement, pas au Code du travail. Une confusion fréquente liée à la proximité thématique avec la prévention des risques professionnels.'
+    ],
+    sources: [
+      {
+        authority: 'AIDA INERIS',
+        ref: 'Qu\'est-ce qu\'une installation classée ? — principes réglementaires ICPE',
+        url: 'https://aida.ineris.fr/inspection-icpe/principes-reglementaires/quest-quune-installation-classee'
+      },
+      {
+        authority: 'AIDA INERIS',
+        ref: 'Seveso — Directive 2012/18/UE, seuils bas/haut, POI/PPI/PPRT',
+        url: 'https://aida.ineris.fr/inspection-icpe/risques-accidentels/seveso'
+      },
+      {
+        authority: 'Service-Public Entreprendre',
+        ref: 'ICPE — démarches administratives entreprise (F33414)',
+        url: 'https://entreprendre.service-public.gouv.fr/vosdroits/F33414'
+      }
+    ]
+  },
+
+  /* =========================================================
+   * FICHE 15: rncp
+   * Plan 05-05, Wave 5
+   * selectedIds: 8 items from rncp pool (13 total in BANK)
+   * URL: francecompetences.fr SPA — verified Batch F 2026-05-20 (human-eyeball, per outils-data.js rncp items); curl/WebFetch cannot render JS content
+   * Légifrance L6113-1 + L335-5 : plain <code> text — curl returns 403 (anti-bot)
+   * ========================================================= */
+  {
+    slug: 'rncp',
+    title: 'RNCP / Certification',
+    tldr: 'RNCP41446 est la certification professionnelle "Responsable qualité sécurité environnement" de niveau 6 (Bac+3) enregistrée au RNCP par France compétences, avec échéance au 27 octobre 2030. Elle se compose de 4 blocs de compétences (BC01-BC04) : construire le SMQSE, améliorer le SMQSE, manager les risques QSE, accompagner la RSE. Certificateur : CESI Ecole d\'Ingénieurs. L\'enregistrement RNCP est la référence officielle pour les employeurs, les OPCO et les jurys de certification.',
+    definitions: [
+      {
+        term: 'RNCP (Répertoire National des Certifications Professionnelles)',
+        value: 'Répertoire officiel géré par France compétences qui recense toutes les certifications professionnelles enregistrées par l\'État. Chaque certification se voit attribuer un numéro RNCP unique (ex : RNCP41446), un niveau de qualification (1 à 8), des blocs de compétences et des codes ROME associés.'
+      },
+      {
+        term: 'France compétences',
+        value: 'Autorité nationale de financement et de régulation de la formation professionnelle et de l\'apprentissage. France compétences gère le RNCP et le RS (Répertoire Spécifique), fixe les niveaux de prise en charge des formations par les OPCO, et publie les fiches certifications officielles.'
+      },
+      {
+        term: 'BC01 — Construire le système de management QSE',
+        value: 'Premier bloc de compétences de RNCP41446. Couvre la conception et la mise en place d\'un système de management intégré Qualité-Sécurité-Environnement (QSE) dans un organisme : diagnostic initial, politique QSE, cartographie des processus, identification des parties intéressées.'
+      },
+      {
+        term: 'BC02 — Améliorer le système de management QSE',
+        value: 'Deuxième bloc de compétences de RNCP41446. Couvre l\'amélioration continue du SMQSE : audits internes, revues de direction, non-conformités et actions correctives, indicateurs de performance, démarche Kaizen et cycles PDCA.'
+      },
+      {
+        term: 'BC03 — Manager les risques QSE',
+        value: 'Troisième bloc de compétences de RNCP41446. Couvre l\'évaluation et la maîtrise des risques professionnels (EvRP/DUERP), environnementaux et qualité : identification des dangers, cotation des risques, plan d\'actions de prévention, veille réglementaire QSE.'
+      },
+      {
+        term: 'BC04 — Accompagner l\'organisme dans ses démarches RSE et de développement durable',
+        value: 'Quatrième bloc de compétences de RNCP41446. Couvre les démarches de Responsabilité Sociétale des Entreprises (RSE) : ISO 26000, reporting extra-financier, bilan carbone, économie circulaire, dialogue avec les parties prenantes.'
+      },
+      {
+        term: 'Niveau de qualification (niveau 6 — CNC)',
+        value: 'Le niveau 6 du Cadre National des Certifications correspond au niveau Bac+3 (Bachelor / Licence). Il est équivalent au niveau 6 du Cadre Européen des Certifications (EQF) — compatibilité oui, mais les deux cadres sont distincts : le CNC est géré par France compétences, l\'EQF par la Commission européenne. RNCP41446 est de niveau 6 CNC.'
+      },
+      {
+        term: 'Bloc de compétences (modalité de capitalisation)',
+        value: 'Sous-ensemble autonome et cohérent de compétences d\'une certification RNCP. Un candidat qui valide un bloc sans obtenir la certification complète peut capitaliser ce bloc (Art. L6113-1 Code du travail — reconnaissance partielle). Les blocs peuvent également être obtenus par VAE (Validation des Acquis de l\'Expérience).'
+      }
+    ],
+    cadreLegal: '<p>La certification RNCP41446 "Responsable qualité sécurité environnement" est enregistrée au Répertoire National des Certifications Professionnelles par <span class="fi-cite"><a href="https://www.francecompetences.fr/recherche/rncp/41446/" target="_blank" rel="noopener noreferrer">France compétences — RNCP41446</a></span> (SPA — vérifié Batch F 2026-05-20, human-eyeball ; curl/WebFetch ne peut pas rendre le contenu JS). Certificateur : CESI Ecole d\'Ingénieurs (SIRET 77572257201109). Échéance d\'enregistrement : 27 octobre 2030.</p><p>Le cadre juridique des blocs de compétences est posé par <code>Art. L6113-1</code> du Code du travail (reconnaissance des certifications professionnelles et des blocs de compétences — Légifrance, non hyperlié, anti-bot). Les niveaux de qualification sont définis par <code>Art. L335-5</code> du Code de l\'éducation (Légifrance, non hyperlié, anti-bot).</p><p>La fiche RNCP41446 liste les blocs BC01-BC04, les codes ROME associés (H1302, H1502, M1402), les modalités d\'accès (formation initiale, alternance, VAE) et les passerelles vers d\'autres certifications. C\'est le document officiel à consulter pour toute question sur la certification.</p>',
+    demarche: '<p>Pour lire et utiliser la fiche <span class="fi-cite"><a href="https://www.francecompetences.fr/recherche/rncp/41446/" target="_blank" rel="noopener noreferrer">RNCP41446 sur France compétences</a></span> :</p><ul><li><strong>Repérer les 4 blocs de compétences (BC01-BC04)</strong> — chaque bloc correspond à un domaine du métier QSE. La fiche décrit pour chaque bloc les compétences attendues, les modalités d\'évaluation et le poids dans la certification globale.</li><li><strong>Identifier les codes ROME associés (H1302, H1502, M1402)</strong> — ces codes ROME servent à cibler les offres d\'emploi et à justifier l\'adéquation de la certification avec les métiers visés. Ils sont différents du code ROME H1523 (Responsable QSE Bac+5) qui apparaît fréquemment dans les offres pour ce niveau.</li><li><strong>Vérifier l\'échéance d\'enregistrement (27 octobre 2030)</strong> — après cette date, la certification devra être renouvelée pour rester valide et finançable par les OPCO. Un renouvellement anticipé est courant si la certification évolue.</li><li><strong>Comprendre la capitalisation des blocs</strong> — si la certification complète n\'est pas obtenue, les blocs validés peuvent être capitalisés. La VAE permet également d\'accéder à RNCP41446 ou à ses blocs sur la base de l\'expérience professionnelle.</li></ul>',
+    selectedIds: [
+      'rncp-flashcard-001',
+      'rncp-flashcard-002',
+      'rncp-flashcard-003',
+      'rncp-flashcard-004',
+      'rncp-flashcard-005',
+      'rncp-flashcard-006',
+      'rncp-qcm-001',
+      'rncp-qcm-003'
+    ],
+    pieges: [
+      'RNCP41446 est CESI-spécifique — d\'autres organismes proposent des Bachelor QHSE avec leur propre numéro RNCP. Vérifier systématiquement le numéro RNCP ET le certificateur pour s\'assurer de la bonne fiche. "Bachelor QHSE" est une dénomination générique, pas un identifiant unique.',
+      'Les BC01-BC04 de RNCP41446 ne sont pas universels — chaque fiche RNCP a ses propres blocs avec ses propres intitulés. Un QCM portant sur les blocs d\'un autre RNCP Bachelor QHSE aura des intitulés différents. Les blocs de RNCP41446 sont : BC01 Construire, BC02 Améliorer, BC03 Manager les risques, BC04 RSE.',
+      'Niveau 6 RNCP ≠ niveau 6 EQF : les deux sont compatibles (correspondance établie) mais ce sont deux référentiels distincts — le CNC est géré par France compétences (France), l\'EQF par la Commission européenne (UE). Un QCM peut tester la distinction entre ces deux cadres.',
+      'France compétences ≠ Pôle Emploi (France Travail) : France compétences gère les certifications (RNCP) et le financement de la formation ; France Travail (ex Pôle Emploi) gère le placement des demandeurs d\'emploi et le référentiel ROME des métiers. Deux autorités distinctes, deux outils distincts.',
+      'RNCP ≠ diplôme d\'État : un titre RNCP est une certification professionnelle enregistrée par l\'État mais pas nécessairement un diplôme délivré par l\'Éducation nationale. Le Bachelor QHSE CESI (RNCP41446) est un titre certifié par CESI — c\'est un titre RNCP privé de niveau 6, pas un diplôme universitaire.',
+      'L\'alternance n\'est pas la seule voie pour obtenir RNCP41446 — la VAE (Validation des Acquis de l\'Expérience) permet d\'obtenir tout ou partie de la certification sans formation initiale, sur la base de l\'expérience professionnelle acquise. Un QCM qui présente l\'alternance comme la "seule voie" est inexact.'
+    ],
+    sources: [
+      {
+        authority: 'France compétences',
+        ref: 'RNCP41446 — Responsable QSE, BC01-BC04, niveau 6, échéance 27-10-2030 (SPA — vérifié Batch F 2026-05-20)',
+        url: 'https://www.francecompetences.fr/recherche/rncp/41446/'
+      },
+      {
+        authority: 'France Travail',
+        ref: 'Référentiel ROME — H1302, H1502, M1402 (codes ROME associés à RNCP41446)',
+        url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html'
+      },
+      {
+        authority: 'Code du travail',
+        ref: 'Blocs de compétences et capitalisation — <code>Art. L6113-1</code> (Légifrance — non hyperlié, anti-bot)',
+        url: 'https://www.francecompetences.fr/recherche/rncp/41446/'
+      }
+    ]
   }
 
 ];
