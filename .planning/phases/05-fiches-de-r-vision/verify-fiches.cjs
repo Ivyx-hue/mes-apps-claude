@@ -375,6 +375,15 @@ check('FICHE-02 group (f) — every sources[i] has {authority, ref, url} with ht
   });
 });
 
+check('FICHE-02 group (f) — sources[].url are unique within each fiche (no duplicate footnotes)', function () {
+  FICHES.forEach(function (fiche) {
+    var urls = fiche.sources.map(function (s) { return s.url; });
+    var uniq = new Set(urls);
+    assert(uniq.size === urls.length,
+      'fiche "' + fiche.slug + '" has duplicate sources[].url — would print as repeated footnotes; urls: ' + urls.join(', '));
+  });
+});
+
 // ================================================================
 // Final exit (mirrors verify-quiz.cjs:389-399)
 // ================================================================

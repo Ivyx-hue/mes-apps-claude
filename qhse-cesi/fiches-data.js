@@ -1103,9 +1103,9 @@ window.FICHES = [
         url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F15478'
       },
       {
-        authority: 'Code du travail',
-        ref: 'Rémunération minimale apprenti — <code>Art. D6222-26</code> et suivants (Légifrance — non hyperlié, anti-bot)',
-        url: 'https://www.service-public.gouv.fr/particuliers/vosdroits/F2918'
+        authority: 'Légifrance',
+        ref: 'Art. D6222-26 — Rémunération minimale apprenti (barème % SMIC par âge/année)',
+        url: 'https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038033238'
       }
     ]
   },
@@ -1279,9 +1279,9 @@ window.FICHES = [
         url: 'https://www.francetravail.fr/employeur/vos-recrutements/le-rome-et-les-fiches-metiers.html'
       },
       {
-        authority: 'Code du travail',
-        ref: 'Blocs de compétences et capitalisation — <code>Art. L6113-1</code> (Légifrance — non hyperlié, anti-bot)',
-        url: 'https://www.francecompetences.fr/recherche/rncp/41446/'
+        authority: 'Légifrance',
+        ref: 'Art. L6113-1 — Blocs de compétences et certification professionnelle',
+        url: 'https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038951917'
       }
     ]
   }
