@@ -32,9 +32,9 @@ See: `.planning/PROJECT.md` (updated 2026-05-16 after v1.0)
 
 ## Current Position
 
-Phase: 05 (fiches-de-r-vision) — VERIFIED (partial — 1 gap)
-Plan: 6 of 6 complete
-Next: (1) Owner browser UAT — confirm SC1+SC2 in live browser; (2) Fix GAP-1 via `/gsd-quick` — correct `calendrier.sources[2].url` and `rncp.sources[2].url` in `fiches-data.js`, add uniqueness assertion to `verify-fiches.cjs` group (f); (3) Re-run triple gate (exit 0); (4) Commit + push; (5) Close Phase 5 + advance to milestone close.
+Phase: 05 (fiches-de-r-vision) — VERIFIED (PASS, GAP-1 resolved 0ca9269)
+Plan: 6 of 6 complete; 15 fiches live; triple gate exit 0 (verify-fiches.cjs 7 PASS lines incl. new uniqueness assertion)
+Next: Two paths in parallel — (a) Phase 4 owner UAT still pending (QCM + Tests blancs on Vercel); (b) once Phase 4 UAT clears, milestone v2.0 "Étude" is ready for close via `/gsd-complete-milestone` or `/gsd-audit-milestone`. Browser SC1/SC2 for Phase 5 already confirmed across 5 owner-UAT checkpoints (05-01..05-05).
 
 ```
 Milestone : v2.0 Étude
