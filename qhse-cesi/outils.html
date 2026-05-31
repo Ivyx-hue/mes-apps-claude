@@ -2074,7 +2074,16 @@
             return document.createTextNode(srcNode.nodeValue);
           }
           if (srcNode.nodeType !== Node.ELEMENT_NODE) return null;
-          const tag = srcNode.tagName.toLowerCase();
+          // WR-02 defense-in-depth: reject foreign-namespaced elements (SVG,
+          // MathML) wholesale. DOMParser('text/html') allows <svg>/<math>
+          // inline, and for those nodes tagName is case-sensitive and may
+          // carry a namespace prefix — tagName.toLowerCase() would not
+          // reliably match the lowercase entries in ALLOWED_TAGS. Use
+          // localName (always lowercase for HTML) and namespace-check first.
+          if (srcNode.namespaceURI && srcNode.namespaceURI !== 'http://www.w3.org/1999/xhtml') {
+            return null;
+          }
+          const tag = srcNode.localName;
           if (!ALLOWED_TAGS.has(tag)) {
             // Tag not allowed — inline its children instead (drop the tag itself)
             const frag = document.createDocumentFragment();
