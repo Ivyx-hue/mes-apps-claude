@@ -155,7 +155,7 @@
           <ol></ol>
         </nav>
 
-        <article class="fi-fiche" data-fi-active-fiche aria-live="polite" aria-atomic="false"></article>
+        <article class="fi-fiche" data-fi-active-fiche></article>
 
         <!-- Phase 5 Fiches engine — IIFE appended after Tests blancs IIFE; see outils.html#fiches-iife -->
       </div>
@@ -2367,8 +2367,12 @@
         const article = document.createElement('article');
         article.className = 'fi-fiche';
         article.dataset.fiActiveFiche = '';
-        article.setAttribute('aria-live', 'polite');
-        article.setAttribute('aria-atomic', 'false');
+        // WR-01: no aria-live on the article. The full <article> is removed and
+        // re-appended on every theme switch, so a polite live region would cause
+        // AT software to announce the entire fiche (5-10 KB of text) on each
+        // change. The focus move to h2.fi-title (tabindex=-1, see renderFiche)
+        // already signals the change to non-visual users without monologuing
+        // the whole definition list / cadre légal / etc.
 
         article.appendChild(buildHeader(fiche));
         article.appendChild(buildTldrSection(fiche.tldr));
