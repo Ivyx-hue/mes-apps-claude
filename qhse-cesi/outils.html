@@ -2129,7 +2129,10 @@
           codeEl.textContent = src.ref;
           targetEl.appendChild(codeEl);
         }
-        if (src.url && src.url.startsWith('http')) {
+        // WR-04: require well-formed http(s) URL — same regex safeSetHTML uses
+        // for anchor hrefs. startsWith('http') was too permissive (matched
+        // 'httpx://…', 'http:no-slashes', or even literal 'http').
+        if (src.url && /^https?:\/\//.test(src.url)) {
           targetEl.appendChild(document.createTextNode(' '));
           const a = document.createElement('a');
           a.href = src.url;
