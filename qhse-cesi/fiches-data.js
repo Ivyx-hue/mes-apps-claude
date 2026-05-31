@@ -22,7 +22,12 @@
  * code attached. window.FICHES stays a plain global (no IIFE, no module scope) so it
  * is readable as the bare identifier FICHES in the browser console.
  */
-if (window.FICHES && window.FICHES.length) {
+/* WR-05: guard on Array.isArray, not on .length. A prior load that set
+ * window.FICHES = [] (empty array — dev tooling, test stub, future pre-alloc)
+ * has truthy reference but falsy .length, so the old check failed open and
+ * clobbered the existing array along with any markers/state downstream code
+ * had attached to it. Array.isArray makes "any prior FICHES array wins". */
+if (Array.isArray(window.FICHES)) {
   if (typeof console !== 'undefined' && console.warn) {
     console.warn('fiches-data.js loaded twice — keeping the first FICHES');
   }
