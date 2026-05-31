@@ -1816,10 +1816,16 @@
       #panel-fiches .fi-theme,
       #panel-fiches nav.fi-toc { display: none !important; }
 
-      /* 5. Force all <details> open in print — Questions clés must be readable */
+      /* 5. Force all <details> open in print — Questions clés must be readable.
+         NOTE: Setting `details { display: block }` alone does NOT reveal the
+         non-summary children — the UA stylesheet hides them via an internal
+         rule that ignores `display` on the parent. We must explicitly force
+         every direct child of <details.fi-qa> to render. */
       #panel-fiches details.fi-qa { display: block; }
+      #panel-fiches details.fi-qa > * {
+        display: block !important;
+      }
       #panel-fiches details.fi-qa > summary {
-        display: block;
         font-weight: 600;
         list-style: none;
       }
